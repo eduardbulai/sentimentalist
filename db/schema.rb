@@ -11,7 +11,15 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130523195541) do
+ActiveRecord::Schema.define(:version => 20130524171924) do
+
+  create_table "authentications", :force => true do |t|
+    t.string   "provider"
+    t.string   "uid"
+    t.integer  "user_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "friend_lists", :force => true do |t|
     t.string   "name"
@@ -36,6 +44,13 @@ ActiveRecord::Schema.define(:version => 20130523195541) do
     t.datetime "updated_at",    :null => false
   end
 
+  create_table "message_recipients", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "message_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "pokes", :force => true do |t|
     t.integer  "user_id"
     t.datetime "created_at", :null => false
@@ -47,6 +62,7 @@ ActiveRecord::Schema.define(:version => 20130523195541) do
     t.datetime "datetime_sent"
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
+    t.integer  "recipient_id"
   end
 
   create_table "user_status_texts", :force => true do |t|
