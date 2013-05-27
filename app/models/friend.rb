@@ -14,6 +14,7 @@ class Friend < ActiveRecord::Base
 
   validates :first_name, :length => { :maximum => 12 }
   validates :last_name, :length => { :maximum => 12 }
-  validates_format_of :password, :with => /([^a-zA-Z])/
+  validates_format_of :first_name, :with => /([^a-zA-Z])/, :message => "Please enter only letters"
+  validates_format_of :last_name, :with => /([^a-zA-Z])/, :message => "Please enter only letters"
 end
 
