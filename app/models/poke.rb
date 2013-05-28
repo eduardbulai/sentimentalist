@@ -1,11 +1,8 @@
 class Poke < ActiveRecord::Base
-  attr_accessible :id, :user_id
+  attr_accessible :user_id, :recipient_id
 
-  belongs_to :user
+  belongs_to :user, :message_recipient
 
-  validates_presence_of :id
+  validates_presence_of :message_recipient_id
   validates_presence_of :user_id
-
-  validates_format_of :id, :with => Fixnum
-  validates_format_of :user_id, :with => Fixnum
 end
