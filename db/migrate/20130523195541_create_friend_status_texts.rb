@@ -1,9 +1,8 @@
 class CreateFriendStatusTexts < ActiveRecord::Migration
   def change
     create_table :friend_status_texts do |t|
-      t.integer :id
-      t.integer :friend_id
-      t.datetime :datetime_posted
+      t.integer :friend_id, :NULL => false
+      t.datetime :datetime_posted ,:NULL => false
       t.text :content
 
       t.timestamps
