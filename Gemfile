@@ -45,3 +45,5 @@ end
 gem 'omniauth'
 
 gem 'omniauth-facebook'
+
+gem 'valid_attribute'
