@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  attr_accessible :current_city, :email, :first_name, :id, :last_login, :last_name, :password
+  attr_accessible :current_city, :email, :first_name, :last_login, :last_name, :password
 
   has_many :pokes
   has_many :user_status_texts
@@ -11,15 +11,9 @@ class User < ActiveRecord::Base
   validates_presence_of :current_city
   validates_presence_of :first_name
   validates_presence_of :last_name
-  validates_presence_of :last_login
   validates_presence_of :email
   validates_presence_of :password
-  validates_presence_of :id
 
   validates_format_of :email, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i, :message => "Please enter a valid email address."
-  validates_format_of :id, :with => Fixnum
-  validates_format_of :current_city, :with => String
-  validates_format_of :first_name, :with => String
-  validates_format_of :last_name, :with => String
   validates_format_of :password, :with => /^(?=.*[a-zA-Z])(?=.*[0-9]).{6,}$/, :message => "Your password must be at least 6 characters and include one number and one letter."
 end
