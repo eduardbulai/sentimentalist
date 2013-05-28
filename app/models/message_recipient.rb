@@ -1,7 +1,7 @@
 class MessageRecipient < ActiveRecord::Base
-  attr_accessible :message_id
+  attr_accessible :private_message_id
 
-  has_one :message
+  belongs_to :private_message, :inverse_of => :private_message
 
-  validates_presence_of :message_id
+  validates_presence_of :private_message_id
 end

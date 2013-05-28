@@ -1,8 +1,8 @@
 class Friend < ActiveRecord::Base
   attr_accessible :first_name, :friendlist_id, :last_name
 
-  has_many :friend_status_texts
-  belongs_to :friend_list
+  has_many :friend_status_texts, :dependent => :destroy
+  belongs_to :friend_list, :inverse_of => :friends
 
   validates_presence_of :first_name
   validates_presence_of :last_name
