@@ -25,7 +25,7 @@
           <y:NodeLabel alignment="left" autoSizePolicy="content" configuration="com.yworks.entityRelationship.label.attributes" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="244.2578125" modelName="custom" textColor="#000000" visible="true" width="155.0546875" x="2.0" y="30.1328125">
 + ID:integer (primary key)
 
-+ first_name:string 
++ first_name:string
 
 + last_name:string
 
@@ -35,9 +35,9 @@
 
 + current city:string
 
-+ last_login:datetime 
++ last_login:datetime
 
- 
+
 
 <y:LabelModel>
               <y:ErdAttributesNodeLabelModel/>
@@ -89,7 +89,7 @@
           <y:Geometry height="128.0" width="206.0" x="0.0" y="302.0"/>
           <y:Fill color="#E8EEF7" color2="#B7C9E3" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" backgroundColor="#B7C9E3" configuration="com.yworks.entityRelationship.label.name" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="18.1328125" modelName="internal" modelPosition="t" textColor="#000000" visible="true" width="31.703125" x="87.1484375" y="4.0">Poke</y:NodeLabel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" backgroundColor="#B7C9E3" configuration="com.yworks.entityRelationship.label.name" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="18.1328125" modelName="internal" modelPosition="t" textColor="#000000" visible="true" width="31.703125" x="87.1484375" y="4.0">say_hey</y:NodeLabel>
           <y:NodeLabel alignment="left" autoSizePolicy="content" configuration="com.yworks.entityRelationship.label.attributes" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="74.6640625" modelName="custom" textColor="#000000" visible="true" width="181.626953125" x="2.0" y="30.1328125">
 + ID:integer (primary key)
 

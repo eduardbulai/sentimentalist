@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
   attr_accessible :current_city, :email, :first_name, :last_login, :last_name, :password
 
-  has_many :pokes, :dependent => :destroy
+  has_many :say_heys, :dependent => :destroy
   has_many :user_status_texts, :dependent => :destroy
   has_many :private_messages, :dependent => :destroy
   has_many :friends, :through => :friend_lists, :dependent => :destroy

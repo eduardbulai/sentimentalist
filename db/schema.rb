@@ -50,24 +50,24 @@ ActiveRecord::Schema.define(:version => 20130528191623) do
     t.datetime "updated_at", :null => false
   end
 
-  create_table "poke_recipients", :force => true do |t|
+  create_table "private_messages", :force => true do |t|
+    t.integer  "user_id",              :null => false
+    t.integer  "message_recipient_id", :null => false
+    t.datetime "datetime_sent",        :null => false
+    t.datetime "created_at",           :null => false
+    t.datetime "updated_at",           :null => false
+  end
+
+  create_table "say_hey_recipients", :force => true do |t|
     t.integer  "user_id",    :null => false
     t.integer  "poke_id",    :null => false
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
 
-  create_table "pokes", :force => true do |t|
+  create_table "say_heys", :force => true do |t|
     t.integer  "user_id",              :null => false
     t.integer  "message_recipient_id", :null => false
-    t.datetime "created_at",           :null => false
-    t.datetime "updated_at",           :null => false
-  end
-
-  create_table "private_messages", :force => true do |t|
-    t.integer  "user_id",              :null => false
-    t.integer  "message_recipient_id", :null => false
-    t.datetime "datetime_sent",        :null => false
     t.datetime "created_at",           :null => false
     t.datetime "updated_at",           :null => false
   end
