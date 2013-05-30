@@ -60,7 +60,7 @@ ActiveRecord::Schema.define(:version => 20130528191623) do
 
   create_table "say_hey_recipients", :force => true do |t|
     t.integer  "user_id",    :null => false
-    t.integer  "poke_id",    :null => false
+    t.integer  "say_hey_id", :null => false
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
