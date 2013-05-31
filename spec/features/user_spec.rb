@@ -108,11 +108,11 @@ describe User do
 			# When a user clicks on a  filter tab, the friend icon field in the center of their
 			# homepage refreshes to display only friends whose statuses have been updated within the
 			# parameters of that filter
-			it "when a user clicks on the 'Most recent" tab, the friend icon field in the center of their homepage refreshes to display only friends whose statuses have been updated within the parameters of that filter"
+			it "when a user clicks on the 'Most recent' tab, the friend icon field in the center of their homepage refreshes to display only friends whose statuses have been updated within the parameters of that filter"
 
-			it "when a user clicks on the 'Kinda recent" tab, the friend icon field in the center of their homepage refreshes to display only friends whose statuses have been updated within the parameters of that filter"
+			it "when a user clicks on the 'Kinda recent' tab, the friend icon field in the center of their homepage refreshes to display only friends whose statuses have been updated within the parameters of that filter"
 
-			it "when a user clicks on the 'Least recent" tab, the friend icon field in the center of their homepage refreshes to display only friends whose statuses have been updated within the parameters of that filter"
+			it "when a user clicks on the 'Least recent' tab, the friend icon field in the center of their homepage refreshes to display only friends whose statuses have been updated within the parameters of that filter"
 		end
 
 		# When a user is on their homepage, they see a text field in which they can input text
