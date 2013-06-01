@@ -3,13 +3,23 @@ require 'spec_helper'
 describe User do
 
 	describe "content on index page" do
+
+		before(:each) do
+			visit root_path
+		end
 		# user sees log in with facebook button on index page
-		it "index page has a 'log in with facebook' button "
+		it "index page has a 'log in with facebook' button " do
+			expect(page).to have_content("Log In with Facebook")
+		end
 
 		# user sees an 'about' link and a 'privacy' link on index page
-		it "index page has an 'about' button"
+		it "index page has an 'about' button" do
+			expect(page).to have_content("About")
+		end
 
-		it "index page has a 'privacy' button"
+		it "index page has a 'privacy' button" do
+			expect(page).to have_content("Privacy")
+		end
 	end
 
 	describe "content on home page" do
@@ -49,17 +59,33 @@ describe User do
 
 	describe "index page functionality" do
 
+		before(:each) do
+			visit root_path
+		end
+
 		# when user clicks on the log in with facebook button, they are redirected to the home page
-		it "'log in with facebook' button redirects user to home page"
+		it "'log in with facebook' button redirects user to home page" do
+			click_button("Log In with Facebook")
+			assert_redirected_to("?????????")
+		end
 
 		# when user clicks 'about' button they are redirected to a page containing information about the app
-		it "about link redirects user to about page"
+		it "about link redirects user to about page" do
+			click_button("About")
+			assert_redirected_to("??????????")
+		end
 
 		# when user clicks 'privacy' button they are redirected to a page containing information about privacy
-		it "privacy button redirects user to privacy page"
+		it "privacy button redirects user to privacy page" do
+			click_button("Privacy")
+			assert_redirected_to("?????????")
+		end
 
 		# If the potential user clicks on the “log in/sign up” button, they are taken through
-		it "log-in-with-facebook button redirects user to home page"
+		it "log-in-with-facebook button redirects user to home page" do
+			click_button("Log In with Facebook")
+			assert_redirected_to("???????????")
+		end
 
 		# While a user's session has not expired, they bypass the index page and are
 		# taken directly to the home page
@@ -68,6 +94,10 @@ describe User do
 	end
 
 	describe "home page functionality" do
+
+		before (:each) do
+			visit some_path
+		end
 
 		describe "sidebar functionality" do
 			# When a user clicks on a group icon within the sidebar, the content of the central
@@ -156,7 +186,10 @@ describe User do
 			it "user ends session by clicking the logout button"
 
 			# user is transported back to the index page by clicking the logout button
-			it "user is transported back to the index page by clicking the logout button"
+			it "user is transported back to the index page by clicking the logout button" do
+				click_button("Logout")
+				assert_redirected_to(root_path)
+			end
 		end
 
 	end
