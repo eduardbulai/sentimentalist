@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130528191623) do
+ActiveRecord::Schema.define(:version => 20130602193456) do
 
   create_table "authentications", :force => true do |t|
     t.string   "provider",   :null => false
@@ -21,74 +21,51 @@ ActiveRecord::Schema.define(:version => 20130528191623) do
     t.datetime "updated_at", :null => false
   end
 
-  create_table "friend_lists", :force => true do |t|
-    t.string   "name",       :null => false
-    t.integer  "user_id",    :null => false
+  create_table "follower_tweet_hashtags", :force => true do |t|
+    t.string   "tag",        :null => false
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
 
-  create_table "friend_status_texts", :force => true do |t|
-    t.integer  "friend_id",       :null => false
-    t.datetime "datetime_posted", :null => false
-    t.text     "content"
-    t.datetime "created_at",      :null => false
-    t.datetime "updated_at",      :null => false
+  create_table "follower_tweets", :force => true do |t|
+    t.text     "text",             :null => false
+    t.string   "location",         :null => false
+    t.datetime "datetime_tweeted", :null => false
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
   end
 
-  create_table "friends", :force => true do |t|
-    t.string   "first_name",    :null => false
-    t.string   "last_name",     :null => false
-    t.integer  "friendlist_id", :null => false
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
+  create_table "followers", :force => true do |t|
+    t.string   "first_name",     :null => false
+    t.string   "last_name",      :null => false
+    t.string   "twitter_handle", :null => false
+    t.string   "location",       :null => false
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
   end
 
-  create_table "message_recipients", :force => true do |t|
-    t.integer  "message_id", :null => false
+  create_table "user_tweet_hashtags", :force => true do |t|
+    t.string   "tag",        :null => false
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
 
-  create_table "private_messages", :force => true do |t|
-    t.integer  "user_id",              :null => false
-    t.integer  "message_recipient_id", :null => false
-    t.datetime "datetime_sent",        :null => false
-    t.datetime "created_at",           :null => false
-    t.datetime "updated_at",           :null => false
-  end
-
-  create_table "say_hey_recipients", :force => true do |t|
-    t.integer  "user_id",    :null => false
-    t.integer  "say_hey_id", :null => false
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
-  create_table "say_heys", :force => true do |t|
-    t.integer  "user_id",              :null => false
-    t.integer  "message_recipient_id", :null => false
-    t.datetime "created_at",           :null => false
-    t.datetime "updated_at",           :null => false
-  end
-
-  create_table "user_status_texts", :force => true do |t|
-    t.integer  "user_id",         :null => false
-    t.datetime "datetime_posted", :null => false
-    t.text     "content"
-    t.datetime "created_at",      :null => false
-    t.datetime "updated_at",      :null => false
+  create_table "user_tweets", :force => true do |t|
+    t.text     "text",             :null => false
+    t.string   "location",         :null => false
+    t.datetime "datetime_tweeted", :null => false
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
   end
 
   create_table "users", :force => true do |t|
-    t.string   "first_name",   :null => false
-    t.string   "last_name",    :null => false
-    t.string   "email",        :null => false
-    t.string   "password",     :null => false
-    t.string   "current_city", :null => false
-    t.datetime "last_login"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
+    t.string   "first_name",     :null => false
+    t.string   "last_name",      :null => false
+    t.string   "email",          :null => false
+    t.string   "location",       :null => false
+    t.string   "twitter_handle", :null => false
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
   end
 
 end
