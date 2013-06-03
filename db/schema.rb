@@ -22,15 +22,17 @@ ActiveRecord::Schema.define(:version => 20130602193456) do
   end
 
   create_table "follower_tweet_hashtags", :force => true do |t|
-    t.string   "tag",        :null => false
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.string   "tag",               :null => false
+    t.integer  "follower_tweet_id", :null => false
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
   end
 
   create_table "follower_tweets", :force => true do |t|
     t.text     "text",             :null => false
     t.string   "location",         :null => false
     t.datetime "datetime_tweeted", :null => false
+    t.integer  "follower_id",      :null => false
     t.datetime "created_at",       :null => false
     t.datetime "updated_at",       :null => false
   end
@@ -40,20 +42,23 @@ ActiveRecord::Schema.define(:version => 20130602193456) do
     t.string   "last_name",      :null => false
     t.string   "twitter_handle", :null => false
     t.string   "location",       :null => false
+    t.integer  "user_id",        :null => false
     t.datetime "created_at",     :null => false
     t.datetime "updated_at",     :null => false
   end
 
   create_table "user_tweet_hashtags", :force => true do |t|
-    t.string   "tag",        :null => false
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.string   "tag",           :null => false
+    t.integer  "user_tweet_id", :null => false
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
   end
 
   create_table "user_tweets", :force => true do |t|
     t.text     "text",             :null => false
     t.string   "location",         :null => false
     t.datetime "datetime_tweeted", :null => false
+    t.integer  "user_id",          :null => false
     t.datetime "created_at",       :null => false
     t.datetime "updated_at",       :null => false
   end

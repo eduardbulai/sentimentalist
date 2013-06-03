@@ -5,6 +5,7 @@ class CreateFollowers < ActiveRecord::Migration
       t.string :last_name, :null => false
       t.string :twitter_handle, :null => false
       t.string :location, :null => false
+      t.integer :user_id, :null => false
 
       t.timestamps
     end

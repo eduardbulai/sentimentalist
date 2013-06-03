@@ -1,5 +1,5 @@
 class UserTweetHashtag < ActiveRecord::Base
-  attr_accessible :tag
+  attr_accessible :tag, :user_tweet_id
 
   belongs_to :follower_tweet
 

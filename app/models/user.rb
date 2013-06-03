@@ -1,9 +1,9 @@
 class User < ActiveRecord::Base
   attr_accessible :email, :first_name, :last_name, :location, :twitter_handle
 
-  has_many :followers, :dependent => :destroy
-  has_many :user_tweets, :dependent => :destroy
-  has_one :authentications, :dependent => :destroy
+  has_many :followers, :foreign_key => :user_id, :dependent => :destroy
+  has_many :user_tweets,:foreign_key => :user_id, :dependent => :destroy
+  has_one :authentications,:foreign_key => :user_id, :dependent => :destroy
 
   validates_presence_of :location
   validates_presence_of :first_name
