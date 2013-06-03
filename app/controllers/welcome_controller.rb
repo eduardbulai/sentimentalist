@@ -1,11 +1,11 @@
 class WelcomeController < ApplicationController
 
 	def index
-    @events = User.all
+    @users = User.all
 
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @events }
+      format.json { render json: @users }
     end
 
 	end
