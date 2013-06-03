@@ -22,7 +22,6 @@ end
 
 gem 'jquery-rails'
 
-gem 'omniauth-twitter'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
@@ -47,9 +46,5 @@ end
 group :test do
 	gem 'capybara'
 end
-
-gem 'omniauth'
-
-gem 'omniauth-facebook'
 
 gem 'valid_attribute'
