@@ -1,4 +1,6 @@
 Sentimentalist::Application.routes.draw do
+  devise_for :users
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -50,8 +52,7 @@ Sentimentalist::Application.routes.draw do
   # just remember to delete public/index.html.
   root :to => 'welcome#index'
 
-  match "/auth/:provider/callback" => "sessions#create"
-  match "/signout" => "sessions#destroy", :as => :signout
+  devise_for :users, controllers: { omniauth_callbacks: "omniauth_callbacks" }
 
   # See how all your routes lay out with "rake routes"
 

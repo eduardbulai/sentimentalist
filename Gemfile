@@ -48,3 +48,7 @@ group :test do
 end
 
 gem 'valid_attribute'
+
+gem 'devise'
+
+gem 'omniauth-twitter'
