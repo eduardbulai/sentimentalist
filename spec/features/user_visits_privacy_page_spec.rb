@@ -12,14 +12,14 @@ describe "user visits privacy page" do
 		visit root_url
 		expect(page).to have_content('Privacy')
 		click_link('Privacy')
-		assert_redirected_to(privacy_path)
+		expect(current_path).to eql(privacy_path)
 	end
 
 	it "user returns to welcome page from privacy page" do
 		visit privacy_path
 		expect(page).to have_content('Close')
-		click_button("Close")
-		assert_redirected_to(root_url)
+		click_link('Close')
+		expect(current_path).to eql(root_path)
 	end
 
 end
