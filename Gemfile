@@ -55,3 +55,5 @@ gem 'devise'
 gem 'omniauth-twitter'
 
 gem 'sidekiq'
+
+gem 'tweetstream'
