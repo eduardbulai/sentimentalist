@@ -8,12 +8,7 @@
 </head>
 <body>
 
-	<% if current_user %>
-	  Welcome <%= current_user.uid %>!
-	  <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
-	<% else %>
-	  <%= link_to "Sign in with Twitter", new_user_session_path %>
-	<% end %>
+
 
 <%= yield %>
 
