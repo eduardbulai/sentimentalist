@@ -53,3 +53,5 @@ gem 'valid_attribute'
 gem 'devise'
 
 gem 'omniauth-twitter'
+
+gem 'sidekiq'
