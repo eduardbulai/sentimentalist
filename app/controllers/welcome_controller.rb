@@ -10,4 +10,16 @@ class WelcomeController < ApplicationController
 
 	# end
 
+	def index
+
+	end
+
+	def privacy
+
+	end
+
+	def about
+
+	end
+
 end
