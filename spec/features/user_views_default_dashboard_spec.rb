@@ -4,3 +4,10 @@
 
 # 	- When a user arrives on their homepage, they see a dashboard populated by icons
 # displaying their followers’ emotional statuses
+
+describe "user views default dashboard" do
+  let(:user) { FactoryGirl.create(:user) }
+
+  it "user sees a dashboard populated by icons displaying their followers emotional statuses"
+
+end

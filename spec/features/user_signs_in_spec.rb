@@ -1,3 +1,5 @@
+require 'spec_helper'
+
 # 	As a returning user
 # 	I want to sign in
 # 	so I can use the app
@@ -6,6 +8,9 @@
 # homepage
 
 describe "user signs in" do
+
+	let!(:user) { FactoryGirl.create(:user) }
+
 	it "user sees sign in button on welcome page" do
 		visit root_url
 		expect(page).to have_content("Sign In with Twitter")
@@ -22,10 +27,9 @@ describe "user signs in" do
 	it "registered user clicks sign in button and is redirected to sign in" do
 		visit root_url
 		click_link("Sign In with Twitter")
-		expect(current_path).to eql('/users/sign_in')
-		fill_in 'Email', :with => 'user@example.com'
-		fill_in 'Password', :with => 'example00'
+		fill_in 'Email', :with => user.email
+		fill_in 'Password', :with => user.password
 		click_button('Sign in')
-		expect(current_path).to eql(dashboard_path)
+		expect(current_path).to include(dashboard_index_path)
 	end
 end
