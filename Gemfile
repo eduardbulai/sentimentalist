@@ -22,6 +22,7 @@ end
 
 gem 'jquery-rails'
 
+
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
@@ -40,14 +41,17 @@ gem 'jquery-rails'
 
 group :development, :test do
 	gem 'rspec-rails'
+	gem 'factory_girl_rails'
 end
 
 group :test do
 	gem 'capybara'
 end
 
-gem 'omniauth'
-
-gem 'omniauth-facebook'
-
 gem 'valid_attribute'
+
+gem 'sidekiq'
+
+gem 'tweetstream'
+
+gem "oauth-plugin", "~> 0.4.0"

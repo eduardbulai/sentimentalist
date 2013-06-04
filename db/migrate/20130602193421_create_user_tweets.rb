@@ -4,6 +4,7 @@ class CreateUserTweets < ActiveRecord::Migration
       t.text :text, :null => false
       t.string :location, :null => false
       t.datetime :datetime_tweeted, :null => false
+      t.integer :user_id, :null => false
 
       t.timestamps
     end
