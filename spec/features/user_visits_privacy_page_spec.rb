@@ -1,3 +1,5 @@
+require 'spec_helper'
+
 	# As a user
 	# I want to view ‘privacy’ information about the app
 	# So I can know what the implications of using the app are

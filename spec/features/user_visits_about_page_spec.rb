@@ -1,3 +1,5 @@
+require 'spec_helper'
+
 	# As a user
 	# I want to view ‘about’ information about the app
 	# So I can get a sense of what the app is all about

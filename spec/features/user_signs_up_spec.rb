@@ -1,3 +1,5 @@
+require 'spec_helper'
+
 # 	As a potential user
 # 	I want to create an account
 # 	so I can use the app

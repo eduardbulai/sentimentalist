@@ -1,6 +1,6 @@
 <% if current_user %>
-  Welcome <%= current_user.uid %>!
-  <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
+  Welcome <%= current_user.name %>!
+  <%= link_to "Sign Out", signout_path %>
 <% else %>
-  <%= link_to "Sign In with Twitter", new_user_session_path %>
+  <%= link_to "Sign in with Twitter", "/auth/twitter" %>
 <% end %>

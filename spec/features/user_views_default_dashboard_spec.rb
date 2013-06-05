@@ -1,3 +1,5 @@
+require 'spec_helper'
+
 # 	As a user
 # 	I want to view my followers’ status-icons
 # 	so I can find out how they are doing
