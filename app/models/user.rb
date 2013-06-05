@@ -1,6 +1,12 @@
 class User < ActiveRecord::Base
-  attr_accessible :email, :location, :name
+  attr_accessible :name, :provider, :uid
 
-  has_many :client_applications
-has_many :tokens, :class_name => "OauthToken", :order => "authorized_at desc", :include => [:client_application]
+  def self.create_with_omniauth(auth)
+	  create! do |user|
+	    user.provider = auth["provider"]
+	    user.uid = auth["uid"]
+	    user.name = auth["info"]["name"]
+	  end
+	end
+
 end

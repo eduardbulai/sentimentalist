@@ -54,4 +54,4 @@ gem 'sidekiq'
 
 gem 'tweetstream'
 
-gem "oauth-plugin", "~> 0.4.0"
+gem 'omniauth-twitter'

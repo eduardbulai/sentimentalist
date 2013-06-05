@@ -3,7 +3,7 @@
 FactoryGirl.define do
   factory :user do
     name "MyString"
-    location "MyString"
-    email "MyString"
+    uid "MyString"
+    provider "MyString"
   end
 end
