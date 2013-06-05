@@ -52,6 +52,6 @@ gem 'valid_attribute'
 
 gem 'sidekiq'
 
-gem 'tweetstream'
+gem 'twitter'
 
 gem 'omniauth-twitter'

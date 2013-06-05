@@ -5,6 +5,18 @@ require 'rspec/rails'
 require 'rspec/autorun'
 require 'valid_attribute'
 
+#configure omniauth for testing
+
+OmniAuth.config.test_mode = true
+OmniAuth.config.mock_auth[:twitter] = OmniAuth::AuthHash.new({
+                                                            :provider => 'twitter',
+                                                            :uid => '1234',
+                                                            :info => {
+                                                                'name' => 'examplename',
+                                                                'email' => 'stuff@test.com'
+                                                            }
+                                                        })
+
 # Requires supporting ruby files with custom matchers and macros, etc,
 # in spec/support/ and its subdirectories.
 Dir[Rails.root.join("spec/support/**/*.rb")].each { |f| require f }

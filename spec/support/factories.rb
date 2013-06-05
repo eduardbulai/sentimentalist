@@ -3,17 +3,9 @@ require 'spec_helper'
 FactoryGirl.define do
 
   factory :user do
-  	email 'user@example.com'
-    password 'example00'
-    password_confirmation 'example00'
-    remember_me false
-
-
-    trait :unregistered do
-      email 'unregistered@email.com'
-    end
-
-    factory :unregistered_user, traits: [:unregistered]
+  	name 'user'
+    uid '823121243'
+    provider 'twitter'
   end
 end
 
