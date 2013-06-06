@@ -9,6 +9,7 @@ class User < ActiveRecord::Base
   	user.oauth_token = auth["credentials"]["token"]
   	user.oauth_secret = auth["credentials"]["secret"]
   	user.save!
+  	TwitterApi.get_twitter_stuff(user)
   	user
   end
 
@@ -17,13 +18,11 @@ class User < ActiveRecord::Base
 	    user.provider = auth["provider"]
 	    user.uid = auth["uid"]
 	    user.name = auth["info"]["name"]
-	    TwitterApi.new twitter
 	  end
 	end
 
 	def self.twitter
-		user = User.last
-	  @twitter ||= Twitter::Client.new(oauth_token: user.oauth_token, oauth_token_secret: user.oauth_secret)
+	  @twitter ||= Twitter::Client.new(oauth_token: self.oauth_token, oauth_token_secret: self.oauth_secret)
 	end
 
 end
