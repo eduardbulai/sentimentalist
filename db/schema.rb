@@ -22,19 +22,19 @@ ActiveRecord::Schema.define(:version => 20130605165859) do
 
   create_table "follower_tweets", :force => true do |t|
     t.text     "text",             :null => false
-    t.string   "location",         :null => false
     t.datetime "datetime_tweeted", :null => false
     t.integer  "follower_id",      :null => false
+    t.string   "tweet_id",         :null => false
     t.datetime "created_at",       :null => false
     t.datetime "updated_at",       :null => false
   end
 
   create_table "followers", :force => true do |t|
-    t.string   "first_name",     :null => false
-    t.string   "last_name",      :null => false
+    t.string   "name",           :null => false
     t.string   "twitter_handle", :null => false
-    t.string   "location",       :null => false
+    t.string   "location"
     t.integer  "user_id",        :null => false
+    t.string   "twitter_id",     :null => false
     t.datetime "created_at",     :null => false
     t.datetime "updated_at",     :null => false
   end
@@ -51,6 +51,7 @@ ActiveRecord::Schema.define(:version => 20130605165859) do
     t.string   "location",         :null => false
     t.datetime "datetime_tweeted", :null => false
     t.integer  "user_id",          :null => false
+    t.string   "tweet_id",         :null => false
     t.datetime "created_at",       :null => false
     t.datetime "updated_at",       :null => false
   end

@@ -1,12 +1,12 @@
 class Follower < ActiveRecord::Base
-  attr_accessible :first_name, :last_name, :location, :twitter_handle, :user_id
+  attr_accessible :name, :location, :twitter_handle, :user_id, :twitter_id
 
   has_many :follower_tweets, :foreign_key => :follower_id, :dependent => :destroy
   belongs_to :user, :inverse_of => :followers
 
-  validates_presence_of :first_name
-  validates_presence_of :last_name
-  validates_presence_of :location
+  validates_presence_of :name
   validates_presence_of :twitter_handle
+  validates_presence_of :user_id
+  validates_presence_of :twitter_id
 
 end
