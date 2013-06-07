@@ -123,6 +123,9 @@ GEM
       rspec-core (~> 2.13.0)
       rspec-expectations (~> 2.13.0)
       rspec-mocks (~> 2.13.0)
+    ruby-stemmer (0.9.3)
+    sad_panda (0.1.9)
+      ruby-stemmer
     sass (3.2.9)
     sass-rails (3.2.6)
       railties (~> 3.2.0)
@@ -170,6 +173,7 @@ DEPENDENCIES
   pg
   rails (= 3.2.13)
   rspec-rails
+  sad_panda (~> 0.1.9)
   sass-rails (~> 3.2.3)
   sidekiq
   twitter

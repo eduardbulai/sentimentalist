@@ -55,3 +55,5 @@ gem 'sidekiq'
 gem 'twitter'
 
 gem 'omniauth-twitter'
+
+gem "sad_panda", "~> 0.1.9"

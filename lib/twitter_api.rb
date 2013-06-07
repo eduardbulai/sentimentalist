@@ -11,12 +11,21 @@ class TwitterApi < ActiveRecord::Base
 	end
 
 	def self.populate_user_tweets user
-		Twitter.user_timeline.each do |tweet|
-			user.user_tweets.create!(
-				text: tweet.text,
-				tweet_id: tweet.id,
-				datetime_tweeted: tweet.created_at
-				)
+		begin
+				user_timeline = Twitter.user_timeline
+		rescue
+				user_timeline = nil
+		end
+		if user_timeline
+			user_timeline.each do |tweet|
+				user.user_tweets.create!(
+					text: tweet.text,
+					tweet_id: tweet.id,
+					datetime_tweeted: tweet.created_at,
+					emotion: SadPanda.emotion(tweet.text),
+					polarity: SadPanda.polarity(tweet.text)
+					)
+			end
 		end
 	end
 
@@ -48,7 +57,9 @@ class TwitterApi < ActiveRecord::Base
 					follower.follower_tweets.create!(
 						text: tweet.text,
 						tweet_id: tweet.id,
-						datetime_tweeted: tweet.created_at
+						datetime_tweeted: tweet.created_at,
+						emotion: SadPanda.emotion(tweet.text),
+						polarity: SadPanda.polarity(tweet.text)
 						)
 				end
 			end
