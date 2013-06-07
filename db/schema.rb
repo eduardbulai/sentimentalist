@@ -14,8 +14,8 @@
 ActiveRecord::Schema.define(:version => 20130605165859) do
 
   create_table "follower_tweet_hashtags", :force => true do |t|
-    t.string   "tag",               :null => false
-    t.integer  "follower_tweet_id", :null => false
+    t.string   "tag"
+    t.integer  "follower_tweet_id"
     t.datetime "created_at",        :null => false
     t.datetime "updated_at",        :null => false
   end

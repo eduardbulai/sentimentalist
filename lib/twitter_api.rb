@@ -38,12 +38,19 @@ class TwitterApi < ActiveRecord::Base
 
 	def self.populate_follower_tweets user
 		user.followers.each do |follower|
-			Twitter.user_timeline.each do |tweet|
-				follower.follower_tweets.create!(
-					text: tweet.text,
-					tweet_id: tweet.id,
-					datetime_tweeted: tweet.created_at
-					)
+			begin
+				follower_timeline = Twitter.user_timeline((follower.twitter_id).to_i)
+			rescue
+				follower_timeline = nil
+			end
+			if follower_timeline
+				follower_timeline.each do |tweet|
+					follower.follower_tweets.create!(
+						text: tweet.text,
+						tweet_id: tweet.id,
+						datetime_tweeted: tweet.created_at
+						)
+				end
 			end
 		end
 	end
