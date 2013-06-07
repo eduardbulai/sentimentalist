@@ -11,9 +11,12 @@ OmniAuth.config.test_mode = true
 OmniAuth.config.mock_auth[:twitter] = OmniAuth::AuthHash.new({
                                                             :provider => 'twitter',
                                                             :uid => '1234',
+                                                            :credentials => {
+                                                                'token' => 'KQvSsA1AFozcJpzQ3EV4w',
+                                                                'secret' => '1nEZb8ibn1XSxemkeaxQXC8v3MKNqVceOh95XEBTyIE'
+                                                            },
                                                             :info => {
-                                                                'name' => 'examplename',
-                                                                'email' => 'stuff@test.com'
+                                                              "name"=>"Matt Buckley"
                                                             }
                                                         })
 

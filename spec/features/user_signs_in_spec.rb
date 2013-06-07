@@ -11,9 +11,8 @@ describe "user signs in" do
 
 	it "user sees sign in button on welcome page" do
 		visit root_path
-		expect(page).to have_content("Sign in with Twitter")
 		click_link "Sign in with Twitter"
-    expect(page).to have_content("Sign Out")
+    expect(User.last.name).to eql("Matt Buckley")
 	end
 
 
