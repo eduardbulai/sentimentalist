@@ -57,3 +57,11 @@ gem 'twitter'
 gem 'omniauth-twitter'
 
 gem "sad_panda", "~> 0.1.9"
+
+gem "flat-ui-rails"
+
+gem "bootstrap-sass"
+
+gem 'bootswatch-rails'
+
+gem 'haml-rails'

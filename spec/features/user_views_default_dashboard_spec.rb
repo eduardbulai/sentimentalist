@@ -12,4 +12,12 @@ describe "user views default dashboard" do
 
   it "user sees a dashboard populated by icons displaying their followers emotional statuses"
 
+  it "user sees a navbar listing several time filters" do
+  	visit root_url
+  	click_link('Sogn In with Twitter')
+  	expect(page).to have_content('Week')
+  	expect(page).to have_content('Month')
+  	expect(page).to have_content('Year')
+  end
+
 end
