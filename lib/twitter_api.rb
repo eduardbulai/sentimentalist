@@ -37,11 +37,11 @@ class TwitterApi < ActiveRecord::Base
 
 	def self.populate_followers user
 		Twitter.followers(Twitter.user).each do |follower|
-				user.followers.create!(
-					name: follower.name,
-	  			twitter_handle: follower.screen_name,
-	  			twitter_id: follower.id,
-					)
+			user.followers.create!(
+				name: follower.name,
+  			twitter_handle: follower.screen_name,
+  			twitter_id: follower.id
+				)
 		end
 	end
 

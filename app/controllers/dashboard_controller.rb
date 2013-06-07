@@ -1,6 +1,12 @@
 class DashboardController < ApplicationController
 	def index
-    # @tw = current_user.twitter.user_timeline(count: 100)
-    # @twuser = current_user.twitter.user
+
+		@followers = current_user.followers
+
+		respond_to do |format|
+      format.html # index.html.erb
+      format.json { render json: @user_tweets }
+    end
+
 	end
 end
