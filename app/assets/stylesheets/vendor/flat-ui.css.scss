@@ -2732,9 +2732,11 @@ textarea[class*="span"] {
 }
 .palette {
   color: #ffffff;
-  margin: 0;
+  margin-bottom: 7px;
   padding: 15px;
   text-transform: uppercase;
+  height: 60px;
+  width: auto;
 }
 .palette dt {
   display: block;
