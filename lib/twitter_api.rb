@@ -18,13 +18,15 @@ class TwitterApi < ActiveRecord::Base
 		end
 		if user_timeline
 			user_timeline.each do |tweet|
-				user.user_tweets.create!(
-					text: tweet.text,
-					tweet_id: tweet.id,
-					datetime_tweeted: tweet.created_at,
-					emotion: SadPanda.emotion(tweet.text),
-					polarity: SadPanda.polarity(tweet.text)
-					)
+				unless user.user_tweets.pluck(:tweet_id).include?(tweet.id)
+					user.user_tweets.create!(
+						text: tweet.text,
+						tweet_id: tweet.id,
+						datetime_tweeted: tweet.created_at,
+						emotion: SadPanda.emotion(tweet.text),
+						polarity: SadPanda.polarity(tweet.text)
+						)
+				end
 			end
 		end
 	end
@@ -37,11 +39,13 @@ class TwitterApi < ActiveRecord::Base
 
 	def self.populate_followers user
 		Twitter.followers(Twitter.user).each do |follower|
-			user.followers.create!(
-				name: follower.name,
-  			twitter_handle: follower.screen_name,
-  			twitter_id: follower.id
-				)
+			unless user.followers.pluck(:twitter_id).include?(follower.id)
+				user.followers.create!(
+					name: follower.name,
+	  			twitter_handle: follower.screen_name,
+	  			twitter_id: follower.id
+					)
+			end
 		end
 	end
 
@@ -54,13 +58,15 @@ class TwitterApi < ActiveRecord::Base
 			end
 			if follower_timeline
 				follower_timeline.each do |tweet|
-					follower.follower_tweets.create!(
-						text: tweet.text,
-						tweet_id: tweet.id,
-						datetime_tweeted: tweet.created_at,
-						emotion: SadPanda.emotion(tweet.text),
-						polarity: SadPanda.polarity(tweet.text)
-						)
+					unless user.user_tweets.pluck(:tweet_id).include?(tweet.id)
+						follower.follower_tweets.create!(
+							text: tweet.text,
+							tweet_id: tweet.id,
+							datetime_tweeted: tweet.created_at,
+							emotion: SadPanda.emotion(tweet.text),
+							polarity: SadPanda.polarity(tweet.text)
+							)
+					end
 				end
 			end
 		end
