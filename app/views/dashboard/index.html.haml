@@ -1,6 +1,25 @@
 %h1 Listing emotions
 
 
+:javascript
+  $(document).ready(function(){
+      var $container = $('#iconfield');
+      $container.isotope({
+          filter: '*',
+          animationOptions: {
+              duration: 750,
+              easing: 'linear',
+              queue: false,
+          }
+      });
+  });
+
+  $('a.btn.btn-large.btn-block.btn-default').click(function(){
+    var selector = $(this).attr('datafilter');
+    $container.isotope({ filter: selector });
+    return false;
+  });
+
 .row.demo-row
   .navbar.navbar-inverse
     .navbar-inner
@@ -43,21 +62,22 @@
           .span2.emotion-icon-filter
             %a.btn.btn-large.btn-block.btn-default{:href => "", :datafilter =>"*"} All
           .span2.emotion-icon-filter
-            %a.btn.btn-large.btn-block.btn-default{:href => "", :datafilter => ".emotion-joy"} Joy
+            %a.btn.btn-large.btn-block.btn-default{:href => "", :datafilter => "#iconfield.emotion-joy"} Joy
           .span2.emotion-icon-filter
-            %a.btn.btn-large.btn-block.btn-default{:href => "", :datafilter => ".emotion-sadness"} Sadness
+            %a.btn.btn-large.btn-block.btn-default{:href => "", :datafilter => "#iconfield.emotion-sadness"} Sadness
           .span2.emotion-icon-filter
-            %a.btn.btn-large.btn-block.btn-default{:href => "", :datafilter => ".emotion-anger"} Anger
+            %a.btn.btn-large.btn-block.btn-default{:href => "", :datafilter => "#iconfield.emotion-anger"} Anger
           .span2.emotion-icon-filter
-            %a.btn.btn-large.btn-block.btn-default{:href => "", :datafilter => ".emotion-surprise"} Surprise
+            %a.btn.btn-large.btn-block.btn-default{:href => "", :datafilter => "#iconfield.emotion-surprise"} Surprise
           .span2.emotion-icon-filter
-            %a.btn.btn-large.btn-block.btn-default{:href => "", :datafilter => ".emotion-disgust"} Disgust
+            %a.btn.btn-large.btn-block.btn-default{:href => "", :datafilter => "#iconfield.emotion-disgust"} Disgust
           .span2.emotion-icon-filter
-            %a.btn.btn-large.btn-block.btn-default{:href => "", :datafilter => ".emotion-fear"} Fear
+            %a.btn.btn-large.btn-block.btn-default{:href => "", :datafilter => "#iconfield.emotion-fear"} Fear
           .span2.emotion-icon-filter
-            %a.btn.btn-large.btn-block.btn-default{:href => "", :datafilter => ".emotion-uncertain"} Other
-      %div#iconfield
-        .row
+            %a.btn.btn-large.btn-block.btn-default{:href => "", :datafilter => "#iconfield.emotion-uncertain"} Other
+
+      .row
+        %div#iconfield
           - @followers.each do |follower|
             - follower.follower_tweets.each do |tweet|
               -if tweet.emotion == "joy"
@@ -124,30 +144,46 @@
                         %dt= follower.name
                         %dd Other
 
+/ :javascript
+/   $(function(){
+
+/     var $container = $('#iconfield');
+
+/     $container.isotope({
+/       itemSelector : '.element'
+/     });
 
 
-:javascript
-  $(document).ready(function(){
-      var $container = $('#iconfield');
-      $container.isotope({
-          filter: '*',
-          animationOptions: {
-              duration: 750,
-              easing: 'linear',
-              queue: false,
-          }
-      });
-  });
+/     var $optionSets = $('#options .option-set'),
+/         $optionLinks = $optionSets.find('a');
 
-  $('#emotion-icon-nav.emotion-icon-filter').click(function(){
-      var selector = $(this).attr('datafilter');
-      $container.isotope({
-          filter: selector,
-          animationOptions: {
-              duration: 750,
-              easing: 'linear',
-              queue: false,
-          }
-      });
-    return false;
-  });
+/     $optionLinks.click(function(){
+/       var $this = $(this);
+/       // don't proceed if already selected
+/       if ( $this.hasClass('selected') ) {
+/         return false;
+/       }
+/       var $optionSet = $this.parents('.option-set');
+/       $optionSet.find('.selected').removeClass('selected');
+/       $this.addClass('selected');
+
+/       // make option object dynamically, i.e. { filter: '.my-filter-class' }
+/       var options = {},
+/           key = $optionSet.attr('data-option-key'),
+/           value = $this.attr('data-option-value');
+/       // parse 'false' as false boolean
+/       value = value === 'false' ? false : value;
+/       options[ key ] = value;
+/       if ( key === 'layoutMode' && typeof changeLayoutMode === 'function' ) {
+/         // changes in layout modes need extra logic
+/         changeLayoutMode( $this, options )
+/       } else {
+/         // otherwise, apply new options
+/         $container.isotope( options );
+/       }
+
+/       return false;
+/     });
+
+
+/   });

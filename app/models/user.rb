@@ -9,7 +9,9 @@ class User < ActiveRecord::Base
   	user.oauth_token = auth["credentials"]["token"]
   	user.oauth_secret = auth["credentials"]["secret"]
   	user.save!
-  	TwitterApi.get_twitter_stuff(user)
+    if user == User.last
+      TwitterApi.get_twitter_stuff(user)
+    end
   	user
   end
 
@@ -19,7 +21,6 @@ class User < ActiveRecord::Base
 	    user.uid = auth["uid"]
 	    user.name = auth["info"]["name"]
 	  end
-    TwitterApi.get_twitter_stuff(self)
 	end
 
 	def self.twitter
