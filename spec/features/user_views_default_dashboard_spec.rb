@@ -22,6 +22,16 @@ describe "user views default dashboard" do
   	expect(page).to have_content('Year')
   end
 
+  it "user sees top navbar showing filters for 'Followers', 'Me' " do
+  	expect(page).to have_content("Followers")
+  	expect(page).to have_content("Me")
+  end
+
+  it "user sees filter tabs showing 'Emotion', 'Time'" do
+  	expect(page).to have_content('By Emotion')
+  	expect(page).to have_content('By Time')
+  end
+
   it "user sees a dashboard populated by icons displaying their followers emotional statuses" do
   	user = User.last
   	first_follower = user.followers.first
