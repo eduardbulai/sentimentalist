@@ -9,8 +9,6 @@ require 'spec_helper'
 
 describe "user views default dashboard" do
 
-  let(:user) { FactoryGirl.create(:user) }
-
   before(:each) do
   	visit root_url
   	click_link('Sign in with Twitter')
@@ -28,8 +26,8 @@ describe "user views default dashboard" do
   end
 
   it "user sees filter tabs showing 'Emotion', 'Time'" do
-  	expect(page).to have_content('By Emotion')
-  	expect(page).to have_content('By Time')
+  	expect(page).to have_content('Emotion')
+  	expect(page).to have_content('Time')
   end
 
   it "user sees a dashboard populated by icons displaying their followers emotional statuses" do

@@ -33,7 +33,7 @@ gem 'jquery-rails'
 # gem 'unicorn'
 
 # Deploy with Capistrano
-# gem 'capistrano'
+gem 'capistrano'
 
 # To use debugger
 # gem 'debugger'
@@ -50,7 +50,7 @@ end
 
 gem 'valid_attribute'
 
-gem 'sidekiq'
+gem 'whenever', require: false
 
 gem 'twitter'
 
