@@ -16,27 +16,26 @@
 .container
   .row
     .span3
-      .todo.mrm
-        %ul
-          %li.todo-done
-            .todo-content
-              %h.todo-name
-                Filters
-          %li
-            .todo-content
-              %h4.todo-name
-                Week
-              %strong All tweets from the last month
-          %li
-            .todo-content
-              %h4.todo-name
-                Month
-              %strong All tweets from the last month
-          %li
-            .todo-content
-              %h4.todo-name
-                Year
-              %strong All tweets from the last year
+      %ul
+        %li.todo-done
+          .todo-content
+            %h.todo-name
+              Filters
+        %li
+          .todo-content
+            %h4.todo-name
+              Week
+            %strong All tweets from the last month
+        %li
+          .todo-content
+            %h4.todo-name
+              Month
+            %strong All tweets from the last month
+        %li
+          .todo-content
+            %h4.todo-name
+              Year
+            %strong All tweets from the last year
 
     .span9
       .row
@@ -57,14 +56,10 @@
             %a.btn.btn-large.btn-block.btn-default{:href => "", :datafilter => ".emotion-fear"} Fear
           .span2.emotion-icon-filter
             %a.btn.btn-large.btn-block.btn-default{:href => "", :datafilter => ".emotion-uncertain"} Other
-      .row
-        %div#iconfield
+      %div#iconfield
+        .row
           - @followers.each do |follower|
-            -counter=0
             - follower.follower_tweets.each do |tweet|
-              -if counter == 6
-                %row
-                -counter = 0
               -if tweet.emotion == "joy"
                 %div.emotion-joy
                   %div.datetime-tweeted
@@ -74,7 +69,6 @@
                       %dl.palette.palette-sun-flower
                         %dt= follower.name
                         %dd= tweet.emotion
-                        -counter += 1
               -elsif tweet.emotion == "anger"
                 %div.emotion-anger
                   %div.datetime-tweeted
@@ -84,7 +78,6 @@
                     %dl.palette.palette-pomegranate
                       %dt= follower.name
                       %dd= tweet.emotion
-                      -counter += 1
               -elsif tweet.emotion == "surprise"
                 %div.emotion-surprise
                   %div.datetime-tweeted
@@ -94,7 +87,6 @@
                     %dl.palette.palette-turquoise
                       %dt= follower.name
                       %dd= tweet.emotion
-                      -counter += 1
               -elsif tweet.emotion == "fear"
                 %div.emotion-fear
                   %div.datetime-tweeted
@@ -104,7 +96,6 @@
                     %dl.palette.palette-wet-asphalt
                       %dt= follower.name
                       %dd= tweet.emotion
-                      -counter += 1
               -elsif tweet.emotion == "sadness"
                 %div.emotion-sadness
                   %div.datetime-tweeted
@@ -114,27 +105,24 @@
                     %dl.palette.palette-amethyst
                       %dt= follower.name
                       %dd= tweet.emotion
-                      -counter += 1
               -elsif tweet.emotion == "disgust"
                 %div.emotion-disgust
                   %div.datetime-tweeted
                   -tweet.datetime_tweeted
-                %div.span2
-                  %div.emotion-icon
-                    %dl.palette.palette-pumpkin
-                      %dt= follower.name
-                      %dd= tweet.emotion
-                      -counter += 1
+                  %div.span2
+                    %div.emotion-icon
+                      %dl.palette.palette-pumpkin
+                        %dt= follower.name
+                        %dd= tweet.emotion
               -else tweet.emotion == "uncertain"
                 %div.emotion-uncertain
                   %div.datetime-tweeted
                   -tweet.datetime_tweeted
-                %div.span2
-                  %div.emotion-icon
-                    %dl.palette.palette-silver
-                      %dt= follower.name
-                      %dd Other
-                      -counter += 1
+                  %div.span2
+                    %div.emotion-icon
+                      %dl.palette.palette-silver
+                        %dt= follower.name
+                        %dd Other
 
 
 
