@@ -14,14 +14,15 @@
 
 .container
   .row
-    .span3
-      %ul
-        %h2
-          Week
-        %h2
-          Month
-        %h2
-          Year
+    .filter.option-set{:datafiltergroup => "timefilter"}
+      .span3
+        %ul
+          %a.btn{:href => "#", :datafilter => ".week"}
+            Week
+          %a.btn{:href => "#", :datafilter => ".month"}
+            Month
+          %a.btn{:href => "#", :datafilter => ".year"}
+            Year
 
     .span9
       .row
@@ -46,7 +47,7 @@
       .row
         %div#iconfield
           - @followers.each do |follower|
-            %div(class = "emot emotion-#{follower.emotion_week}")
+            %div(class = "emot emotion-#{follower.emotion_week} week")
               %div.span2
                 %div.emotion-icon
                   %dl(class = "palette palette-#{follower.emotion_week}")
@@ -55,6 +56,24 @@
                       %dd Other
                     -else
                       %dd= follower.emotion_week
+            %div(class = "emot emotion-#{follower.emotion_month} month")
+              %div.span2
+                %div.emotion-icon
+                  %dl(class = "palette palette-#{follower.emotion_month}")
+                    %dt= follower.name
+                    -if follower.emotion_month == "uncertain"
+                      %dd Other
+                    -else
+                      %dd= follower.emotion_month
+            %div(class = "emot emotion-#{follower.emotion_year} year")
+              %div.span2
+                %div.emotion-icon
+                  %dl(class = "palette palette-#{follower.emotion_year}")
+                    %dt= follower.name
+                    -if follower.emotion_year == "uncertain"
+                      %dd Other
+                    -else
+                      %dd= follower.emotion_year
 
 
 :javascript
