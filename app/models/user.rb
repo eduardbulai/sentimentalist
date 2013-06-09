@@ -25,4 +25,14 @@ class User < ActiveRecord::Base
 	  @twitter ||= Twitter::Client.new(oauth_token: self.oauth_token, oauth_token_secret: self.oauth_secret)
 	end
 
+  def self.check_time_elapsed_since_datetime_tweeted
+    if self.where("datetime_tweeted <= ?","#{Time.now-1.week}")
+      return "week"
+    elsif  self.where("datetime_tweeted <= ?","#{Time.now-1.month}")
+      return "month"
+    elsif  self.where("datetime_tweeted <= ?","#{Time.now-1.year}")
+      return "year"
+    end
+  end
+
 end

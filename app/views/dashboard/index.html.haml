@@ -62,67 +62,60 @@
             - follower.follower_tweets.each do |tweet|
               -if tweet.emotion == "joy"
                 %div.emot.emotion-joy
-                  %div.datetime-tweeted
-                  -tweet.datetime_tweeted
-                  %div.span2
-                    %div.emotion-icon
-                      %dl.palette.palette-sun-flower
-                        %dt= follower.name
-                        %dd= tweet.emotion
+                  %div(class = "#{tweet.check_time_elapsed_since_datetime_tweeted}")
+                    %div.span2
+                      %div.emotion-icon
+                        %dl.palette.palette-sun-flower
+                          %dt= follower.name
+                          %dd= tweet.emotion
               -elsif tweet.emotion == "anger"
                 %div.emot.emotion-anger
-                  %div.datetime-tweeted
-                  -tweet.datetime_tweeted
-                %div.span2
-                  %div.emotion-icon
-                    %dl.palette.palette-pomegranate
-                      %dt= follower.name
-                      %dd= tweet.emotion
+                  %div(class = "#{tweet.check_time_elapsed_since_datetime_tweeted}")
+                    %div.span2
+                      %div.emotion-icon
+                        %dl.palette.palette-pomegranate
+                          %dt= follower.name
+                          %dd= tweet.emotion
               -elsif tweet.emotion == "surprise"
                 %div.emot.emotion-surprise
-                  %div.datetime-tweeted
-                  -tweet.datetime_tweeted
-                %div.span2
-                  %div.emotion-icon
-                    %dl.palette.palette-turquoise
-                      %dt= follower.name
-                      %dd= tweet.emotion
+                  %div(class = "#{tweet.check_time_elapsed_since_datetime_tweeted}")
+                    %div.span2
+                      %div.emotion-icon
+                        %dl.palette.palette-turquoise
+                          %dt= follower.name
+                          %dd= tweet.emotion
               -elsif tweet.emotion == "fear"
                 %div.emot.emotion-fear
-                  %div.datetime-tweeted
-                  -tweet.datetime_tweeted
-                %div.span2
-                  %div.emotion-icon
-                    %dl.palette.palette-wet-asphalt
-                      %dt= follower.name
-                      %dd= tweet.emotion
+                  %div.datetime-tweeted(class = "#{tweet.check_time_elapsed_since_datetime_tweeted}")
+                    %div.span2
+                      %div.emotion-icon
+                        %dl.palette.palette-wet-asphalt
+                          %dt= follower.name
+                          %dd= tweet.emotion
               -elsif tweet.emotion == "sadness"
                 %div.emot.emotion-sadness
-                  %div.datetime-tweeted
-                  -tweet.datetime_tweeted
-                %div.span2
-                  %div.emotion-icon
-                    %dl.palette.palette-amethyst
-                      %dt= follower.name
-                      %dd= tweet.emotion
+                  %div(class = "#{tweet.check_time_elapsed_since_datetime_tweeted}")
+                    %div.span2
+                      %div.emotion-icon
+                        %dl.palette.palette-amethyst
+                          %dt= follower.name
+                          %dd= tweet.emotion
               -elsif tweet.emotion == "disgust"
                 %div.emot.emotion-disgust
-                  %div.datetime-tweeted
-                  -tweet.datetime_tweeted
-                  %div.span2
-                    %div.emotion-icon
-                      %dl.palette.palette-pumpkin
-                        %dt= follower.name
-                        %dd= tweet.emotion
+                  %div(class = "#{tweet.check_time_elapsed_since_datetime_tweeted}")
+                    %div.span2
+                      %div.emotion-icon
+                        %dl.palette.palette-pumpkin
+                          %dt= follower.name
+                          %dd= tweet.emotion
               -else tweet.emotion == "uncertain"
                 %div.emot.emotion-uncertain
-                  %div.datetime-tweeted
-                  -tweet.datetime_tweeted
-                  %div.span2
-                    %div.emotion-icon
-                      %dl.palette.palette-silver
-                        %dt= follower.name
-                        %dd Other
+                  %div(class = "#{tweet.check_time_elapsed_since_datetime_tweeted}")
+                    %div.span2
+                      %div.emotion-icon
+                        %dl.palette.palette-silver
+                          %dt= follower.name
+                          %dd Other
 
 
 :javascript
