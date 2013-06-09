@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  attr_accessible :name, :provider, :uid, :oauth_token, :oauth_secret
+  attr_accessible :name, :provider, :uid, :oauth_token, :oauth_secret, :emotion_week, :emotion_month, :emotion_year, :polarity_week, :polarity_month, :polarity_year
 
   has_many :user_tweets, dependent: :destroy
   has_many :followers, dependent: :destroy
@@ -33,6 +33,27 @@ class User < ActiveRecord::Base
     elsif  self.where("datetime_tweeted <= ?","#{Time.now-1.year}")
       return "year"
     end
+  end
+
+  def concatonate_tweets timeframe
+    if timeframe == "week"
+      all_tweets = self.user_tweets.where("datetime_tweeted <= ?",Time.now-1.week)
+    elsif timeframe == "month"
+      all_tweets = self.user_tweets.where("datetime_tweeted <= ?",Time.now-1.month)
+    else
+      all_tweets = self.user_tweets.where("datetime_tweeted <= ?",Time.now-1.year)
+    end
+    all_tweets.pluck(:text).join(" ")
+  end
+
+  def emotion_for_timeframe timeframe # week, month, or year
+    concatonated_tweets = self.concatonate_tweets timeframe
+    SadPanda.emotion(concatonated_tweets)
+  end
+
+  def polarity_for_timeframe timeframe # week, month, or year
+    concatonated_tweets = self.concatonate_tweets timeframe
+    SadPanda.polarity(concatonated_tweets)
   end
 
 end

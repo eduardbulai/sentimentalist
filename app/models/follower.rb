@@ -1,5 +1,5 @@
 class Follower < ActiveRecord::Base
-  attr_accessible :name, :location, :twitter_handle, :user_id, :twitter_id
+  attr_accessible :name, :location, :twitter_handle, :user_id, :twitter_id, :emotion_week, :emotion_month, :emotion_year, :polarity_week, :polarity_month, :polarity_year
 
   has_many :follower_tweets, :foreign_key => :follower_id, :dependent => :destroy
   belongs_to :user, :inverse_of => :followers
@@ -8,5 +8,27 @@ class Follower < ActiveRecord::Base
   validates_presence_of :twitter_handle
   validates_presence_of :user_id
   validates_presence_of :twitter_id
+
+
+  def concatonate_tweets timeframe
+  	if timeframe == "week"
+  		all_tweets = self.follower_tweets.where("datetime_tweeted <= ?",Time.now-1.week)
+  	elsif timeframe == "month"
+  		all_tweets = self.follower_tweets.where("datetime_tweeted <= ?",Time.now-1.month)
+  	else
+  		all_tweets = self.follower_tweets.where("datetime_tweeted <= ?",Time.now-1.year)
+  	end
+  	all_tweets.pluck(:text).join(" ")
+  end
+
+  def emotion_for_timeframe timeframe # week, month, or year
+  	concatonated_tweets = self.concatonate_tweets timeframe
+  	SadPanda.emotion(concatonated_tweets)
+  end
+
+  def polarity_for_timeframe timeframe # week, month, or year
+  	concatonated_tweets = self.concatonate_tweets timeframe
+  	SadPanda.polarity(concatonated_tweets)
+  end
 
 end

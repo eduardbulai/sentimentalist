@@ -3,11 +3,43 @@ class TwitterApi < ActiveRecord::Base
 	attr_accessible :user
 
 	def self.get_twitter_stuff user
-		self.populate_user_tweets user
-		self.populate_followers user
-		self.populate_follower_tweets user
+		populate_user_tweets user
+		populate_followers user
+		populate_follower_tweets user
+		initialize_user user
+		initialize_user user.id
+		user.followers.each {|follower| initialize_follower follower.id}
 		# populate_user_tweet_hashtags
 		# populate_follower_tweet_hashtags
+	end
+
+	def self.initialize_user user_id
+		user = User.find_by_id(user_id)
+		begin
+				user_tweets_exist = !user.user_tweets.empty?
+		rescue
+				user_tweets_exist = false
+		end
+		if user_tweets_exist
+			user.emotion_week = user.emotion_for_timeframe "week"
+			user.emotion_month = user.emotion_for_timeframe "month"
+			user.emotion_year = user.emotion_for_timeframe "year"
+			user.polarity_week = user.polarity_for_timeframe "week"
+			user.polarity_month = user.polarity_for_timeframe "month"
+			user.polarity_year = user.polarity_for_timeframe "year"
+			user.save!
+		end
+	end
+
+	def self.initialize_follower follower_id
+		follower = Follower.find_by_id(follower_id)
+		follower.emotion_week = follower.emotion_for_timeframe("week")
+		follower.emotion_month = follower.emotion_for_timeframe("month")
+		follower.emotion_year = follower.emotion_for_timeframe("year")
+		follower.polarity_week = follower.polarity_for_timeframe("week")
+		follower.polarity_month = follower.polarity_for_timeframe("month")
+		follower.polarity_year = follower.polarity_for_timeframe("year")
+		follower.save!
 	end
 
 	def self.populate_user_tweets user
@@ -22,9 +54,7 @@ class TwitterApi < ActiveRecord::Base
 					user.user_tweets.create!(
 						text: tweet.text,
 						tweet_id: tweet.id,
-						datetime_tweeted: tweet.created_at,
-						emotion: SadPanda.emotion(tweet.text),
-						polarity: SadPanda.polarity(tweet.text)
+						datetime_tweeted: tweet.created_at
 						)
 				end
 			end
@@ -44,7 +74,7 @@ class TwitterApi < ActiveRecord::Base
 					name: follower.name,
 	  			twitter_handle: follower.screen_name,
 	  			twitter_id: follower.id
-					)
+		  		)
 			end
 		end
 	end
@@ -62,9 +92,7 @@ class TwitterApi < ActiveRecord::Base
 						follower.follower_tweets.create!(
 							text: tweet.text,
 							tweet_id: tweet.id,
-							datetime_tweeted: tweet.created_at,
-							emotion: SadPanda.emotion(tweet.text),
-							polarity: SadPanda.polarity(tweet.text)
+							datetime_tweeted: tweet.created_at
 							)
 					end
 				end

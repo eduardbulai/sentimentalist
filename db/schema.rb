@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130607020801) do
+ActiveRecord::Schema.define(:version => 20130607020742) do
 
   create_table "follower_tweet_hashtags", :force => true do |t|
     t.string   "tag"
@@ -27,8 +27,6 @@ ActiveRecord::Schema.define(:version => 20130607020801) do
     t.string   "tweet_id",         :null => false
     t.datetime "created_at",       :null => false
     t.datetime "updated_at",       :null => false
-    t.string   "emotion"
-    t.integer  "polarity"
   end
 
   create_table "followers", :force => true do |t|
@@ -37,6 +35,12 @@ ActiveRecord::Schema.define(:version => 20130607020801) do
     t.string   "location"
     t.integer  "user_id",        :null => false
     t.string   "twitter_id",     :null => false
+    t.string   "emotion_week"
+    t.string   "emotion_month"
+    t.string   "emotion_year"
+    t.string   "polarity_week"
+    t.string   "polarity_month"
+    t.string   "polarity_year"
     t.datetime "created_at",     :null => false
     t.datetime "updated_at",     :null => false
   end
@@ -63,8 +67,14 @@ ActiveRecord::Schema.define(:version => 20130607020801) do
     t.string   "name"
     t.string   "uid"
     t.string   "provider"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
+    t.string   "emotion_week"
+    t.string   "emotion_month"
+    t.string   "emotion_year"
+    t.string   "polarity_week"
+    t.string   "polarity_month"
+    t.string   "polarity_year"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
     t.string   "oauth_token"
     t.string   "oauth_secret"
   end
