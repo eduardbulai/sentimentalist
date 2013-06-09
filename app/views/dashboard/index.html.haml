@@ -16,25 +16,12 @@
   .row
     .span3
       %ul
-        %li.todo-done
-          .todo-content
-            %h.todo-name
-              Filters
-        %li
-          .todo-content
-            %h4.todo-name
-              Week
-            %strong All tweets from the last month
-        %li
-          .todo-content
-            %h4.todo-name
-              Month
-            %strong All tweets from the last month
-        %li
-          .todo-content
-            %h4.todo-name
-              Year
-            %strong All tweets from the last year
+        %h2
+          Week
+        %h2
+          Month
+        %h2
+          Year
 
     .span9
       .row
@@ -59,17 +46,15 @@
       .row
         %div#iconfield
           - @followers.each do |follower|
-            - follower.follower_tweets.each do |tweet|
-              %div(class = "emot emotion-#{tweet.emotion}")
-                %div(class = "#{tweet.check_time_elapsed_since_datetime_tweeted}")
-                  %div.span2
-                    %div.emotion-icon
-                      %dl(class = "palette palette-#{tweet.emotion}")
-                        %dt= follower.name
-                        -if tweet.emotion == "uncertain"
-                          %dd Other
-                        -else
-                          %dd= tweet.emotion
+            %div(class = "emot emotion-#{follower.emotion_week}")
+              %div.span2
+                %div.emotion-icon
+                  %dl(class = "palette palette-#{follower.emotion_week}")
+                    %dt= follower.name
+                    -if follower.emotion_week == "uncertain"
+                      %dd Other
+                    -else
+                      %dd= follower.emotion_week
 
 
 :javascript
