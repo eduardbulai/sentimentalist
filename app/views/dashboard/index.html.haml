@@ -1,25 +1,5 @@
 %h1 Listing emotions
 
-
-:javascript
-  $(document).ready(function(){
-      var $container = $('#iconfield');
-      $container.isotope({
-          filter: '*',
-          animationOptions: {
-              duration: 750,
-              easing: 'linear',
-              queue: false,
-          }
-      });
-  });
-
-  $('a.btn.btn-large.btn-block.btn-default').click(function(){
-    var selector = $(this).attr('datafilter');
-    $container.isotope({ filter: selector });
-    return false;
-  });
-
 .row.demo-row
   .navbar.navbar-inverse
     .navbar-inner
@@ -58,30 +38,30 @@
 
     .span9
       .row
-        %div#emotion-icon-nav
-          .span2.emotion-icon-filter
-            %a.btn.btn-large.btn-block.btn-default{:href => "", :datafilter =>"*"} All
-          .span2.emotion-icon-filter
-            %a.btn.btn-large.btn-block.btn-default{:href => "", :datafilter => "#iconfield.emotion-joy"} Joy
-          .span2.emotion-icon-filter
-            %a.btn.btn-large.btn-block.btn-default{:href => "", :datafilter => "#iconfield.emotion-sadness"} Sadness
-          .span2.emotion-icon-filter
-            %a.btn.btn-large.btn-block.btn-default{:href => "", :datafilter => "#iconfield.emotion-anger"} Anger
-          .span2.emotion-icon-filter
-            %a.btn.btn-large.btn-block.btn-default{:href => "", :datafilter => "#iconfield.emotion-surprise"} Surprise
-          .span2.emotion-icon-filter
-            %a.btn.btn-large.btn-block.btn-default{:href => "", :datafilter => "#iconfield.emotion-disgust"} Disgust
-          .span2.emotion-icon-filter
-            %a.btn.btn-large.btn-block.btn-default{:href => "", :datafilter => "#iconfield.emotion-fear"} Fear
-          .span2.emotion-icon-filter
-            %a.btn.btn-large.btn-block.btn-default{:href => "", :datafilter => "#iconfield.emotion-uncertain"} Other
+        %ul.filter.option-set{:datafiltergroup => "category"}
+          %li.span2.emotion-icon-filter
+            %a.btn.btn-large.btn-block.btn-default{:href => "#", :datafilter =>""} All
+          %li.span2.emotion-icon-filter
+            %a.btn.btn-large.btn-block.btn-default{:href => "#", :datafilter => ".emotion-joy"} Joy
+          %li.span2.emotion-icon-filter
+            %a.btn.btn-large.btn-block.btn-default{:href => "#", :datafilter => ".emotion-sadness"} Sadness
+          %li.span2.emotion-icon-filter
+            %a.btn.btn-large.btn-block.btn-default{:href => "#", :datafilter => ".emotion-anger"} Anger
+          %li.span2.emotion-icon-filter
+            %a.btn.btn-large.btn-block.btn-default{:href => "#", :datafilter => ".emotion-surprise"} Surprise
+          %li.span2.emotion-icon-filter
+            %a.btn.btn-large.btn-block.btn-default{:href => "#", :datafilter => ".emotion-disgust"} Disgust
+          %li.span2.emotion-icon-filter
+            %a.btn.btn-large.btn-block.btn-default{:href => "#", :datafilter => ".emotion-fear"} Fear
+          %li.span2.emotion-icon-filter
+            %a.btn.btn-large.btn-block.btn-default{:href => "#", :datafilter => ".emotion-uncertain"} Other
 
       .row
         %div#iconfield
           - @followers.each do |follower|
             - follower.follower_tweets.each do |tweet|
               -if tweet.emotion == "joy"
-                %div.emotion-joy
+                %div.emot.emotion-joy
                   %div.datetime-tweeted
                   -tweet.datetime_tweeted
                   %div.span2
@@ -90,7 +70,7 @@
                         %dt= follower.name
                         %dd= tweet.emotion
               -elsif tweet.emotion == "anger"
-                %div.emotion-anger
+                %div.emot.emotion-anger
                   %div.datetime-tweeted
                   -tweet.datetime_tweeted
                 %div.span2
@@ -99,7 +79,7 @@
                       %dt= follower.name
                       %dd= tweet.emotion
               -elsif tweet.emotion == "surprise"
-                %div.emotion-surprise
+                %div.emot.emotion-surprise
                   %div.datetime-tweeted
                   -tweet.datetime_tweeted
                 %div.span2
@@ -108,7 +88,7 @@
                       %dt= follower.name
                       %dd= tweet.emotion
               -elsif tweet.emotion == "fear"
-                %div.emotion-fear
+                %div.emot.emotion-fear
                   %div.datetime-tweeted
                   -tweet.datetime_tweeted
                 %div.span2
@@ -117,7 +97,7 @@
                       %dt= follower.name
                       %dd= tweet.emotion
               -elsif tweet.emotion == "sadness"
-                %div.emotion-sadness
+                %div.emot.emotion-sadness
                   %div.datetime-tweeted
                   -tweet.datetime_tweeted
                 %div.span2
@@ -126,7 +106,7 @@
                       %dt= follower.name
                       %dd= tweet.emotion
               -elsif tweet.emotion == "disgust"
-                %div.emotion-disgust
+                %div.emot.emotion-disgust
                   %div.datetime-tweeted
                   -tweet.datetime_tweeted
                   %div.span2
@@ -135,7 +115,7 @@
                         %dt= follower.name
                         %dd= tweet.emotion
               -else tweet.emotion == "uncertain"
-                %div.emotion-uncertain
+                %div.emot.emotion-uncertain
                   %div.datetime-tweeted
                   -tweet.datetime_tweeted
                   %div.span2
@@ -144,46 +124,57 @@
                         %dt= follower.name
                         %dd Other
 
-/ :javascript
-/   $(function(){
 
-/     var $container = $('#iconfield');
+:javascript
+// jquery-isotope-example.js
 
-/     $container.isotope({
-/       itemSelector : '.element'
-/     });
+  $(document).ready(init);
 
+  function init() {
+      var things = $('#iconfield');
+      filters = {};
 
-/     var $optionSets = $('#options .option-set'),
-/         $optionLinks = $optionSets.find('a');
+      things.isotope({
+          itemSelector : '.emot'
+      });
 
-/     $optionLinks.click(function(){
-/       var $this = $(this);
-/       // don't proceed if already selected
-/       if ( $this.hasClass('selected') ) {
-/         return false;
-/       }
-/       var $optionSet = $this.parents('.option-set');
-/       $optionSet.find('.selected').removeClass('selected');
-/       $this.addClass('selected');
+      // when everything loads, make the "all" options selected
+      $('.filter a[datafiltervalue=""]').addClass('selected');
 
-/       // make option object dynamically, i.e. { filter: '.my-filter-class' }
-/       var options = {},
-/           key = $optionSet.attr('data-option-key'),
-/           value = $this.attr('data-option-value');
-/       // parse 'false' as false boolean
-/       value = value === 'false' ? false : value;
-/       options[ key ] = value;
-/       if ( key === 'layoutMode' && typeof changeLayoutMode === 'function' ) {
-/         // changes in layout modes need extra logic
-/         changeLayoutMode( $this, options )
-/       } else {
-/         // otherwise, apply new options
-/         $container.isotope( options );
-/       }
+      // filter buttons
+      $('.filter a').click(
+      function(e){
+          e.preventDefault();
+          var clicked_filter = $(this);
 
-/       return false;
-/     });
+          // if the clicked link is already selected, don't do anything
+          if ( clicked_filter.hasClass('selected') ) {
+              return;
+          }
 
+          var optionSet = clicked_filter.parents('.option-set');
 
-/   });
+          // get rid of the ".selected" class on any links in this group and put it on the clicked link
+          optionSet.find('.selected').removeClass('selected');
+          clicked_filter.addClass('selected');
+
+          // store the filters in the filters object, indexed by the group they're in
+          // i.e. filters.category = 'animal'
+          var group = optionSet.attr('datafiltergroup');
+          filters[ group ] = clicked_filter.attr('datafilter');
+
+          // convert the filters object into an array of strings which are CSS class selectors
+          var filters_to_use = [];
+          for ( var group in filters ) {
+               filters_to_use.push( filters[ group ] );
+          }
+
+          // smash the array together to get a big selector which will filter all elements with the filter classes
+          var selector = filters_to_use.join('');
+
+          // run the filter on the isotope element
+          things.isotope({ filter: selector });
+      }
+    );
+  }
+
