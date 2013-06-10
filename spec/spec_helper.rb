@@ -4,21 +4,18 @@ require File.expand_path("../../config/environment", __FILE__)
 require 'rspec/rails'
 require 'rspec/autorun'
 require 'valid_attribute'
+require 'launchy'
+require 'factory_girl'
 
 #configure omniauth for testing
 
 OmniAuth.config.test_mode = true
-OmniAuth.config.mock_auth[:twitter] = OmniAuth::AuthHash.new({
-                                                            :provider => 'twitter',
-                                                            :uid => '1234',
-                                                            :credentials => {
-                                                                'token' => 'KQvSsA1AFozcJpzQ3EV4w',
-                                                                'secret' => '1nEZb8ibn1XSxemkeaxQXC8v3MKNqVceOh95XEBTyIE'
-                                                            },
-                                                            :info => {
-                                                              "name"=>"Matt Buckley"
-                                                            }
-                                                        })
+OmniAuth.config.mock_auth[:twitter] = ({ 'provider' => 'twitter',
+                                          'uid' => '1234'
+                                      })
+
+
+
 
 # Requires supporting ruby files with custom matchers and macros, etc,
 # in spec/support/ and its subdirectories.
