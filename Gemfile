@@ -42,6 +42,7 @@ gem 'capistrano'
 group :development, :test do
 	gem 'rspec-rails'
 	gem 'pry'
+	gem 'launchy'
 end
 
 group :test do
@@ -66,3 +67,5 @@ gem "bootstrap-sass"
 gem 'bootswatch-rails'
 
 gem 'haml-rails'
+
+gem 'resque'
