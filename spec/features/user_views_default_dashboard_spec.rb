@@ -10,8 +10,12 @@ require 'spec_helper'
 describe "user views default dashboard" do
 
   before do
-    OmniAuth.config.add_mock( :twitter, {uid: '1234', credentials: { 'token' => 'umad', 'secret' => 'bro?' }})
-    visit '/auth/twitter'
+    user = FactoryGirl.create(:user_with_followers)
+    OmniAuth.config.add_mock( :twitter, {'uid' => '1234', 'provider' => 'twitter',
+    'info' => {'name' => 'matt'},
+    'credentials' => { 'token' => 'umad', 'secret' => 'bro?' }})
+    visit dashboard_index_path
+    binding
   end
 
   # let(:user) {FactoryGirl.create(:user_with_followers)}

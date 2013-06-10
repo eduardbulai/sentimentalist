@@ -52,8 +52,6 @@ end
 
 gem 'valid_attribute'
 
-gem 'whenever', require: false
-
 gem 'twitter'
 
 gem 'omniauth-twitter'

@@ -10,11 +10,9 @@ require 'factory_girl'
 #configure omniauth for testing
 
 OmniAuth.config.test_mode = true
-OmniAuth.config.mock_auth[:twitter] = ({ 'provider' => 'twitter',
-                                          'uid' => '1234'
-                                      })
-
-
+OmniAuth.config.mock_auth[:twitter] = OmniAuth::AuthHash.new({'provider' => 'twitter', 'uid' => '1234', 'provider' => 'twitter',
+  'info' => {'name' => 'matt'},
+  'credentials' => { 'token' => 'umad', 'secret' => 'bro?' }})
 
 
 # Requires supporting ruby files with custom matchers and macros, etc,
