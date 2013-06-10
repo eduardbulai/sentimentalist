@@ -9,10 +9,12 @@ require 'spec_helper'
 
 describe "user views default dashboard" do
 
-  before(:each) do
-  	visit root_url
-  	click_link('Sign in with Twitter')
+  before do
+    OmniAuth.config.add_mock( :twitter, {uid: '1234', credentials: { 'token' => 'umad', 'secret' => 'bro?' }})
+    visit '/auth/twitter'
   end
+
+  # let(:user) {FactoryGirl.create(:user_with_followers)}
 
   it "user sees a sidebar listing several time filters" do
   	expect(page).to have_content('Week')
@@ -25,27 +27,21 @@ describe "user views default dashboard" do
   	expect(page).to have_content("Me")
   end
 
-  it "user sees filter tabs showing 'Emotion', 'Time'" do
-  	expect(page).to have_content('Emotion')
-  	expect(page).to have_content('Time')
+  it "user sees filter tabs for each emotion" do
+  	expect(page).to have_content('Joy')
+  	expect(page).to have_content('Sadness')
+    expect(page).to have_content('Anger')
+    expect(page).to have_content('Surprise')
+    expect(page).to have_content('Other')
+    expect(page).to have_content('Disgust')
   end
 
   it "user sees a dashboard populated by icons displaying their followers emotional statuses" do
-  	user = User.last
-  	first_follower = user.followers.first
-  	last_follower = user.followers.last
-  	expect(page).to have_content(first_follower.name)
-  	expect(page).to have_content(last_follower.name)
-  	last_follower.follower_tweets.each do |tweet|
-  		if tweet
-  			expect(page).to have_content(tweet.emotion)
-  		end
-  	end
-  	first_follower.follower_tweets.each do |tweet|
-  		if tweet
-  			expect(page).to have_content(tweet.emotion)
-  		end
-  	end
+    followers = User.last.followers
+    followers.each do |follower|
+      expect(page).to have_content(follower.name)
+      expect(page).to have_content(follower.emotion_week)
+    end
   end
 
 end
