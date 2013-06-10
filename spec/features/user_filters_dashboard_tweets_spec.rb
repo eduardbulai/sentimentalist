@@ -11,12 +11,12 @@ require 'spec_helper'
 
 describe "user filters dashboard" do
 
-	before(:each) do
-			visit root_url
-  		click_link('Sign in with Twitter')
-	end
-
 	context "user filters by emotion" do
+
+		before do
+	    OmniAuth.config.add_mock( :twitter, {uid: '1234', credentials: { 'token' => 'umad', 'secret' => 'bro?' }})
+	    visit '/auth/twitter'
+  	end
 
 		it "user views tweets with emotion 'joy' " do
 			click_button("Joy")
@@ -125,6 +125,7 @@ describe "user filters dashboard" do
 		it "user views tweets from last month" do
 			click_button("Month")
 
+			expect(page).to_not have_selector(".week")
 			expect(page).to_not have_selector(".year")
 
 			expect(page).to have_selector(".month")
@@ -132,6 +133,9 @@ describe "user filters dashboard" do
 
 		it "user views tweets for the year" do
 			click_button("Year")
+
+			expect(page).to_not have_selector(".week")
+			expect(page).to_not have_selector(".month")
 
 			expect(page).to have_selector(".year")
 		end
