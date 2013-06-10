@@ -48,6 +48,9 @@ end
 group :test do
 	gem 'capybara'
 	gem 'factory_girl_rails'
+	gem 'vcr'
+	gem 'fakeweb'
+	gem 'capybara-mechanize'
 end
 
 gem 'valid_attribute'

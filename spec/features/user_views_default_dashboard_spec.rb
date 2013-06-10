@@ -7,23 +7,22 @@ require 'spec_helper'
 # 	- When a user arrives on their homepage, they see a dashboard populated by icons
 # displaying their followers’ emotional statuses
 
-describe "user views default dashboard" do
+describe "user views default dashboard",
+  authentication: true,
+  vcr: {cassette_name: 'twitter/auth'} do
 
-  before do
-    user = FactoryGirl.create(:user_with_followers)
-    OmniAuth.config.add_mock( :twitter, {'uid' => '1234', 'provider' => 'twitter',
-    'info' => {'name' => 'matt'},
-    'credentials' => { 'token' => 'umad', 'secret' => 'bro?' }})
-    visit dashboard_index_path
-    binding
+  before(:each) do
+    @user = FactoryGirl.create(:user_with_followers)
+    stub_auth_response(@user, :twitter)
+    visit root_path
+    click_link 'Sign in with Twitter'
   end
-
-  # let(:user) {FactoryGirl.create(:user_with_followers)}
 
   it "user sees a sidebar listing several time filters" do
   	expect(page).to have_content('Week')
   	expect(page).to have_content('Month')
   	expect(page).to have_content('Year')
+    # end
   end
 
   it "user sees top navbar showing filters for 'Followers', 'Me' " do
@@ -41,7 +40,7 @@ describe "user views default dashboard" do
   end
 
   it "user sees a dashboard populated by icons displaying their followers emotional statuses" do
-    followers = User.last.followers
+    followers = @user.followers
     followers.each do |follower|
       expect(page).to have_content(follower.name)
       expect(page).to have_content(follower.emotion_week)
