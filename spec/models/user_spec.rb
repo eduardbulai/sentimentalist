@@ -2,9 +2,9 @@ require 'spec_helper'
 
 describe User do
 
-	before do
-    ResqueSpec.reset!
-  end
+	# before do
+ #    ResqueSpec.reset!
+ #  end
 
 	it "user gets new user tweets upon creation"
 

@@ -16,7 +16,6 @@ FactoryGirl.define do
 		tweet_id "341375354683936768"
 		created_at "2013-06-05 23:07:31"
     updated_at "2013-06-05 23:07:31"
-    # follower_id 1
 	end
 
 	factory :user_tweet do
@@ -25,7 +24,6 @@ FactoryGirl.define do
 		tweet_id "341375354683936768"
 		created_at "2013-06-05 23:07:31"
     updated_at "2013-06-05 23:07:31"
-    # user_id 1
 	end
 
 	factory :follower do
@@ -60,6 +58,7 @@ FactoryGirl.define do
     updated_at "2013-06-09 23:07:31"
     factory :user_with_followers do
       after(:create) {|instance| create_list(:follower_with_tweets, 5, user: instance) }
+      after(:create) {|instance| create_list(:user_tweet, 5, user: instance) }
     end
   end
 end
