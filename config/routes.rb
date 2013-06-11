@@ -13,4 +13,6 @@ Sentimentalist::Application.routes.draw do
   match '/auth/failure', to: 'sessions#error', as: 'failure'
 
   match ':controller(/:action(/:id))(.:format)'
+
+  mount Resque::Server, at: '/resque'
 end

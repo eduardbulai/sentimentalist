@@ -1,3 +1,5 @@
+require 'spec_helper'
+
 # 	As a user
 # 	I want to be able to tweet from my dashboard
 # 	So that I can tell my friends how I feel
@@ -6,8 +8,24 @@
 # - Below the text field, there is a submit button that, if clicked, submits text written in the text field to twitter and it appears on their twitter profile as a tweet
 
 
-describe "user filters all tweets displayed on dshboard" do
-  it "user filters by emotion"
+describe "user tweets from dashboard",
+	  authentication: true,
+	  vcr: {cassette_name: 'twitter/auth'} do
 
-  it "user filters by time"
+	  before(:each) do
+	    @user = FactoryGirl.create(:user_with_followers)
+	    stub_auth_response(@user, :twitter)
+	    visit root_path
+	    click_link 'Sign in with Twitter'
+	  end
+
+	  it "dashboard contains a text field for tweet input" do
+	  	expect(page).to have_selector("input")
+	  end
+
+	  it "user receieves a flash message after having tweeted" do
+	    fill_in 'tweet_input_field', with: "fake_tweet"
+	    expect(page).to have_selector(".alert"), text: 'Your tweet has been posted to Twitter!'
+	  end
+
 end

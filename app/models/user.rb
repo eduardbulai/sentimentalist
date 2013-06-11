@@ -57,4 +57,62 @@ class User < ActiveRecord::Base
     SadPanda.polarity(concatonated_tweets)
   end
 
+  def get_new_user_tweets
+    begin
+        user_timeline = Twitter.user_timeline
+    rescue
+        user_timeline = nil
+    end
+    if user_timeline
+      user_timeline.each do |tweet|
+        until self.user_tweets.pluck(:tweet_id).include?(tweet.id)
+          self.user_tweets.create!(
+            text: tweet.text,
+            tweet_id: tweet.id,
+            datetime_tweeted: tweet.created_at
+            )
+        end
+      end
+    end
+  end
+
+  def get_new_follower_tweets
+    begin
+        user_timeline = Twitter.user_timeline
+    rescue
+        user_timeline = nil
+    end
+    if user_timeline
+      user_timeline.each do |tweet|
+        until self.follower_tweets.pluck(:tweet_id).include?(tweet.id)
+          self.user_tweets.create!(
+            text: tweet.text,
+            tweet_id: tweet.id,
+            datetime_tweeted: tweet.created_at
+            )
+        end
+      end
+    end
+  end
+
+  def update_user_tweets
+    tweets = self.user_tweets
+    tweets.each do |t|
+      if tweet.datetime_tweeted < Time.now - 1.year
+        tweets.delete(t)
+      end
+    end
+    self.get_new_user_tweets
+  end
+
+  def update_follower_tweets
+    tweets = self.user_tweets
+    tweets.each do |t|
+      if tweet.datetime_tweeted < Time.now - 1.year
+        tweets.delete(t)
+      end
+    end
+    self.get_new_user_tweets
+  end
+
 end

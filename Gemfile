@@ -50,7 +50,11 @@ group :test do
 	gem 'factory_girl_rails'
 	gem 'vcr'
 	gem 'fakeweb'
-	gem 'capybara-mechanize'
+	gem 'rb-fsevent', :require => false if RUBY_PLATFORM =~ /darwin/i
+  gem 'guard-rspec'
+  gem 'guard-livereload'
+	gem 'timecop'
+	gem 'resque_spec'
 end
 
 gem 'valid_attribute'
@@ -69,4 +73,7 @@ gem 'bootswatch-rails'
 
 gem 'haml-rails'
 
-gem 'resque'
+gem 'resque', require: 'resque/server'
+
+gem 'resque-scheduler', :require => 'resque_scheduler'
+
