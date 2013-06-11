@@ -9,6 +9,7 @@ require 'factory_girl'
 require 'timecop'
 require 'resque'
 require 'resque_scheduler'
+require 'resque/mock'
 
 # HTTPI.log = false
 # Savon.log = false

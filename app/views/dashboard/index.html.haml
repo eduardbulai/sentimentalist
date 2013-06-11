@@ -1,16 +1,15 @@
 %h1 Listing emotions
 
-.row.demo-row
-  .navbar.navbar-inverse
-    .navbar-inner
-      .container
-        %ul.dashboard-nav
-          %li
-            %a{:href => "#"}
-              Me
-          %li
-            %a{:href => "#"}
-              Followers
+.navbar.navbar-inverse
+  .navbar-inner
+    .container
+      %ul.dashboard-nav
+        %li
+          %a{:href => "#"}
+            Me
+        %li
+          %a{:href => "#"}
+            Followers
 
 .container
   .row
@@ -23,6 +22,9 @@
             Month
           %a.btn{:href => "#", :datafilter => ".year"}
             Year
+  .row
+    .span3
+      %a.btn.btn-large.btn-block.btn-inverse{:href => "#", "data-toggle" => "modal", "data-target" => "#post_to_twitter_modal", name: "post_to_twitter"} Post To Twitter
 
     .span9
       .row
@@ -74,3 +76,34 @@
                       %dd Other
                     -else
                       %dd= follower.emotion_year
+
+%div#post_to_twitter_modal{"class" => "modal hide fade", "tabindex" => "-1", "role" => "dialog", "aria-labelledby" => "myModalHeader", "aria-hidden" => "true"}
+  %div{'class' => 'modal-header'}
+    %button{"type" => "button", "class" => "close", "data-dismiss" => 'modal', "aria-hidden" => "true"}×
+
+/ <div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+/   <div class="modal-header">
+/     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+/     <h3 id="myModalLabel">Modal header</h3>
+/   </div>
+/   <div class="modal-body">
+/     <p>One fine body…</p>
+/   </div>
+/   <div class="modal-footer">
+/     <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+/     <button class="btn btn-primary">Save changes</button>
+/   </div>
+/ </div>
+
+
+:javascript
+  $('a[name=post_to_twitter]').click(function(e) {
+    //Cancel the link behavior
+    e.preventDefault();
+
+    //This is the added part:
+    //Get the textarea's text
+    var taText = $('textarea#myTextArea').val();
+
+    //Example - Now add the text to a span tag inside the modal
+    ("#myDiv span").text(taText);

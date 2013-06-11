@@ -1,6 +1,6 @@
 update_tweets:
   cron: "0 * * * *"
   queue: tweet_update_queue
-  class: TweetUpdate
+  class: TweetUpdater
   args:
   description:

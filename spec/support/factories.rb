@@ -12,7 +12,7 @@ FactoryGirl.define do
 
 	factory :follower_tweet do
 		text { generate(:tweet) }
-		datetime_tweeted "2013-06-03 02:06:41"
+		datetime_tweeted "2001-06-03 02:06:41"
 		tweet_id "341375354683936768"
 		created_at "2013-06-05 23:07:31"
     updated_at "2013-06-05 23:07:31"
@@ -20,7 +20,7 @@ FactoryGirl.define do
 
 	factory :user_tweet do
 		text { generate(:tweet) }
-		datetime_tweeted "2013-06-03 02:06:41"
+		datetime_tweeted "2011-06-03 02:06:41"
 		tweet_id "341375354683936768"
 		created_at "2013-06-05 23:07:31"
     updated_at "2013-06-05 23:07:31"

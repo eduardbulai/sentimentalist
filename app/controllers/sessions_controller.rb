@@ -3,6 +3,8 @@ class SessionsController < ApplicationController
 	  auth = request.env["omniauth.auth"]
 	  user = User.from_omniauth(env["omniauth.auth"])
 	  session[:user_id] = user.id
+	  Resque.enqueue(TweetUpdater, user.id)
+	  # user.tweets_updated = false
 	  redirect_to dashboard_index_path, :notice => "Signed in!"
 	end
 

@@ -19,13 +19,10 @@ describe "user tweets from dashboard",
 	    click_link 'Sign in with Twitter'
 	  end
 
-	  it "dashboard contains a text field for tweet input" do
-	  	expect(page).to have_selector("input")
+	  it "dashboard contains a button for tweets posts" do
+	  	expect(page).to have_content("Post to Twitter")
 	  end
 
-	  it "user receieves a flash message after having tweeted" do
-	    fill_in 'tweet_input_field', with: "fake_tweet"
-	    expect(page).to have_selector(".alert"), text: 'Your tweet has been posted to Twitter!'
-	  end
+	  it "user receieves a flash message after having tweeted"
 
 end
