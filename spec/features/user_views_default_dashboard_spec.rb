@@ -11,7 +11,7 @@ describe "user views default dashboard",
   authentication: true,
   vcr: {cassette_name: 'twitter/auth'} do
 
-  before(:each) do
+  before do
     @user = FactoryGirl.create(:user_with_followers)
     stub_auth_response(@user, :twitter)
     visit root_path
@@ -40,11 +40,8 @@ describe "user views default dashboard",
   end
 
   it "user sees a dashboard populated by icons displaying their followers emotional statuses" do
-    followers = @user.followers
-    followers.each do |follower|
-      expect(page).to have_content(follower.name)
-      expect(page).to have_content(follower.emotion_week)
-    end
+    expect(page).to have_selector('#iconfield')
+    expect(page).to have_selector('.emot')
   end
 
 end
