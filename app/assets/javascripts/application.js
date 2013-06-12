@@ -15,56 +15,12 @@
 //= require_tree .
 
 
-// isotope stuff
+$('a[name=post_to_twitter]').click(function(e) {
+    //Cancel the link behavior
+    e.preventDefault();
 
-$(document).ready(init);
+    //Get the textarea's text
+    var taText = $('textarea#myTextArea').val();
 
-function init() {
-    var things = $('#iconfield');
-    filters = {timefilter: ".week"};
-
-    things.isotope({ filter: '.week' });
-
-    things.isotope({
-        itemSelector : '.emot'
-    });
-
-    // when everything loads, make the "all" options selected
-    $('.filter a[datafiltervalue=""]').addClass('selected');
-
-    // filter buttons
-    $('.filter a').click(
-    function(e){
-        e.preventDefault();
-        var clicked_filter = $(this);
-
-        // if the clicked link is already selected, don't do anything
-        if ( clicked_filter.hasClass('selected') ) {
-            return;
-        }
-
-        var optionSet = clicked_filter.parents('.option-set');
-
-        // get rid of the ".selected" class on any links in this group and put it on the clicked link
-        optionSet.find('.selected').removeClass('selected');
-        clicked_filter.addClass('selected');
-
-        // store the filters in the filters object, indexed by the group they're in
-        // i.e. filters.category = 'animal'
-        var group = optionSet.attr('datafiltergroup');
-        filters[ group ] = clicked_filter.attr('datafilter');
-
-        // convert the filters object into an array of strings which are CSS class selectors
-        var filters_to_use = [];
-        for ( var group in filters ) {
-             filters_to_use.push( filters[ group ] );
-        }
-
-        // smash the array together to get a big selector which will filter all elements with the filter classes
-        var selector = filters_to_use.join('');
-
-        // run the filter on the isotope element
-        things.isotope({ filter: selector });
-    }
-  );
-}
+    //Example - Now add the text to a span tag inside the modal
+    ("#myDiv span").text(taText);

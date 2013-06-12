@@ -13,15 +13,7 @@
 
 .container
   .row
-    .filter.option-set{:datafiltergroup => "timefilter"}
-      .span3
-        %ul
-          %a.btn{:href => "#", :datafilter => ".week"}
-            Week
-          %a.btn{:href => "#", :datafilter => ".month"}
-            Month
-          %a.btn{:href => "#", :datafilter => ".year"}
-            Year
+    = render 'dashboard_timeframes_navbar'
   .row
     .span3
       %a.btn.btn-large.btn-block.btn-inverse{"href" => "#post_to_twitter_modal", "data-toggle" => "modal", "role" => "button", "name" => "post_to_twitter", "class" => "btn"} Post To Twitter
@@ -29,23 +21,7 @@
 
     .span9
       .row
-        .filter.option-set{:datafiltergroup => "category"}
-          .span2.emotion-icon-filter
-            %a.btn.btn-large.btn-block.btn-default{:href => "#", :datafilter =>""} All
-          .span2.emotion-icon-filter
-            %a.btn.btn-large.btn-block.btn-default{:href => "#", :datafilter => ".emotion-joy"} Joy
-          .span2.emotion-icon-filter
-            %a.btn.btn-large.btn-block.btn-default{:href => "#", :datafilter => ".emotion-sadness"} Sadness
-          .span2.emotion-icon-filter
-            %a.btn.btn-large.btn-block.btn-default{:href => "#", :datafilter => ".emotion-anger"} Anger
-          .span2.emotion-icon-filter
-            %a.btn.btn-large.btn-block.btn-default{:href => "#", :datafilter => ".emotion-surprise"} Surprise
-          .span2.emotion-icon-filter
-            %a.btn.btn-large.btn-block.btn-default{:href => "#", :datafilter => ".emotion-disgust"} Disgust
-          .span2.emotion-icon-filter
-            %a.btn.btn-large.btn-block.btn-default{:href => "#", :datafilter => ".emotion-fear"} Fear
-          .span2.emotion-icon-filter
-            %a.btn.btn-large.btn-block.btn-default{:href => "#", :datafilter => ".emotion-uncertain"} Other
+        = render '_dashboard_emotions_navbar'
 
       .row
         %div#iconfield
@@ -79,24 +55,6 @@
                       %dd= follower.emotion_year
 
 
-%div#post_to_twitter_modal{"class" => "modal hide fade", "tabindex" => "-1", "role" => "dialog", "aria-labelledby" => "myModalLabel", "aria-hidden" => "true"}
-  %div{'class' => 'modal-header'}
-    %button{"type" => "button", "class" => "close", "data-dismiss" => 'modal', "aria-hidden" => "true"}×
-  %div{'class' => 'modal-body'} This is the body
-  %div{'class' => 'modal-footer'}
-    %button{'class' => 'btn', 'data-dismiss' => 'modal', 'aria-hidden' => 'true' }Close
-    %button{'class' => 'btn btn-primary'} Post to Twitter
+= render 'post_to_twitter_modal'
 
-
-
-:javascript
-  $('a[name=post_to_twitter]').click(function(e) {
-    //Cancel the link behavior
-    e.preventDefault();
-
-    //This is the added part:
-    //Get the textarea's text
-    var taText = $('textarea#myTextArea').val();
-
-    //Example - Now add the text to a span tag inside the modal
-    ("#myDiv span").text(taText);
+= render 'isotope'
