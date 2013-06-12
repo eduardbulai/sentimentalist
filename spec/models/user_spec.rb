@@ -1,5 +1,13 @@
 require 'spec_helper'
 
 describe User do
-  pending "add some examples to (or delete) #{__FILE__}"
+
+	before(:each) do
+		@user = FactoryGirl.create(:user_with_followers)
+	end
+
+	it "user gets new user tweets upon creation"
+
+	it "follower tweets are refreshed every hour"
+
 end

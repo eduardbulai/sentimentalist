@@ -1,40 +1,29 @@
 Sentimentalist::Application.routes.draw do
+<<<<<<< HEAD
   devise_for :users
 
   resources :dashboard, only: [:index]
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
+=======
+>>>>>>> resque
 
-  # Sample of regular route:
-  #   match 'products/:id' => 'catalog#view'
-  # Keep in mind you can assign values other than :controller and :action
+  resources :dashboard, only: [:index]
+  resources :welcome
 
-  # Sample of named route:
-  #   match 'products/:id/purchase' => 'catalog#purchase', :as => :purchase
-  # This route can be invoked with purchase_url(:id => product.id)
+  root to: 'welcome#index'
 
-  # Sample resource route (maps HTTP verbs to controller actions automatically):
-  #   resources :products
+  match '/auth/twitter/callback', to: 'sessions#create'
 
-  # Sample resource route with options:
-  #   resources :products do
-  #     member do
-  #       get 'short'
-  #       post 'toggle'
-  #     end
-  #
-  #     collection do
-  #       get 'sold'
-  #     end
-  #   end
+  match "/signout", to: "sessions#destroy", as: :signout
+  match '/about', to: 'welcome#about'
+  match '/privacy', to: 'welcome#privacy'
+  match '/auth/failure', to: 'sessions#error', as: 'failure'
 
-  # Sample resource route with sub-resources:
-  #   resources :products do
-  #     resources :comments, :sales
-  #     resource :seller
-  #   end
+  match ':controller(/:action(/:id))(.:format)'
 
+<<<<<<< HEAD
   # Sample resource route with more complex sub-resources
   #   resources :products do
   #     resources :comments
@@ -64,4 +53,7 @@ Sentimentalist::Application.routes.draw do
   # This is a legacy wild controller route that's not recommended for RESTful applications.
   # Note: This route will make all actions in every controller accessible via GET requests.
   match ':controller(/:action(/:id))(.:format)'
+=======
+  mount Resque::Server, at: '/resque'
+>>>>>>> resque
 end

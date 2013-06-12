@@ -1,0 +1,109 @@
+%h1 Listing emotions
+
+.navbar.navbar-inverse
+  .navbar-inner
+    .container
+      %ul.dashboard-nav
+        %li
+          %a{:href => "#"}
+            Me
+        %li
+          %a{:href => "#"}
+            Followers
+
+.container
+  .row
+    .filter.option-set{:datafiltergroup => "timefilter"}
+      .span3
+        %ul
+          %a.btn{:href => "#", :datafilter => ".week"}
+            Week
+          %a.btn{:href => "#", :datafilter => ".month"}
+            Month
+          %a.btn{:href => "#", :datafilter => ".year"}
+            Year
+  .row
+    .span3
+      %a.btn.btn-large.btn-block.btn-inverse{:href => "#", "data-toggle" => "modal", "data-target" => "#post_to_twitter_modal", name: "post_to_twitter"} Post To Twitter
+
+    .span9
+      .row
+        .filter.option-set{:datafiltergroup => "category"}
+          .span2.emotion-icon-filter
+            %a.btn.btn-large.btn-block.btn-default{:href => "#", :datafilter =>""} All
+          .span2.emotion-icon-filter
+            %a.btn.btn-large.btn-block.btn-default{:href => "#", :datafilter => ".emotion-joy"} Joy
+          .span2.emotion-icon-filter
+            %a.btn.btn-large.btn-block.btn-default{:href => "#", :datafilter => ".emotion-sadness"} Sadness
+          .span2.emotion-icon-filter
+            %a.btn.btn-large.btn-block.btn-default{:href => "#", :datafilter => ".emotion-anger"} Anger
+          .span2.emotion-icon-filter
+            %a.btn.btn-large.btn-block.btn-default{:href => "#", :datafilter => ".emotion-surprise"} Surprise
+          .span2.emotion-icon-filter
+            %a.btn.btn-large.btn-block.btn-default{:href => "#", :datafilter => ".emotion-disgust"} Disgust
+          .span2.emotion-icon-filter
+            %a.btn.btn-large.btn-block.btn-default{:href => "#", :datafilter => ".emotion-fear"} Fear
+          .span2.emotion-icon-filter
+            %a.btn.btn-large.btn-block.btn-default{:href => "#", :datafilter => ".emotion-uncertain"} Other
+
+      .row
+        %div#iconfield
+          - @followers.each do |follower|
+            %div(class = "emot emotion-#{follower.emotion_week} week")
+              %div.span2
+                %div.emotion-icon
+                  %dl(class = "palette palette-#{follower.emotion_week}")
+                    %dt= follower.name
+                    -if follower.emotion_week == "uncertain"
+                      %dd Other
+                    -else
+                      %dd= follower.emotion_week
+            %div(class = "emot emotion-#{follower.emotion_month} month")
+              %div.span2
+                %div.emotion-icon
+                  %dl(class = "palette palette-#{follower.emotion_month}")
+                    %dt= follower.name
+                    -if follower.emotion_month == "uncertain"
+                      %dd Other
+                    -else
+                      %dd= follower.emotion_month
+            %div(class = "emot emotion-#{follower.emotion_year} year")
+              %div.span2
+                %div.emotion-icon
+                  %dl(class = "palette palette-#{follower.emotion_year}")
+                    %dt= follower.name
+                    -if follower.emotion_year == "uncertain"
+                      %dd Other
+                    -else
+                      %dd= follower.emotion_year
+
+%div#post_to_twitter_modal{"class" => "modal hide fade", "tabindex" => "-1", "role" => "dialog", "aria-labelledby" => "myModalHeader", "aria-hidden" => "true"}
+  %div{'class' => 'modal-header'}
+    %button{"type" => "button", "class" => "close", "data-dismiss" => 'modal', "aria-hidden" => "true"}×
+
+/ <div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+/   <div class="modal-header">
+/     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+/     <h3 id="myModalLabel">Modal header</h3>
+/   </div>
+/   <div class="modal-body">
+/     <p>One fine body…</p>
+/   </div>
+/   <div class="modal-footer">
+/     <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+/     <button class="btn btn-primary">Save changes</button>
+/   </div>
+/ </div>
+
+
+:javascript
+  $('a[name=post_to_twitter]').click(function(e) {
+    //Cancel the link behavior
+    e.preventDefault();
+
+    //This is the added part:
+    //Get the textarea's text
+    var taText = $('textarea#myTextArea').val();
+
+    //Example - Now add the text to a span tag inside the modal
+    ("#myDiv span").text(taText);

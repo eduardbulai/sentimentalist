@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 	# As a user
 	# I want to view ‘about’ information about the app
 	# So I can get a sense of what the app is all about
@@ -6,11 +7,24 @@
 
 describe "user visits about page" do
 
+=======
+require 'spec_helper'
+
+	# As a user
+	# I want to view ‘about’ information about the app
+	# So I can get a sense of what the app is all about
+
+	# - The welcome page contains a link to a modal window with information about the app
+
+describe "user visits about page" do
+
+>>>>>>> resque
 	it "user arrives at about page from welcome page" do
 		visit root_url
 		expect(page).to have_content('About')
 		click_link('About')
 		expect(current_path).to eql(about_path)
+<<<<<<< HEAD
 	end
 
 	it "user returns to welcome page from about page" do
@@ -20,4 +34,15 @@ describe "user visits about page" do
 		expect(current_path).to include(root_path)
 	end
 
+=======
+	end
+
+	it "user returns to welcome page from about page" do
+		visit privacy_path
+		expect(page).to have_content('Close')
+		click_link('Close')
+		expect(current_path).to include(root_path)
+	end
+
+>>>>>>> resque
 end

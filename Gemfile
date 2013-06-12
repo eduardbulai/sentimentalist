@@ -33,7 +33,7 @@ gem 'jquery-rails'
 # gem 'unicorn'
 
 # Deploy with Capistrano
-# gem 'capistrano'
+gem 'capistrano'
 
 # To use debugger
 # gem 'debugger'
@@ -41,15 +41,29 @@ gem 'jquery-rails'
 
 group :development, :test do
 	gem 'rspec-rails'
+<<<<<<< HEAD
 	gem 'factory_girl_rails'
+=======
+	gem 'pry'
+	gem 'launchy'
+>>>>>>> resque
 end
 
 group :test do
 	gem 'capybara'
+	gem 'factory_girl_rails'
+	gem 'vcr'
+	gem 'fakeweb'
+	gem 'rb-fsevent', :require => false if RUBY_PLATFORM =~ /darwin/i
+  gem 'guard-rspec'
+  gem 'guard-livereload'
+	gem 'timecop'
+	gem 'resque_spec'
 end
 
 gem 'valid_attribute'
 
+<<<<<<< HEAD
 gem 'devise'
 
 gem 'omniauth-twitter'
@@ -57,3 +71,25 @@ gem 'omniauth-twitter'
 gem 'sidekiq'
 
 gem 'tweetstream'
+=======
+gem 'twitter'
+
+gem 'omniauth-twitter'
+
+gem "sad_panda", "~> 0.1.9"
+
+gem "flat-ui-rails"
+
+gem "bootstrap-sass"
+
+gem 'bootswatch-rails'
+
+gem 'haml-rails'
+
+gem 'resque', require: 'resque/server'
+
+gem 'resque-scheduler', :require => 'resque_scheduler'
+
+gem 'resque-mock'
+
+>>>>>>> resque

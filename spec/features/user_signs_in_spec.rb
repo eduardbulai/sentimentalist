@@ -7,6 +7,7 @@ require 'spec_helper'
 # 	- When a returning user clicks on the sign in” button, they are taken through to their
 # homepage
 
+<<<<<<< HEAD
 describe "user signs in" do
 
 	let!(:user) { FactoryGirl.create(:user) }
@@ -32,4 +33,18 @@ describe "user signs in" do
 		click_button('Sign in')
 		expect(current_path).to include(dashboard_index_path)
 	end
+=======
+describe "user signs in",
+  authentication: true,
+  vcr: {cassette_name: 'twitter/auth'} do
+
+		it "user sees sign in button on welcome page" do
+			@user = FactoryGirl.create(:user_with_followers)
+	    stub_auth_response(@user, :twitter)
+	    visit root_path
+	    click_link 'Sign in with Twitter'
+	    expect(page).to have_content(@user.name)
+		end
+
+>>>>>>> resque
 end

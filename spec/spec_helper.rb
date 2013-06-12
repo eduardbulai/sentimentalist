@@ -4,7 +4,24 @@ require File.expand_path("../../config/environment", __FILE__)
 require 'rspec/rails'
 require 'rspec/autorun'
 require 'valid_attribute'
-require 'capybara'
+require 'launchy'
+require 'factory_girl'
+require 'timecop'
+require 'resque'
+require 'resque_scheduler'
+require 'resque/mock'
+
+# HTTPI.log = false
+# Savon.log = false
+
+#configure omniauth for testing
+
+# OmniAuth.config.test_mode = true
+# OmniAuth.config.mock_auth[:twitter] = OmniAuth::AuthHash.new({'provider' => 'twitter', 'uid' => '1234', 'provider' => 'twitter',
+#   'info' => {'name' => 'matt'},
+#   'credentials' => { 'token' => 'umad', 'secret' => 'bro?' }})
+
+
 
 # Requires supporting ruby files with custom matchers and macros, etc,
 # in spec/support/ and its subdirectories.
@@ -18,6 +35,9 @@ RSpec.configure do |config|
   # config.mock_with :mocha
   # config.mock_with :flexmock
   # config.mock_with :rr
+  config.include AuthenticationHelper
+
+
 
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
@@ -26,6 +46,9 @@ RSpec.configure do |config|
   # examples within a transaction, remove the following line or assign false
   # instead of true.
   config.use_transactional_fixtures = true
+  config.before(:each) do
+    Timecop.return
+  end
 
   # If true, the base class of anonymous controllers will be inferred
   # automatically. This will be the default behavior in future versions of
