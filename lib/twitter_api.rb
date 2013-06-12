@@ -44,7 +44,7 @@ class TwitterApi < ActiveRecord::Base
 
 	def self.populate_user_tweets user
 		begin
-				user_timeline = Twitter.user_timeline
+				user_timeline = Twitter.user_timeline(user.twitter_handle)
 		rescue
 				user_timeline = nil
 		end
@@ -68,7 +68,7 @@ class TwitterApi < ActiveRecord::Base
 	end
 
 	def self.populate_followers user
-		Twitter.followers(Twitter.user).each do |follower|
+		Twitter.followers(user.twitter_handle).each do |follower|
 			unless user.followers.pluck(:twitter_id).include?(follower.id)
 				user.followers.create!(
 					name: follower.name,
