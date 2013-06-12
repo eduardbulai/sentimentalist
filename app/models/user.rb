@@ -1,30 +1,27 @@
 class User < ActiveRecord::Base
-  attr_accessible :name, :provider, :uid, :oauth_token, :oauth_secret, :emotion_week, :emotion_month, :emotion_year, :polarity_week, :polarity_month, :polarity_year
+  attr_accessible :name, :twitter_handle, :provider, :uid, :oauth_token, :oauth_secret, :emotion_week, :emotion_month, :emotion_year, :polarity_week, :polarity_month, :polarity_year
 
   has_many :user_tweets, dependent: :destroy
   has_many :followers, dependent: :destroy
 
   def self.from_omniauth(auth)
-  	user = where(auth.slice("provider","uid")).first || create_with_omniauth(auth)
-  	user.oauth_token = auth["credentials"]["token"]
-  	user.oauth_secret = auth["credentials"]["secret"]
-  	user.save!
-  	user
+  	where(auth.slice("provider", "uid")).first || create_with_omniauth(auth)
   end
 
   def self.create_with_omniauth(auth)
 	  user = create! do |user|
 	    user.provider = auth["provider"]
-	    user.uid = auth["uid"]
+      user.uid = auth["uid"]
 	    user.name = auth["info"]["name"]
+      user.twitter_handle = auth["info"]["nickname"]
 	  end
     TwitterApi.get_twitter_stuff(user)
     user
 	end
 
-	def self.twitter
-	  @twitter ||= Twitter::Client.new(oauth_token: self.oauth_token, oauth_token_secret: self.oauth_secret)
-	end
+	# def self.twitter
+	#   @twitter ||= Twitter::Client.new(oauth_token: self.oauth_token, oauth_token_secret: self.oauth_secret)
+	# end
 
   def self.check_time_elapsed_since_datetime_tweeted
     if self.where("datetime_tweeted <= ?","#{Time.now-1.week}")
