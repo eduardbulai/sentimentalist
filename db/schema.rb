@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130607020742) do
+ActiveRecord::Schema.define(:version => 20130612202441) do
 
   create_table "follower_tweet_hashtags", :force => true do |t|
     t.string   "tag"
@@ -77,6 +77,7 @@ ActiveRecord::Schema.define(:version => 20130607020742) do
     t.datetime "updated_at",     :null => false
     t.string   "oauth_token"
     t.string   "oauth_secret"
+    t.string   "twitter_handle"
   end
 
 end
