@@ -17,8 +17,8 @@ module AuthenticationHelper
         'name'  => 'fake_name'
       },
       'credentials' => {
-        'token' => '823627243-UDZhCacE9mWVMbFprLKq90Rk2sD3iPYujpDXPV4I',
-        'secret' => 'eJKYJf3IKVRQDTlH59GXWnsrBohMHP49HRrNZA8HXo'
+        'token' => ENV['TWITTER_ACCESS_TOKEN'],
+        'secret' => ENV['TWITTER_ACCESS_SECRET']
       }
     }
 

@@ -1,3 +1,5 @@
+OmniAuth.config.logger = Rails.logger
+
 Rails.application.config.middleware.use OmniAuth::Builder do
-  provider :twitter, 'KQvSsA1AFozcJpzQ3EV4w', '1nEZb8ibn1XSxemkeaxQXC8v3MKNqVceOh95XEBTyIE'
+  provider :twitter, ENV['TWITTER_CONSUMER_KEY'], ENV['TWITTER_CONSUMER_SECRET']
 end
