@@ -1,7 +1,13 @@
 %div#post_to_twitter_modal{"class" => "modal hide fade", "tabindex" => "-1", "role" => "dialog", "aria-labelledby" => "myModalLabel", "aria-hidden" => "true"}
   %div{'class' => 'modal-header'}
-    %button{"type" => "button", "class" => "close", "data-dismiss" => 'modal', "aria-hidden" => "true"}×
-  %div{'class' => 'modal-body'} This is the body
-  %div{'class' => 'modal-footer'}
-    %button{'class' => 'btn', 'data-dismiss' => 'modal', 'aria-hidden' => 'true' }Close
-    %button{'class' => 'btn btn-primary'} Post to Twitter
+  %div{'class' => 'modal-body'}
+    / = simple_form_for '', url: {controller: 'dashboard', action: 'post_to_twitter'} do |f|
+    = simple_form_for '', url: {controller: 'dashboard', action: 'post_to_twitter'} do |f|
+      = f.input :tweet, as: :text, placeholder: 'Tweet something. . .', input_html: { cols: 20, rows: 3 }, label: false
+      / = f.text_area :field_value_long, rows:5, placeholder: 'Tweet something. . .'
+      / = f.button :submit
+      %div{'class' => 'modal-footer'}
+        / %button{'class' => 'btn', 'data-dismiss' => 'modal', 'aria-hidden' => 'true' }Close
+        %button{'class' => 'btn'} Close
+        =f.button :submit, "Post Your Tweet", 'class' => 'btn btn-primary'
+        / %button{'class' => 'btn btn-primary'} Post Your Tweet
