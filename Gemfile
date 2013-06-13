@@ -79,3 +79,5 @@ gem 'resque-scheduler', :require => 'resque_scheduler'
 
 gem 'resque-mock'
 
+gem 'simple_form'
+
