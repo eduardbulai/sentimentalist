@@ -14,14 +14,17 @@ class User < ActiveRecord::Base
       user.uid = auth["uid"]
 	    user.name = auth["info"]["name"]
       user.twitter_handle = auth["info"]["nickname"]
+      user.oauth_token = auth['extra']['access_token'].params[:oauth_token]
+      user.oauth_secret = auth['extra']['access_token'].params[:oauth_token_secret]
 	  end
     TwitterApi.get_twitter_stuff(user)
     user
+    binding.pry
 	end
 
-	# def self.twitter
-	#   @twitter ||= Twitter::Client.new(oauth_token: self.oauth_token, oauth_token_secret: self.oauth_secret)
-	# end
+	def self.twitter
+	  @twitter ||= Twitter::Client.new(oauth_token: self.oauth_token, oauth_token_secret: self.oauth_secret)
+	end
 
   def self.check_time_elapsed_since_datetime_tweeted
     if self.where("datetime_tweeted <= ?","#{Time.now-1.week}")
