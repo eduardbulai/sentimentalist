@@ -39,6 +39,12 @@ describe "user views default dashboard",
     expect(page).to have_content('Disgust')
   end
 
+  it "user sees 'post to twitter' button on home dashboard" do
+    expect(page).to have_selector('#post_to_twitter_modal')
+    expect(page).to have_content('Post to Twitter')
+    expect(page).to have_selector('form')
+  end
+
   it "user sees a dashboard populated by icons displaying their followers emotional statuses" do
     expect(page).to have_selector('#iconfield')
     expect(page).to have_selector('.emot')
