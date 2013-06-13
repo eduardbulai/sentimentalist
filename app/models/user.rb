@@ -19,11 +19,10 @@ class User < ActiveRecord::Base
 	  end
     TwitterApi.get_twitter_stuff(user)
     user
-    binding.pry
 	end
 
-	def self.twitter
-	  @twitter ||= Twitter::Client.new(oauth_token: self.oauth_token, oauth_token_secret: self.oauth_secret)
+	def tweeter
+	  @tweeter ||= Twitter::Client.new(oauth_token: self.oauth_token, oauth_token_secret: self.oauth_secret)
 	end
 
   def self.check_time_elapsed_since_datetime_tweeted
