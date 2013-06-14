@@ -52,7 +52,9 @@ class TwitterApi < ActiveRecord::Base
 					user.user_tweets.create!(
 						text: tweet.text,
 						tweet_id: tweet.id,
-						datetime_tweeted: tweet.created_at
+						datetime_tweeted: tweet.created_at,
+						emotion: user.get_tweet_emotion(tweet),
+						polarity: user.get_tweet_polarity(tweet)
 						)
 				end
 			end
