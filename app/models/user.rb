@@ -56,4 +56,14 @@ class User < ActiveRecord::Base
     SadPanda.polarity(concatonated_tweets)
   end
 
+  def get_tweet_emotion tweet
+    text = tweet.text
+    SadPanda.emotion(text)
+  end
+
+  def get_tweet_polarity tweet
+    text = tweet.text
+    SadPanda.polarity(text)
+  end
+
 end
