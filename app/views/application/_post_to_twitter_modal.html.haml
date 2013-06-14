@@ -3,7 +3,7 @@
   %div{'class' => 'modal-body'}
     / = simple_form_for '', url: {controller: 'dashboard', action: 'post_to_twitter'} do |f|
     = simple_form_for '', url: {controller: 'dashboard', action: 'post_to_twitter'} do |f|
-      = f.input :tweet, as: :text, placeholder: 'Tweet something. . .', input_html: { cols: 20, rows: 3 }, label: false
+      = f.input :tweet, as: :text, placeholder: 'Tweet something. . .', input_html: { cols: 100, rows: 3 }, label: false
       / = f.text_area :field_value_long, rows:5, placeholder: 'Tweet something. . .'
       / = f.button :submit
       %div{'class' => 'modal-footer'}
