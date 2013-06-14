@@ -12,6 +12,9 @@
 			<%= render "sign_in_sign_out" %>
 	</div>
 
+<%= flash[:alert] %>
+<%= flash[:notice] %>
+<%= flash[:error] %>
 <%= yield %>
 
 </body>

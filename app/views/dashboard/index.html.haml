@@ -2,26 +2,28 @@
 
 .navbar.navbar-inverse
   .navbar-inner
-    .container
-      %ul.dashboard-nav
-        %li
-          %a{:href => "#"}
-            Me
-        %li
-          %a{:href => "#"}
-            Followers
 
 .container
   .row
     = render 'dashboard_timeframes_navbar'
   .row
     .span3
-      %a.btn.btn-large.btn-block.btn-inverse{"href" => "#post_to_twitter_modal", "data-toggle" => "modal", "role" => "button", "name" => "post_to_twitter", "class" => "btn"} Post To Twitter
+      %a.btn.btn-large.btn-block.btn-inverse{"href" => "#post_to_twitter_modal", "data-toggle" => "modal", "role" => "button", "name" => "post_to_twitter", "class" => "btn"}
+        Post To Twitter
+
 
 
     .span9
       .row
         = render '_dashboard_emotions_navbar'
+
+      .row
+        %ul{"class" => "nav nav-tabs", "id" => 'user_followers_tab'}
+          %li{"class" => "active"}
+            %a{"href" => "#follower_tweets", "data-toggle" => "tab"}My Followers
+          %li
+            %a{"href" => "#user_tweets", "data-toggle" => "tab"}Me
+
 
       .row
         %div#iconfield
@@ -52,9 +54,15 @@
                     -if follower.emotion_year == "uncertain"
                       %dd Other
                     -else
-                      %dd= follower.emotion_year
+                    %dd= follower.emotion_year
 
 
 = render 'post_to_twitter_modal'
 
 = render 'isotope'
+
+
+:javascript
+  $(function () {
+    $('#user_followers_tab a:last').tab('show');
+  })
