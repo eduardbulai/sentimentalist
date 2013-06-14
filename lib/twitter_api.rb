@@ -9,8 +9,6 @@ class TwitterApi < ActiveRecord::Base
 		initialize_user user
 		initialize_user user.id
 		user.followers.each {|follower| initialize_follower follower.id}
-		# populate_user_tweet_hashtags
-		# populate_follower_tweet_hashtags
 	end
 
 	def self.initialize_user user_id
@@ -59,12 +57,6 @@ class TwitterApi < ActiveRecord::Base
 				end
 			end
 		end
-	end
-
-	def self.populate_user_tweet_hashtags user
-	end
-
-	def self.populate_follower_tweet_hashtags user
 	end
 
 	def self.populate_followers user
