@@ -22,6 +22,18 @@ describe "user filters dashboard",
     click_link 'Sign in with Twitter'
   end
 
+  context 'user selects thier own user tweets' do
+  	it  "user selects 'Me' tab" do
+	  	expect(page).to have_content('Me')
+	  	click_link('Me')
+	  end
+
+  end
+
+  context 'user selects their followers tweets' do
+
+  end
+
 	context "user filters by emotion" do
 
 		it "user views tweets with emotion 'joy' "

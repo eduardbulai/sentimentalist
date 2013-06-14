@@ -20,9 +20,13 @@ describe "user tweets from dashboard",
 	  end
 
 	  it "dashboard contains a button for tweets posts" do
-	  	expect(page).to have_content("Post to Twitter")
+	  	expect(page).to have_content("Post To Twitter")
 	  end
 
-	  it "user receieves a flash message after having tweeted"
-
+	  it "user receieves a flash message after having tweeted" do
+	  	click_link 'Post To Twitter'
+	  	fill_in '[tweet]', :with => '...'
+	  	click_button('Post Your Tweet')
+	  	expect(page).to have_content('Your Tweet has been Posted')
+	  end
 end

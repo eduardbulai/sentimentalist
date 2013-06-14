@@ -41,7 +41,7 @@ describe "user views default dashboard",
 
   it "user sees 'post to twitter' button on home dashboard" do
     expect(page).to have_selector('#post_to_twitter_modal')
-    expect(page).to have_content('Post to Twitter')
+    expect(page).to have_content('Post To Twitter')
     expect(page).to have_selector('form')
   end
 
