@@ -2,6 +2,7 @@ class DashboardController < ApplicationController
 	def index
 
 		@followers = current_user.followers
+    @user_tweets = current_user.user_tweets
 
 		respond_to do |format|
       format.html
