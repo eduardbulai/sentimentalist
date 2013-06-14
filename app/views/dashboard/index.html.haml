@@ -18,17 +18,18 @@
         = render '_dashboard_emotions_navbar'
 
       .row
-        %ul{"class" => "nav nav-tabs", "id" => 'user_followers_tab'}
-          %li{"class" => "active"}
-            %a{"href" => "#follower_tweets", "data-toggle" => "tab"}My Followers
-          %li
-            %a{"href" => "#user_tweets", "data-toggle" => "tab"}Me
+        .filter.option-set{:datafiltergroup => "user_followers_tab"}
+          %ul{"class" => "nav nav-tabs", "id" => 'user_followers_tab'}
+            %li{"class" => "active"}
+              %a{"href" => "#", "data-toggle" => "tab", "href" => "#", "datafilter" => ".followers"}My Followers
+            %li
+              %a{"href" => "#", "data-toggle" => "tab", "href" => "#", "datafilter" => ".user"}Me
 
 
       .row
         %div#iconfield
           - @followers.each do |follower|
-            %div(class = "emot emotion-#{follower.emotion_week} week")
+            %div(class = "emot emotion-#{follower.emotion_week} week followers")
               %div.span2
                 %div.emotion-icon
                   %dl(class = "palette palette-#{follower.emotion_week}")
@@ -37,7 +38,7 @@
                       %dd Other
                     -else
                       %dd= follower.emotion_week
-            %div(class = "emot emotion-#{follower.emotion_month} month")
+            %div(class = "emot emotion-#{follower.emotion_month} month followers")
               %div.span2
                 %div.emotion-icon
                   %dl(class = "palette palette-#{follower.emotion_month}")
@@ -46,7 +47,7 @@
                       %dd Other
                     -else
                       %dd= follower.emotion_month
-            %div(class = "emot emotion-#{follower.emotion_year} year")
+            %div(class = "emot emotion-#{follower.emotion_year} year followers")
               %div.span2
                 %div.emotion-icon
                   %dl(class = "palette palette-#{follower.emotion_year}")
@@ -55,6 +56,15 @@
                       %dd Other
                     -else
                     %dd= follower.emotion_year
+          - @user_tweets.each do |tweet|
+            %div(class = "emot emotion-#{tweet.emotion} week user")
+              %div.span2
+                %div.emotion-icon
+                  %dl(class = "palette palette-#{tweet.emotion}")
+                    -if tweet.emotion == "uncertain"
+                      %dd Other
+                    -else
+                      %dd= tweet.emotion
 
 
 = render 'post_to_twitter_modal'
