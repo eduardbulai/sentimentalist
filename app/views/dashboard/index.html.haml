@@ -23,8 +23,8 @@
       %a.btn.btn-large.btn-block.btn-inverse{"href" => "#post_to_twitter_modal", "data-toggle" => "modal", "role" => "button", "name" => "post_to_twitter", "class" => "btn"}Post To Twitter
     %div.span9.dashboard-filter
       .filter.option-set{:datafiltergroup => "category"}
-        %div.btn-group
-          %a{"class" => "btn btn-large btn primary specialspan2", :href => "#", :datafilter =>""} All
+        %div.btn-group{"data-toggle" => "buttons-radio"}
+          %a{"class" => "btn btn-large btn primary specialspan2 active", :href => "#", :datafilter =>""} All
           %a{"class" => "btn btn-large btn primary specialspan1", :href => "#", :datafilter => ".emotion-joy"}Joy
           %a{"class" => "btn btn-large btn primary specialspan1",:href => "#", :datafilter => ".emotion-anger"}Anger
           %a{"class" => "btn btn-large btn primary specialspan1",:href => "#", :datafilter => ".emotion-sadness"}Sadness
@@ -35,8 +35,8 @@
         .row
           %div{"class" => "span9"}
             .filter.option-set{:datafiltergroup => "timefilter"}
-              %div.btn-group
-                %a{"class" => "btn btn-large btn primary specialspan3", :href => "#", :datafilter => ".week"}
+              %div.btn-group{"data-toggle" => "buttons-radio"}
+                %a{"class" => "btn btn-large btn primary specialspan3 active", :href => "#", :datafilter => ".week"}
                   Week
                 %a{"class" => "btn btn-large btn primary specialspan3", :href => "#", :datafilter => ".month"}
                   Month
@@ -45,8 +45,8 @@
         .row
           %div{"class" => "span9"}
             .filter.option-set{:datafiltergroup => "user_followers_tab"}
-              %div.btn-group
-                %a{"class" => "btn btn-large btn primary specialspan5","href" => "#", "data-toggle" => "tab", "href" => "#", "datafilter" => ".followers"}My Followers
+              %div.btn-group{"data-toggle" => "buttons-radio"}
+                %a{"class" => "btn btn-large btn primary specialspan5 active","href" => "#", "data-toggle" => "tab", "href" => "#", "datafilter" => ".followers"}My Followers
                 %a{"class" => "btn btn-large btn primary specialspan4","href" => "#", "data-toggle" => "tab", "href" => "#", "datafilter" => ".user"}Me
 
         .row
