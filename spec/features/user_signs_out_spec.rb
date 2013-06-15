@@ -7,7 +7,7 @@ require 'spec_helper'
 	# - When a user clicks the logout button, their session ends
 	# - When a user clicks the logout button, they are redirected to the welcome page
 
-describe "user signs out",
+feature "user signs out",
 	authentication: true,
   vcr: {cassette_name: 'twitter/auth'} do
 

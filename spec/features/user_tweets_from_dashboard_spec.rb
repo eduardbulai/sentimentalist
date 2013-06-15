@@ -8,7 +8,7 @@ require 'spec_helper'
 # - Below the text field, there is a submit button that, if clicked, submits text written in the text field to twitter and it appears on their twitter profile as a tweet
 
 
-describe "user tweets from dashboard",
+feature "user tweets from dashboard",
 	  authentication: true,
 	  vcr: {cassette_name: 'twitter/auth'} do
 

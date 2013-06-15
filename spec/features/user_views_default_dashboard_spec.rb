@@ -7,7 +7,7 @@ require 'spec_helper'
 # 	- When a user arrives on their homepage, they see a dashboard populated by icons
 # displaying their followers’ emotional statuses
 
-describe "user views default dashboard",
+feature "user views default dashboard",
   authentication: true,
   vcr: {cassette_name: 'twitter/auth'} do
 
@@ -22,7 +22,6 @@ describe "user views default dashboard",
   	expect(page).to have_content('Week')
   	expect(page).to have_content('Month')
   	expect(page).to have_content('Year')
-    # end
   end
 
   it "user sees top navbar showing filters for 'Followers', 'Me' " do

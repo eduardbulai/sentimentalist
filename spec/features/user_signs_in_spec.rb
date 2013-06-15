@@ -7,7 +7,7 @@ require 'spec_helper'
 # 	- When a returning user clicks on the sign in” button, they are taken through to their
 # homepage
 
-describe "user signs in",
+feature "user signs in",
   authentication: true,
   vcr: {cassette_name: 'twitter/auth'} do
 

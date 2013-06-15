@@ -11,7 +11,7 @@ require 'spec_helper'
 
 ## THIS NEEDS POLTERGEIST TO BE TESTED!!!
 
-describe "user filters dashboard",
+feature "user filters dashboard",
 	authentication: true,
   vcr: {cassette_name: 'twitter/auth'} do
 

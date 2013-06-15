@@ -8,14 +8,15 @@
   <% yield(:head) %>
 </head>
 <body>
-	<div id="user_nav">
-			<%= render "sign_in_sign_out" %>
-	</div>
 
 <%= flash[:alert] %>
 <%= flash[:notice] %>
 <%= flash[:error] %>
 <%= yield %>
+
+<div id="user_nav">
+	<%= render "sign_in_sign_out" %>
+</div>
 
 </body>
 </html>

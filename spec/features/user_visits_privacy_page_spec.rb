@@ -8,7 +8,7 @@ require 'spec_helper'
  	#              privacy policy
 
 
-describe "user visits privacy page" do
+feature "user visits privacy page" do
 
 	it "user arrives at privacy page from welcome page" do
 		visit root_url

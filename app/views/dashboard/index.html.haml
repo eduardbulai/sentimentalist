@@ -1,78 +1,94 @@
-%h1 Listing emotions
+.row#header
+  %div.span2.header-chunk-large
+    %dl(class = "palette palette-header1")
+      %h1#app-logo Sentimentalist
+  %div.span2.header-chunk-small
+    %dl(class = "palette palette-header2")
+  %div.span2.header-chunk-small
+    %dl(class = "palette palette-header3")
+  %div.span2.header-chunk-small
+    %dl(class = "palette palette-header4")
+  %div.span2.header-chunk-small
+    %dl(class = "palette palette-header5")
+  %div.span2.header-chunk-small
+    %dl(class = "palette palette-header6")
 
-.navbar.navbar-inverse
-  .navbar-inner
+
+
+.row
+  %div.span3
+    %a.btn.btn-large.btn-block.btn-inverse{"href" => "#post_to_twitter_modal", "data-toggle" => "modal", "role" => "button", "name" => "post_to_twitter", "class" => "btn"}Post To Twitter
+  %div.span9
+    .filter.option-set{:datafiltergroup => "category"}
+      %div.btn-group.span9
+        %a{"class" => "btn btn-large btn primary span2", :href => "#", :datafilter =>""} All
+        %a{"class" => "btn btn-large btn primary span1", :href => "#", :datafilter => ".emotion-joy"}Joy
+        %a{"class" => "btn btn-large btn primary span1",:href => "#", :datafilter => ".emotion-anger"}Anger
+        %a{"class" => "btn btn-large btn primary span1",:href => "#", :datafilter => ".emotion-sadness"}Sadness
+        %a{"class" => "btn btn-large btn primary span1",:href => "#", :datafilter => ".emotion-surprise"}Surprise
+        %a{"class" => "btn btn-large btn primary span1",:href => "#", :datafilter => ".emotion-disgust"}Disgust
+        %a{"class" => "btn btn-large btn primary span1",:href => "#", :datafilter => ".emotion-uncertain"}Other
 
 .container
-  .row
-    = render 'dashboard_timeframes_navbar'
-  .row
-    .span3
-      %a.btn.btn-large.btn-block.btn-inverse{"href" => "#post_to_twitter_modal", "data-toggle" => "modal", "role" => "button", "name" => "post_to_twitter", "class" => "btn"}
-        Post To Twitter
+.row
+  %div{"class" => "span9 offset3"}
+    .filter.option-set{:datafiltergroup => "timefilter"}
+      %div.btn-group
+        %a{"class" => "btn btn-large btn primary span3", :href => "#", :datafilter => ".week"}
+          Week
+        %a{"class" => "btn btn-large btn primary span3", :href => "#", :datafilter => ".month"}
+          Month
+        %a{"class" => "btn btn-large btn primary span3", :href => "#", :datafilter => ".year"}
+          Year
+.row
+  %div{"class" => "span9 offset3"}
+    .filter.option-set{:datafiltergroup => "user_followers_tab"}
+      %div.btn-group
+        %a{"class" => "btn btn-large btn primary span5","href" => "#", "data-toggle" => "tab", "href" => "#", "datafilter" => ".followers"}My Followers
+        %a{"class" => "btn btn-large btn primary span4","href" => "#", "data-toggle" => "tab", "href" => "#", "datafilter" => ".user"}Me
 
-
-
-    .span9
-      .row
-        = render '_dashboard_emotions_navbar'
-
-      .row
-        .filter.option-set{:datafiltergroup => "user_followers_tab"}
-          %ul{"class" => "nav nav-tabs", "id" => 'user_followers_tab'}
-            %li{"class" => "active"}
-              %a{"href" => "#", "data-toggle" => "tab", "href" => "#", "datafilter" => ".followers"}My Followers
-            %li
-              %a{"href" => "#", "data-toggle" => "tab", "href" => "#", "datafilter" => ".user"}Me
-
-
-      .row
-        %div#iconfield
-          - @followers.each do |follower|
-            %div(class = "emot emotion-#{follower.emotion_week} week followers")
-              %div.span2
-                %div.emotion-icon
-                  %dl(class = "palette palette-#{follower.emotion_week}")
-                    %dt= follower.name
-                    -if follower.emotion_week == "uncertain"
-                      %dd Other
-                    -else
-                      %dd= follower.emotion_week
-            %div(class = "emot emotion-#{follower.emotion_month} month followers")
-              %div.span2
-                %div.emotion-icon
-                  %dl(class = "palette palette-#{follower.emotion_month}")
-                    %dt= follower.name
-                    -if follower.emotion_month == "uncertain"
-                      %dd Other
-                    -else
-                      %dd= follower.emotion_month
-            %div(class = "emot emotion-#{follower.emotion_year} year followers")
-              %div.span2
-                %div.emotion-icon
-                  %dl(class = "palette palette-#{follower.emotion_year}")
-                    %dt= follower.name
-                    -if follower.emotion_year == "uncertain"
-                      %dd Other
-                    -else
-                    %dd= follower.emotion_year
-          - @user_tweets.each do |tweet|
-            %div(class = "emot emotion-#{tweet.emotion} week user")
-              %div.span2
-                %div.emotion-icon
-                  %dl(class = "palette palette-#{tweet.emotion}")
-                    -if tweet.emotion == "uncertain"
-                      %dd Other
-                    -else
-                      %dd= tweet.emotion
+.row
+  %div.span9
+    %div#iconfield{"class" => "span9 offset3"}
+      - @followers.each do |follower|
+        %div(class = "emot emotion-#{follower.emotion_week} week followers")
+          %div.span2
+            %div.emotion-icon
+              %dl(class = "palette palette-#{follower.emotion_week}")
+                %dt= follower.name
+                -if follower.emotion_week == "uncertain"
+                  %dd Other
+                -else
+                  %dd= follower.emotion_week
+        %div(class = "emot emotion-#{follower.emotion_month} month followers")
+          %div.span2
+            %div.emotion-icon
+              %dl(class = "palette palette-#{follower.emotion_month}")
+                %dt= follower.name
+                -if follower.emotion_month == "uncertain"
+                  %dd Other
+                -else
+                  %dd= follower.emotion_month
+        %div(class = "emot emotion-#{follower.emotion_year} year followers")
+          %div.span2
+            %div.emotion-icon
+              %dl(class = "palette palette-#{follower.emotion_year}")
+                %dt= follower.name
+                -if follower.emotion_year == "uncertain"
+                  %dd Other
+                -else
+                %dd= follower.emotion_year
+      - @user_tweets.each do |tweet|
+        %div(class = "emot emotion-#{tweet.emotion} week user")
+          %div.span2
+            %div.emotion-icon
+              %dl(class = "palette palette-#{tweet.emotion}")
+                -if tweet.emotion == "uncertain"
+                  %dd Other
+                -else
+                  %dd= tweet.emotion
 
 
 = render 'post_to_twitter_modal'
 
 = render 'isotope'
-
-
-:javascript
-  $(function () {
-    $('#user_followers_tab a:last').tab('show');
-  })

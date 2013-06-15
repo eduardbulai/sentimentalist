@@ -1,5 +1,9 @@
 
 
+body {
+  padding: 0 !important;
+}
+
 .dashboard-nav {
 	> li {
 		display: inline-block;
@@ -52,4 +56,87 @@
 
 .palette-fear {
   background-color: #34495e;
+}
+
+
+.btn.btn-joy {
+  background-color: #f1c40f;
+}
+
+.btn.btn-anger {
+  background-color: #c0392b;
+}
+
+.btn.btn-sadness {
+  background-color: #9b59b6;
+}
+
+.btn.btn-surprise {
+  background-color: #1abc9c;
+}
+
+.btn.btn-disgust {
+  background-color: #d35400;
+}
+
+.btn.btn-uncertain {
+  background-color: #bdc3c7;
+}
+
+.btn.btn-fear {
+  background-color: #34495e;
+}
+
+.btn-group {
+  margin-bottom: 10px;
+}
+
+.header-chunk-large {
+  margin-left: 0 !important;
+  width: 50% !important;
+}
+
+.header-chunk-small {
+  margin-left: 0 !important;
+  width: 10% !important;
+}
+
+.palette-header1 {
+  background-color: #ecf0f1;
+  height: 90px;
+}
+
+.palette-header2 {
+  background-color: #bdc3c7;
+  height: 90px;
+}
+
+.palette-header3 {
+  background-color: #95a5a6;
+  height: 90px;
+}
+
+.palette-header4 {
+  background-color: #7f8c8d;
+  height: 90px;
+}
+
+.palette-header5 {
+  background-color: #2c3e50;
+  height: 90px;
+}
+
+.palette-header6 {
+  background-color: #34495e;
+  height: 90px;
+}
+
+#header {
+  margin-bottom: 50px;
+}
+
+#app-logo {
+  font-size: 69px;
+  color: #34495e;
+  text-align: center;
 }

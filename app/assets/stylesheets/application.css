@@ -12,4 +12,5 @@
  *= require vendor/flat-ui.css.scss
  *= require_self
  *= require_tree .
+ *= require bootstrap-responsive.css
  */
