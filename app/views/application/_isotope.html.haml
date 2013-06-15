@@ -7,9 +7,9 @@
 
   function init() {
       var things = $('#iconfield');
-      filters = {timefilter: ".week"};
+      filters = {timefilter: ".week", user_followers_tab: ".followers"};
 
-      things.isotope({ filter: '.week' });
+      things.isotope({ filter: '.week.followers' });
 
       things.isotope({
           itemSelector : '.emot'

@@ -4,11 +4,20 @@ body {
   padding: 0 !important;
 }
 
+
 .dashboard-nav {
 	> li {
 		display: inline-block;
 		margin: 15px;
 	}
+}
+
+.user-profile-name {
+  font-size: 40px;
+}
+
+.user-profile-emotion {
+  font-size: 30px;
 }
 
 .emotion-icon {
@@ -58,6 +67,22 @@ body {
   background-color: #34495e;
 }
 
+.palette-user-profile {
+  color: #ffffff;
+  margin-bottom: 7px;
+  padding: 15px;
+  text-transform: uppercase;
+  height: 120px;
+  width: 120;
+}
+
+.palette-user-profile-emotion dt {
+  word-wrap: break-word;
+  display: block;
+  font-weight: 500;
+  opacity: 0.8;
+  filter: alpha(opacity=80);
+}
 
 .btn.btn-joy {
   background-color: #f1c40f;
@@ -139,4 +164,28 @@ body {
   font-size: 69px;
   color: #34495e;
   text-align: center;
+}
+
+.specialspan1 {
+  width: 88px !important;
+}
+
+.specialspan2 {
+  width: 188px !important;
+}
+
+.specialspan3 {
+  width: 288px !important;
+}
+
+.specialspan4 {
+  width: 388px !important;
+}
+
+.specialspan5 {
+  width: 488px !important;
+}
+
+.btn.btn-large {
+  padding: 8px 6px 8px;
 }
