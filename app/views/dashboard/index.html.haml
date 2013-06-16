@@ -17,9 +17,16 @@
 .container
   .row
     %div.span3
-      %dl(class = "palette-user-profile palette-#{current_user.emotion_week}")
-        %dt.user-profile-emotion= current_user.emotion_week
-      .row
+      %div.iconfield
+        %div(class = "emot emotion-joy emotion-anger emotion-sadness emotion-surprise emotion-disgust emotion-uncertain week followers user")
+          %dl(class = "palette-user-profile palette-#{current_user.emotion_week}")
+            %dt.user-profile-emotion= current_user.emotion_week
+        %div(class = "emot emotion-joy emotion-anger emotion-sadness emotion-surprise emotion-disgust emotion-uncertain month followers user")
+          %dl(class = "palette-user-profile palette-#{current_user.emotion_month} followers user")
+            %dt.user-profile-emotion= current_user.emotion_month
+        %div(class = "emot emotion-joy emotion-anger emotion-sadness emotion-surprise emotion-disgust emotion-uncertain year followers user")
+          %dl(class = "palette-user-profile palette-#{current_user.emotion_year} followers user")
+            %dt.user-profile-emotion= current_user.emotion_year
       %a.btn.btn-large.btn-block.btn-inverse{"href" => "#post_to_twitter_modal", "data-toggle" => "modal", "role" => "button", "name" => "post_to_twitter", "class" => "btn"}Post To Twitter
     %div.span9.dashboard-filter
       .filter.option-set{:datafiltergroup => "category"}
@@ -30,7 +37,7 @@
           %a{"class" => "btn btn-large btn primary specialspan1",:href => "#", :datafilter => ".emotion-sadness"}Sadness
           %a{"class" => "btn btn-large btn primary specialspan1",:href => "#", :datafilter => ".emotion-surprise"}Surprise
           %a{"class" => "btn btn-large btn primary specialspan1",:href => "#", :datafilter => ".emotion-disgust"}Disgust
-          %a{"class" => "btn btn-large btn primary specialspan2",:href => "#", :datafilter => ".emotion-uncertain"}Other
+          %a{"class" => "btn btn-large btn primary specialspan2",:href => "#", :datafilter => ".emotion-uncertain"}Ambiguous
 
         .row
           %div{"class" => "span9"}
@@ -51,7 +58,7 @@
 
         .row
           %div.span9
-            %div#iconfield{"class" => "span9"}
+            %div.iconfield{"class" => "span9"}
               - @followers.each do |follower|
                 %div(class = "emot emotion-#{follower.emotion_week} week followers")
                   %div.span2
@@ -59,7 +66,7 @@
                       %dl(class = "palette palette-#{follower.emotion_week}")
                         %dt= follower.name
                         -if follower.emotion_week == "uncertain"
-                          %dd Other
+                          %dd Ambiguous
                         -else
                           %dd= follower.emotion_week
                 %div(class = "emot emotion-#{follower.emotion_month} month followers")
@@ -68,7 +75,7 @@
                       %dl(class = "palette palette-#{follower.emotion_month}")
                         %dt= follower.name
                         -if follower.emotion_month == "uncertain"
-                          %dd Other
+                          %dd Ambiguous
                         -else
                           %dd= follower.emotion_month
                 %div(class = "emot emotion-#{follower.emotion_year} year followers")
@@ -77,18 +84,20 @@
                       %dl(class = "palette palette-#{follower.emotion_year}")
                         %dt= follower.name
                         -if follower.emotion_year == "uncertain"
-                          %dd Other
+                          %dd Ambiguous
                         -else
-                        %dd= follower.emotion_year
+                          %dd= follower.emotion_year
               - @user_tweets.each do |tweet|
                 %div(class = "emot emotion-#{tweet.emotion} week user")
                   %div.span2
                     %div.emotion-icon
                       %dl(class = "palette palette-#{tweet.emotion}")
                         -if tweet.emotion == "uncertain"
-                          %dd Other
+                          %dd Ambiguous
                         -else
                           %dd= tweet.emotion
+
+
 
 
 = render 'post_to_twitter_modal'
