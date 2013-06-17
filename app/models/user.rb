@@ -3,6 +3,7 @@ class User < ActiveRecord::Base
 
   has_many :user_tweets, dependent: :destroy
   has_many :followers, dependent: :destroy
+  has_one :machine_learner, foreign_key: :user_id, dependent: :destroy
 
 	def tweeter
 	  @tweeter ||= Twitter::Client.new(oauth_token: self.oauth_token, oauth_token_secret: self.oauth_secret)

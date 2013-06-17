@@ -1,8 +1,8 @@
 class Follower < ActiveRecord::Base
   attr_accessible :name, :location, :twitter_handle, :user_id, :twitter_id, :emotion_week, :emotion_month, :emotion_year, :polarity_week, :polarity_month, :polarity_year
 
-  has_many :follower_tweets, :foreign_key => :follower_id, :dependent => :destroy
-  belongs_to :user, :inverse_of => :followers
+  has_many :follower_tweets, foreign_key: :follower_id, dependent: :destroy
+  belongs_to :user, inverse_of: :followers
 
   validates_presence_of :name
   validates_presence_of :twitter_handle
