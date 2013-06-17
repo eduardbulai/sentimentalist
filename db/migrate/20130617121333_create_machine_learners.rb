@@ -5,8 +5,8 @@ class CreateMachineLearners < ActiveRecord::Migration
       t.string :name
       t.string :wcount
       t.string :ccount
-      t.string :ignore_words
-      t.string :storage
+      t.text :ignore_words
+      t.integer :user_id
 
       t.timestamps
     end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130612202441) do
+ActiveRecord::Schema.define(:version => 20130617121333) do
 
   create_table "follower_tweet_hashtags", :force => true do |t|
     t.string   "tag"
@@ -43,6 +43,17 @@ ActiveRecord::Schema.define(:version => 20130612202441) do
     t.string   "polarity_year"
     t.datetime "created_at",     :null => false
     t.datetime "updated_at",     :null => false
+  end
+
+  create_table "machine_learners", :force => true do |t|
+    t.boolean  "stemming"
+    t.string   "name"
+    t.string   "wcount"
+    t.string   "ccount"
+    t.text     "ignore_words"
+    t.integer  "user_id"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
   end
 
   create_table "user_tweet_hashtags", :force => true do |t|
