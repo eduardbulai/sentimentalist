@@ -10,6 +10,10 @@ FactoryGirl.define do
   	"name#{n}"
   end
 
+  factory :machine_learner do
+
+  end
+
 	factory :follower_tweet do
 		text { generate(:tweet) }
 		datetime_tweeted "2001-06-03 02:06:41"
@@ -58,9 +62,10 @@ FactoryGirl.define do
     polarity_year '5.0'
     created_at "2013-06-04 23:07:31"
     updated_at "2013-06-09 23:07:31"
-    factory :user_with_followers do
+    factory :user_with_followers_and_machine_learner do
       after(:create) {|instance| create_list(:follower_with_tweets, 5, user: instance) }
       after(:create) {|instance| create_list(:user_tweet, 5, user: instance) }
+      after(:create) {|instance| create(:machine_learner, user: instance) }
     end
   end
 end
