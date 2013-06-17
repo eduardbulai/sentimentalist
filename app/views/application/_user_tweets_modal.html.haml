@@ -1,0 +1,6 @@
+- @user_tweets.each do |tweet|
+  %div{"id" => "evaluate_user_tweet_modal#{tweet.id}", "class" => "modal hide fade", "tabindex" => "-1", "role" => "dialog", "aria-labelledby" => "myModalLabel", "aria-hidden" => "true"}
+    %div{'class' => 'modal-header'}Here's Your Tweet
+    %div{'class' => 'modal-body'}=tweet.text
+    %div{'class' => 'modal-footer'}
+      %button{'class' => 'btn'} Close
