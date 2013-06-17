@@ -4,14 +4,6 @@ body {
   padding: 0 !important;
 }
 
-
-.dashboard-nav {
-	> li {
-		display: inline-block;
-		margin: 15px;
-	}
-}
-
 .user-profile-name {
   font-size: 40px;
 }
@@ -192,5 +184,11 @@ body {
   padding: 8px 6px 8px;
 }
 
+.modal-body {
+  font-size: 1.5em;
+}
 
+.modal-header {
+  font-size: 1.1em;
+}
 
