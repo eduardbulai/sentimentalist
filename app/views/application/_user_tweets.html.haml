@@ -1,0 +1,18 @@
+- @user_tweets.each do |tweet|
+  %div(class = "emot emotion-#{tweet.emotion} week user")
+    %div.span2
+      %div.emotion-icon
+        %a{"href" => "#evaluate_user_tweet_modal", "data-toggle" => "modal", "role" => "button", "name" => "evaluate_user_tweet"}
+          %dl(class = "palette palette-#{tweet.emotion}")
+            -if tweet.emotion == "uncertain"
+              %dd Ambiguous
+            -else
+              %dd= tweet.emotion
+  %div(class = "emot emotion-#{tweet.emotion} month user")We don't store tweets older than 1 week
+  %div(class = "emot emotion-#{tweet.emotion} year user")We don't store tweets older than 1 week
+
+%div#evaluate_user_tweet_modal{"class" => "modal hide fade", "tabindex" => "-1", "role" => "dialog", "aria-labelledby" => "myModalLabel", "aria-hidden" => "true"}
+  %div{'class' => 'modal-header'}Here's Your Tweet
+  %div{'class' => 'modal-body'}tweet.text
+  %div{'class' => 'modal-footer'}
+    %button{'class' => 'btn'} Close

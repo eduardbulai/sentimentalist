@@ -1,0 +1,20 @@
+%div.span3
+      %div.iconfield
+        %div(class = "emot emotion-joy emotion-anger emotion-sadness emotion-surprise emotion-disgust emotion-uncertain week followers user")
+          %dl(class = "palette-user-profile palette-#{current_user.emotion_week}")
+            -if current_user.emotion_week == "uncertain"
+              %dt.user-profile-emotion Ambiguous
+            -else
+              %dt.user-profile-emotion=current_user.emotion_week
+        %div(class = "emot emotion-joy emotion-anger emotion-sadness emotion-surprise emotion-disgust emotion-uncertain month followers user")
+          %dl(class = "palette-user-profile palette-#{current_user.emotion_month} followers user")
+            -if current_user.emotion_month == "uncertain"
+              %dt.user-profile-emotion Ambiguous
+            -else
+              %dt.user-profile-emotion=current_user.emotion_month
+        %div(class = "emot emotion-joy emotion-anger emotion-sadness emotion-surprise emotion-disgust emotion-uncertain year followers user")
+          %dl(class = "palette-user-profile palette-#{current_user.emotion_year} followers user")
+            -if current_user.emotion_year == "uncertain"
+              %dt.user-profile-emotion Ambiguous
+            -else
+              %dt.user-profile-emotion=current_user.emotion_year
