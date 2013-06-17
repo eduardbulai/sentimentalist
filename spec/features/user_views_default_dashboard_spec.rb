@@ -19,23 +19,29 @@ feature "user views default dashboard",
   end
 
   it "user sees a sidebar listing several time filters" do
-  	expect(page).to have_content('Week')
-  	expect(page).to have_content('Month')
-  	expect(page).to have_content('Year')
+    within("#timeframes-filter") do
+    	expect(page).to have_content('Week')
+    	expect(page).to have_content('Month')
+    	expect(page).to have_content('Year')
+    end
   end
 
   it "user sees top navbar showing filters for 'Followers', 'Me' " do
-  	expect(page).to have_content("Followers")
-  	expect(page).to have_content("Me")
+    within("#user-followers-filter") do
+    	expect(page).to have_content("Followers")
+    	expect(page).to have_content("Me")
+    end
   end
 
   it "user sees filter tabs for each emotion" do
-  	expect(page).to have_content('Joy')
-  	expect(page).to have_content('Sadness')
-    expect(page).to have_content('Anger')
-    expect(page).to have_content('Surprise')
-    expect(page).to have_content('Other')
-    expect(page).to have_content('Disgust')
+    within("#emotions-filter") do
+      expect(page).to have_content('Joy')
+      expect(page).to have_content('Sadness')
+      expect(page).to have_content('Anger')
+      expect(page).to have_content('Surprise')
+      expect(page).to have_content('Ambiguous')
+      expect(page).to have_content('Disgust')
+    end
   end
 
   it "user sees 'post to twitter' button on home dashboard" do
@@ -45,7 +51,7 @@ feature "user views default dashboard",
   end
 
   it "user sees a dashboard populated by icons displaying their followers emotional statuses" do
-    expect(page).to have_selector('#iconfield')
+    expect(page).to have_selector('.iconfield')
     expect(page).to have_selector('.emot')
   end
 

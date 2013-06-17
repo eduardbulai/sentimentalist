@@ -22,6 +22,8 @@ FactoryGirl.define do
 		text { generate(:tweet) }
 		datetime_tweeted "2011-06-03 02:06:41"
 		tweet_id "341375354683936768"
+    emotion "joy"
+    polarity 8
 		created_at "2013-06-05 23:07:31"
     updated_at "2013-06-05 23:07:31"
 	end

@@ -15,7 +15,7 @@ feature "user filters dashboard",
 	authentication: true,
   vcr: {cassette_name: 'twitter/auth'} do
 
-  before(:each) do
+  before do
     @user = FactoryGirl.create(:user_with_followers)
     stub_auth_response(@user, :twitter)
     visit root_path
@@ -23,10 +23,11 @@ feature "user filters dashboard",
   end
 
   context 'user selects thier own user tweets' do
-  	it  "user selects 'Me' tab" do
-	  	expect(page).to have_content('Me')
-	  	click_link('Me')
-	  end
+  	it  "user selects 'Me' tab"
+	  # 	click_link('Me')
+	  # 	save_and_open_page
+	  # 	expect(page).to have_selector(".user")
+	  # end
 
   end
 
