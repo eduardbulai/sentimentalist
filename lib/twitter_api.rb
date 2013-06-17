@@ -6,9 +6,9 @@ class TwitterApi < ActiveRecord::Base
 		populate_user_tweets user
 		populate_followers user
 		populate_follower_tweets user
-		initialize_user user
 		initialize_user user.id
 		user.followers.each {|follower| initialize_follower follower.id}
+		initialize_machine_learner(user)
 	end
 
 	def self.initialize_user user_id
@@ -27,6 +27,12 @@ class TwitterApi < ActiveRecord::Base
 			user.polarity_year = user.polarity_for_timeframe "year"
 			user.save!
 		end
+	end
+
+	def self.initialize_machine_learner user
+		user.machine_learner.create!(
+			user_id: user.id
+			)
 	end
 
 	def self.initialize_follower follower_id
