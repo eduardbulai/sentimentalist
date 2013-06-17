@@ -30,9 +30,8 @@ class TwitterApi < ActiveRecord::Base
 	end
 
 	def self.initialize_machine_learner user
-		user.machine_learner.create!(
-			user_id: user.id
-			)
+		machine_learner = user.build_machine_learner
+		machine_learner.save!
 	end
 
 	def self.initialize_follower follower_id
