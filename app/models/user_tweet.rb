@@ -3,6 +3,6 @@ class UserTweet < ActiveRecord::Base
 
   belongs_to :user, inverse_of: :user_tweets
 
-  validates_presence_of :datetime_tweeted, :text, :user_id, :tweet_id
+  validates_presence_of :datetime_tweeted, :text, :user_id, :tweet_id, :emotion, :polarity
 
 end
