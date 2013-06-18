@@ -82,3 +82,5 @@ gem 'resque-mock'
 gem 'simple_form'
 
 gem "stuff-classifier", "~> 0.5"
+
+gem 'shoulda-matchers'
