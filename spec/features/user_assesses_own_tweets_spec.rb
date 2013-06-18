@@ -14,7 +14,8 @@ feature 'user assesses own tweets',
   	visit root_path
     click_link 'Sign in with Twitter'
   	click_link('Me')
-  	@tweets = user.user_tweets
+  	@tweets = @user.user_tweets
+    @tweet_id = @tweets.first.id
   end
 
   describe 'page contains emotion icons for each of the emotions in thier user_tweets' do
@@ -29,14 +30,42 @@ feature 'user assesses own tweets',
 
   describe "page contains buttons for tweet assessment" do
 
+    it 'page contains modal with tweet text' do
+
+      @tweets.each do |tweet|
+
+        expect(page).to have_content(tweet.text)
+
+      end
+
+    end
+
+    it 'page contains modal with buttons corresponding to each possible emotion' do
+
+      within("#evaluate_user_tweet_modal#{@tweet_id}") do
+        expect(page).to have_selector("a[href='#']")
+        expect(page).to have_content("Joy")
+        expect(page).to have_content("Surprise")
+        expect(page).to have_content("Disgust")
+        expect(page).to have_content("Fear")
+        expect(page).to have_content("Anger")
+        expect(page).to have_content("Ambiguous")
+      end
+
+    end
+
   end
 
 
-	scenario 'user approves of original classification' do
+	describe 'user approves of original classification' do
+
+    it "user's classification confirms SadPanda classification"
 
 	end
 
-	scenario 'user chooses alternate classification' do
+	describe 'user chooses alternate classification' do
+
+    it "user's classification contradicts SadPanda classification"
 
 	end
 
