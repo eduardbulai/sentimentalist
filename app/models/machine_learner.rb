@@ -6,6 +6,10 @@ class MachineLearner < ActiveRecord::Base
 
   belongs_to :user, inverse_of: :machine_learner
 
+  validates_presence_of :name,
+    :ignore_words,
+    :stemming
+
   before_create do |machine_learner|
   	machine_learner.name = "joy or anger or fear or disgust or surprise or uncertain"
   	machine_learner.ignore_words = Stopwords.stopwords
