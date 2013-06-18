@@ -5,6 +5,20 @@ class User < ActiveRecord::Base
   has_many :followers, dependent: :destroy
   has_one :machine_learner, foreign_key: :user_id, dependent: :destroy
 
+  validates_presence_of :name,
+    :twitter_handle,
+    :provider,
+    :uid,
+    :oauth_token,
+    :oauth_secret,
+    :emotion_week,
+    :emotion_month,
+    :emotion_year,
+    :polarity_week,
+    :polarity_month,
+    :polarity_year
+
+
 	def tweeter
 	  @tweeter ||= Twitter::Client.new(oauth_token: self.oauth_token, oauth_token_secret: self.oauth_secret)
 	end
