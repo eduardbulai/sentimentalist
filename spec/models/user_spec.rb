@@ -57,7 +57,7 @@ describe User do
 		it 'calls polarity_for_timeframe' do
 
 			['week', 'month', 'year'].each do |timeframe|
-				output = polarity_for_timeframe(timeframe)
+				output = user.polarity_for_timeframe(timeframe)
 				expect(0..10).to include(output)
 			end
 
@@ -66,15 +66,13 @@ describe User do
 		it "calls emotion_for_timeframe" do
 
 		  ['week', 'month', 'year'].each do |timeframe|
-				output = polarity_for_timeframe(timeframe)
+				output = user.emotion_for_timeframe(timeframe)
 				possibilities = %q{joy disgust anger uncertain surprise sadness fear}
 
 				expect(possibilities).to include(output)
 			end
 
 		end
-
-		it 'gets emotion for timeframe'
 
 	end
 
