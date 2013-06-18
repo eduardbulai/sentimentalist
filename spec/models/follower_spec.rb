@@ -2,6 +2,9 @@ require 'spec_helper'
 
 describe Follower do
 
+	let!(:user) { FactoryGirl.create(:user_with_followers_and_machine_learner) }
+	let(:follower) { user.followers.first }
+
   context "associations" do
 
   	it { should belong_to(:user) }
@@ -21,6 +24,32 @@ describe Follower do
     it { should validate_presence_of(:polarity_week) }
     it { should validate_presence_of(:polarity_month) }
     it { should validate_presence_of(:polarity_year) }
+
+  end
+
+  context "instance methods" do
+
+    it "calls emotion_for_timeframe" do
+
+    	possibilities = %q{joy disgust anger uncertain surprise sadness fear}
+
+    	 ['week', 'month', 'year'].each do |timeframe|
+				output = follower.emotion_for_timeframe(timeframe)
+
+				expect(possibilities).to include(output)
+			end
+
+    end
+
+    it "calls polarity_for_timeframe" do
+
+    	['week', 'month', 'year'].each do |timeframe|
+    		output = follower.polarity_for_timeframe(timeframe)
+
+    		expect(0..10).to include(output)
+    	end
+
+    end
 
   end
 

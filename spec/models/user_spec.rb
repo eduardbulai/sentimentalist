@@ -65,9 +65,10 @@ describe User do
 
 		it "calls emotion_for_timeframe" do
 
+			possibilities = %q{joy disgust anger uncertain surprise sadness fear}
+
 		  ['week', 'month', 'year'].each do |timeframe|
 				output = user.emotion_for_timeframe(timeframe)
-				possibilities = %q{joy disgust anger uncertain surprise sadness fear}
 
 				expect(possibilities).to include(output)
 			end
