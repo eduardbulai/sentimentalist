@@ -8,7 +8,7 @@ describe TweetUpdater do
     end
 
     before(:each) do
-      @user = FactoryGirl.create(:user_with_followers)
+      @user = FactoryGirl.create(:user_with_followers_and_machine_learner)
     end
 
     it "adds user tweet update task to the queue" do

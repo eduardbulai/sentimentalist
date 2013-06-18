@@ -12,7 +12,7 @@ feature "user signs in",
   vcr: {cassette_name: 'twitter/auth'} do
 
 		it "user sees sign in button on welcome page" do
-			@user = FactoryGirl.create(:user_with_followers)
+			@user = FactoryGirl.create(:user_with_followers_and_machine_learner)
 	    stub_auth_response(@user, :twitter)
 	    visit root_path
 	    click_link 'Sign in with Twitter'
