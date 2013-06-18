@@ -15,8 +15,6 @@ describe MachineLearner do
     it { should validate_presence_of(:name) }
     it { should validate_presence_of(:ignore_words) }
     it { should validate_presence_of(:stemming) }
-    it { should validate_presence_of(:wcount) }
-    it { should validate_presence_of(:ccount) }
 
   end
 

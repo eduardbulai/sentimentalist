@@ -11,7 +11,9 @@ FactoryGirl.define do
   end
 
   factory :machine_learner do
-
+    name "joy or anger or fear or disgust or surprise or uncertain"
+    ignore_words Stopwords.stopwords
+    stemming true
   end
 
 	factory :follower_tweet do
