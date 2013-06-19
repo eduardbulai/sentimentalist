@@ -3,9 +3,11 @@
     %div{'class' => 'modal-header'}Here's Your Tweet:
     %div{'class' => 'modal-body'}=tweet.text
     %div{'class' => 'modal-footer'}
-      %a.btn.btn-block.btn-joy{"href" => "#"} Joy
-      %a.btn.btn-small.btn-block.btn-surprise{"href" => "#"} Surprise
-      %a.btn.btn-small.btn-block.btn-disgust{"href" => "#"} Disgust
-      %a.btn.btn-small.btn-block.btn-fear{"href" => "#"} Fear
-      %a.btn.btn-small.btn-block.btn-anger{"href" => "#"} Anger
-      %a.btn.btn-small.btn-block.btn-uncertain{"href" => "#"} Ambiguous
+      %div.user-assessment-modal
+        = simple_form_for '', url: {controller: 'dashboard', action: 'update_machine_learner'} do |f|
+          %a.btn.btn-block.btn-joy{"href" => "/dashboard/update_machine_learner", "type" => "submit", "data-tweet-id" => "#{tweet.id}", "data-dismiss" => "modal", "aria-hidden" => "true"}Joy
+          %a.btn.btn-block.btn-surprise{"href" => "/dashboard/update_machine_learner", "type" => "submit", "data-tweet-id" => "#{tweet.id}", "data-dismiss" => "modal", "aria-hidden" => "true"}Surprise
+          %a.btn.btn-block.btn-disgust{"href" => "/dashboard/update_machine_learner", "type" => "submit", "data-tweet-id" => "#{tweet.id}", "data-dismiss" => "modal", "aria-hidden" => "true"}Disgust
+          %a.btn.btn-block.btn-fear{"href" => "/dashboard/update_machine_learner", "type" => "submit", "data-tweet-id" => "#{tweet.id}", "data-dismiss" => "modal", "aria-hidden" => "true"}Fear
+          %a.btn.btn-block.btn-anger{"href" => "/dashboard/update_machine_learner", "type" => "submit", "data-tweet-id" => "#{tweet.id}","data-dismiss" => "modal", "aria-hidden" => "true"}Anger
+          %a.btn.btn-block.btn-uncertain{"href" => "/dashboard/update_machine_learner", "type" => "submit", "data-tweet-id" => "#{tweet.id}", "data-dismiss" => "modal", "aria-hidden" => "true"}Ambiguous

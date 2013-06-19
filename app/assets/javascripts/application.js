@@ -14,8 +14,8 @@
 //= require jquery_ujs
 //= require_tree .
 
-
-$('a[name=post_to_twitter]').click(function(e) {
+$(function() {
+	$('a[name=post_to_twitter]').click(function(e) {
     //Cancel the link behavior
     e.preventDefault();
 
@@ -23,4 +23,28 @@ $('a[name=post_to_twitter]').click(function(e) {
     var taText = $('textarea#myTextArea').val();
 
     //Example - Now add the text to a span tag inside the modal
-    ("#myDiv span").text(taText);
+    $("#myDiv span").text(taText);
+	});
+
+	$('.user-assessment-modal a').click(function(e) {
+		e.preventDefault();
+		var target = $(e.target);
+		var id = target.data("tweet-id");
+		var text = target.text();
+		$.ajax({
+			data: {
+				id: id,
+				emotion: text
+			},
+			url: 'dashboard/update_machine_learner',
+			type: 'POST',
+			datatype: 'json',
+			success: function(data) {},
+			error: function(data) {}
+		});
+
+	});
+
+});
+
+
