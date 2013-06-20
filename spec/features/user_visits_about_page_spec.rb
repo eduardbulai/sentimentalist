@@ -1,25 +1,33 @@
 require 'spec_helper'
 
-	# As a user
-	# I want to view ‘about’ information about the app
-	# So I can get a sense of what the app is all about
 
-	# - The welcome page contains a link to a modal window with information about the app
+feature "user visits about page" do %q{
 
-describe "user visits about page" do
+	As a user
+	I want to view about information about the app
+	So I can get a sense of what the app is all about
 
-	it "user arrives at about page from welcome page" do
+	AC
+	* user can visit the about page from the welcome page
+	* the about page contains information about the app
+	* user can return to the welcome page from the about page
+
+}
+
+	it "user can visit the about page from the welcome page" do
 		visit root_url
 		expect(page).to have_content('About')
 		click_link('About')
 		expect(current_path).to eql(about_path)
 	end
 
-	it "user returns to welcome page from about page" do
+	it "the about page contains information about the app"
+
+	it "user can return to the welcome page from the about page" do
 		visit privacy_path
 		expect(page).to have_content('Close')
 		click_link('Close')
-		expect(current_path).to include(root_path)
+		expect(current_path).to eql(root_path)
 	end
 
 end
