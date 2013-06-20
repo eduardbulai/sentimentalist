@@ -28,14 +28,14 @@
             -else
               %dd= follower.emotion_year
   - @user_tweets.each do |tweet|
-    %div(class = "emot emotion-#{tweet.emotion} week user"){"id" => "#{tweet.id}"}
+    %div(class = "emot emotion-#{tweet.emotion} week user"){"id" => "icon#{tweet.id}"}
       %div.span2
         %div.emotion-icon
-          %a{"href" => "#evaluate_user_tweet_modal#{tweet.id}", "data-toggle" => "modal", "role" => "button", "name" => "evaluate_user_tweet"}
-            %dl(class = "palette palette-#{tweet.emotion}")
+          %a{"href" => "#evaluate_user_tweet_modal#{tweet.id}","id" => "link_to_evaluate_user_tweet_modal#{tweet.id}", "data-toggle" => "modal", "role" => "button", "name" => "evaluate_user_tweet"}
+            %dl(class = "palette #{tweet.id} palette-#{tweet.emotion}")
               -if tweet.emotion == "uncertain"
-                %dd Ambiguous
+                %dd{"id" => "icontext#{tweet.id}"} Ambiguous
               -else
-                %dd= tweet.emotion
+                %dd{"id" => "icontext#{tweet.id}"}= tweet.emotion
     %div(class = "emot emotion-#{tweet.emotion} month user")We don't store tweets older than 1 week
     %div(class = "emot emotion-#{tweet.emotion} year user")We don't store tweets older than 1 week
