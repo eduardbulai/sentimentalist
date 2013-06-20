@@ -13,13 +13,7 @@ class User < ActiveRecord::Base
     :provider,
     :uid,
     :oauth_token,
-    :oauth_secret,
-    :emotion_week,
-    :emotion_month,
-    :emotion_year,
-    :polarity_week,
-    :polarity_month,
-    :polarity_year
+    :oauth_secret
 
 
 	def tweeter

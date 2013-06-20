@@ -10,14 +10,6 @@ describe MachineLearner do
 
   end
 
-  context "validations" do
-
-    it { should validate_presence_of(:name) }
-    it { should validate_presence_of(:ignore_words) }
-    it { should validate_presence_of(:stemming) }
-
-  end
-
   context "attributes" do
 
     it "has a name" do
