@@ -22,10 +22,9 @@ class DashboardController < ApplicationController
     end
 
     def update_machine_learner
-      #params(emotion)
       emotion = params[:emotion]
       tweet = UserTweet.find(params[:id])
-      tweet.emotion = emotion
+      tweet.emotion = emotion.downcase
       if tweet.save
         render :json => [tweet]
       else
