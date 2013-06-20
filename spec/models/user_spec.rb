@@ -52,6 +52,7 @@ describe User do
 
 			['week', 'month', 'year'].each do |timeframe|
 				output = user.polarity_for_timeframe(timeframe)
+
 				expect(0..10).to include(output)
 			end
 
