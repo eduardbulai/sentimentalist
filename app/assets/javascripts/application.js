@@ -30,12 +30,13 @@ $(function() {
 		e.preventDefault();
 		var target = $(e.target);
 		var id = target.data("tweet-id");
+		var initial_emotion = target.data("initial-emotion");
 		var text = target.text();
-		if (text=="uncertain") {
-			var var_emotion="ambiguous";
+		if (text==="Ambiguous") {
+			var var_emotion="uncertain";
 		}
 		else {
-			var var_emotion=text;
+			var var_emotion=text.toLowerCase();
 		}
 		$.ajax({
 			data: {
@@ -46,12 +47,20 @@ $(function() {
 			type: 'POST',
 			datatype: 'json',
 			success: function(data) {
-				var element = document.getElementById(data[0].id);
-				console.log(element);
-				$('div#'+data[0].id).replaceWith("<div class='emot emotion-"+data[0].emotion.toLowerCase()+" week user' id='"+data[0].id+"'><div class='span2'><div class='emotion-icon'><a href='#evaluate_user_tweet_modal"+data[0].id+"' data-toggle='modal' role='button' name='evaluate_user_tweet'><dl class='palette palette-"+data[0].emotion.toLowerCase()+"'><dd>"+var_emotion+"</dd></dl></a></div></div></div>");
+				setNewColor(data);
+				setNewText(data);
 			},
 			error: function(data) {}
 		});
+
+		setNewColor = function(data) {
+			$('#icon'+data[0].id).removeClass("emotion-"+initial_emotion).addClass("emotion-"+var_emotion);
+			$('dl.palette.'+data[0].id).removeClass("palette-"+initial_emotion).addClass("palette-"+var_emotion);
+		};
+
+		setNewText = function(data) {
+			$('#icontext'+data[0].id).text(text);
+		};
 
 	});
 
