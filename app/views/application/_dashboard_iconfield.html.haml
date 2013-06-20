@@ -28,7 +28,7 @@
             -else
               %dd= follower.emotion_year
   - @user_tweets.each do |tweet|
-    %div(class = "emot emotion-#{tweet.emotion} week user")
+    %div(class = "emot emotion-#{tweet.emotion} week user"){"id" => "#{tweet.id}"}
       %div.span2
         %div.emotion-icon
           %a{"href" => "#evaluate_user_tweet_modal#{tweet.id}", "data-toggle" => "modal", "role" => "button", "name" => "evaluate_user_tweet"}

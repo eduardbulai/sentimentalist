@@ -31,6 +31,12 @@ $(function() {
 		var target = $(e.target);
 		var id = target.data("tweet-id");
 		var text = target.text();
+		if (text=="uncertain") {
+			var var_emotion="ambiguous";
+		}
+		else {
+			var var_emotion=text;
+		}
 		$.ajax({
 			data: {
 				id: id,
@@ -39,7 +45,11 @@ $(function() {
 			url: 'dashboard/update_machine_learner',
 			type: 'POST',
 			datatype: 'json',
-			success: function(data) {},
+			success: function(data) {
+				var element = document.getElementById(data[0].id);
+				console.log(element);
+				$('div#'+data[0].id).replaceWith("<div class='emot emotion-"+data[0].emotion.toLowerCase()+" week user' id='"+data[0].id+"'><div class='span2'><div class='emotion-icon'><a href='#evaluate_user_tweet_modal"+data[0].id+"' data-toggle='modal' role='button' name='evaluate_user_tweet'><dl class='palette palette-"+data[0].emotion.toLowerCase()+"'><dd>"+var_emotion+"</dd></dl></a></div></div></div>");
+			},
 			error: function(data) {}
 		});
 
