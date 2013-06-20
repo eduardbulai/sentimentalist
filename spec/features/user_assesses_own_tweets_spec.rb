@@ -15,7 +15,7 @@ feature 'user assesses own tweets',
     click_link 'Sign in with Twitter'
   	click_link('Me')
   	@tweets = @user.user_tweets
-    @tweet_id = @tweets.first.id
+    @test_tweet = @tweets.first
   end
 
   describe 'page contains emotion icons for each of the emotions in thier user_tweets' do
@@ -34,7 +34,9 @@ feature 'user assesses own tweets',
 
       @tweets.each do |tweet|
 
-        expect(page).to have_content(tweet.text)
+        within("#evaluate_user_tweet_modal#{tweet.id}") do
+          expect(page).to have_content(tweet.text)
+        end
 
       end
 
@@ -42,8 +44,8 @@ feature 'user assesses own tweets',
 
     it 'page contains modal with buttons corresponding to each possible emotion' do
 
-      within("#evaluate_user_tweet_modal#{@tweet_id}") do
-        expect(page).to have_selector("a[href='#']")
+      within("#evaluate_user_tweet_modal#{@test_tweet.id}") do
+        expect(page).to have_selector("a")
         expect(page).to have_content("Joy")
         expect(page).to have_content("Surprise")
         expect(page).to have_content("Disgust")
@@ -59,13 +61,32 @@ feature 'user assesses own tweets',
 
 	describe 'user approves of original classification' do
 
-    it "user's classification confirms SadPanda classification"
+    it "user's classification confirms SadPanda classification" do
+
+      click_link('Me')
+      within("#evaluate_user_tweet_modal#{@test_tweet.id}") do
+        click_link("#{@test_tweet.emotion}")
+      end
+
+      expect(page).to have_selector(".alert", text: "Sentiment Logged")
+
+    end
 
 	end
 
 	describe 'user chooses alternate classification' do
 
-    it "user's classification contradicts SadPanda classification"
+    it "user's classification contradicts SadPanda classification" do
+
+      click_link('Me')
+      save_and_open_page
+      within("#evaluate_user_tweet_modal#{@test_tweet.id}") do
+        click_button("Surprise")
+      end
+
+      expect(page).to have_selector(".alert", text: "Sentiment Logged")
+
+    end
 
 	end
 
