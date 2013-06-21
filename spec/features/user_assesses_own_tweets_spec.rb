@@ -29,7 +29,13 @@ feature 'user assesses their own tweets',
 
     it 'user sees iconfield containing emotion classifications for each of their tweets' do
 			@tweets.each do |tweet|
-				expect(page).to have_content(tweet.emotion)
+        within("##{tweet.id}") do
+          if tweet.emotion == 'uncertain'
+            expect(page).to have_content('ambiguous')
+          else
+				    expect(page).to have_content(tweet.emotion)
+          end
+        end
 			end
 		end
 
@@ -41,6 +47,8 @@ feature 'user assesses their own tweets',
 
       @tweets.each do |tweet|
 
+        click_link("link_to_evaluate_user_tweet_modal#{tweet.id}")
+
         within("#evaluate_user_tweet_modal#{tweet.id}") do
           expect(page).to have_content(tweet.text)
         end
@@ -50,6 +58,8 @@ feature 'user assesses their own tweets',
     end
 
     it 'page contains modal with buttons corresponding to each possible emotion' do
+
+      click_link("link_to_evaluate_user_tweet_modal#{@test_tweet.id}")
 
       within("#evaluate_user_tweet_modal#{@test_tweet.id}") do
         expect(page).to have_selector("a")
@@ -71,8 +81,10 @@ feature 'user assesses their own tweets',
     it "user's classification confirms SadPanda classification" do
 
       click_link('Me')
+      click_link("link_to_evaluate_user_tweet_modal#{@test_tweet.id}")
+
       within("#evaluate_user_tweet_modal#{@test_tweet.id}") do
-        click_link("#{@test_tweet.emotion}")
+        click_link("#{@test_tweet.emotion.capitalize}")
       end
 
       expect(page).to have_selector(".alert", text: "Sentiment Logged")
@@ -85,10 +97,10 @@ feature 'user assesses their own tweets',
 
 	context 'user chooses alternate classification' do
 
-    it "user's classification contradicts SadPanda classification" do
+    it "user sees flash message" do
 
       click_link('Me')
-      within("#evaluate_user_tweet_modal#{@test_tweet.id}") do
+      within(".hide#evaluate_user_tweet_modal#{@test_tweet.id}") do
         click_button("Surprise")
       end
 
