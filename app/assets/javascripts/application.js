@@ -14,6 +14,41 @@
 //= require jquery_ujs
 //= require_tree .
 
+$(document).ready( function() {
+
+  $.ajax({
+    type: "GET",
+    url:'dashboard/index',
+    datatype: 'json',
+    cache: false,
+    timeout: 8000,
+
+    beforeSend: function() {
+      $('#error').hide();
+      $('#loading').show();
+    },
+
+    complete: function() {
+      $('#loading').hide();
+    },
+    success: function(data) {
+      console.log(data.html());
+    },
+    error: function(data) {}
+  });
+
+  // var target = $('#iconfield').load('/_dashboard_iconfield.html.haml');
+  // console.log(target);
+
+  // $.ajax({
+  //       type: "GET",
+  //       dataType: "json",
+  //       url: "/locations",
+  //       success: function(data){}
+  // });
+
+});
+
 $(function() {
 	$('a[name=post_to_twitter]').click(function(e) {
     //Cancel the link behavior
@@ -31,13 +66,16 @@ $(function() {
 		var target = $(e.target);
 		var id = target.data("tweet-id");
 		var initial_emotion = target.data("initial-emotion");
+    var var_emotion = null;
 		var text = target.text();
+
 		if (text==="Ambiguous") {
-			var var_emotion="uncertain";
+			var_emotion="uncertain";
 		}
 		else {
-			var var_emotion=text.toLowerCase();
+			var_emotion=text.toLowerCase();
 		}
+
 		$.ajax({
 			data: {
 				id: id,

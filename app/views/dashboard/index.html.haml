@@ -18,7 +18,7 @@
   .row
     %div.span3
       %div.iconfield
-        %div(class = "emot emotion-joy emotion-anger emotion-sadness emotion-surprise emotion-disgust emotion-uncertain week followers user")
+        %div(class = "emot emotion-joy emotion-fear emotion-anger emotion-sadness emotion-surprise emotion-disgust emotion-uncertain week followers user")
           %dl(class = "palette-user-profile palette-#{current_user.emotion_week}")
             -if current_user.emotion_week == "uncertain"
               %dt.user-profile-emotion Ambiguous

@@ -1,4 +1,8 @@
 %div.iconfield{"class" => "span9"}
+  %div#loading
+    %h1 Loading...
+  %div#error
+    %h1 An Error has Occurred
   - @followers.each do |follower|
     %div(class = "emot emotion-#{follower.emotion_week} week followers")
       %div.span2

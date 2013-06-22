@@ -12,7 +12,7 @@ class DashboardController < ApplicationController
       format.json { render json: @user_tweets }
     end
 
-	end
+  end
 
   def post_to_twitter
     tweeter = current_user.tweeter
