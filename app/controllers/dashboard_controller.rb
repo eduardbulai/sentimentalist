@@ -9,7 +9,7 @@ class DashboardController < ApplicationController
 
 		respond_to do |format|
       format.html
-      format.json { render json: @user_tweets }
+      format.json { render json: {user_tweets: @user_tweets, followers: @followers} }
     end
 
   end
