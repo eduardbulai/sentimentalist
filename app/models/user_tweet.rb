@@ -6,3 +6,5 @@ class UserTweet < ActiveRecord::Base
   validates_presence_of :datetime_tweeted, :text, :user_id, :tweet_id, :emotion, :polarity
 
 end
+
+

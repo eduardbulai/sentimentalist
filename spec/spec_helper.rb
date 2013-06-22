@@ -36,6 +36,7 @@ RSpec.configure do |config|
   # config.mock_with :flexmock
   # config.mock_with :rr
   config.include AuthenticationHelper
+  config.include Rails.application.routes.url_helpers
 
 
 

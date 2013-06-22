@@ -9,10 +9,10 @@ class DashboardController < ApplicationController
 
 		respond_to do |format|
       format.html
-      format.json { render json: @user_tweets }
+      format.json { render json: {user_tweets: @user_tweets, followers: @followers} }
     end
 
-	end
+  end
 
   def post_to_twitter
     tweeter = current_user.tweeter

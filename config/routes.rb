@@ -1,9 +1,9 @@
 Sentimentalist::Application.routes.draw do
 
+  mount Resque::Server, at: '/resque'
+
   resources :dashboard, only: [:index]
   resources :welcome
-
-  root to: 'welcome#index'
 
   match '/auth/twitter/callback', to: 'sessions#create'
 
@@ -14,5 +14,6 @@ Sentimentalist::Application.routes.draw do
 
   match ':controller(/:action(/:id))(.:format)'
 
-  mount Resque::Server, at: '/resque'
+  root to: 'welcome#index'
+
 end

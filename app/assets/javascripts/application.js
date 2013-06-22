@@ -14,6 +14,81 @@
 //= require jquery_ujs
 //= require_tree .
 
+$(document).ready( function() {
+
+  function myRequest() {
+    $.getJSON('/dashboard/index/', function(user) {
+
+      $.each(user.user_tweets, function() {
+        renderUserIcon(this);
+      });
+
+      $.each(user.followers, function() {
+        renderFollowerIcon(this);
+      });
+    });
+
+  }
+
+  function setIconfield() {
+
+    myRequest();
+
+    setTimeout( setIconfield, 6000);
+  }
+
+  setIconfield();
+
+  function renderUserIcon(tweet) {
+    var tweet_emotion = tweet.emotion;
+
+    if (tweet.emotion==="uncertain") {
+      tweet_emotion="Ambiguous";
+    }
+    else {
+      tweet_emotion=tweet.emotion;
+    }
+    $('#small-icons').innerHTML="<div class='emot emotion-"+tweet.emotion+" week user' id='icon"+tweet.id+"' ><div class='span2'><div class='emotion-icon'><a data-toggle='modal' href='#evaluate_user_tweet_modal"+tweet.id+"' id='link_to_evaluate_user_tweet_modal"+tweet.id+"' name='evaluate_user_tweet' role='button'><dl class='palette "+tweet.id+" palette-"+tweet.emotion+"'><dd id='icontext"+tweet.id+"'>"+tweet_emotion+"</dd></dl></a></div></div></div>";
+  }
+
+  function renderFollowerIcon(follower) {
+    var follower_emotion_week = follower.emotion_week;
+    var follower_emotion_month = follower.emotion_month;
+    var follower_emotion_year = follower.emotion_year;
+
+    if (follower.emotion_week==="uncertain") {
+      follower_emotion_week="Ambiguous";
+    }
+    else {
+      follower_emotion_week=follower.emotion_week;
+    }
+
+    if (follower.emotion_month==="uncertain") {
+      follower_emotion_month="Ambiguous";
+    }
+    else {
+      follower_emotion_month=follower.emotion_month;
+    }
+
+    if (follower.emotion_year==="uncertain") {
+      follower_emotion_year="Ambiguous";
+    }
+    else {
+      follower_emotion_year=follower.emotion_year;
+    }
+
+    console.log(follower.emotion_week);
+    console.log(follower_emotion_month);
+
+
+    $('#small-icons').innerHTML="<div class='emot emotion-"+follower.emotion_week+" week followers'><div class='span2'><div class='emotion-icon'><dl class='palette palette-"+follower.emotion_week+"'><dt>"+follower.name+"<dd>"+follower_emotion_week+"</dd></dt></dl></div></div></div>";
+    $('#small-icons').innerHTML="<div class='emot emotion-"+follower.emotion_month+" month followers'><div class='span2'><div class='emotion-icon'><dl class='palette palette-"+follower.emotion_month+"'><dt>"+follower.name+"<dd>"+follower_emotion_month+"</dd></dt></dl></div></div></div>";
+    $('#small-icons').innerHTML="<div class='emot emotion-"+follower.emotion_year+" year followers'><div class='span2'><div class='emotion-icon'><dl class='palette palette-"+follower.emotion_year+"'><dt>"+follower.name+"<dd>"+follower_emotion_year+"</dd></dt></dl></div></div></div>";
+  }
+
+
+});
+
 $(function() {
 	$('a[name=post_to_twitter]').click(function(e) {
     //Cancel the link behavior
@@ -31,13 +106,16 @@ $(function() {
 		var target = $(e.target);
 		var id = target.data("tweet-id");
 		var initial_emotion = target.data("initial-emotion");
+    var var_emotion = null;
 		var text = target.text();
+
 		if (text==="Ambiguous") {
-			var var_emotion="uncertain";
+			var_emotion="uncertain";
 		}
 		else {
-			var var_emotion=text.toLowerCase();
+			var_emotion=text.toLowerCase();
 		}
+
 		$.ajax({
 			data: {
 				id: id,

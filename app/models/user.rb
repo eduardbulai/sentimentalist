@@ -50,7 +50,7 @@ class User < ActiveRecord::Base
         user.oauth_token = auth['extra']['access_token'].params[:oauth_token]
         user.oauth_secret = auth['extra']['access_token'].params[:oauth_token_secret]
       end
-      TwitterApi.get_twitter_stuff(user)
+      Resque.enqueue(SignInHelper, user.id)
       user
     end
 
