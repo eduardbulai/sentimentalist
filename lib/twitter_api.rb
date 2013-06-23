@@ -29,6 +29,7 @@ class TwitterApi < ActiveRecord::Base
 			user.polarity_month = user.polarity_for_timeframe "month"
 			user.polarity_year = user.polarity_for_timeframe "year"
 			user.save!
+			binding.pry
 		end
 	end
 

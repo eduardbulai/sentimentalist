@@ -26,6 +26,33 @@
             %dd Ambiguous
           -else
             %dd= follower.emotion_year
+    %div(class = "emot emotion-#{follower.emotion_week} week followers bayesian")
+    %div.span2
+      %div.emotion-icon
+        %dl(class = "palette palette-#{follower.bayesian_emotion_week}")
+          %dt= follower.name
+          -if follower.bayesian_emotion_week == "uncertain"
+            %dd Ambiguous
+          -else
+            %dd= follower.bayesian_emotion_week
+  %div(class = "emot emotion-#{follower.emotion_month} month followers bayesian")
+    %div.span2
+      %div.emotion-icon
+        %dl(class = "palette palette-#{follower.bayesian_emotion_month}")
+          %dt= follower.name
+          -if follower.bayesian_emotion_month == "uncertain"
+            %dd Ambiguous
+          -else
+            %dd= follower.bayesian_emotion_month
+  %div(class = "emot emotion-#{follower.emotion_year} year followers bayesian")
+    %div.span2
+      %div.emotion-icon
+        %dl(class = "palette palette-#{follower.bayesian_emotion_year}")
+          %dt= follower.name
+          -if follower.bayesian_emotion_year == "uncertain"
+            %dd Ambiguous
+          -else
+            %dd= follower.bayesian_emotion_year
 - @user_tweets.each do |tweet|
   %div(class = "emot emotion-#{tweet.emotion} week user"){"id" => "icon#{tweet.id}"}
     %div.span2
@@ -36,5 +63,14 @@
               %dd{"id" => "icontext#{tweet.id}"} Ambiguous
             -else
               %dd{"id" => "icontext#{tweet.id}"}= tweet.emotion
-  %div(class = "emot emotion-#{tweet.emotion} month user")We don't store tweets older than 1 week
-  %div(class = "emot emotion-#{tweet.emotion} year user")We don't store tweets older than 1 week
+  %div(class = "emot emotion-#{tweet.emotion} week user bayesian"){"id" => "icon#{tweet.id}"}
+    %div.span2
+      %div.emotion-icon
+        %a{"href" => "#evaluate_user_tweet_modal#{tweet.id}","id" => "link_to_evaluate_user_tweet_modal#{tweet.id}", "data-toggle" => "modal", "role" => "button", "name" => "evaluate_user_tweet"}
+          %dl(class = "palette #{tweet.id} palette-#{tweet.emotion}")
+            -if tweet.bayesian_emotion == "uncertain"
+              %dd{"id" => "icontext#{tweet.id}"} Ambiguous
+            -else
+              %dd{"id" => "icontext#{tweet.id}"}= tweet.bayesian_emotion
+  %div(class = "emot emotion-#{tweet.bayesian_emotion} month user")We don't store tweets older than 1 week
+  %div(class = "emot emotion-#{tweet.bayesian_emotion} year user")We don't store tweets older than 1 week
