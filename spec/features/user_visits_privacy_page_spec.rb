@@ -16,7 +16,7 @@ feature "user visits privacy page" do %q{
 
 	it "user arrives at privacy page from welcome page" do
 
-		visit root_url
+		visit root_path
 		expect(page).to have_content('Privacy')
 		click_link('Privacy')
 		expect(current_path).to eql(privacy_path)

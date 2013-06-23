@@ -15,7 +15,7 @@ feature "user visits about page" do %q{
 }
 
 	it "user can visit the about page from the welcome page" do
-		visit root_url
+		visit root_path
 		expect(page).to have_content('About')
 		click_link('About')
 		expect(current_path).to eql(about_path)
