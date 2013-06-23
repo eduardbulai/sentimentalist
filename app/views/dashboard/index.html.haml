@@ -16,26 +16,28 @@
 
 .container
   .row
-    %div.iconfield.span3#prof-icon
-      %div(class = "emot emotion-joy emotion-fear emotion-anger emotion-sadness emotion-surprise emotion-disgust emotion-uncertain week followers user")
-        %dl(class = "palette-user-profile palette-#{current_user.emotion_week}")
-          -if current_user.emotion_week == "uncertain"
-            %dt.user-profile-emotion Ambiguous
-          -else
-            %dt.user-profile-emotion=current_user.emotion_week
-      %div(class = "emot emotion-joy emotion-anger emotion-sadness emotion-surprise emotion-disgust emotion-uncertain month followers user")
-        %dl(class = "palette-user-profile palette-#{current_user.emotion_month} followers user")
-          -if current_user.emotion_month == "uncertain"
-            %dt.user-profile-emotion Ambiguous
-          -else
-            %dt.user-profile-emotion=current_user.emotion_month
-      %div(class = "emot emotion-joy emotion-anger emotion-sadness emotion-surprise emotion-disgust emotion-uncertain year followers user")
-        %dl(class = "palette-user-profile palette-#{current_user.emotion_year} followers user")
-          -if current_user.emotion_year == "uncertain"
-            %dt.user-profile-emotion Ambiguous
-          -else
-            %dt.user-profile-emotion=current_user.emotion_year
+    %div.span3
+      %div.iconfield
+        %div(class = "emot emotion-joy emotion-anger emotion-sadness emotion-surprise emotion-disgust emotion-uncertain week followers user")
+          %dl(class = "palette-user-profile palette-#{current_user.emotion_week}")
+            -if current_user.emotion_week == "uncertain"
+              %dt.user-profile-emotion Ambiguous
+            -else
+              %dt.user-profile-emotion=current_user.emotion_week
+        %div(class = "emot emotion-joy emotion-anger emotion-sadness emotion-surprise emotion-disgust emotion-uncertain month followers user")
+          %dl(class = "palette-user-profile palette-#{current_user.emotion_month} followers user")
+            -if current_user.emotion_month == "uncertain"
+              %dt.user-profile-emotion Ambiguous
+            -else
+              %dt.user-profile-emotion=current_user.emotion_month
+        %div(class = "emot emotion-joy emotion-anger emotion-sadness emotion-surprise emotion-disgust emotion-uncertain year followers user")
+          %dl(class = "palette-user-profile palette-#{current_user.emotion_year} followers user")
+            -if current_user.emotion_year == "uncertain"
+              %dt.user-profile-emotion Ambiguous
+            -else
+              %dt.user-profile-emotion=current_user.emotion_year
       %a.btn.btn-large.btn-block.btn-inverse{"href" => "#post_to_twitter_modal", "data-toggle" => "modal", "role" => "button", "name" => "post_to_twitter", "class" => "btn"}Post To Twitter
+      %a.btn.btn-large.btn-block.btn-danger{"href" => '/signout', "data-toggle" => "modal", "role" => "button", "name" => "sign_out", "class" => "btn"}Sign Out
     %div.span9
       .filter.option-set{'id' => 'emotions-filter', :datafiltergroup => "category"}
         %div.btn-group{"data-toggle" => "buttons-radio"}
@@ -72,6 +74,7 @@
             %div#error
               %h1 ...An Error has Occurred...
             = render 'dashboard_iconfield'
+
 
 
 
