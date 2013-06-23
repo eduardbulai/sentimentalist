@@ -19,14 +19,18 @@ feature "user signs in",
  	let(:user) { FactoryGirl.create(:user_with_followers_and_machine_learner) }
 
 	it "user sees sign in button on welcome page" do
+
 		visit root_path
 		expect(page).to have_link("Sign in with Twitter")
+
 	end
 
 
 	it "user is redirected to the dashboard index upon successful sign-in" do
+
 		sign_in(user)
 		expect(current_path).to eql(dashboard_index_path)
+
 	end
 
 

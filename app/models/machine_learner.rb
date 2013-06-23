@@ -7,13 +7,17 @@ class MachineLearner < ActiveRecord::Base
 
   belongs_to :user, inverse_of: :machine_learner
 
+  validates_presence_of :name,
+    :stemming,
+    :ignore_words
+
+
   before_create do |machine_learner|
   	machine_learner.name = "joy or anger or fear or disgust or surprise or uncertain"
   	machine_learner.ignore_words = Stopwords.stopwords
   	machine_learner.stemming = true
   	machine_learner.wcount = {}
   	machine_learner.ccount = {anger: 0, joy: 0, fear: 0, sadness: 0, disgust: 0, surprise: 0, ambiguous: 0}
-    machine_learner.trained = nil
   end
 
   def build_classifier

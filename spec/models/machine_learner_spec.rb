@@ -3,10 +3,19 @@ require "spec_helper"
 describe MachineLearner do
 
 	let(:machine_learner) { FactoryGirl.create(:machine_learner) }
+  let(:emotions) { [:anger, :joy, :fear, :sadness, :disgust, :surprise, :ambiguous] }
 
   context "associations" do
 
     it { should belong_to(:user) }
+
+  end
+
+  context "validations" do
+
+    it { should validate_presence_of(:name) }
+    it { should validate_presence_of(:stemming) }
+    it { should validate_presence_of(:ignore_words) }
 
   end
 
@@ -60,7 +69,6 @@ describe MachineLearner do
 
         expect(machine_learner.machine_learner_is_trained).to be_false
 
-        emotions = [:anger, :joy, :fear, :sadness, :disgust, :surprise, :ambiguous]
         emotions.each do |emotion|
           15.times do
             machine_learner.ccount[emotion]+=1

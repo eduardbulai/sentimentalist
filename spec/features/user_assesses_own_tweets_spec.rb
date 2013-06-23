@@ -17,6 +17,7 @@ feature 'user assesses their own tweets',
   }
 
   let(:user) { FactoryGirl.create(:user_with_followers_and_machine_learner) }
+  let(:emotions) { [:anger, :joy, :fear, :sadness, :disgust, :surprise, :ambiguous] }
 
   before do
   	sign_in(user)
@@ -29,7 +30,7 @@ feature 'user assesses their own tweets',
 
     it 'user sees iconfield containing emotion classifications for each of their tweets' do
 			@tweets.each do |tweet|
-        within("##{tweet.id}") do
+        within("#icon#{tweet.id}") do
           if tweet.emotion == 'uncertain'
             expect(page).to have_content('ambiguous')
           else
@@ -75,40 +76,56 @@ feature 'user assesses their own tweets',
 
   end
 
+	context 'user assesses tweet' do
 
-	context 'user approves of original classification' do
+    # it "user sees flash message" do
 
-    it "user's classification confirms SadPanda classification" do
+    #   click_link('Me')
+    #   within(".hide#evaluate_user_tweet_modal#{@test_tweet.id}") do
+    #     click_button("Surprise")
+    #   end
 
-      click_link('Me')
-      click_link("link_to_evaluate_user_tweet_modal#{@test_tweet.id}")
+    #   expect(page).to have_selector(".alert", text: "Sentiment Logged")
 
-      within("#evaluate_user_tweet_modal#{@test_tweet.id}") do
-        click_link("#{@test_tweet.emotion.capitalize}")
-      end
+    # end
 
-      expect(page).to have_selector(".alert", text: "Sentiment Logged")
+    it "user's assessment is recorded in the database" do
 
-    end
+      initial_wcount = user.machine_learner.wcount
+      intiial_ccount = user.machine_learner.ccount
 
-    it "user's assessment is recorded in the database"
+      assess_tweet(user, "joy")
+      assess_tweet(user, "anger")
 
-	end
-
-	context 'user chooses alternate classification' do
-
-    it "user sees flash message" do
-
-      click_link('Me')
-      within(".hide#evaluate_user_tweet_modal#{@test_tweet.id}") do
-        click_button("Surprise")
-      end
-
-      expect(page).to have_selector(".alert", text: "Sentiment Logged")
+      expect(user.machine_learner.wcount).to_not eql(initial_wcount)
+      expect(user.machine_learner.ccount).to_not eql(intiial_ccount)
 
     end
 
-  it "user's assessment is recorded in the database"
+    it "user's machine learner gets trained" do
+      expect(user.machine_learner.trained).to be_nil
+
+      emotions.each do |emotion|
+        15.times do
+          assess_tweet(user, emotion)
+        end
+      end
+
+      expect(user.machine_learner.trained).to be_true
+
+    end
+
+    it "user's machine learner is not trained if an insufficient number of assessments are made" do
+      expect(user.machine_learner.trained).to be_nil
+
+      emotions.each do |emotion|
+        10.times do
+          assess_tweet(user, emotion)
+        end
+      end
+
+      expect(user.machine_learner.trained).to be_false
+    end
 
 	end
 

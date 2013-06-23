@@ -25,16 +25,6 @@ class User < ActiveRecord::Base
     user_tweets.where("datetime_tweeted <= ?", offset).pluck(:text).join(" ")
   end
 
-  def get_tweet_emotion(tweet)
-    text = tweet.text
-    SadPanda.emotion(text)
-  end
-
-  def get_tweet_polarity(tweet)
-    text = tweet.text
-    SadPanda.polarity(text)
-  end
-
   class << self
 
     def from_omniauth(auth)
