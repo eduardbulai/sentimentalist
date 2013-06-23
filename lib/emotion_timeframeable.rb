@@ -10,4 +10,10 @@ module EmotionTimeframeable
   	SadPanda.polarity(concatonated_tweets)
   end
 
+  def bayesian_emotion_for_timeframe(timeframe) # week, month, or year
+    concatonated_tweets = self.concatonate_tweets_since timeframe
+    user_classifier = user.machine_learner.build_classifier
+    user_classifier.classify(concatonated_tweets).to_s
+  end
+
 end

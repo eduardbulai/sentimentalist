@@ -29,6 +29,7 @@ FactoryGirl.define do
 		datetime_tweeted "2011-06-03 02:06:41"
 		tweet_id "341375354683936768"
     emotion "joy"
+    bayesian_emotion "fear"
     polarity 8
 		created_at "2013-06-05 23:07:31"
     updated_at "2013-06-05 23:07:31"
@@ -62,6 +63,9 @@ FactoryGirl.define do
     emotion_week 'joy'
     emotion_month 'sadness'
     emotion_year 'surprise'
+    bayesian_emotion_week 'sadness'
+    bayesian_emotion_month 'anger'
+    bayesian_emotion_year 'disgust'
     polarity_week '7.0'
     polarity_month '2.0'
     polarity_year '5.0'

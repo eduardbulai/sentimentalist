@@ -19,6 +19,9 @@ class TwitterApi < ActiveRecord::Base
 				user_tweets_exist = false
 		end
 		if user_tweets_exist
+			user.bayesian_emotion_week = user.bayesian_emotion_for_timeframe "week"
+			user.bayesian_emotion_month = user.bayesian_emotion_for_timeframe "month"
+			user.bayesian_emotion_year = user.bayesian_emotion_for_timeframe "year"
 			user.emotion_week = user.emotion_for_timeframe "week"
 			user.emotion_month = user.emotion_for_timeframe "month"
 			user.emotion_year = user.emotion_for_timeframe "year"
@@ -39,6 +42,9 @@ class TwitterApi < ActiveRecord::Base
 		follower.emotion_week = follower.emotion_for_timeframe("week")
 		follower.emotion_month = follower.emotion_for_timeframe("month")
 		follower.emotion_year = follower.emotion_for_timeframe("year")
+		follower.bayesian_emotion_week = follower.bayesian_emotion_for_timeframe("week")
+		follower.bayesian_emotion_month = follower.bayesian_emotion_for_timeframe("month")
+		follower.bayesian_emotion_year = follower.bayesian_emotion_for_timeframe("year")
 		follower.polarity_week = follower.polarity_for_timeframe("week")
 		follower.polarity_month = follower.polarity_for_timeframe("month")
 		follower.polarity_year = follower.polarity_for_timeframe("year")
@@ -58,6 +64,7 @@ class TwitterApi < ActiveRecord::Base
 						text: tweet.text,
 						tweet_id: tweet.id,
 						datetime_tweeted: tweet.created_at,
+						bayesian_emotion: user.get_bayesian_polarity(tweet),
 						emotion: user.get_tweet_emotion(tweet),
 						polarity: user.get_tweet_polarity(tweet)
 						)
