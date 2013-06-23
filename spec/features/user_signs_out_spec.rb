@@ -29,9 +29,8 @@ feature "user signs out",
 
   it 'user can sign out' do
 
-    click_link 'Sign In'
   	click_link 'Sign Out'
-  	expect(current_url).to eql(root_path)
+  	expect(current_path).to eql(root_path)
     expect(page).to have_link('Sign in with Twitter')
 
   end
