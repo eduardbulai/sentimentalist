@@ -50,7 +50,6 @@ group :test do
 	gem 'factory_girl_rails'
 	gem 'vcr'
 	gem 'fakeweb'
-	gem 'rb-fsevent', :require => false if RUBY_PLATFORM =~ /darwin/i
 	gem 'resque_spec'
 end
 
