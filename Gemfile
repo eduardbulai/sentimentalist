@@ -51,9 +51,6 @@ group :test do
 	gem 'vcr'
 	gem 'fakeweb'
 	gem 'rb-fsevent', :require => false if RUBY_PLATFORM =~ /darwin/i
-  gem 'guard-rspec'
-  gem 'guard-livereload'
-	gem 'timecop'
 	gem 'resque_spec'
 end
 
