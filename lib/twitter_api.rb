@@ -3,12 +3,12 @@ class TwitterApi < ActiveRecord::Base
 	attr_accessible :user
 
 	def self.get_twitter_stuff user
+		initialize_machine_learner(user)
 		populate_user_tweets user
 		populate_followers user
 		populate_follower_tweets user
 		initialize_user user.id
 		user.followers.each {|follower| initialize_follower follower.id}
-		initialize_machine_learner(user)
 	end
 
 	def self.initialize_user user_id
@@ -29,7 +29,6 @@ class TwitterApi < ActiveRecord::Base
 			user.polarity_month = user.polarity_for_timeframe "month"
 			user.polarity_year = user.polarity_for_timeframe "year"
 			user.save!
-			binding.pry
 		end
 	end
 
@@ -40,12 +39,13 @@ class TwitterApi < ActiveRecord::Base
 
 	def self.initialize_follower follower_id
 		follower = Follower.find_by_id(follower_id)
+		f_user = follower.user
 		follower.emotion_week = follower.emotion_for_timeframe("week")
 		follower.emotion_month = follower.emotion_for_timeframe("month")
 		follower.emotion_year = follower.emotion_for_timeframe("year")
-		follower.bayesian_emotion_week = follower.bayesian_emotion_for_timeframe("week")
-		follower.bayesian_emotion_month = follower.bayesian_emotion_for_timeframe("month")
-		follower.bayesian_emotion_year = follower.bayesian_emotion_for_timeframe("year")
+		follower.bayesian_emotion_week = f_user.bayesian_emotion_for_timeframe("week")
+		follower.bayesian_emotion_month = f_user.bayesian_emotion_for_timeframe("month")
+		follower.bayesian_emotion_year = f_user.bayesian_emotion_for_timeframe("year")
 		follower.polarity_week = follower.polarity_for_timeframe("week")
 		follower.polarity_month = follower.polarity_for_timeframe("month")
 		follower.polarity_year = follower.polarity_for_timeframe("year")
@@ -65,7 +65,7 @@ class TwitterApi < ActiveRecord::Base
 						text: tweet.text,
 						tweet_id: tweet.id,
 						datetime_tweeted: tweet.created_at,
-						bayesian_emotion: user.get_bayesian_polarity(tweet),
+						bayesian_emotion: user.get_bayesian_emotion(tweet),
 						emotion: user.get_tweet_emotion(tweet),
 						polarity: user.get_tweet_polarity(tweet)
 						)

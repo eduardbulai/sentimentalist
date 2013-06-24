@@ -36,7 +36,7 @@ class User < ActiveRecord::Base
 
   def concatonate_tweets_since(timeframe)
     offset = Time.now - 1.send(timeframe)
-    user_tweets.where("datetime_tweeted <= ?", offset).pluck(:text).join(" ")
+    user_tweets.where("datetime_tweeted >= ?", offset).pluck(:text).join(" ")
   end
 
   def get_tweet_emotion(tweet)

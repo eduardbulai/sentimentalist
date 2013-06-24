@@ -1,5 +1,11 @@
 class UserTweet < ActiveRecord::Base
-  attr_accessible :datetime_tweeted, :text, :user_id, :tweet_id, :emotion, :polarity
+  attr_accessible :datetime_tweeted,
+    :text,
+    :user_id,
+    :tweet_id,
+    :emotion,
+    :bayesian_emotion,
+    :polarity
 
   belongs_to :user, inverse_of: :user_tweets
 

@@ -12,12 +12,12 @@ class BayesianClassificationUpdater
   def self.classify_tweets user
 
     classify_user_tweets user
-    classify_follower_tweets user
+    classify_followers user
 
   end
 
 
-  def classify_user_tweets user
+  def self.classify_user_tweets user
 
     tweets = user.user_tweets
     tweets.each do |tweet|
@@ -27,7 +27,7 @@ class BayesianClassificationUpdater
 
   end
 
-  def classify_followers user
+  def self.classify_followers user
 
     followers = user.followers
     followers.each do |follower|
