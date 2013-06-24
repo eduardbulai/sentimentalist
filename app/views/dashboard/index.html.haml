@@ -22,10 +22,10 @@
       %a.btn.btn-large.btn-block.btn-inverse{"href" => "#post_to_twitter_modal", "data-toggle" => "modal", "role" => "button", "name" => "post_to_twitter", "class" => "btn"}Post To Twitter
       %a.btn.btn-large.btn-block.btn-default{"href" => '/signout', "data-toggle" => "modal", "role" => "button", "name" => "sign_out", "class" => "btn"}Sign Out
     %div.span9
-      .filter.option-set{'id' => 'bayesian-filter', :datafiltergroup => "category"}
-      %div.btn-group{"data-toggle" => "buttons-radio"}
-        %a{"class" => "btn btn-large btn primary specialspan5 active", :href => "#", :datafilter =>""} Default Classifier
-        %a{"class" => "btn btn-large btn primary specialspan4", :href => "#", :datafilter =>""} Bayesian Classifier
+      .filter.option-set{'id' => 'bayesian-filter', :datafiltergroup => "classifier"}
+        %div.btn-group{"data-toggle" => "buttons-radio"}
+          %a{"class" => "btn btn-large btn primary specialspan5 active", :href => "#", :datafilter =>".default-classifier"}Default Classifier
+          %a{"class" => "btn btn-large btn primary specialspan4", :href => "#", :datafilter =>".bayesian-classifier"}Bayesian Classifier
     %div.span9
       .filter.option-set{'id' => 'emotions-filter', :datafiltergroup => "category"}
         %div.btn-group{"data-toggle" => "buttons-radio"}

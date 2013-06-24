@@ -1,5 +1,5 @@
 - @followers.each do |follower|
-  %div(class = "emot emotion-#{follower.emotion_week} week followers")
+  %div(class = "emot emotion-#{follower.emotion_week} week followers default-classifier")
     %div.span2
       %div.emotion-icon
         %dl(class = "palette palette-#{follower.emotion_week}")
@@ -8,7 +8,7 @@
             %dd Ambiguous
           -else
             %dd= follower.emotion_week
-  %div(class = "emot emotion-#{follower.emotion_month} month followers")
+  %div(class = "emot emotion-#{follower.emotion_month} month followers default-classifier")
     %div.span2
       %div.emotion-icon
         %dl(class = "palette palette-#{follower.emotion_month}")
@@ -17,7 +17,7 @@
             %dd Ambiguous
           -else
             %dd= follower.emotion_month
-  %div(class = "emot emotion-#{follower.emotion_year} year followers")
+  %div(class = "emot emotion-#{follower.emotion_year} year followers default-classifier")
     %div.span2
       %div.emotion-icon
         %dl(class = "palette palette-#{follower.emotion_year}")
@@ -26,7 +26,7 @@
             %dd Ambiguous
           -else
             %dd= follower.emotion_year
-    %div(class = "emot emotion-#{follower.emotion_week} week followers bayesian")
+  %div(class = "emot emotion-#{follower.bayesian_emotion_week} week followers bayesian-classifier")
     %div.span2
       %div.emotion-icon
         %dl(class = "palette palette-#{follower.bayesian_emotion_week}")
@@ -35,7 +35,7 @@
             %dd Ambiguous
           -else
             %dd= follower.bayesian_emotion_week
-  %div(class = "emot emotion-#{follower.emotion_month} month followers bayesian")
+  %div(class = "emot emotion-#{follower.emotion_month} month followers bayesian-classifier")
     %div.span2
       %div.emotion-icon
         %dl(class = "palette palette-#{follower.bayesian_emotion_month}")
@@ -44,7 +44,7 @@
             %dd Ambiguous
           -else
             %dd= follower.bayesian_emotion_month
-  %div(class = "emot emotion-#{follower.emotion_year} year followers bayesian")
+  %div(class = "emot emotion-#{follower.emotion_year} year followers bayesian-classifier")
     %div.span2
       %div.emotion-icon
         %dl(class = "palette palette-#{follower.bayesian_emotion_year}")
@@ -63,11 +63,11 @@
               %dd{"id" => "icontext#{tweet.id}"} Ambiguous
             -else
               %dd{"id" => "icontext#{tweet.id}"}= tweet.emotion
-  %div(class = "emot emotion-#{tweet.emotion} week user bayesian"){"id" => "icon#{tweet.id}"}
+  %div(class = "emot emotion-#{tweet.emotion} week user bayesian-classifier"){"id" => "icon#{tweet.id}"}
     %div.span2
       %div.emotion-icon
         %a{"href" => "#evaluate_user_tweet_modal#{tweet.id}","id" => "link_to_evaluate_user_tweet_modal#{tweet.id}", "data-toggle" => "modal", "role" => "button", "name" => "evaluate_user_tweet"}
-          %dl(class = "palette #{tweet.id} palette-#{tweet.emotion}")
+          %dl(class = "palette #{tweet.id} palette-#{tweet.bayesian_emotion}")
             -if tweet.bayesian_emotion == "uncertain"
               %dd{"id" => "icontext#{tweet.id}"} Ambiguous
             -else
