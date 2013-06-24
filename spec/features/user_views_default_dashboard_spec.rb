@@ -68,6 +68,24 @@ feature "user views default dashboard",
 
   end
 
+  it "user sees a 'sign out' button" do
+
+    expect(page).to have_link("Sign Out")
+
+  end
+
+  it "user sees 'bayesian mode' link" do
+
+    expect(page).to have_link("Bayesian Classifier")
+
+  end
+
+
+  it "user sees 'bayesian mode' link" do
+
+    expect(page).to have_link("Default Classifier")
+
+  end
 
   it "user sees a dashboard populated by icons displaying their followers emotional statuses" do
 

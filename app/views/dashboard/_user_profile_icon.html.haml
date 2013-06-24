@@ -1,0 +1,37 @@
+%div(class = "emot emotion-joy emotion-fear emotion-anger emotion-sadness emotion-surprise emotion-disgust emotion-uncertain week followers user default-classifier")
+  %dl(class = "palette-user-profile palette-#{current_user.emotion_week}")
+    -if current_user.emotion_week == "uncertain"
+      %dt.user-profile-emotion Ambiguous
+    -else
+      %dt.user-profile-emotion=current_user.emotion_week
+%div(class = "emot emotion-fear emotion-joy emotion-anger emotion-sadness emotion-surprise emotion-disgust emotion-uncertain month followers user")
+  %dl(class = "palette-user-profile palette-#{current_user.emotion_month} followers user default-classifier")
+    -if current_user.emotion_month == "uncertain"
+      %dt.user-profile-emotion Ambiguous
+    -else
+      %dt.user-profile-emotion=current_user.emotion_month
+%div(class = "emot emotion-fear emotion-joy emotion-anger emotion-sadness emotion-surprise emotion-disgust emotion-uncertain year followers user default-classifier")
+  %dl(class = "palette-user-profile palette-#{current_user.emotion_year} followers user")
+    -if current_user.emotion_year == "uncertain"
+      %dt.user-profile-emotion Ambiguous
+    -else
+      %dt.user-profile-emotion=current_user.emotion_year
+
+%div(class = "emot emotion-fear emotion-joy emotion-anger emotion-sadness emotion-surprise emotion-disgust emotion-uncertain week followers user bayesian-classifier")
+  %dl(class = "palette-user-profile palette-#{current_user.bayesian_emotion_week}")
+    -if current_user.bayesian_emotion_week == "uncertain"
+      %dt.user-profile-emotion Ambiguous
+    -else
+      %dt.user-profile-emotion=current_user.bayesian_emotion_week
+%div(class = "emot emotion-fear emotion-joy emotion-anger emotion-sadness emotion-surprise emotion-disgust emotion-uncertain month followers user bayesian-classifier")
+  %dl(class = "palette-user-profile palette-#{current_user.bayesian_emotion_month} followers user")
+    -if current_user.bayesian_emotion_month == "uncertain"
+      %dt.user-profile-emotion Ambiguous
+    -else
+      %dt.user-profile-emotion=current_user.bayesian_emotion_month
+%div(class = "emot emotion-fear emotion-joy emotion-anger emotion-sadness emotion-surprise emotion-disgust emotion-uncertain year followers user bayesian-classifier")
+  %dl(class = "palette-user-profile palette-#{current_user.bayesian_emotion_year} followers user")
+    -if current_user.bayesian_emotion_year == "uncertain"
+      %dt.user-profile-emotion Ambiguous
+    -else
+      %dt.user-profile-emotion=current_user.bayesian_emotion_year

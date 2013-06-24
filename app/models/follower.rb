@@ -2,10 +2,28 @@ class Follower < ActiveRecord::Base
 
   include EmotionTimeframeable
 
-  attr_accessible :name, :location, :twitter_handle, :user_id, :twitter_id, :emotion_week, :emotion_month, :emotion_year, :polarity_week, :polarity_month, :polarity_year
+  attr_accessible :name,
+    :location,
+    :twitter_handle,
+    :user_id,
+    :twitter_id,
+    :emotion_week,
+    :bayesian_emotion_week,
+    :emotion_month,
+    :bayesian_emotion_month,
+    :emotion_year,
+    :bayesian_emotion_week,
+    :polarity_week,
+    :polarity_month,
+    :polarity_year
 
-  has_many :follower_tweets, foreign_key: :follower_id, dependent: :destroy
-  belongs_to :user, inverse_of: :followers
+  has_many :follower_tweets,
+    foreign_key:
+    :follower_id,
+    dependent: :destroy
+
+  belongs_to :user,
+    inverse_of: :followers
 
   validates_presence_of :name,
     :twitter_handle,

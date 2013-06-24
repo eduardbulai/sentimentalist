@@ -7,10 +7,6 @@ class MachineLearner < ActiveRecord::Base
 
   belongs_to :user, inverse_of: :machine_learner
 
-  validates_presence_of :name,
-    :stemming,
-    :ignore_words
-
 
   before_create do |machine_learner|
   	machine_learner.name = "joy or anger or fear or disgust or surprise or uncertain"
@@ -27,6 +23,10 @@ class MachineLearner < ActiveRecord::Base
     new_classifier.instance_variable_set(:@ignore_words, self.ignore_words)
     new_classifier.instance_variable_set(:@stemming, self.stemming)
     new_classifier.instance_variable_set(:@trained, self.trained)
+    {joy: 'joy', anger: 'anger', fear: 'fear', uncertain: 'uncertain',
+      disgust: 'disgust', surprise: 'surprise', sadness: 'sadness'}.each do |key, value|
+        new_classifier.train(key, value)
+      end
     new_classifier
   end
 

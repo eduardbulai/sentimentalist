@@ -33,7 +33,6 @@ feature "user signs in",
 
 	end
 
-
 	it "user sees a friendly message if an error occurs"
 
 end

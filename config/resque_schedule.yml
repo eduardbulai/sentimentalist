@@ -4,3 +4,10 @@ update_tweets:
   class: TweetUpdater
   args:
   description:
+
+classify_tweets_using_bayesian_classifier:
+  cron: "*/5 * * * *"
+  queue: bayesian_classification_update_queue
+  class: BayesianClassificationUpdater
+  args:
+  description:
