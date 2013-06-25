@@ -33,10 +33,6 @@ describe MachineLearner do
     	expect(machine_learner.ccount).to eql({anger: 0, joy: 0, fear: 0, sadness: 0, disgust: 0, surprise: 0, ambiguous: 0})
     end
 
-    it "trained is set to nil" do
-      expect(machine_learner.trained).to be_nil
-    end
-
     it "can push items to wcount" do
     	machine_learner.wcount["bark"] = {dog: 1}
     	expect(machine_learner.wcount).to_not be_empty
@@ -50,6 +46,22 @@ describe MachineLearner do
   end
 
   context "methods" do
+
+    describe "#build_classifier" do
+
+      it "description" do
+        new_classifier = machine_learner.build_classifier
+
+        expect(new_classifier.instance_variable_get(:@wcount)).to eql({"joi"=>{:joy=>1},
+          "anger"=>{:anger=>1}, "fear"=>{:fear=>1}, "uncertain"=>{:uncertain=>1},
+          "disgust"=>{:disgust=>1}, "surpris"=>{:surprise=>1}, "sad"=>{:sadness=>1}})
+        expect(new_classifier.instance_variable_get(:@ccount)).to eql({:anger=>1,
+          :joy=>1, :fear=>1, :sadness=>1, :disgust=>1, :surprise=>1, :ambiguous=>0, :uncertain=>1})
+        expect(new_classifier.instance_variable_get(:@ignore_words)).to eql(machine_learner.ignore_words)
+        expect(new_classifier.instance_variable_get(:@stemming)).to eql(machine_learner.stemming)
+      end
+
+    end
 
     describe "#persist_machine_learner" do
 
