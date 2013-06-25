@@ -2,7 +2,7 @@ Sentimentalist::Application.routes.draw do
 
   mount Resque::Server, at: '/resque'
 
-  resources :dashboard, only: [:index]
+  resources :dashboard, only: [:index, :load]
   resources :welcome
 
   match '/auth/twitter/callback', to: 'sessions#create'
@@ -10,6 +10,7 @@ Sentimentalist::Application.routes.draw do
   match "/signout", to: "sessions#destroy", as: :signout
   match '/about', to: 'welcome#about'
   match '/privacy', to: 'welcome#privacy'
+  match '/load', to: 'dashboard#load'
   match '/auth/failure', to: 'sessions#error', as: 'failure'
 
   match ':controller(/:action(/:id))(.:format)'
