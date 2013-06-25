@@ -25,4 +25,5 @@ configatron.redis_url_password = {
 # uri = URI.parse(configatron.redis_url)
 $redis = Redis.new(:host => configatron.redis_url_host, :port => configatron.redis_url_port,
   :password => configatron.redis_url_password)
-Redis.current = $redis
+Resque.redis = $redis
+
