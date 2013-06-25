@@ -1,3 +1,8 @@
+%div#dashboard-loading-modal{"class"=>"modal-backdrop fade in"}
+  %div{ "class" => "modal", "tabindex" => "-1", "role" => "dialog"}
+    %div{'class' => 'modal-body'}
+      %div.btn.btn-block.btn-fear "Ok, hold on while we load your twitter info..."
+
 .row#header
   %div.span2.header-chunk-large
     %dl(class = "palette palette-header1")
@@ -72,3 +77,4 @@
 = render 'post_to_twitter_modal'
 
 = render 'isotope'
+

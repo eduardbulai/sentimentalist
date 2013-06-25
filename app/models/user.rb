@@ -16,7 +16,8 @@ class User < ActiveRecord::Base
     :bayesian_emotion_year,
     :polarity_week,
     :polarity_month,
-    :polarity_year
+    :polarity_year,
+    :resque_complete
 
   has_many :user_tweets, dependent: :destroy
   has_many :followers, dependent: :destroy

@@ -4,7 +4,7 @@
       %dt.user-profile-emotion Ambiguous
     -else
       %dt.user-profile-emotion=current_user.emotion_week
-%div(class = "emot emotion-fear emotion-joy emotion-anger emotion-sadness emotion-surprise emotion-disgust emotion-uncertain month followers user")
+%div(class = "emot emotion-fear emotion-joy emotion-anger emotion-sadness emotion-surprise emotion-disgust emotion-uncertain month followers user default-classifier")
   %dl(class = "palette-user-profile palette-#{current_user.emotion_month} followers user default-classifier")
     -if current_user.emotion_month == "uncertain"
       %dt.user-profile-emotion Ambiguous

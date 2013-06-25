@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130623204617) do
+ActiveRecord::Schema.define(:version => 20130624183621) do
 
   create_table "follower_tweet_hashtags", :force => true do |t|
     t.string   "tag"
@@ -97,6 +97,7 @@ ActiveRecord::Schema.define(:version => 20130623204617) do
     t.string   "bayesian_emotion_week"
     t.string   "bayesian_emotion_month"
     t.string   "bayesian_emotion_year"
+    t.boolean  "resque_complete"
   end
 
 end
