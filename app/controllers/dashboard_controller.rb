@@ -21,6 +21,10 @@ class DashboardController < ApplicationController
     redirect_to dashboard_index_path
   end
 
+  def load
+
+  end
+
   def update_machine_learner
     emotion = params[:emotion]
     new_emotion = emotion.downcase
