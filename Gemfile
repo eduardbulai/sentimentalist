@@ -77,6 +77,6 @@ gem 'resque-mock'
 
 gem 'simple_form'
 
-gem "stuff-classifier", "~> 0.5"
+gem "stuff-classifier", :git => 'https://github.com/mattThousand/stuff-classifier.git'
 
 gem 'shoulda-matchers'
