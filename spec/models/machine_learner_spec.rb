@@ -51,24 +51,20 @@ describe MachineLearner do
 
   context "methods" do
 
-    describe "#machine_learner_is_trained" do
+    describe "#persist_machine_learner" do
 
-      it 'returns false if machine learner has not been trained' do
-          expect(machine_learner.machine_learner_is_trained).to be_false
-      end
+      it 'persists machine learner' do
+        initial_wcount = machine_learner.wcount.length
+        initial_ccount = machine_learner.ccount[:joy]
+        new_classifier = machine_learner.build_classifier
+        new_classifier.train(:joy, "I love stuff!")
+        machine_learner.persist_machine_learner(new_classifier)
 
-      it 'returns true if machine learner has been trained' do
+        final_wcount = machine_learner.wcount.length
+        final_ccount = machine_learner.ccount[:joy]
 
-        expect(machine_learner.machine_learner_is_trained).to be_false
-
-        emotions.each do |emotion|
-          15.times do
-            machine_learner.ccount[emotion]+=1
-          end
-        end
-
-        expect(machine_learner.machine_learner_is_trained).to be_true
-
+        expect(final_wcount).to be > (initial_wcount+1)
+        expect(final_ccount).to be > (initial_ccount+1)
       end
 
     end

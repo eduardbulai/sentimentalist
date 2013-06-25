@@ -1,9 +1,10 @@
 GIT
   remote: https://github.com/mattThousand/stuff-classifier.git
-  revision: 273e026a02751eb3b3e2f89851741c4ea4b50f33
+  revision: 4137c3981fc1f626e6e06005bde9b0ea1dd2c191
   specs:
     stuff-classifier (0.5)
-      ruby-stemmer
+      fast-stemmer (>= 1.0)
+      msgpack
       sequel
 
 GEM
@@ -75,6 +76,7 @@ GEM
     fakeweb (1.3.0)
     faraday (0.8.7)
       multipart-post (~> 1.1)
+    fast-stemmer (1.0.2)
     flat-ui-rails (0.0.2)
     haml (4.0.3)
       tilt
@@ -101,6 +103,7 @@ GEM
     mime-types (1.23)
     mini_portile (0.5.0)
     mono_logger (1.1.0)
+    msgpack (0.5.5)
     multi_json (1.7.7)
     multipart-post (1.2.0)
     net-scp (1.1.1)

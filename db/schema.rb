@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130624183621) do
+ActiveRecord::Schema.define(:version => 20130625124156) do
 
   create_table "follower_tweet_hashtags", :force => true do |t|
     t.string   "tag"
@@ -57,7 +57,6 @@ ActiveRecord::Schema.define(:version => 20130624183621) do
     t.datetime "updated_at",   :null => false
     t.text     "ccount"
     t.text     "wcount"
-    t.boolean  "trained"
   end
 
   create_table "user_tweet_hashtags", :force => true do |t|

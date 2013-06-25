@@ -22,7 +22,6 @@ class MachineLearner < ActiveRecord::Base
     new_classifier.instance_variable_set(:@ccount, self.ccount)
     new_classifier.instance_variable_set(:@ignore_words, self.ignore_words)
     new_classifier.instance_variable_set(:@stemming, self.stemming)
-    new_classifier.instance_variable_set(:@trained, self.trained)
     {joy: 'joy', anger: 'anger', fear: 'fear', uncertain: 'uncertain',
       disgust: 'disgust', surprise: 'surprise', sadness: 'sadness'}.each do |key, value|
         new_classifier.train(key, value)
@@ -33,21 +32,7 @@ class MachineLearner < ActiveRecord::Base
   def persist_machine_learner new_classifier
     self.wcount = new_classifier.instance_variable_get(:@wcount)
     self.ccount = new_classifier.instance_variable_get(:@ccount)
-    if !self.trained
-      self.trained = self.machine_learner_is_trained
-    end
     self.save
-  end
-
-  def machine_learner_is_trained
-    trained = true
-    emotions = [:anger, :joy, :fear, :sadness, :disgust, :surprise, :ambiguous]
-    emotions.each do |emotion|
-      if self.ccount[emotion] < 15
-        trained = false
-      end
-    end
-    trained
   end
 
 end
