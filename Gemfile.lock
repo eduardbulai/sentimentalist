@@ -191,7 +191,7 @@ GEM
     ruby-stemmer (0.9.3)
     rufus-scheduler (2.0.19)
       tzinfo (>= 0.3.23)
-    sad_panda (0.2.0)
+    sad_panda (0.2.1)
       ruby-stemmer
     sass (3.2.9)
     sass-rails (3.2.6)
@@ -259,7 +259,7 @@ DEPENDENCIES
   resque-scheduler
   resque_spec
   rspec-rails
-  sad_panda (~> 0.2.0)
+  sad_panda (~> 0.2.1)
   sass-rails (~> 3.2.3)
   shoulda-matchers
   simple_form
