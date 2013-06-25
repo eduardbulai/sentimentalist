@@ -80,3 +80,5 @@ gem 'simple_form'
 gem "stuff-classifier", :git => 'https://github.com/mattThousand/stuff-classifier.git'
 
 gem 'shoulda-matchers'
+
+gem 'configatron'

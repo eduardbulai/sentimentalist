@@ -21,6 +21,11 @@ body {
 	margin-bottom: 40px;
 }
 
+.emotion-icon-welcome {
+  width: 150px;
+  height: 150px;
+}
+
 
 .isotope-item {
   z-index: 2;
@@ -58,6 +63,7 @@ body {
 .palette-fear {
   background-color: #34495e;
 }
+
 
 .palette-user-profile {
   color: #ffffff;
@@ -192,3 +198,22 @@ body {
   font-size: 1.1em;
 }
 
+#welcome-background {
+  height:100%;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1040;
+  background-color: #000000;
+  opacity: 0.8;
+}
+
+.centered {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  margin-top: -50px;
+  margin-left: -100px;
+}
