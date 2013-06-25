@@ -17,7 +17,7 @@
 
 $(document).ready( function() {
 
-  var dashboardLoaded = false
+  var dashboardLoaded = false;
 
   // var runningResqueTask = true;
   // var firstPass = true;
