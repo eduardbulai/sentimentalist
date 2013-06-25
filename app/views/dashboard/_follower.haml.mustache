@@ -1,0 +1,36 @@
+%div(class = "emot emotion-{{follower.emotion_week}} week followers default-classifier")
+  %div.span2
+    %div.emotion-icon
+      %dl(class = "palette palette-{{follower.emotion_week}}")
+        %dt{{follower.name}}
+          %dd{{follower.emotion_week}}
+%div(class = "emot emotion-{{follower.emotion_month}} month followers default-classifier")
+  %div.span2
+    %div.emotion-icon
+      %dl(class = "palette palette-{{follower.emotion_month}}")
+        %dt {{follower.name}}
+          %dd {{follower.emotion_month}}
+%div(class = "emot emotion-{{follower.emotion_year}} year followers default-classifier")
+  %div.span2
+    %div.emotion-icon
+      %dl(class = "palette palette-{{follower.emotion_year}}")
+        %dt {{follower.name}}
+          %dd {{follower.emotion_year}}
+%div(class = "emot emotion-{{follower.bayesian_emotion_week}} week followers bayesian-classifier")
+  %div.span2
+    %div.emotion-icon
+      %dl(class = "palette palette-{{follower.bayesian_emotion_week}}")
+        %dt {{follower.name}}
+          %dd {{follower.bayesian_emotion_week}}
+%div(class = "emot emotion-{{follower.emotion_month}} month followers bayesian-classifier")
+  %div.span2
+    %div.emotion-icon
+      %dl(class = "palette palette-{{follower.bayesian_emotion_month}}")
+        %dt {{follower.name}}
+          %dd {{follower.bayesian_emotion_month}}
+%div(class = "emot emotion-{{follower.emotion_year}} year followers bayesian-classifier")
+  %div.span2
+    %div.emotion-icon
+      %dl(class = "palette palette-{{follower.bayesian_emotion_year}}")
+        %dt {{follower.name}}
+          %dd {{follower.bayesian_emotion_year}}

@@ -103,6 +103,10 @@ GEM
     mono_logger (1.1.0)
     multi_json (1.7.7)
     multipart-post (1.2.0)
+    mustache (0.99.4)
+    mustache-rails (0.2.3)
+      actionpack (>= 3.1)
+      mustache (~> 0.99.4)
     net-scp (1.1.1)
       net-ssh (>= 2.6.5)
     net-sftp (2.1.2)
@@ -250,6 +254,7 @@ DEPENDENCIES
   haml-rails
   jquery-rails
   launchy
+  mustache-rails (~> 0.2.3)
   omniauth-twitter
   pg
   pry
