@@ -23,7 +23,7 @@ configatron.redis_url_password = {
 }[Rails.env.to_sym]
 
 # uri = URI.parse(configatron.redis_url)
-$redis = Redis.new(:host => configatron.redis_url_host, :port => configatron.redis_url_port,
-  :password => configatron.redis_url_password)
+$redis = Redis.new(:host => configatron.redis_url_host.to_s, :port => configatron.redis_url_port.to_s,
+  :password => configatron.redis_url_password.to_s)
 Resque.redis = $redis
 
