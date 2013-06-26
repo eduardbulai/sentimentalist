@@ -1,4 +1,6 @@
 # This file is used by Rack-based servers to start the application.
 
-require ::File.expand_path('../config/environment',  __FILE__)
-run Sentimentalist::Application
+require 'resque/server'
+run Rack::URLMap.new \
+"/" =&gt; Sentimentalist::Application,
+"/resque" =&gt; Resque::Server.new
