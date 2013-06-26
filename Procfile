@@ -1,3 +1,5 @@
 web: bundle exec rails server thin -p $PORT
-worker: bundle exec rake resque:work QUEUE='*'
+worker: QUEUE='*' bundle exec rake resque:work --trace
 scheduler: bundle exec rake resque:scheduler
+
+
