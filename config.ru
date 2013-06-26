@@ -2,5 +2,5 @@
 
 require 'resque/server'
 run Rack::URLMap.new \
-"/" =&gt; Sentimentalist::Application,
-"/resque" =&gt; Resque::Server.new
+  "/"       => Sentimentalist::Application,
+  "/resque" => Resque::Server.new
