@@ -15,43 +15,43 @@
 //= require_tree .
 
 
-// $(document).ready( function() {
+$(document).ready( function() {
 
-//   var dashboardLoaded = false;
+  var dashboardLoaded = false;
 
-//   // var runningResqueTask = true;
-//   // var firstPass = true;
-
-
-
-//   function myRequest() {
-//     $.getJSON('/dashboard/index/', function(response) {
-//       console.log(response.user.resque_complete);
-//       loadComplete = response.user.resque_complete;
-
-//         if (!loadComplete) {
-//           $('#dashboard-loading-modal').show();
-//         }
-//         else {
-//           $('#dashboard-loading-modal').hide();
-//           location.reload();
-//         }
-//       });
-//   }
-
-//   function setIconfield() {
-
-//     if (!dashboardLoaded) {
-//       myRequest();
-
-//       setTimeout( setIconfield, 1000);
-//     }
-//   }
+  // var runningResqueTask = true;
+  // var firstPass = true;
 
 
-//   setIconfield();
 
-// });
+  function myRequest() {
+    $.getJSON('/dashboard/index/', function(response) {
+      console.log(response.user.resque_complete);
+      loadComplete = response.user.resque_complete;
+
+        if (!loadComplete) {
+          $('#dashboard-loading-modal').show();
+        }
+        else {
+          $('#dashboard-loading-modal').hide();
+          location.reload();
+        }
+      });
+  }
+
+  function setIconfield() {
+
+    if (!dashboardLoaded) {
+      myRequest();
+
+      setTimeout( setIconfield, 1000);
+    }
+  }
+
+
+  setIconfield();
+
+});
 
 
 // $(document).ready( function() {
