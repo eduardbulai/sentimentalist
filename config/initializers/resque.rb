@@ -1,5 +1,4 @@
 require 'resque_scheduler'
-require 'resque/tasks'
 
 # configure redis connection
 Resque.redis = $redis
