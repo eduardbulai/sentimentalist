@@ -181,12 +181,7 @@ $(function() {
     newEmotion = null;
 		var text = target.text();
 
-		if (text==="Ambiguous") {
-			newEmotion="uncertain";
-		}
-		else {
-			newEmotion=text.toLowerCase();
-		}
+		newEmotion=text.toLowerCase();
 
 		$.ajax({
 			data: {
