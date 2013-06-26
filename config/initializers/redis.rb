@@ -10,4 +10,4 @@
 
 
 uri = URI.parse(ENV["REDISTOGO_URL"])
-REDIS = Redis.new(:host => uri.host, :port => uri.port, :password => uri.password)
+REDIS = Redis.new(:host => uri.host.to_s, :port => uri.port.to_s, :password => uri.password.to_s)
