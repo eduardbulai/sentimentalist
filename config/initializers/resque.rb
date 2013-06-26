@@ -1,4 +1,5 @@
 require 'resque_scheduler'
+require 'resque/plugins/heroku'
 
 # configure redis connection
 Resque.redis = $redis

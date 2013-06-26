@@ -1,5 +1,7 @@
 class BayesianClassificationUpdater
 
+  extend Resque::Plugins::Heroku
+
   @queue = :bayesian_classification_update_queue
 
   def self.perform(user_id)

@@ -84,3 +84,5 @@ gem 'shoulda-matchers'
 gem 'configatron'
 
 gem 'thin'
+
+gem 'resque-heroku'
