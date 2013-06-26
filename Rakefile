@@ -4,7 +4,6 @@
 
 require File.expand_path('../config/application', __FILE__)
 require 'resque/tasks'
-require 'resque/plugins/heroku/tasks'
 
 task "resque:setup" do
   ENV['QUEUE'] = '*'

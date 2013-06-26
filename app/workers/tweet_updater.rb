@@ -1,7 +1,5 @@
 class TweetUpdater
 
-  extend Resque::Plugins::Heroku
-
 	@queue = :tweet_update_queue
 
 	def self.perform(user_id)

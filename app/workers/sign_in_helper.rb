@@ -1,7 +1,5 @@
 class SignInHelper
 
-  extend Resque::Plugins::Heroku
-
 	@queue = :users_queue
 
 	def self.perform(user_id)
