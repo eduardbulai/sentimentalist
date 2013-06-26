@@ -1,5 +1,5 @@
 configatron.redis_url = {
-  :development => "localhost:6379",
+  # :development => "localhost:6379",
   :staging => ENV['REDISTOGO_URL'],
   :production => ENV['REDISTOGO_URL']
 }[Rails.env.to_sym]
