@@ -5,6 +5,6 @@ configatron.redis_url = {
 }[Rails.env.to_sym]
 
 uri = URI.parse(configatron.redis_url)
-$redis = Redis.new(:host => uri.host, :port => uri.port, :password => uri.password)
+$redis = Redis.new(:host => uri.host.to_s, :port => uri.port.to_s, :password => uri.password.to_s)
 Resque.redis = $redis
 
