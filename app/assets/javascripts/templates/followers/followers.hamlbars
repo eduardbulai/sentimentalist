@@ -1,36 +1,36 @@
-%div(class = "emot emotion-{{follower.emotion_week}} week followers default-classifier")
+%div(class = "emot emotion-{{emotion_week}} week followers default-classifier")
   %div.span2
     %div.emotion-icon
-      %dl(class = "palette palette-{{follower.emotion_week}}")
-        %dt= follower.name
-        %dd= follower.emotion_week
-%div(class = "emot emotion-{{follower.emotion_month}} month followers default-classifier")
+      %dl(class = "palette palette-{{emotion_week}}")
+        %dt {{name}}
+        %dd {{emotion_week}}
+%div(class = "emot emotion-{{emotion_month}} month followers default-classifier")
   %div.span2
     %div.emotion-icon
-      %dl(class = "palette palette-{{follower.emotion_month}}")
-        %dt= follower.name
-        %dd= follower.emotion_month
-%div(class = "emot emotion-{{follower.emotion_year}} year followers default-classifier")
+      %dl(class = "palette palette-{{emotion_month}}")
+        %dt {{name}}
+        %dd {{emotion_month}}
+%div(class = "emot emotion-{{emotion_year}} year followers default-classifier")
   %div.span2
     %div.emotion-icon
-      %dl(class = "palette palette-{{follower.emotion_year}}")
-        %dt= follower.name
-        %dd= follower.emotion_year
-%div(class = "emot emotion-{{follower.bayesian_emotion_week}} week followers bayesian-classifier")
+      %dl(class = "palette palette-{{emotion_year}}")
+        %dt {{name}}
+        %dd {{emotion_year}}
+%div(class = "emot emotion-{{bayesian_emotion_week}} week followers bayesian-classifier")
   %div.span2
     %div.emotion-icon
-      %dl(class = "palette palette-{{follower.bayesian_emotion_week}}")
-        %dt= follower.name
-        %dd= follower.bayesian_emotion_week
-%div(class = "emot emotion-{{follower.emotion_month}} month followers bayesian-classifier")
+      %dl(class = "palette palette-{{bayesian_emotion_week}}")
+        %dt {{name}}
+        %dd {{bayesian_emotion_week}}
+%div(class = "emot emotion-{{emotion_month}} month followers bayesian-classifier")
   %div.span2
     %div.emotion-icon
-      %dl(class = "palette palette-{{follower.bayesian_emotion_month}}")
-        %dt= follower.name
-        %dd= follower.bayesian_emotion_month
-%div(class = "emot emotion-{{follower.emotion_year}} year followers bayesian-classifier")
+      %dl(class = "palette palette-{{bayesian_emotion_month}}")
+        %dt {{name}}
+        %dd {{bayesian_emotion_month}}
+%div(class = "emot emotion-{{emotion_year}} year followers bayesian-classifier")
   %div.span2
     %div.emotion-icon
-      %dl(class = "palette palette-{{follower.bayesian_emotion_year}}")
-        %dt= follower.name
-        %dd= follower.bayesian_emotion_year
+      %dl(class = "palette palette-{{bayesian_emotion_year}}")
+        %dt {{name}}
+        %dd {{bayesian_emotion_year}}

@@ -1,0 +1,12 @@
+%div(class = "emot emotion-{{emotion}} week user default-classifier"){"id" => "icon{{id}}"}
+  %div.span2
+    %div.emotion-icon
+      %a{"href" => "#evaluate_user_tweet_modal{{id}}","id" => "link_to_evaluate_user_tweet_modal{{id}}", "data-toggle" => "modal", "role" => "button", "name" => "evaluate_user_tweet"}
+        %dl(class = "palette palette-{{emotion}}" id="iconcolor{{id}}")
+          %dd{"id" => "icontext{{id}}"} {{emotion}}
+%div(class = "emot emotion-{{bayesian_emotion}} week user bayesian-classifier"){"id" => "icon_bayes{{id}}"}
+  %div.span2
+    %div.emotion-icon
+      %a{"href" => "#evaluate_user_tweet_modal{{id}}","id" => "link_to_evaluate_user_tweet_modal{{id}}", "data-toggle" => "modal", "role" => "button", "name" => "evaluate_user_tweet"}
+        %dl(class = "palette palette-{{bayesian_emotion}}" id="iconcolor_bayes{{id}}")
+          %dd{"id" => "icontext_bayes{{id}}"} {{bayesian_emotion}}

@@ -6,7 +6,8 @@ class SessionsController < ApplicationController
 	  Resque.enqueue(TweetUpdater, user.id)
     Resque.enqueue(BayesianClassificationUpdater, user.id)
 	  # user.tweets_updated = false
-	  redirect_to load_path
+	  # redirect_to load_path
+    redirect_to dashboard_index_path
 	end
 
 	def destroy

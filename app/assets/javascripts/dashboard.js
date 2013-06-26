@@ -4,7 +4,14 @@ $(document).ready( function() {
     $.getJSON('/dashboard/index', function(response) {
       var followers = response.followers;
       $.each(followers, function() {
-        $('#small-icons').after(HandlebarsTemplates['followers/followers']);
+        var stuff = HandlebarsTemplates['followers/followers'](this);
+        debugger;
+        $('#small-icons').after(HandlebarsTemplates['followers/followers'](this));
+      });
+
+      var user_tweets = response.user_tweets;
+      $.each(user_tweets, function() {
+        $('#small-icons').after(HandlebarsTemplates['user_tweets/user_tweets'](this));
       });
     });
   }
