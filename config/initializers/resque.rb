@@ -7,11 +7,8 @@ configatron.redis_url = {
 }[Rails.env.to_sym]
 
 uri = URI.parse(configatron.redis_url)
-$redis = Redis.new(:host => uri.host, :port => uri.port, :password => uri.password)
-# Resque.redis = $redis
 
 # configure redis connection
-Resque.redis = $redis
-
+Resque.redis = Redis.new(:host => uri.host, :port => uri.port, :password => uri.password)
 # configure the schedule
 Resque.schedule = YAML.load_file("#{Rails.root}/config/resque_schedule.yml")
