@@ -1,16 +1,25 @@
 #welcome-background
-  %a{"class" => "btn btn-large btn-block btn-default", :href => "/auth/twitter"}Sign in with Twitter  -- this will appear in full relief
-  %a{"class" => "btn btn-large btn-block btn-default", :href => "/privacy"}Sign in with Twitter  -- this will appear in full relief
-  %a{"class" => "btn btn-large btn-block btn-default", :href => "/about"}Sign in with Twitter  -- this will appear in full relief
-  %div(class = "emot emotion-anger")
-    %div.emotion-icon-welcome.palette.palette-anger
-  %div(class = "emot emotion-fear")
-    %div.emotion-icon-welcome.palette.palette-fear
-  %div(class = "emot emotion-joy")
-    %div.emotion-icon-welcome.palette.palette-joy
-  %div(class = "emot emotion-surprise")
-    %div.emotion-icon-welcome.palette.palette-surprise
-  %div(class = "emot emotion-disgust")
-    %div.emotion-icon-welcome.palette.palette-disgust
-  %div(class = "emot emotion-ambiguous")
-    %div.emotion-icon-welcome.palette.palette-ambiguous
+  .container
+    .row#welcome-content-container
+      %div.span2.welcome-icon-column
+        %div(class = "emot emotion-anger")
+          %div.emotion-icon-welcome.palette.palette-anger
+        %div(class = "emot emotion-fear")
+          %div.emotion-icon-welcome.palette.palette-fear
+      %div.span2.welcome-icon-column
+        %div(class = "emot emotion-joy")
+          %div.emotion-icon-welcome.palette.palette-joy
+        %div(class = "emot emotion-ambiguous")
+          %div.emotion-icon-welcome.palette.palette-ambiguous
+      %div.span4
+        %h1#app-logo Sentimentalist
+        %h2#app-subheading A new tool for Sentiment Analysis and Machine Learning
+        %a.welcome-index-button{href: "/auth/twitter"} Sign in with Twitter
+
+
+
+
+
+  / %a{"class" => "btn btn-large btn-block btn-default", :href => "/auth/twitter"}Sign in with Twitter  -- this will appear in full relief
+  / %a{"class" => "btn btn-large btn-block btn-default", :href => "/privacy"}Sign in with Twitter  -- this will appear in full relief
+  / %a{"class" => "btn btn-large btn-block btn-default", :href => "/about"}Sign in with Twitter  -- this will appear in full relief
