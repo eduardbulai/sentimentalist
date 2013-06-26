@@ -6,5 +6,13 @@ configatron.redis_url = {
 
 uri = URI.parse(configatron.redis_url)
 $redis = Redis.new(:host => uri.host, :port => uri.port, :password => uri.password)
+# Resque.redis = $redis
+
+require 'resque_scheduler'
+require 'resque/plugins/heroku'
+
+# configure redis connection
 Resque.redis = $redis
 
+# configure the schedule
+Resque.schedule = YAML.load_file("#{Rails.root}/config/resque_schedule.yml")
