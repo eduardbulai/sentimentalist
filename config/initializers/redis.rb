@@ -1,8 +1,8 @@
-# configatron.redis_url = {
-#   :test => "localhost:6379",
-#   :staging => ENV['REDISTOGO_URL'],
-#   :production => ENV['REDISTOGO_URL']
-# }[Rails.env.to_sym]
+configatron.redis_url = {
+  :test => "http://0.0.0.0:6379",
+  :staging => ENV['REDISTOGO_URL'],
+  :production => ENV['REDISTOGO_URL']
+}[Rails.env.to_sym]
 
 # # configatron.redis_url_host = {
 # #   :test => "localhost",
@@ -22,9 +22,9 @@
 # #   :production => ENV['REDISTOGO_URL_PASSWORD']
 # # }[Rails.env.to_sym]
 
-# uri = URI.parse(configatron.redis_url)
-# # $redis = Redis.new(:host => configatron.redis_url_host.to_s, :port => configatron.redis_url_port.to_s,
+uri = URI.parse(configatron.redis_url)
+# $redis = Redis.new(:host => configatron.redis_url_host.to_s, :port => configatron.redis_url_port.to_s,
 # #   :password => configatron.redis_url_password.to_s)
-# $redis = Redis.new(:host => uri.host, :port => uri.port, :password => uri.password)
-# Resque.redis = $redis
+$redis = Redis.new(:host => uri.host, :port => uri.port, :password => uri.password)
+Resque.redis = $redis
 
