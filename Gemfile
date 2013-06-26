@@ -82,3 +82,5 @@ gem "stuff-classifier", :git => 'https://github.com/mattThousand/stuff-classifie
 gem 'shoulda-matchers'
 
 gem 'configatron'
+
+gem 'handlebars_assets'
