@@ -29,10 +29,8 @@ feature "user signs in",
 	it "user is redirected to the dashboard index upon successful sign-in" do
 
 		sign_in(user)
-		expect(current_path).to eql(dashboard_index_path)
+		expect(current_path).to eql(load_path)
 
 	end
-
-	it "user sees a friendly message if an error occurs"
 
 end

@@ -17,7 +17,7 @@
 .container
   .row
     %div.span3
-      %div.iconfield
+      %div.iconfield#user-profile-iconfield
         = render 'user_profile_icon'
       %a.btn.btn-large.btn-block.btn-inverse{"href" => "#post_to_twitter_modal", "data-toggle" => "modal", "role" => "button", "name" => "post_to_twitter", "class" => "btn"}Post To Twitter
       %a.btn.btn-large.btn-block.btn-default{"href" => '/signout', "data-toggle" => "modal", "role" => "button", "name" => "sign_out", "class" => "btn"}Sign Out
@@ -25,8 +25,6 @@
       = render 'default_bayesian_filter_partial'
     %div.span9
       = render 'emotions_filter_partial'
-    %div.span9
-      = render 'timeframes_filter_partial'
     %div.span9
       = render 'user_followers_filter_partial'
     %div.iconfield.span9#small-icons

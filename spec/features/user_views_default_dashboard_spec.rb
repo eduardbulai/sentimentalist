@@ -21,16 +21,14 @@ feature "user views default dashboard",
 
   before do
     sign_in(user)
+    visit dashboard_index_path
   end
 
-  it "user has a profile icon corresponding to the emotion reflected in their tweets for the week"
+  it "user has a profile icon corresponding to the emotion reflected in their tweets for the week" do
 
-  it "user sees a sidebar listing several time filters" do
-
-    within("#timeframes-filter") do
-    	expect(page).to have_content('Week')
-    	expect(page).to have_content('Month')
-    	expect(page).to have_content('Year')
+    within("#user-profile-iconfield") do
+      expect(page).to have_content("#{user.emotion}")
+      expect(page).to have_content("#{user.bayesian_emotion}")
     end
 
   end

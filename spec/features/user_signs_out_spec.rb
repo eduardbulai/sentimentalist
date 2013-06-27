@@ -18,6 +18,7 @@ feature "user signs out",
 
   before do
   	sign_in(user)
+    visit dashboard_index_path
   end
 
   it 'dashboard page has sign out link' do
@@ -29,7 +30,6 @@ feature "user signs out",
 
   it 'user can sign out' do
 
-    sign_in(user)
   	click_link 'Sign Out'
   	expect(current_path).to eql(root_path)
     expect(page).to have_link('Sign in with Twitter')

@@ -31,9 +31,7 @@ class BayesianClassificationUpdater
 
     followers = user.followers
     followers.each do |follower|
-      follower.bayesian_emotion_week = follower.bayesian_emotion_for_timeframe("week")
-      follower.bayesian_emotion_month = follower.bayesian_emotion_for_timeframe("month")
-      follower.bayesian_emotion_year = follower.bayesian_emotion_for_timeframe("year")
+      follower.bayesian_emotion = follower.bayesian_emotion
     end
 
   end
