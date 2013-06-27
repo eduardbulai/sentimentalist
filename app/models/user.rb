@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
 
-  include EmotionTimeframeable
+  include EmotionGetter
 
   attr_accessible :name,
     :twitter_handle,

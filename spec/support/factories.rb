@@ -40,12 +40,9 @@ FactoryGirl.define do
 		twitter_handle 'dsf@__'
 		twitter_id '1392225116'
 		location 'Boston'
-		emotion_week 'joy'
-    emotion_month 'sadness'
-    emotion_year 'surprise'
-    polarity_week '7.0'
-    polarity_month '2.0'
-    polarity_year '5.0'
+		emotion 'joy'
+    bayesian_emotion 'anger'
+    polarity '7.0'
     created_at "2013-06-04 23:07:31"
     updated_at "2013-06-09 23:07:31"
     factory :follower_with_tweets do

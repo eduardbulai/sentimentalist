@@ -1,6 +1,6 @@
 class Follower < ActiveRecord::Base
 
-  include EmotionTimeframeable
+  include EmotionGetter
 
   attr_accessible :name,
     :location,
