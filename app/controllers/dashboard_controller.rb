@@ -21,6 +21,12 @@ class DashboardController < ApplicationController
     redirect_to dashboard_index_path
   end
 
+  def delete_account
+    user = User.find_by_id(current_user.id)
+    user.delete
+    redirect_to root_path
+  end
+
   def load
 
   end
