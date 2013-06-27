@@ -74,6 +74,12 @@ feature "user views default dashboard",
 
   end
 
+  it "user sees a 'manage account' button" do
+
+    expect(page).to have_link("Manage Account")
+
+  end
+
   it "user sees 'bayesian mode' link" do
 
     expect(page).to have_link("Bayesian Classifier")

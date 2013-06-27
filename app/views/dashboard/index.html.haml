@@ -20,6 +20,7 @@
       %div.iconfield
         = render 'user_profile_icon'
       %a.btn.btn-large.btn-block.btn-inverse{"href" => "#post_to_twitter_modal", "data-toggle" => "modal", "role" => "button", "name" => "post_to_twitter", "class" => "btn"}Post To Twitter
+      %a.btn.btn-large.btn-block.btn-inverse{"href" => "#manage_account_modal", "data-toggle" => "modal", "role" => "button", "name" => "manage_account", "class" => "btn"}Manage Account
       %a.btn.btn-large.btn-block.btn-default{"href" => '/signout', "data-toggle" => "modal", "role" => "button", "name" => "sign_out", "class" => "btn"}Sign Out
     %div.span9
       = render 'default_bayesian_filter_partial'
@@ -40,5 +41,9 @@
 
 = render 'post_to_twitter_modal'
 
+= render 'manage_account_modal'
+
 = render 'isotope'
+
+
 
