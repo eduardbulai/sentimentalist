@@ -7,15 +7,10 @@ class Follower < ActiveRecord::Base
     :twitter_handle,
     :user_id,
     :twitter_id,
-    :emotion_week,
-    :bayesian_emotion_week,
-    :emotion_month,
-    :bayesian_emotion_month,
-    :emotion_year,
-    :bayesian_emotion_week,
-    :polarity_week,
-    :polarity_month,
-    :polarity_year
+    :emotion,
+    :bayesian_emotion,
+    :polarity,
+    :bayesian_polarity
 
   has_many :follower_tweets,
     foreign_key:
@@ -30,9 +25,8 @@ class Follower < ActiveRecord::Base
     :user_id,
     :twitter_id
 
-  def concatonate_tweets_since(timeframe)
-    offset = Time.now - 1.send(timeframe)
-    self.follower_tweets.where("datetime_tweeted <= ?", offset).pluck(:text).join(" ")
+  def concatonate_tweets
+    self.follower_tweets.pluck(:text).join(" ")
   end
 
 end

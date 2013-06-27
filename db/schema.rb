@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130625124156) do
+ActiveRecord::Schema.define(:version => 20130627040827) do
 
   create_table "follower_tweet_hashtags", :force => true do |t|
     t.string   "tag"
@@ -30,22 +30,17 @@ ActiveRecord::Schema.define(:version => 20130625124156) do
   end
 
   create_table "followers", :force => true do |t|
-    t.string   "name",                   :null => false
-    t.string   "twitter_handle",         :null => false
+    t.string   "name",              :null => false
+    t.string   "twitter_handle",    :null => false
     t.string   "location"
-    t.integer  "user_id",                :null => false
-    t.string   "twitter_id",             :null => false
-    t.string   "emotion_week"
-    t.string   "emotion_month"
-    t.string   "emotion_year"
-    t.string   "polarity_week"
-    t.string   "polarity_month"
-    t.string   "polarity_year"
-    t.datetime "created_at",             :null => false
-    t.datetime "updated_at",             :null => false
-    t.string   "bayesian_emotion_week"
-    t.string   "bayesian_emotion_month"
-    t.string   "bayesian_emotion_year"
+    t.integer  "user_id",           :null => false
+    t.string   "twitter_id",        :null => false
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
+    t.string   "emotion"
+    t.string   "bayesian_emotion"
+    t.string   "polarity"
+    t.string   "bayesian_polarity"
   end
 
   create_table "machine_learners", :force => true do |t|
@@ -82,21 +77,16 @@ ActiveRecord::Schema.define(:version => 20130625124156) do
     t.string   "name"
     t.string   "uid"
     t.string   "provider"
-    t.string   "emotion_week"
-    t.string   "emotion_month"
-    t.string   "emotion_year"
-    t.string   "polarity_week"
-    t.string   "polarity_month"
-    t.string   "polarity_year"
-    t.datetime "created_at",             :null => false
-    t.datetime "updated_at",             :null => false
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
     t.string   "oauth_token"
     t.string   "oauth_secret"
     t.string   "twitter_handle"
-    t.string   "bayesian_emotion_week"
-    t.string   "bayesian_emotion_month"
-    t.string   "bayesian_emotion_year"
     t.boolean  "resque_complete"
+    t.string   "emotion"
+    t.string   "bayesian_emotion"
+    t.string   "polarity"
+    t.string   "bayesian_polarity"
   end
 
 end

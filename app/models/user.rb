@@ -8,15 +8,9 @@ class User < ActiveRecord::Base
     :uid,
     :oauth_token,
     :oauth_secret,
-    :emotion_week,
-    :emotion_month,
-    :emotion_year,
-    :bayesian_emotion_week,
-    :bayesian_emotion_month,
-    :bayesian_emotion_year,
-    :polarity_week,
-    :polarity_month,
-    :polarity_year,
+    :emotion,
+    :bayesian_emotion,
+    :polarity,
     :resque_complete
 
   has_many :user_tweets, dependent: :destroy
@@ -35,9 +29,8 @@ class User < ActiveRecord::Base
 	  @tweeter ||= Twitter::Client.new(oauth_token: self.oauth_token, oauth_token_secret: self.oauth_secret)
 	end
 
-  def concatonate_tweets_since(timeframe)
-    offset = Time.now - 1.send(timeframe)
-    user_tweets.where("datetime_tweeted >= ?", offset).pluck(:text).join(" ")
+  def concatonate_tweets
+    user_tweets.pluck(:text).join(" ")
   end
 
   def get_tweet_emotion(tweet)
