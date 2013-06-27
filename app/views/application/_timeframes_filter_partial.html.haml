@@ -1,0 +1,9 @@
+%div{"class" => "span9"}
+  .filter.option-set{'id' => 'timeframes-filter',:datafiltergroup => "timefilter"}
+    %div.btn-group{"data-toggle" => "buttons-radio"}
+      %a{"class" => "btn btn-large btn primary specialspan3 active", :href => "#", :datafilter => ".week"}
+        Week
+      %a{"class" => "btn btn-large btn primary specialspan3", :href => "#", :datafilter => ".month"}
+        Month
+      %a{"class" => "btn btn-large btn primary specialspan3", :href => "#", :datafilter => ".year"}
+        Year
