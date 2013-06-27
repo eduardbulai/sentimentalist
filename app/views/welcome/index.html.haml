@@ -1,6 +1,6 @@
 #welcome-background
-  .container
-    .row#welcome-content-container
+  .container#desktop.vertical-center
+    #welcome-content-container
       %div.span2.welcome-icon-column
         %div(class = "emot emotion-anger")
           %div.emotion-icon-welcome.palette.palette-anger
@@ -15,6 +15,15 @@
         %h1#app-logo Sentimentalist
         %h2#app-subheading A new tool for Sentiment Analysis and Machine Learning
         %a.welcome-index-button{href: "/auth/twitter"} Sign in with Twitter
+
+  .container#mobile
+    %div.span4
+      %h1#app-logo Sentimentalist
+    .row
+      %h2#app-subheading-mobile A new tool for Sentiment Analysis and Machine Learning
+    .row
+      %a.welcome-index-button{href: "/auth/twitter"} Sign in with Twitter
+
 
 
 

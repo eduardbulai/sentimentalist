@@ -233,16 +233,67 @@ body {
 }
 
 #welcome-content-container {
-  margin-top: 15%;
+  margin-top: 30%;
   margin-left: 10%;
 }
 
 .welcome-index-button {
   font-size: 24px;
   color: #34495e;
-  margin-left: 30px;
   font-weight: 200;
   font-family: 'Helvetica Neue', Arial, sans-serif;
   vertical-align:baseline;
   margin-left: 40%;
+}
+
+.welcome-index-button-mobile {
+  font-size: 24px;
+  color: #34495e;
+  margin-left: 30px;
+  font-weight: 200;
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  vertical-align:baseline;
+}
+
+@media (min-aspect-ratio: 1201/951) {
+  div#mobile {
+    display: none;
+  }
+}
+
+
+/* Landscape phone to portrait tablet */
+@media (max-aspect-ratio: 1201/951) {
+  div#desktop {
+    display: none;
+  }
+}
+
+.vertical-center {
+    top: 30%;
+}
+
+#welcome-content-container-mobile {
+  margin-left: 3px;
+}
+
+#app-subheading-mobile {
+  margin-left: 5%;
+  margin-bottom: 4%;
+}
+
+.mobile-button {
+  margin-left: 20%;
+}
+
+.emotion-icon-welcome-mobile {
+  width: 30px;
+  height: 30px;
+}
+
+#welcome-icon-row div.welcome-icon-column {
+  display: inline-block;
+}
+
+.welcome-icon-column-mobile {
 }

@@ -14,7 +14,7 @@
     %dl(class = "palette palette-header6")
 
 
-.container
+.container#desktop
   .row
     %div.span3
       %div.iconfield#user-profile-iconfield
@@ -35,13 +35,15 @@
 
 
 
-= render 'user_tweets_modal'
+    = render 'user_tweets_modal'
 
-= render 'post_to_twitter_modal'
+    = render 'post_to_twitter_modal'
 
-= render 'manage_account_modal'
+    = render 'manage_account_modal'
 
-= render 'isotope'
+    = render 'isotope'
+
+  .container#mobile
 
 
 
