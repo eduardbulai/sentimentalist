@@ -57,15 +57,9 @@ FactoryGirl.define do
     twitter_handle 'test_handle'
     oauth_token 'test_token'
     oauth_secret 'test_secret'
-    emotion_week 'joy'
-    emotion_month 'sadness'
-    emotion_year 'surprise'
-    bayesian_emotion_week 'sadness'
-    bayesian_emotion_month 'anger'
-    bayesian_emotion_year 'disgust'
-    polarity_week '7.0'
-    polarity_month '2.0'
-    polarity_year '5.0'
+    emotion 'joy'
+    bayesian_emotion 'sadness'
+    polarity '7.0'
     created_at "2013-06-04 23:07:31"
     updated_at "2013-06-09 23:07:31"
     factory :user_with_followers_and_machine_learner do

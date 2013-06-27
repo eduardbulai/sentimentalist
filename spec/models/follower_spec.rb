@@ -25,23 +25,19 @@ describe Follower do
 
     it "calls emotion_for_timeframe" do
 
-    	possibilities = %q{joy disgust anger uncertain surprise sadness fear}
+    	possibilities = %q{joy disgust anger ambiguous surprise sadness fear}
 
-    	 ['week', 'month', 'year'].each do |timeframe|
-				output = follower.emotion_for_timeframe(timeframe)
+			output = follower.get_emotion
 
-				expect(possibilities).to include(output)
-			end
+			expect(possibilities).to include(output)
 
     end
 
     it "calls polarity_for_timeframe" do
 
-    	['week', 'month', 'year'].each do |timeframe|
-    		output = follower.polarity_for_timeframe(timeframe)
+    	output = follower.get_polarity
 
-    		expect(0..10).to include(output)
-    	end
+    	expect(0..10).to include(output)
 
     end
 

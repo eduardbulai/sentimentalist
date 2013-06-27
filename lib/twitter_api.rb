@@ -19,9 +19,9 @@ class TwitterApi < ActiveRecord::Base
 				user_tweets_exist = false
 		end
 		if user_tweets_exist
-			user.bayesian_emotion = user.bayesian_emotion
-			user.emotion = user.emotion
-			user.polarity = user.polarity
+			user.bayesian_emotion = user.get_bayesian_emotion
+			user.emotion = user.get_emotion
+			user.polarity = user.get_polarity
 			user.save!
 		end
 	end
@@ -34,9 +34,9 @@ class TwitterApi < ActiveRecord::Base
 	def self.initialize_follower follower_id
 		follower = Follower.find_by_id(follower_id)
 		f_user = follower.user
-		follower.emotion = follower.emotion
-		follower.bayesian_emotion = f_user.bayesian
-		follower.polarity= follower.polarity
+		follower.emotion = follower.get_emotion
+		follower.bayesian_emotion = f_user.get_bayesian_emotion
+		follower.polarity= follower.get_polarity
 		follower.save!
 	end
 
