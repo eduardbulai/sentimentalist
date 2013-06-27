@@ -21,7 +21,7 @@ class TweetUpdater
 	end
 
 	def self.update_follower_tweets user
-		user.followers.each do |follower|
+		user.followers.find_each do |follower|
 			remove_old_follower_tweets follower
 			get_new_follower_tweets follower
 		end
@@ -29,7 +29,9 @@ class TweetUpdater
 
 	def self.remove_old_user_tweets user
     tweets = user.user_tweets
-    tweets.each do |tweet|
+    #TODO: constrain set via SQL so that only stale records
+    # are returned
+    tweets.find_each do |tweet|
       if tweet.datetime_tweeted < Time.now - 1.year
         tweets.delete(tweet)
       end
@@ -47,7 +49,8 @@ class TweetUpdater
 
   def self.get_new_user_tweets user
     begin
-        user_timeline = Twitter.user_timeline(user.twitter_id)
+        user_timeline = Twitter.user_timeline(user.twitter_handle)
+    # TODO: remove catch all
     rescue
         user_timeline = nil
     end
@@ -66,7 +69,7 @@ class TweetUpdater
 
   def self.get_new_follower_tweets follower
     begin
-        user_timeline = Twitter.user_timeline(follower.twitter_id)
+        user_timeline = Twitter.user_timeline(follower.twitter__handle)
     rescue
         user_timeline = nil
     end
