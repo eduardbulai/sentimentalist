@@ -21,6 +21,7 @@ feature 'user assesses their own tweets',
 
   before do
   	sign_in(user)
+    visit dashboard_index_path
   	click_link('Me')
   	@tweets = user.user_tweets
     @test_tweet = @tweets.first
@@ -29,13 +30,9 @@ feature 'user assesses their own tweets',
   context 'page contains emotion icons for each of the emotions in their user_tweets' do
 
     it 'user sees iconfield containing emotion classifications for each of their tweets' do
-			@tweets.each do |tweet|
+      @tweets.each do |tweet|
         within("#icon#{tweet.id}") do
-          if tweet.emotion == 'uncertain'
-            expect(page).to have_content('ambiguous')
-          else
-				    expect(page).to have_content(tweet.emotion)
-          end
+				  expect(page).to have_content(tweet.emotion)
         end
 			end
 		end
@@ -48,8 +45,6 @@ feature 'user assesses their own tweets',
 
       @tweets.each do |tweet|
 
-        click_link("link_to_evaluate_user_tweet_modal#{tweet.id}")
-
         within("#evaluate_user_tweet_modal#{tweet.id}") do
           expect(page).to have_content(tweet.text)
         end
@@ -59,8 +54,6 @@ feature 'user assesses their own tweets',
     end
 
     it 'page contains modal with buttons corresponding to each possible emotion' do
-
-      click_link("link_to_evaluate_user_tweet_modal#{@test_tweet.id}")
 
       within("#evaluate_user_tweet_modal#{@test_tweet.id}") do
         expect(page).to have_selector("a")
@@ -100,31 +93,6 @@ feature 'user assesses their own tweets',
       expect(user.machine_learner.wcount).to_not eql(initial_wcount)
       expect(user.machine_learner.ccount).to_not eql(intiial_ccount)
 
-    end
-
-    it "user's machine learner gets trained" do
-      expect(user.machine_learner.trained).to be_nil
-
-      emotions.each do |emotion|
-        15.times do
-          assess_tweet(user, emotion)
-        end
-      end
-
-      expect(user.machine_learner.trained).to be_true
-
-    end
-
-    it "user's machine learner is not trained if an insufficient number of assessments are made" do
-      expect(user.machine_learner.trained).to be_nil
-
-      emotions.each do |emotion|
-        10.times do
-          assess_tweet(user, emotion)
-        end
-      end
-
-      expect(user.machine_learner.trained).to be_false
     end
 
 	end

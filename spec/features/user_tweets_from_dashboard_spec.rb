@@ -19,6 +19,7 @@ feature "user tweets from dashboard",
 
 	  before do
 	    sign_in(user)
+	    visit dashboard_index_path
 	  end
 
 	  it "dashboard contains a button for tweets posts" do
