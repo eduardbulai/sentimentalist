@@ -8,8 +8,6 @@ Sentimentalist::Application.routes.draw do
   match '/auth/twitter/callback', to: 'sessions#create'
 
   match "/signout", to: "sessions#destroy", as: :signout
-  match '/about', to: 'welcome#about'
-  match '/privacy', to: 'welcome#privacy'
   match '/load', to: 'dashboard#load'
   match '/auth/failure', to: 'sessions#error', as: 'failure'
 

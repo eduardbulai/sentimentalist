@@ -45,8 +45,6 @@ feature 'user assesses their own tweets',
 
       @tweets.each do |tweet|
 
-        click_link("link_to_evaluate_user_tweet_modal#{tweet.id}")
-
         within("#evaluate_user_tweet_modal#{tweet.id}") do
           expect(page).to have_content(tweet.text)
         end
@@ -56,8 +54,6 @@ feature 'user assesses their own tweets',
     end
 
     it 'page contains modal with buttons corresponding to each possible emotion' do
-
-      click_link("link_to_evaluate_user_tweet_modal#{@test_tweet.id}")
 
       within("#evaluate_user_tweet_modal#{@test_tweet.id}") do
         expect(page).to have_selector("a")
