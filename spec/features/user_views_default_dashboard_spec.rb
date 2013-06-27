@@ -24,8 +24,14 @@ feature "user views default dashboard",
     visit dashboard_index_path
   end
 
-  it "user has a profile icon corresponding to the emotion reflected in their tweets for the week"
+  it "user has a profile icon corresponding to the emotion reflected in their tweets for the week" do
 
+    within("#user-profile-iconfield") do
+      expect(page).to have_content("#{user.emotion}")
+      expect(page).to have_content("#{user.bayesian_emotion}")
+    end
+
+  end
 
 
   it "user sees top navbar showing filters for 'Followers', 'Me' " do
