@@ -4,6 +4,7 @@ describe Follower do
 
 	let!(:user) { FactoryGirl.create(:user_with_followers_and_machine_learner) }
 	let(:follower) { user.followers.first }
+  let(:possibilities) { %q{joy disgust anger ambiguous surprise sadness fear} }
 
   context "associations" do
 
@@ -23,11 +24,9 @@ describe Follower do
 
   context "instance methods" do
 
-    it "calls emotion_for_timeframe" do
+    it "calls get_emotion" do
 
-    	possibilities = %q{joy disgust anger ambiguous surprise sadness fear}
-
-			output = follower.get_emotion
+			output = EmotionGetter.get_emotion(follower)
 
 			expect(possibilities).to include(output)
 
@@ -35,10 +34,17 @@ describe Follower do
 
     it "calls polarity_for_timeframe" do
 
-    	output = follower.get_polarity
+    	output = EmotionGetter.get_polarity(follower)
 
     	expect(0..10).to include(output)
 
+    end
+
+    it "calls get_bayesian_emotion" do
+
+      output = EmotionGetter.get_bayesian_emotion(user, follower)
+
+      expect(possibilities).to include(output)
     end
 
   end

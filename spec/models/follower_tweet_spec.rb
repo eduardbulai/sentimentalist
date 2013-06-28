@@ -10,7 +10,6 @@ describe FollowerTweet do
 
   context "validations" do
 
-    it { should validate_presence_of(:datetime_tweeted) }
     it { should validate_presence_of(:text) }
     it { should validate_presence_of(:follower_id) }
     it { should validate_presence_of(:tweet_id) }

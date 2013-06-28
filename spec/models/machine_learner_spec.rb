@@ -14,7 +14,7 @@ describe MachineLearner do
   context "attributes" do
 
     it "has a name" do
-    	expect(machine_learner.name).to eql('joy or anger or fear or disgust or surprise or uncertain')
+    	expect(machine_learner.name).to eql('joy or anger or fear or disgust or surprise or ambiguous')
   	end
 
     it "has ignore words" do
@@ -53,10 +53,10 @@ describe MachineLearner do
         new_classifier = machine_learner.build_classifier
 
         expect(new_classifier.instance_variable_get(:@wcount)).to eql({"joi"=>{:joy=>1},
-          "anger"=>{:anger=>1}, "fear"=>{:fear=>1}, "uncertain"=>{:uncertain=>1},
+          "anger"=>{:anger=>1}, "fear"=>{:fear=>1}, "ambigu"=>{:ambiguous=>1},
           "disgust"=>{:disgust=>1}, "surpris"=>{:surprise=>1}, "sad"=>{:sadness=>1}})
         expect(new_classifier.instance_variable_get(:@ccount)).to eql({:anger=>1,
-          :joy=>1, :fear=>1, :sadness=>1, :disgust=>1, :surprise=>1, :ambiguous=>0, :uncertain=>1})
+          :joy=>1, :fear=>1, :sadness=>1, :disgust=>1, :surprise=>1, :ambiguous=>1})
         expect(new_classifier.instance_variable_get(:@ignore_words)).to eql(machine_learner.ignore_words)
         expect(new_classifier.instance_variable_get(:@stemming)).to eql(machine_learner.stemming)
       end

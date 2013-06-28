@@ -8,8 +8,7 @@ class Follower < ActiveRecord::Base
     :twitter_id,
     :emotion,
     :bayesian_emotion,
-    :polarity,
-    :bayesian_polarity
+    :polarity
 
   has_many :follower_tweets,
     foreign_key:
