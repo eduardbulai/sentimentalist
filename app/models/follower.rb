@@ -3,7 +3,6 @@ class Follower < ActiveRecord::Base
   include EmotionGetter
 
   attr_accessible :name,
-    :location,
     :twitter_handle,
     :user_id,
     :twitter_id,

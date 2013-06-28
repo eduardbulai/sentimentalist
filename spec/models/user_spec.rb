@@ -47,19 +47,23 @@ describe User do
 
 	context "instance methods" do
 
-		it 'calls polarity_for_timeframe' do
+		it 'calls get_tweet_polarity' do
 
-			output = user.get_polarity
+			tweet = user.user_tweets.first
+
+			output = user.get_tweet_polarity(tweet)
 
 			expect(0..10).to include(output)
 
 		end
 
-		it "calls emotion_for_timeframe" do
+		it "calls get_tweet_emotion" do
+
+			tweet = user.user_tweets.first
 
 			possibilities = %q{joy disgust anger ambiguous surprise sadness fear}
 
-			output = user.get_emotion
+			output = user.get_tweet_emotion(tweet)
 
 			expect(possibilities).to include(output)
 

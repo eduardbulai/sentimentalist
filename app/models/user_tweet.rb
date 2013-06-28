@@ -1,6 +1,5 @@
 class UserTweet < ActiveRecord::Base
-  attr_accessible :datetime_tweeted,
-    :text,
+  attr_accessible :text,
     :user_id,
     :tweet_id,
     :emotion,
@@ -9,8 +8,7 @@ class UserTweet < ActiveRecord::Base
 
   belongs_to :user, inverse_of: :user_tweets
 
-  validates_presence_of :datetime_tweeted,
-    :text,
+  validates_presence_of :text,
     :user_id,
     :tweet_id,
     :emotion,
