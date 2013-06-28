@@ -18,7 +18,6 @@ FactoryGirl.define do
 
 	factory :follower_tweet do
 		text { generate(:tweet) }
-		datetime_tweeted "2001-06-03 02:06:41"
 		tweet_id "341375354683936768"
 		created_at "2013-06-05 23:07:31"
     updated_at "2013-06-05 23:07:31"
@@ -26,7 +25,6 @@ FactoryGirl.define do
 
 	factory :user_tweet do
 		text { generate(:tweet) }
-		datetime_tweeted "2011-06-03 02:06:41"
 		tweet_id "341375354683936768"
     emotion "joy"
     bayesian_emotion "fear"
@@ -39,7 +37,6 @@ FactoryGirl.define do
 		name { generate(:name) }
 		twitter_handle 'dsf@__'
 		twitter_id '1392225116'
-		location 'Boston'
 		emotion 'joy'
     bayesian_emotion 'anger'
     polarity '7.0'
@@ -57,9 +54,6 @@ FactoryGirl.define do
     twitter_handle 'test_handle'
     oauth_token 'test_token'
     oauth_secret 'test_secret'
-    emotion 'joy'
-    bayesian_emotion 'sadness'
-    polarity '7.0'
     created_at "2013-06-04 23:07:31"
     updated_at "2013-06-09 23:07:31"
     factory :user_with_followers_and_machine_learner do

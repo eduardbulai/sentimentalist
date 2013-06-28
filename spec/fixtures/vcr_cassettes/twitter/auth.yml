@@ -1,146 +1,137 @@
----
-http_interactions:
-- request:
+--- 
+http_interactions: 
+- request: 
     method: post
     uri: https://api.twitter.com/oauth/request_token
-    body:
+    body: 
       encoding: US-ASCII
-      string: ''
-    headers:
-      accept:
-      - ! '*/*'
-      user-agent:
+      string: ""
+    headers: 
+      accept: 
+      - "*/*"
+      user-agent: 
       - OAuth gem v0.4.7
-      content-length:
-      - '0'
-      content-type:
+      content-length: 
+      - "0"
+      content-type: 
       - application/x-www-form-urlencoded
-      authorization:
-      - OAuth oauth_callback="http%3A%2F%2Fwww.example.com%2Fauth%2Ftwitter%2Fcallback",
-        oauth_consumer_key="KQvSsA1AFozcJpzQ3EV4w", oauth_nonce="8SVB1NThqf7nMFJ8shpJaYNCNgxSYJEZ9IbHaBNTY",
-        oauth_signature="L2U%2FviLV4FO7v3c8sEoy0vGlFoU%3D", oauth_signature_method="HMAC-SHA1",
-        oauth_timestamp="1370889394", oauth_version="1.0"
-  response:
-    status:
+      authorization: 
+      - OAuth oauth_callback="http%3A%2F%2Fwww.example.com%2Fauth%2Ftwitter%2Fcallback", oauth_consumer_key="KQvSsA1AFozcJpzQ3EV4w", oauth_nonce="8SVB1NThqf7nMFJ8shpJaYNCNgxSYJEZ9IbHaBNTY", oauth_signature="L2U%2FviLV4FO7v3c8sEoy0vGlFoU%3D", oauth_signature_method="HMAC-SHA1", oauth_timestamp="1370889394", oauth_version="1.0"
+  response: 
+    status: 
       code: 200
       message: OK
-    headers:
-      cache-control:
+    headers: 
+      cache-control: 
       - no-cache, no-store, must-revalidate, pre-check=0, post-check=0
-      content-length:
-      - '147'
-      content-type:
+      content-length: 
+      - "147"
+      content-type: 
       - text/html; charset=utf-8
-      date:
+      date: 
       - Mon, 10 Jun 2013 18:33:20 GMT
-      etag:
-      - ! '"aeb23f736018d29b01eb26635cc68cbb"'
-      expires:
+      etag: 
+      - "\"aeb23f736018d29b01eb26635cc68cbb\""
+      expires: 
       - Tue, 31 Mar 1981 05:00:00 GMT
-      last-modified:
+      last-modified: 
       - Mon, 10 Jun 2013 18:33:20 GMT
-      pragma:
+      pragma: 
       - no-cache
-      server:
+      server: 
       - tfe
-      set-cookie:
-      - _twitter_sess=BAh7BzoPY3JlYXRlZF9hdGwrCHokXS8%252FAToHaWQiJWMyY2M3YzVhYTBjNWY0%250AOWRkMmFhNmE1MjgzNzRhYTNj--33f602029c98e2c5379faf1f2fe8c26913ccb6da;
-        domain=.twitter.com; path=/; HttpOnly
-      - guest_id=v1%3A137088920063596173; Domain=.twitter.com; Path=/; Expires=Wed,
-        10-Jun-2015 18:33:20 UTC
-      status:
+      set-cookie: 
+      - _twitter_sess=BAh7BzoPY3JlYXRlZF9hdGwrCHokXS8%252FAToHaWQiJWMyY2M3YzVhYTBjNWY0%250AOWRkMmFhNmE1MjgzNzRhYTNj--33f602029c98e2c5379faf1f2fe8c26913ccb6da; domain=.twitter.com; path=/; HttpOnly
+      - guest_id=v1%3A137088920063596173; Domain=.twitter.com; Path=/; Expires=Wed, 10-Jun-2015 18:33:20 UTC
+      status: 
       - 200 OK
-      strict-transport-security:
+      strict-transport-security: 
       - max-age=631138519
-      vary:
+      vary: 
       - Accept-Encoding
-      x-frame-options:
+      x-frame-options: 
       - SAMEORIGIN
-      x-mid:
+      x-mid: 
       - bd4d819f0d3532154fa3697d9caeb4c3f3f7cf57
-      x-runtime:
-      - '0.01725'
-      x-transaction:
+      x-runtime: 
+      - "0.01725"
+      x-transaction: 
       - 4345b006eb7c98c9
-      x-ua-compatible:
+      x-ua-compatible: 
       - IE=9,chrome=1
-      x-xss-protection:
+      x-xss-protection: 
       - 1; mode=block
-      connection:
+      connection: 
       - close
-    body:
+    body: 
       encoding: US-ASCII
       string: oauth_token=5oDA2jnofJmrkJ05hMHBrPjGSMhMhLLM7lH9bU7OEEo&oauth_token_secret=yE4lREbnTcj6CuPtfD59ej6oDimkstIboI97BgZgVA&oauth_callback_confirmed=true
-    http_version: '1.1'
+    http_version: "1.1"
   recorded_at: Mon, 10 Jun 2013 18:36:35 GMT
-- request:
+- request: 
     method: get
     uri: https://api.twitter.com/1.1/statuses/user_timeline.json
-    body:
+    body: 
       encoding: US-ASCII
-      string: ''
-    headers:
-      accept:
+      string: ""
+    headers: 
+      accept: 
       - application/json
-      user-agent:
+      user-agent: 
       - Twitter Ruby Gem 4.7.0
-      authorization:
-      - OAuth oauth_consumer_key="KQvSsA1AFozcJpzQ3EV4w", oauth_nonce="a3ab15a5ab0f3c4239cdbc19a8223139",
-        oauth_signature="0g%2Fm3pd%2F8%2BeTtskhrgb%2Fvf9VkJE%3D", oauth_signature_method="HMAC-SHA1",
-        oauth_timestamp="1370890095", oauth_token="823627243-UDZhCacE9mWVMbFprLKq90Rk2sD3iPYujpDXPV4I",
-        oauth_version="1.0"
-      accept-encoding:
+      authorization: 
+      - OAuth oauth_consumer_key="KQvSsA1AFozcJpzQ3EV4w", oauth_nonce="a3ab15a5ab0f3c4239cdbc19a8223139", oauth_signature="0g%2Fm3pd%2F8%2BeTtskhrgb%2Fvf9VkJE%3D", oauth_signature_method="HMAC-SHA1", oauth_timestamp="1370890095", oauth_token="823627243-UDZhCacE9mWVMbFprLKq90Rk2sD3iPYujpDXPV4I", oauth_version="1.0"
+      accept-encoding: 
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-  response:
-    status:
+  response: 
+    status: 
       code: 200
       message: OK
-    headers:
-      cache-control:
+    headers: 
+      cache-control: 
       - no-cache, no-store, must-revalidate, pre-check=0, post-check=0
-      content-encoding:
+      content-encoding: 
       - gzip
-      content-length:
-      - '6374'
-      content-type:
+      content-length: 
+      - "6374"
+      content-type: 
       - application/json;charset=utf-8
-      date:
+      date: 
       - Mon, 10 Jun 2013 18:45:00 GMT
-      expires:
+      expires: 
       - Tue, 31 Mar 1981 05:00:00 GMT
-      last-modified:
+      last-modified: 
       - Mon, 10 Jun 2013 18:45:00 GMT
-      pragma:
+      pragma: 
       - no-cache
-      server:
+      server: 
       - tfe
-      set-cookie:
+      set-cookie: 
       - lang=en
-      - guest_id=v1%3A137088990065263146; Domain=.twitter.com; Path=/; Expires=Wed,
-        10-Jun-2015 18:45:00 UTC
-      status:
+      - guest_id=v1%3A137088990065263146; Domain=.twitter.com; Path=/; Expires=Wed, 10-Jun-2015 18:45:00 UTC
+      status: 
       - 200 OK
-      strict-transport-security:
+      strict-transport-security: 
       - max-age=631138519
-      x-access-level:
+      x-access-level: 
       - read
-      x-frame-options:
+      x-frame-options: 
       - SAMEORIGIN
-      x-rate-limit-limit:
-      - '180'
-      x-rate-limit-remaining:
-      - '179'
-      x-rate-limit-reset:
-      - '1370890800'
-      x-transaction:
+      x-rate-limit-limit: 
+      - "180"
+      x-rate-limit-remaining: 
+      - "179"
+      x-rate-limit-reset: 
+      - "1370890800"
+      x-transaction: 
       - 530c74b1f6ce7f6d
-      x-xss-protection:
+      x-xss-protection: 
       - 1; mode=block
-      connection:
+      connection: 
       - close
-    body:
+    body: 
       encoding: ASCII-8BIT
-      string: !binary |-
+      string: !binary |
         H4sIAAAAAAAAAOydCXPbtraA/wrqzNzeO1dysHDVzJvnPbEbN2nsNOnUHQ9E
         QhJjilRJyorc6X9/ByAlLqJsObaTJg/pEhsAAWI75zsHC3//a8tLBM+Ef8mz
         rd7W2TRCJ/AfdhEmPUp7Jkb/xfAHUUzYVmcr8Ld6zGAmcyzDIth0bMyYJcMv
@@ -283,76 +274,73 @@ http_interactions:
         e3smF1PpNmErPjE/+fDp4HjKYvKVFlG1n0qTkCYhTUKahDQJaRJ6BD9VTaOv
         k+/jeRJHY57AmJGXCsFT4rrbD+Oh8ibBGJEDNPdE0S5h3SAFJRUKngp/VQ3c
         mleLN8ogHYt9AW/UH/8HAAD//wMAWH3waFn2AAA=
-    http_version: '1.1'
+
+    http_version: "1.1"
   recorded_at: Mon, 10 Jun 2013 18:48:15 GMT
-- request:
+- request: 
     method: get
     uri: https://api.twitter.com/1.1/account/verify_credentials.json
-    body:
+    body: 
       encoding: US-ASCII
-      string: ''
-    headers:
-      accept:
+      string: ""
+    headers: 
+      accept: 
       - application/json
-      user-agent:
+      user-agent: 
       - Twitter Ruby Gem 4.7.0
-      authorization:
-      - OAuth oauth_consumer_key="KQvSsA1AFozcJpzQ3EV4w", oauth_nonce="e67a733c8f35779589c081e3f0055d50",
-        oauth_signature="0W3bEnDhlcdKvx9HXOtsBqeZXoM%3D", oauth_signature_method="HMAC-SHA1",
-        oauth_timestamp="1370890095", oauth_token="823627243-UDZhCacE9mWVMbFprLKq90Rk2sD3iPYujpDXPV4I",
-        oauth_version="1.0"
-      accept-encoding:
+      authorization: 
+      - OAuth oauth_consumer_key="KQvSsA1AFozcJpzQ3EV4w", oauth_nonce="e67a733c8f35779589c081e3f0055d50", oauth_signature="0W3bEnDhlcdKvx9HXOtsBqeZXoM%3D", oauth_signature_method="HMAC-SHA1", oauth_timestamp="1370890095", oauth_token="823627243-UDZhCacE9mWVMbFprLKq90Rk2sD3iPYujpDXPV4I", oauth_version="1.0"
+      accept-encoding: 
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-  response:
-    status:
+  response: 
+    status: 
       code: 200
       message: OK
-    headers:
-      cache-control:
+    headers: 
+      cache-control: 
       - no-cache, no-store, must-revalidate, pre-check=0, post-check=0
-      content-encoding:
+      content-encoding: 
       - gzip
-      content-length:
-      - '1080'
-      content-type:
+      content-length: 
+      - "1080"
+      content-type: 
       - application/json;charset=utf-8
-      date:
+      date: 
       - Mon, 10 Jun 2013 18:45:01 GMT
-      expires:
+      expires: 
       - Tue, 31 Mar 1981 05:00:00 GMT
-      last-modified:
+      last-modified: 
       - Mon, 10 Jun 2013 18:45:01 GMT
-      pragma:
+      pragma: 
       - no-cache
-      server:
+      server: 
       - tfe
-      set-cookie:
+      set-cookie: 
       - lang=en
-      - guest_id=v1%3A137088990131689833; Domain=.twitter.com; Path=/; Expires=Wed,
-        10-Jun-2015 18:45:01 UTC
-      status:
+      - guest_id=v1%3A137088990131689833; Domain=.twitter.com; Path=/; Expires=Wed, 10-Jun-2015 18:45:01 UTC
+      status: 
       - 200 OK
-      strict-transport-security:
+      strict-transport-security: 
       - max-age=631138519
-      x-access-level:
+      x-access-level: 
       - read
-      x-frame-options:
+      x-frame-options: 
       - SAMEORIGIN
-      x-rate-limit-limit:
-      - '15'
-      x-rate-limit-remaining:
-      - '14'
-      x-rate-limit-reset:
-      - '1370890801'
-      x-transaction:
+      x-rate-limit-limit: 
+      - "15"
+      x-rate-limit-remaining: 
+      - "14"
+      x-rate-limit-reset: 
+      - "1370890801"
+      x-transaction: 
       - 5c87b10224da7df0
-      x-xss-protection:
+      x-xss-protection: 
       - 1; mode=block
-      connection:
+      connection: 
       - close
-    body:
+    body: 
       encoding: ASCII-8BIT
-      string: !binary |-
+      string: !binary |
         H4sIAAAAAAAAALRW227jNhD9FUJ5aVHF1tW3p3qTTZG0+9DdLFpgHQiUNLK5
         oUiVpOw4Qf69Q8uW5DjZblHUgGFzzuGQM3NmpCeH5c5sEoSjYBxEoYvLRBvl
         zJzW5riOoCWg6QM1hryrs3sOW7TqTAGIZA+WCN6uZK2pyBHkMqOGSYHIBS1T
@@ -377,76 +365,73 @@ http_interactions:
         hUApdkE3B1epfu3gho0nty8uiyF23jgM/Wkc99xyJu5b+XjeJHoX9VDNckip
         SlKcR3j4mzI78HDBW9Ylkq5GPZadCC0a7j49FDvtRFeHZ2EOBa25SfbcN8yH
         PUcvAsw225EFp/BfNWhjW9O0mJAGH7fNa5reW5//BgAA//8DAKYH/tIRCgAA
-    http_version: '1.1'
+
+    http_version: "1.1"
   recorded_at: Mon, 10 Jun 2013 18:48:16 GMT
-- request:
+- request: 
     method: get
     uri: https://api.twitter.com/1.1/followers/list.json?user_id=823627243&cursor=-1
-    body:
+    body: 
       encoding: US-ASCII
-      string: ''
-    headers:
-      accept:
+      string: ""
+    headers: 
+      accept: 
       - application/json
-      user-agent:
+      user-agent: 
       - Twitter Ruby Gem 4.7.0
-      authorization:
-      - OAuth oauth_consumer_key="KQvSsA1AFozcJpzQ3EV4w", oauth_nonce="3b0623a09bd6ed522fd79318acef8356",
-        oauth_signature="ZP0sj7yhY%2BAnpdyLkS91U78XqGc%3D", oauth_signature_method="HMAC-SHA1",
-        oauth_timestamp="1370890096", oauth_token="823627243-UDZhCacE9mWVMbFprLKq90Rk2sD3iPYujpDXPV4I",
-        oauth_version="1.0"
-      accept-encoding:
+      authorization: 
+      - OAuth oauth_consumer_key="KQvSsA1AFozcJpzQ3EV4w", oauth_nonce="3b0623a09bd6ed522fd79318acef8356", oauth_signature="ZP0sj7yhY%2BAnpdyLkS91U78XqGc%3D", oauth_signature_method="HMAC-SHA1", oauth_timestamp="1370890096", oauth_token="823627243-UDZhCacE9mWVMbFprLKq90Rk2sD3iPYujpDXPV4I", oauth_version="1.0"
+      accept-encoding: 
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-  response:
-    status:
+  response: 
+    status: 
       code: 200
       message: OK
-    headers:
-      cache-control:
+    headers: 
+      cache-control: 
       - no-cache, no-store, must-revalidate, pre-check=0, post-check=0
-      content-encoding:
+      content-encoding: 
       - gzip
-      content-length:
-      - '8379'
-      content-type:
+      content-length: 
+      - "8379"
+      content-type: 
       - application/json;charset=utf-8
-      date:
+      date: 
       - Mon, 10 Jun 2013 18:45:01 GMT
-      expires:
+      expires: 
       - Tue, 31 Mar 1981 05:00:00 GMT
-      last-modified:
+      last-modified: 
       - Mon, 10 Jun 2013 18:45:01 GMT
-      pragma:
+      pragma: 
       - no-cache
-      server:
+      server: 
       - tfe
-      set-cookie:
+      set-cookie: 
       - lang=en
-      - guest_id=v1%3A137088990166224977; Domain=.twitter.com; Path=/; Expires=Wed,
-        10-Jun-2015 18:45:01 UTC
-      status:
+      - guest_id=v1%3A137088990166224977; Domain=.twitter.com; Path=/; Expires=Wed, 10-Jun-2015 18:45:01 UTC
+      status: 
       - 200 OK
-      strict-transport-security:
+      strict-transport-security: 
       - max-age=631138519
-      x-access-level:
+      x-access-level: 
       - read
-      x-frame-options:
+      x-frame-options: 
       - SAMEORIGIN
-      x-rate-limit-limit:
-      - '15'
-      x-rate-limit-remaining:
-      - '14'
-      x-rate-limit-reset:
-      - '1370890801'
-      x-transaction:
+      x-rate-limit-limit: 
+      - "15"
+      x-rate-limit-remaining: 
+      - "14"
+      x-rate-limit-reset: 
+      - "1370890801"
+      x-transaction: 
       - 1ca8bb02f474f83d
-      x-xss-protection:
+      x-xss-protection: 
       - 1; mode=block
-      connection:
+      connection: 
       - close
-    body:
+    body: 
       encoding: ASCII-8BIT
-      string: !binary |-
+      string: !binary |
         H4sIAAAAAAAAAOxdi3PbNpP/V3DqzPW+OUnBkyA1c3OxnbhJGidp7H5pv/ON
         ByQhibFEqnxYUXr9329B6kGKlC3LUpK2VjK2BYDEa7H47WJ38XsrS3SctHr/
         83sr8Fs9whxKLWHZVhu+XyVp3Oq1VomtditUYw1pP2VBGKLXWkNS4sVah1fz
@@ -634,76 +619,73 @@ http_interactions:
         ss1FzfmJPjeno9zqMfsrIkp8yLuYH1UCu5o64S9uXLWhxr+i8L8v4yoAdmHe
         ZJC2TZsJBx6GYUM2NxsJTLDhcKUSqwA968XybuqbIAJRYfE2XEubP49bf/z/
         AJfXMIB9wQAA
-    http_version: '1.1'
+
+    http_version: "1.1"
   recorded_at: Mon, 10 Jun 2013 18:48:16 GMT
-- request:
+- request: 
     method: get
     uri: https://api.twitter.com/1.1/followers/list.json?user_id=823627243&cursor=1434205180120501071
-    body:
+    body: 
       encoding: US-ASCII
-      string: ''
-    headers:
-      accept:
+      string: ""
+    headers: 
+      accept: 
       - application/json
-      user-agent:
+      user-agent: 
       - Twitter Ruby Gem 4.7.0
-      authorization:
-      - OAuth oauth_consumer_key="KQvSsA1AFozcJpzQ3EV4w", oauth_nonce="55f404bfbba50f400e1a83e7520bd9cf",
-        oauth_signature="jf%2B5s99G%2FeRL3ZE6XjnT7AvSX6c%3D", oauth_signature_method="HMAC-SHA1",
-        oauth_timestamp="1370890096", oauth_token="823627243-UDZhCacE9mWVMbFprLKq90Rk2sD3iPYujpDXPV4I",
-        oauth_version="1.0"
-      accept-encoding:
+      authorization: 
+      - OAuth oauth_consumer_key="KQvSsA1AFozcJpzQ3EV4w", oauth_nonce="55f404bfbba50f400e1a83e7520bd9cf", oauth_signature="jf%2B5s99G%2FeRL3ZE6XjnT7AvSX6c%3D", oauth_signature_method="HMAC-SHA1", oauth_timestamp="1370890096", oauth_token="823627243-UDZhCacE9mWVMbFprLKq90Rk2sD3iPYujpDXPV4I", oauth_version="1.0"
+      accept-encoding: 
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-  response:
-    status:
+  response: 
+    status: 
       code: 200
       message: OK
-    headers:
-      cache-control:
+    headers: 
+      cache-control: 
       - no-cache, no-store, must-revalidate, pre-check=0, post-check=0
-      content-encoding:
+      content-encoding: 
       - gzip
-      content-length:
-      - '5461'
-      content-type:
+      content-length: 
+      - "5461"
+      content-type: 
       - application/json;charset=utf-8
-      date:
+      date: 
       - Mon, 10 Jun 2013 18:45:02 GMT
-      expires:
+      expires: 
       - Tue, 31 Mar 1981 05:00:00 GMT
-      last-modified:
+      last-modified: 
       - Mon, 10 Jun 2013 18:45:02 GMT
-      pragma:
+      pragma: 
       - no-cache
-      server:
+      server: 
       - tfe
-      set-cookie:
+      set-cookie: 
       - lang=en
-      - guest_id=v1%3A137088990213807253; Domain=.twitter.com; Path=/; Expires=Wed,
-        10-Jun-2015 18:45:02 UTC
-      status:
+      - guest_id=v1%3A137088990213807253; Domain=.twitter.com; Path=/; Expires=Wed, 10-Jun-2015 18:45:02 UTC
+      status: 
       - 200 OK
-      strict-transport-security:
+      strict-transport-security: 
       - max-age=631138519
-      x-access-level:
+      x-access-level: 
       - read
-      x-frame-options:
+      x-frame-options: 
       - SAMEORIGIN
-      x-rate-limit-limit:
-      - '15'
-      x-rate-limit-remaining:
-      - '13'
-      x-rate-limit-reset:
-      - '1370890801'
-      x-transaction:
+      x-rate-limit-limit: 
+      - "15"
+      x-rate-limit-remaining: 
+      - "13"
+      x-rate-limit-reset: 
+      - "1370890801"
+      x-transaction: 
       - 7f33a4c86c00a877
-      x-xss-protection:
+      x-xss-protection: 
       - 1; mode=block
-      connection:
+      connection: 
       - close
-    body:
+    body: 
       encoding: ASCII-8BIT
-      string: !binary |-
+      string: !binary |
         H4sIAAAAAAAAAOxdCXPbRrL+K1NK1dtsPVqaezCs2kpkHRt7bcdrOfHLhinW
         ABiSsEGAi0Myk8p/fz0AD4CHSMmSbO9KKlviTANz9XR/fczoj4Myt1l+0P31
         j4MoPOgKTwgtue7Ap35eZAfdg3nRQecgMWMLJSejdIJOzdUQivIgszbpN2pc
@@ -826,431 +808,413 @@ http_interactions:
         o0YNQksG3mBAbOgNDEBthkPtewG7+/DyJzd+qzjwfmf2vqQ4cKvkBoYMCJWk
         6nWZ5a7buPV5JhXqv/JiL6MU9Myc8gnhzh8lmWJEwq9KuGjhCtnsBZtoD/78
         fwAAAP//AwC5oHyP/XAAAA==
-    http_version: '1.1'
+
+    http_version: "1.1"
   recorded_at: Mon, 10 Jun 2013 18:48:17 GMT
-- request:
+- request: 
     method: get
     uri: https://api.twitter.com/1.1/statuses/user_timeline.json?user_id=1392225116
-    body:
+    body: 
       encoding: US-ASCII
-      string: ''
-    headers:
-      accept:
+      string: ""
+    headers: 
+      accept: 
       - application/json
-      user-agent:
+      user-agent: 
       - Twitter Ruby Gem 4.7.0
-      authorization:
-      - OAuth oauth_consumer_key="KQvSsA1AFozcJpzQ3EV4w", oauth_nonce="366ba1063861e5788790d9965ad00a6e",
-        oauth_signature="uSrECIJgp7Vh%2ByGEEmXseka1FIA%3D", oauth_signature_method="HMAC-SHA1",
-        oauth_timestamp="1370890097", oauth_token="823627243-UDZhCacE9mWVMbFprLKq90Rk2sD3iPYujpDXPV4I",
-        oauth_version="1.0"
-      accept-encoding:
+      authorization: 
+      - OAuth oauth_consumer_key="KQvSsA1AFozcJpzQ3EV4w", oauth_nonce="366ba1063861e5788790d9965ad00a6e", oauth_signature="uSrECIJgp7Vh%2ByGEEmXseka1FIA%3D", oauth_signature_method="HMAC-SHA1", oauth_timestamp="1370890097", oauth_token="823627243-UDZhCacE9mWVMbFprLKq90Rk2sD3iPYujpDXPV4I", oauth_version="1.0"
+      accept-encoding: 
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-  response:
-    status:
+  response: 
+    status: 
       code: 200
       message: OK
-    headers:
-      cache-control:
+    headers: 
+      cache-control: 
       - no-cache, no-store, must-revalidate, pre-check=0, post-check=0
-      content-encoding:
+      content-encoding: 
       - gzip
-      content-length:
-      - '28'
-      content-type:
+      content-length: 
+      - "28"
+      content-type: 
       - application/json;charset=utf-8
-      date:
+      date: 
       - Mon, 10 Jun 2013 18:45:02 GMT
-      expires:
+      expires: 
       - Tue, 31 Mar 1981 05:00:00 GMT
-      last-modified:
+      last-modified: 
       - Mon, 10 Jun 2013 18:45:02 GMT
-      pragma:
+      pragma: 
       - no-cache
-      server:
+      server: 
       - tfe
-      set-cookie:
+      set-cookie: 
       - lang=en
-      - guest_id=v1%3A137088990282154116; Domain=.twitter.com; Path=/; Expires=Wed,
-        10-Jun-2015 18:45:02 UTC
-      status:
+      - guest_id=v1%3A137088990282154116; Domain=.twitter.com; Path=/; Expires=Wed, 10-Jun-2015 18:45:02 UTC
+      status: 
       - 200 OK
-      strict-transport-security:
+      strict-transport-security: 
       - max-age=631138519
-      x-access-level:
+      x-access-level: 
       - read
-      x-frame-options:
+      x-frame-options: 
       - SAMEORIGIN
-      x-rate-limit-limit:
-      - '180'
-      x-rate-limit-remaining:
-      - '178'
-      x-rate-limit-reset:
-      - '1370890800'
-      x-transaction:
+      x-rate-limit-limit: 
+      - "180"
+      x-rate-limit-remaining: 
+      - "178"
+      x-rate-limit-reset: 
+      - "1370890800"
+      x-transaction: 
       - 0fa2d635da9cac9d
-      x-xss-protection:
+      x-xss-protection: 
       - 1; mode=block
-      connection:
+      connection: 
       - close
-    body:
+    body: 
       encoding: ASCII-8BIT
-      string: !binary |-
+      string: !binary |
         H4sIAAAAAAAAAIqOBQAAAP//AwApu0wNAgAAAA==
-    http_version: '1.1'
+
+    http_version: "1.1"
   recorded_at: Mon, 10 Jun 2013 18:48:17 GMT
-- request:
+- request: 
     method: get
     uri: https://api.twitter.com/1.1/statuses/user_timeline.json?user_id=1392225116
-    body:
+    body: 
       encoding: US-ASCII
-      string: ''
-    headers:
-      accept:
+      string: ""
+    headers: 
+      accept: 
       - application/json
-      user-agent:
+      user-agent: 
       - Twitter Ruby Gem 4.7.0
-      authorization:
-      - OAuth oauth_consumer_key="KQvSsA1AFozcJpzQ3EV4w", oauth_nonce="fc8fb90cf2311dbf60a647fea02b6171",
-        oauth_signature="9a4fFK%2BtcyXDP5%2FFXhb0DYVJjsQ%3D", oauth_signature_method="HMAC-SHA1",
-        oauth_timestamp="1370890097", oauth_token="823627243-UDZhCacE9mWVMbFprLKq90Rk2sD3iPYujpDXPV4I",
-        oauth_version="1.0"
-      accept-encoding:
+      authorization: 
+      - OAuth oauth_consumer_key="KQvSsA1AFozcJpzQ3EV4w", oauth_nonce="fc8fb90cf2311dbf60a647fea02b6171", oauth_signature="9a4fFK%2BtcyXDP5%2FFXhb0DYVJjsQ%3D", oauth_signature_method="HMAC-SHA1", oauth_timestamp="1370890097", oauth_token="823627243-UDZhCacE9mWVMbFprLKq90Rk2sD3iPYujpDXPV4I", oauth_version="1.0"
+      accept-encoding: 
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-  response:
-    status:
+  response: 
+    status: 
       code: 200
       message: OK
-    headers:
-      cache-control:
+    headers: 
+      cache-control: 
       - no-cache, no-store, must-revalidate, pre-check=0, post-check=0
-      content-encoding:
+      content-encoding: 
       - gzip
-      content-length:
-      - '28'
-      content-type:
+      content-length: 
+      - "28"
+      content-type: 
       - application/json;charset=utf-8
-      date:
+      date: 
       - Mon, 10 Jun 2013 18:45:03 GMT
-      expires:
+      expires: 
       - Tue, 31 Mar 1981 05:00:00 GMT
-      last-modified:
+      last-modified: 
       - Mon, 10 Jun 2013 18:45:03 GMT
-      pragma:
+      pragma: 
       - no-cache
-      server:
+      server: 
       - tfe
-      set-cookie:
+      set-cookie: 
       - lang=en
-      - guest_id=v1%3A137088990317781857; Domain=.twitter.com; Path=/; Expires=Wed,
-        10-Jun-2015 18:45:03 UTC
-      status:
+      - guest_id=v1%3A137088990317781857; Domain=.twitter.com; Path=/; Expires=Wed, 10-Jun-2015 18:45:03 UTC
+      status: 
       - 200 OK
-      strict-transport-security:
+      strict-transport-security: 
       - max-age=631138519
-      x-access-level:
+      x-access-level: 
       - read
-      x-frame-options:
+      x-frame-options: 
       - SAMEORIGIN
-      x-rate-limit-limit:
-      - '180'
-      x-rate-limit-remaining:
-      - '177'
-      x-rate-limit-reset:
-      - '1370890800'
-      x-transaction:
+      x-rate-limit-limit: 
+      - "180"
+      x-rate-limit-remaining: 
+      - "177"
+      x-rate-limit-reset: 
+      - "1370890800"
+      x-transaction: 
       - 6a82fb38cf5dbdf0
-      x-xss-protection:
+      x-xss-protection: 
       - 1; mode=block
-      connection:
+      connection: 
       - close
-    body:
+    body: 
       encoding: ASCII-8BIT
-      string: !binary |-
+      string: !binary |
         H4sIAAAAAAAAAIqOBQAAAP//AwApu0wNAgAAAA==
-    http_version: '1.1'
+
+    http_version: "1.1"
   recorded_at: Mon, 10 Jun 2013 18:48:18 GMT
-- request:
+- request: 
     method: get
     uri: https://api.twitter.com/1.1/statuses/user_timeline.json?user_id=1392225116
-    body:
+    body: 
       encoding: US-ASCII
-      string: ''
-    headers:
-      accept:
+      string: ""
+    headers: 
+      accept: 
       - application/json
-      user-agent:
+      user-agent: 
       - Twitter Ruby Gem 4.7.0
-      authorization:
-      - OAuth oauth_consumer_key="KQvSsA1AFozcJpzQ3EV4w", oauth_nonce="c5a19365d6a11e036b430ff0c4b0c1ee",
-        oauth_signature="4JO%2BnOJprf8AIPJl3INYMCYPyjw%3D", oauth_signature_method="HMAC-SHA1",
-        oauth_timestamp="1370890098", oauth_token="823627243-UDZhCacE9mWVMbFprLKq90Rk2sD3iPYujpDXPV4I",
-        oauth_version="1.0"
-      accept-encoding:
+      authorization: 
+      - OAuth oauth_consumer_key="KQvSsA1AFozcJpzQ3EV4w", oauth_nonce="c5a19365d6a11e036b430ff0c4b0c1ee", oauth_signature="4JO%2BnOJprf8AIPJl3INYMCYPyjw%3D", oauth_signature_method="HMAC-SHA1", oauth_timestamp="1370890098", oauth_token="823627243-UDZhCacE9mWVMbFprLKq90Rk2sD3iPYujpDXPV4I", oauth_version="1.0"
+      accept-encoding: 
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-  response:
-    status:
+  response: 
+    status: 
       code: 200
       message: OK
-    headers:
-      cache-control:
+    headers: 
+      cache-control: 
       - no-cache, no-store, must-revalidate, pre-check=0, post-check=0
-      content-encoding:
+      content-encoding: 
       - gzip
-      content-length:
-      - '28'
-      content-type:
+      content-length: 
+      - "28"
+      content-type: 
       - application/json;charset=utf-8
-      date:
+      date: 
       - Mon, 10 Jun 2013 18:45:03 GMT
-      expires:
+      expires: 
       - Tue, 31 Mar 1981 05:00:00 GMT
-      last-modified:
+      last-modified: 
       - Mon, 10 Jun 2013 18:45:03 GMT
-      pragma:
+      pragma: 
       - no-cache
-      server:
+      server: 
       - tfe
-      set-cookie:
+      set-cookie: 
       - lang=en
-      - guest_id=v1%3A137088990361822598; Domain=.twitter.com; Path=/; Expires=Wed,
-        10-Jun-2015 18:45:03 UTC
-      status:
+      - guest_id=v1%3A137088990361822598; Domain=.twitter.com; Path=/; Expires=Wed, 10-Jun-2015 18:45:03 UTC
+      status: 
       - 200 OK
-      strict-transport-security:
+      strict-transport-security: 
       - max-age=631138519
-      x-access-level:
+      x-access-level: 
       - read
-      x-frame-options:
+      x-frame-options: 
       - SAMEORIGIN
-      x-rate-limit-limit:
-      - '180'
-      x-rate-limit-remaining:
-      - '176'
-      x-rate-limit-reset:
-      - '1370890800'
-      x-transaction:
+      x-rate-limit-limit: 
+      - "180"
+      x-rate-limit-remaining: 
+      - "176"
+      x-rate-limit-reset: 
+      - "1370890800"
+      x-transaction: 
       - 1271fc735a1ca89a
-      x-xss-protection:
+      x-xss-protection: 
       - 1; mode=block
-      connection:
+      connection: 
       - close
-    body:
+    body: 
       encoding: ASCII-8BIT
-      string: !binary |-
+      string: !binary |
         H4sIAAAAAAAAAIqOBQAAAP//AwApu0wNAgAAAA==
-    http_version: '1.1'
+
+    http_version: "1.1"
   recorded_at: Mon, 10 Jun 2013 18:48:18 GMT
-- request:
+- request: 
     method: get
     uri: https://api.twitter.com/1.1/statuses/user_timeline.json?user_id=1392225116
-    body:
+    body: 
       encoding: US-ASCII
-      string: ''
-    headers:
-      accept:
+      string: ""
+    headers: 
+      accept: 
       - application/json
-      user-agent:
+      user-agent: 
       - Twitter Ruby Gem 4.7.0
-      authorization:
-      - OAuth oauth_consumer_key="KQvSsA1AFozcJpzQ3EV4w", oauth_nonce="ae3b3ab9e42b9892cd4808917dbb597a",
-        oauth_signature="6Ax%2F5duFGKbYirQ1zcclwzOJSkU%3D", oauth_signature_method="HMAC-SHA1",
-        oauth_timestamp="1370890098", oauth_token="823627243-UDZhCacE9mWVMbFprLKq90Rk2sD3iPYujpDXPV4I",
-        oauth_version="1.0"
-      accept-encoding:
+      authorization: 
+      - OAuth oauth_consumer_key="KQvSsA1AFozcJpzQ3EV4w", oauth_nonce="ae3b3ab9e42b9892cd4808917dbb597a", oauth_signature="6Ax%2F5duFGKbYirQ1zcclwzOJSkU%3D", oauth_signature_method="HMAC-SHA1", oauth_timestamp="1370890098", oauth_token="823627243-UDZhCacE9mWVMbFprLKq90Rk2sD3iPYujpDXPV4I", oauth_version="1.0"
+      accept-encoding: 
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-  response:
-    status:
+  response: 
+    status: 
       code: 200
       message: OK
-    headers:
-      cache-control:
+    headers: 
+      cache-control: 
       - no-cache, no-store, must-revalidate, pre-check=0, post-check=0
-      content-encoding:
+      content-encoding: 
       - gzip
-      content-length:
-      - '28'
-      content-type:
+      content-length: 
+      - "28"
+      content-type: 
       - application/json;charset=utf-8
-      date:
+      date: 
       - Mon, 10 Jun 2013 18:45:04 GMT
-      expires:
+      expires: 
       - Tue, 31 Mar 1981 05:00:00 GMT
-      last-modified:
+      last-modified: 
       - Mon, 10 Jun 2013 18:45:04 GMT
-      pragma:
+      pragma: 
       - no-cache
-      server:
+      server: 
       - tfe
-      set-cookie:
+      set-cookie: 
       - lang=en
-      - guest_id=v1%3A137088990406639179; Domain=.twitter.com; Path=/; Expires=Wed,
-        10-Jun-2015 18:45:04 UTC
-      status:
+      - guest_id=v1%3A137088990406639179; Domain=.twitter.com; Path=/; Expires=Wed, 10-Jun-2015 18:45:04 UTC
+      status: 
       - 200 OK
-      strict-transport-security:
+      strict-transport-security: 
       - max-age=631138519
-      x-access-level:
+      x-access-level: 
       - read
-      x-frame-options:
+      x-frame-options: 
       - SAMEORIGIN
-      x-rate-limit-limit:
-      - '180'
-      x-rate-limit-remaining:
-      - '175'
-      x-rate-limit-reset:
-      - '1370890800'
-      x-transaction:
+      x-rate-limit-limit: 
+      - "180"
+      x-rate-limit-remaining: 
+      - "175"
+      x-rate-limit-reset: 
+      - "1370890800"
+      x-transaction: 
       - 5b87e2779bb8d4e1
-      x-xss-protection:
+      x-xss-protection: 
       - 1; mode=block
-      connection:
+      connection: 
       - close
-    body:
+    body: 
       encoding: ASCII-8BIT
-      string: !binary |-
+      string: !binary |
         H4sIAAAAAAAAAIqOBQAAAP//AwApu0wNAgAAAA==
-    http_version: '1.1'
+
+    http_version: "1.1"
   recorded_at: Mon, 10 Jun 2013 18:48:18 GMT
-- request:
+- request: 
     method: get
     uri: https://api.twitter.com/1.1/statuses/user_timeline.json?user_id=1392225116
-    body:
+    body: 
       encoding: US-ASCII
-      string: ''
-    headers:
-      accept:
+      string: ""
+    headers: 
+      accept: 
       - application/json
-      user-agent:
+      user-agent: 
       - Twitter Ruby Gem 4.7.0
-      authorization:
-      - OAuth oauth_consumer_key="KQvSsA1AFozcJpzQ3EV4w", oauth_nonce="07454def9685243b8b99c70d96195dff",
-        oauth_signature="sFQ6r1am9x%2FnCu3jX6%2Bcl8lwcxs%3D", oauth_signature_method="HMAC-SHA1",
-        oauth_timestamp="1370890098", oauth_token="823627243-UDZhCacE9mWVMbFprLKq90Rk2sD3iPYujpDXPV4I",
-        oauth_version="1.0"
-      accept-encoding:
+      authorization: 
+      - OAuth oauth_consumer_key="KQvSsA1AFozcJpzQ3EV4w", oauth_nonce="07454def9685243b8b99c70d96195dff", oauth_signature="sFQ6r1am9x%2FnCu3jX6%2Bcl8lwcxs%3D", oauth_signature_method="HMAC-SHA1", oauth_timestamp="1370890098", oauth_token="823627243-UDZhCacE9mWVMbFprLKq90Rk2sD3iPYujpDXPV4I", oauth_version="1.0"
+      accept-encoding: 
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-  response:
-    status:
+  response: 
+    status: 
       code: 200
       message: OK
-    headers:
-      cache-control:
+    headers: 
+      cache-control: 
       - no-cache, no-store, must-revalidate, pre-check=0, post-check=0
-      content-encoding:
+      content-encoding: 
       - gzip
-      content-length:
-      - '28'
-      content-type:
+      content-length: 
+      - "28"
+      content-type: 
       - application/json;charset=utf-8
-      date:
+      date: 
       - Mon, 10 Jun 2013 18:45:04 GMT
-      expires:
+      expires: 
       - Tue, 31 Mar 1981 05:00:00 GMT
-      last-modified:
+      last-modified: 
       - Mon, 10 Jun 2013 18:45:04 GMT
-      pragma:
+      pragma: 
       - no-cache
-      server:
+      server: 
       - tfe
-      set-cookie:
+      set-cookie: 
       - lang=en
-      - guest_id=v1%3A137088990445802691; Domain=.twitter.com; Path=/; Expires=Wed,
-        10-Jun-2015 18:45:04 UTC
-      status:
+      - guest_id=v1%3A137088990445802691; Domain=.twitter.com; Path=/; Expires=Wed, 10-Jun-2015 18:45:04 UTC
+      status: 
       - 200 OK
-      strict-transport-security:
+      strict-transport-security: 
       - max-age=631138519
-      x-access-level:
+      x-access-level: 
       - read
-      x-frame-options:
+      x-frame-options: 
       - SAMEORIGIN
-      x-rate-limit-limit:
-      - '180'
-      x-rate-limit-remaining:
-      - '174'
-      x-rate-limit-reset:
-      - '1370890800'
-      x-transaction:
+      x-rate-limit-limit: 
+      - "180"
+      x-rate-limit-remaining: 
+      - "174"
+      x-rate-limit-reset: 
+      - "1370890800"
+      x-transaction: 
       - e326fafd7b9675b5
-      x-xss-protection:
+      x-xss-protection: 
       - 1; mode=block
-      connection:
+      connection: 
       - close
-    body:
+    body: 
       encoding: ASCII-8BIT
-      string: !binary |-
+      string: !binary |
         H4sIAAAAAAAAAIqOBQAAAP//AwApu0wNAgAAAA==
-    http_version: '1.1'
+
+    http_version: "1.1"
   recorded_at: Mon, 10 Jun 2013 18:48:19 GMT
-- request:
+- request: 
     method: get
     uri: https://api.twitter.com/1.1/statuses/user_timeline.json?user_id=1392265686
-    body:
+    body: 
       encoding: US-ASCII
-      string: ''
-    headers:
-      accept:
+      string: ""
+    headers: 
+      accept: 
       - application/json
-      user-agent:
+      user-agent: 
       - Twitter Ruby Gem 4.7.0
-      authorization:
-      - OAuth oauth_consumer_key="KQvSsA1AFozcJpzQ3EV4w", oauth_nonce="ef7fccbbdf9a183e0aadaff23ed8912e",
-        oauth_signature="BMi%2BYzm%2ByN6v291zsSGyw%2B5O8w8%3D", oauth_signature_method="HMAC-SHA1",
-        oauth_timestamp="1370890099", oauth_token="823627243-UDZhCacE9mWVMbFprLKq90Rk2sD3iPYujpDXPV4I",
-        oauth_version="1.0"
-      accept-encoding:
+      authorization: 
+      - OAuth oauth_consumer_key="KQvSsA1AFozcJpzQ3EV4w", oauth_nonce="ef7fccbbdf9a183e0aadaff23ed8912e", oauth_signature="BMi%2BYzm%2ByN6v291zsSGyw%2B5O8w8%3D", oauth_signature_method="HMAC-SHA1", oauth_timestamp="1370890099", oauth_token="823627243-UDZhCacE9mWVMbFprLKq90Rk2sD3iPYujpDXPV4I", oauth_version="1.0"
+      accept-encoding: 
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-  response:
-    status:
+  response: 
+    status: 
       code: 200
       message: OK
-    headers:
-      cache-control:
+    headers: 
+      cache-control: 
       - no-cache, no-store, must-revalidate, pre-check=0, post-check=0
-      content-encoding:
+      content-encoding: 
       - gzip
-      content-length:
-      - '2413'
-      content-type:
+      content-length: 
+      - "2413"
+      content-type: 
       - application/json;charset=utf-8
-      date:
+      date: 
       - Mon, 10 Jun 2013 18:45:04 GMT
-      expires:
+      expires: 
       - Tue, 31 Mar 1981 05:00:00 GMT
-      last-modified:
+      last-modified: 
       - Mon, 10 Jun 2013 18:45:04 GMT
-      pragma:
+      pragma: 
       - no-cache
-      server:
+      server: 
       - tfe
-      set-cookie:
+      set-cookie: 
       - lang=en
-      - guest_id=v1%3A137088990483729071; Domain=.twitter.com; Path=/; Expires=Wed,
-        10-Jun-2015 18:45:04 UTC
-      status:
+      - guest_id=v1%3A137088990483729071; Domain=.twitter.com; Path=/; Expires=Wed, 10-Jun-2015 18:45:04 UTC
+      status: 
       - 200 OK
-      strict-transport-security:
+      strict-transport-security: 
       - max-age=631138519
-      x-access-level:
+      x-access-level: 
       - read
-      x-frame-options:
+      x-frame-options: 
       - SAMEORIGIN
-      x-rate-limit-limit:
-      - '180'
-      x-rate-limit-remaining:
-      - '173'
-      x-rate-limit-reset:
-      - '1370890800'
-      x-transaction:
+      x-rate-limit-limit: 
+      - "180"
+      x-rate-limit-remaining: 
+      - "173"
+      x-rate-limit-reset: 
+      - "1370890800"
+      x-transaction: 
       - f31ff6f25454fe54
-      x-xss-protection:
+      x-xss-protection: 
       - 1; mode=block
-      connection:
+      connection: 
       - close
-    body:
+    body: 
       encoding: ASCII-8BIT
-      string: !binary |-
+      string: !binary |
         H4sIAAAAAAAAAOybC2/bOBKA/wrrAnctzueQkqiHgWKbNM21i+YWlwRYdOtC
         oGQ6UiNLKknF9Qb97zeUbEuy5TRt+to7BUUTzYw4fM43IqU3N4NQcKb41Gdq
         MB6cZin6tUgRNhE2xtgeWwT9A8MPMjAxB8NBPB2MTYuYDjWpZbumZ9qO7Wq5
@@ -1305,147 +1269,141 @@ http_interactions:
         FiMggSqCFf4XTIXRLzOIy4XgT/Q+B0wIPg/4FO7+2/WT4/cvTikO/jj71+ud
         rZBbCto8mjc+l8dDz/geGyN3GJ6vta/0s/e5h4eEdHf69jHWTs7SlebcJT2q
         vZtD4t79GOtuo/v2vwAAAP//AwCOcUgpZkoAAA==
-    http_version: '1.1'
+
+    http_version: "1.1"
   recorded_at: Mon, 10 Jun 2013 18:48:19 GMT
-- request:
+- request: 
     method: get
     uri: https://api.twitter.com/1.1/statuses/user_timeline.json?user_id=761895781
-    body:
+    body: 
       encoding: US-ASCII
-      string: ''
-    headers:
-      accept:
+      string: ""
+    headers: 
+      accept: 
       - application/json
-      user-agent:
+      user-agent: 
       - Twitter Ruby Gem 4.7.0
-      authorization:
-      - OAuth oauth_consumer_key="KQvSsA1AFozcJpzQ3EV4w", oauth_nonce="301837f930ac4ad9e0a73c51c46a8fe1",
-        oauth_signature="Pky%2BVPQklH2oziREyKUscwLM0JU%3D", oauth_signature_method="HMAC-SHA1",
-        oauth_timestamp="1370890099", oauth_token="823627243-UDZhCacE9mWVMbFprLKq90Rk2sD3iPYujpDXPV4I",
-        oauth_version="1.0"
-      accept-encoding:
+      authorization: 
+      - OAuth oauth_consumer_key="KQvSsA1AFozcJpzQ3EV4w", oauth_nonce="301837f930ac4ad9e0a73c51c46a8fe1", oauth_signature="Pky%2BVPQklH2oziREyKUscwLM0JU%3D", oauth_signature_method="HMAC-SHA1", oauth_timestamp="1370890099", oauth_token="823627243-UDZhCacE9mWVMbFprLKq90Rk2sD3iPYujpDXPV4I", oauth_version="1.0"
+      accept-encoding: 
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-  response:
-    status:
+  response: 
+    status: 
       code: 200
       message: OK
-    headers:
-      cache-control:
+    headers: 
+      cache-control: 
       - no-cache, no-store, must-revalidate, pre-check=0, post-check=0
-      content-encoding:
+      content-encoding: 
       - gzip
-      content-length:
-      - '28'
-      content-type:
+      content-length: 
+      - "28"
+      content-type: 
       - application/json;charset=utf-8
-      date:
+      date: 
       - Mon, 10 Jun 2013 18:45:05 GMT
-      expires:
+      expires: 
       - Tue, 31 Mar 1981 05:00:00 GMT
-      last-modified:
+      last-modified: 
       - Mon, 10 Jun 2013 18:45:05 GMT
-      pragma:
+      pragma: 
       - no-cache
-      server:
+      server: 
       - tfe
-      set-cookie:
+      set-cookie: 
       - lang=en
-      - guest_id=v1%3A137088990538184813; Domain=.twitter.com; Path=/; Expires=Wed,
-        10-Jun-2015 18:45:05 UTC
-      status:
+      - guest_id=v1%3A137088990538184813; Domain=.twitter.com; Path=/; Expires=Wed, 10-Jun-2015 18:45:05 UTC
+      status: 
       - 200 OK
-      strict-transport-security:
+      strict-transport-security: 
       - max-age=631138519
-      x-access-level:
+      x-access-level: 
       - read
-      x-frame-options:
+      x-frame-options: 
       - SAMEORIGIN
-      x-rate-limit-limit:
-      - '180'
-      x-rate-limit-remaining:
-      - '172'
-      x-rate-limit-reset:
-      - '1370890800'
-      x-transaction:
+      x-rate-limit-limit: 
+      - "180"
+      x-rate-limit-remaining: 
+      - "172"
+      x-rate-limit-reset: 
+      - "1370890800"
+      x-transaction: 
       - b8ed224de8842db6
-      x-xss-protection:
+      x-xss-protection: 
       - 1; mode=block
-      connection:
+      connection: 
       - close
-    body:
+    body: 
       encoding: ASCII-8BIT
-      string: !binary |-
+      string: !binary |
         H4sIAAAAAAAAAIqOBQAAAP//AwApu0wNAgAAAA==
-    http_version: '1.1'
+
+    http_version: "1.1"
   recorded_at: Mon, 10 Jun 2013 18:48:20 GMT
-- request:
+- request: 
     method: get
     uri: https://api.twitter.com/1.1/statuses/user_timeline.json?user_id=19573952
-    body:
+    body: 
       encoding: US-ASCII
-      string: ''
-    headers:
-      accept:
+      string: ""
+    headers: 
+      accept: 
       - application/json
-      user-agent:
+      user-agent: 
       - Twitter Ruby Gem 4.7.0
-      authorization:
-      - OAuth oauth_consumer_key="KQvSsA1AFozcJpzQ3EV4w", oauth_nonce="adf2fc2fd926e21fccf9156361489f2c",
-        oauth_signature="z9HRo24eO%2B%2BDpdPaeJJLKHkSY4w%3D", oauth_signature_method="HMAC-SHA1",
-        oauth_timestamp="1370890100", oauth_token="823627243-UDZhCacE9mWVMbFprLKq90Rk2sD3iPYujpDXPV4I",
-        oauth_version="1.0"
-      accept-encoding:
+      authorization: 
+      - OAuth oauth_consumer_key="KQvSsA1AFozcJpzQ3EV4w", oauth_nonce="adf2fc2fd926e21fccf9156361489f2c", oauth_signature="z9HRo24eO%2B%2BDpdPaeJJLKHkSY4w%3D", oauth_signature_method="HMAC-SHA1", oauth_timestamp="1370890100", oauth_token="823627243-UDZhCacE9mWVMbFprLKq90Rk2sD3iPYujpDXPV4I", oauth_version="1.0"
+      accept-encoding: 
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-  response:
-    status:
+  response: 
+    status: 
       code: 200
       message: OK
-    headers:
-      cache-control:
+    headers: 
+      cache-control: 
       - no-cache, no-store, must-revalidate, pre-check=0, post-check=0
-      content-encoding:
+      content-encoding: 
       - gzip
-      content-length:
-      - '5447'
-      content-type:
+      content-length: 
+      - "5447"
+      content-type: 
       - application/json;charset=utf-8
-      date:
+      date: 
       - Mon, 10 Jun 2013 18:45:05 GMT
-      expires:
+      expires: 
       - Tue, 31 Mar 1981 05:00:00 GMT
-      last-modified:
+      last-modified: 
       - Mon, 10 Jun 2013 18:45:05 GMT
-      pragma:
+      pragma: 
       - no-cache
-      server:
+      server: 
       - tfe
-      set-cookie:
+      set-cookie: 
       - lang=en
-      - guest_id=v1%3A137088990580825810; Domain=.twitter.com; Path=/; Expires=Wed,
-        10-Jun-2015 18:45:05 UTC
-      status:
+      - guest_id=v1%3A137088990580825810; Domain=.twitter.com; Path=/; Expires=Wed, 10-Jun-2015 18:45:05 UTC
+      status: 
       - 200 OK
-      strict-transport-security:
+      strict-transport-security: 
       - max-age=631138519
-      x-access-level:
+      x-access-level: 
       - read
-      x-frame-options:
+      x-frame-options: 
       - SAMEORIGIN
-      x-rate-limit-limit:
-      - '180'
-      x-rate-limit-remaining:
-      - '171'
-      x-rate-limit-reset:
-      - '1370890800'
-      x-transaction:
+      x-rate-limit-limit: 
+      - "180"
+      x-rate-limit-remaining: 
+      - "171"
+      x-rate-limit-reset: 
+      - "1370890800"
+      x-transaction: 
       - 881832e84921eee8
-      x-xss-protection:
+      x-xss-protection: 
       - 1; mode=block
-      connection:
+      connection: 
       - close
-    body:
+    body: 
       encoding: ASCII-8BIT
-      string: !binary |-
+      string: !binary |
         H4sIAAAAAAAAAOydDXPTuNbHv4q2zOw+d544leT37NzZ7RtQaKGQQlk2OxnH
         VhK3thVsp2ng4bs/R3Zcv8Rpu7SUe3dUKCSSbNny8fn/LB1Lf37ZcmPmpMwb
         OulWb+uMeejFPEJYR4T0NNzDNvpfDD+IYqJudbZ8b6unapRq8KPrBOs21gxd
@@ -1568,76 +1526,73 @@ http_interactions:
         cQzHxceif8tlcbRGOx+OncXbs/032XirpB1JO5J2JO1I2pG0I2nnXrRT09VN
         tDPr8iTt+sJMBtvehwP96sMa8LSXqUV6E/wYK+b99f8AAAD//wMA7/Qm9XjS
         AAA=
-    http_version: '1.1'
+
+    http_version: "1.1"
   recorded_at: Mon, 10 Jun 2013 18:48:20 GMT
-- request:
+- request: 
     method: get
     uri: https://api.twitter.com/1.1/statuses/user_timeline.json?user_id=192232974
-    body:
+    body: 
       encoding: US-ASCII
-      string: ''
-    headers:
-      accept:
+      string: ""
+    headers: 
+      accept: 
       - application/json
-      user-agent:
+      user-agent: 
       - Twitter Ruby Gem 4.7.0
-      authorization:
-      - OAuth oauth_consumer_key="KQvSsA1AFozcJpzQ3EV4w", oauth_nonce="b6862a5edeb2939a660c520364836e1f",
-        oauth_signature="qp0Ng9MoU9y7dhQqjj72hHRkeCA%3D", oauth_signature_method="HMAC-SHA1",
-        oauth_timestamp="1370890100", oauth_token="823627243-UDZhCacE9mWVMbFprLKq90Rk2sD3iPYujpDXPV4I",
-        oauth_version="1.0"
-      accept-encoding:
+      authorization: 
+      - OAuth oauth_consumer_key="KQvSsA1AFozcJpzQ3EV4w", oauth_nonce="b6862a5edeb2939a660c520364836e1f", oauth_signature="qp0Ng9MoU9y7dhQqjj72hHRkeCA%3D", oauth_signature_method="HMAC-SHA1", oauth_timestamp="1370890100", oauth_token="823627243-UDZhCacE9mWVMbFprLKq90Rk2sD3iPYujpDXPV4I", oauth_version="1.0"
+      accept-encoding: 
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-  response:
-    status:
+  response: 
+    status: 
       code: 200
       message: OK
-    headers:
-      cache-control:
+    headers: 
+      cache-control: 
       - no-cache, no-store, must-revalidate, pre-check=0, post-check=0
-      content-encoding:
+      content-encoding: 
       - gzip
-      content-length:
-      - '4910'
-      content-type:
+      content-length: 
+      - "4910"
+      content-type: 
       - application/json;charset=utf-8
-      date:
+      date: 
       - Mon, 10 Jun 2013 18:45:06 GMT
-      expires:
+      expires: 
       - Tue, 31 Mar 1981 05:00:00 GMT
-      last-modified:
+      last-modified: 
       - Mon, 10 Jun 2013 18:45:06 GMT
-      pragma:
+      pragma: 
       - no-cache
-      server:
+      server: 
       - tfe
-      set-cookie:
+      set-cookie: 
       - lang=en
-      - guest_id=v1%3A137088990630280766; Domain=.twitter.com; Path=/; Expires=Wed,
-        10-Jun-2015 18:45:06 UTC
-      status:
+      - guest_id=v1%3A137088990630280766; Domain=.twitter.com; Path=/; Expires=Wed, 10-Jun-2015 18:45:06 UTC
+      status: 
       - 200 OK
-      strict-transport-security:
+      strict-transport-security: 
       - max-age=631138519
-      x-access-level:
+      x-access-level: 
       - read
-      x-frame-options:
+      x-frame-options: 
       - SAMEORIGIN
-      x-rate-limit-limit:
-      - '180'
-      x-rate-limit-remaining:
-      - '170'
-      x-rate-limit-reset:
-      - '1370890800'
-      x-transaction:
+      x-rate-limit-limit: 
+      - "180"
+      x-rate-limit-remaining: 
+      - "170"
+      x-rate-limit-reset: 
+      - "1370890800"
+      x-transaction: 
       - 04a048da1f9eee2f
-      x-xss-protection:
+      x-xss-protection: 
       - 1; mode=block
-      connection:
+      connection: 
       - close
-    body:
+    body: 
       encoding: ASCII-8BIT
-      string: !binary |-
+      string: !binary |
         H4sIAAAAAAAAAOydC3PbtpaA/wpWvXPTzkoyAL4107mx3SR1modrO5umUUYD
         kZDImCIUPqyomfz3PSBF8SE6lpM4zXahJlV0cAgQz/MRPABef+i5MWcp9yYs
         7Y16L7mHHmcRwgbCdITxSCPovzF8EMVE6/V7gdcbaTrFjm1YlvyfaWiWKeWT
@@ -1748,76 +1703,73 @@ http_interactions:
         I7BgbX6bvVsf/vpk+sw+3gfbgsZqp+tYbbsmSoGaAjUFagrUFKgpUFOgdltQ
         a5jm60At2Fl//CoNLDIT754ddzgo3qhewy5aToje7f50b/4XAAD//wMAV7ET
         H8LJAAA=
-    http_version: '1.1'
+
+    http_version: "1.1"
   recorded_at: Mon, 10 Jun 2013 18:48:21 GMT
-- request:
+- request: 
     method: get
     uri: https://api.twitter.com/1.1/statuses/user_timeline.json?user_id=877744351
-    body:
+    body: 
       encoding: US-ASCII
-      string: ''
-    headers:
-      accept:
+      string: ""
+    headers: 
+      accept: 
       - application/json
-      user-agent:
+      user-agent: 
       - Twitter Ruby Gem 4.7.0
-      authorization:
-      - OAuth oauth_consumer_key="KQvSsA1AFozcJpzQ3EV4w", oauth_nonce="5cef855e91f67ed84cf8d67732574f1e",
-        oauth_signature="T%2BQQpfWBwHm9%2Fkzr1a4vV0VImi4%3D", oauth_signature_method="HMAC-SHA1",
-        oauth_timestamp="1370890101", oauth_token="823627243-UDZhCacE9mWVMbFprLKq90Rk2sD3iPYujpDXPV4I",
-        oauth_version="1.0"
-      accept-encoding:
+      authorization: 
+      - OAuth oauth_consumer_key="KQvSsA1AFozcJpzQ3EV4w", oauth_nonce="5cef855e91f67ed84cf8d67732574f1e", oauth_signature="T%2BQQpfWBwHm9%2Fkzr1a4vV0VImi4%3D", oauth_signature_method="HMAC-SHA1", oauth_timestamp="1370890101", oauth_token="823627243-UDZhCacE9mWVMbFprLKq90Rk2sD3iPYujpDXPV4I", oauth_version="1.0"
+      accept-encoding: 
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-  response:
-    status:
+  response: 
+    status: 
       code: 200
       message: OK
-    headers:
-      cache-control:
+    headers: 
+      cache-control: 
       - no-cache, no-store, must-revalidate, pre-check=0, post-check=0
-      content-encoding:
+      content-encoding: 
       - gzip
-      content-length:
-      - '4016'
-      content-type:
+      content-length: 
+      - "4016"
+      content-type: 
       - application/json;charset=utf-8
-      date:
+      date: 
       - Mon, 10 Jun 2013 18:45:06 GMT
-      expires:
+      expires: 
       - Tue, 31 Mar 1981 05:00:00 GMT
-      last-modified:
+      last-modified: 
       - Mon, 10 Jun 2013 18:45:06 GMT
-      pragma:
+      pragma: 
       - no-cache
-      server:
+      server: 
       - tfe
-      set-cookie:
+      set-cookie: 
       - lang=en
-      - guest_id=v1%3A137088990678918902; Domain=.twitter.com; Path=/; Expires=Wed,
-        10-Jun-2015 18:45:06 UTC
-      status:
+      - guest_id=v1%3A137088990678918902; Domain=.twitter.com; Path=/; Expires=Wed, 10-Jun-2015 18:45:06 UTC
+      status: 
       - 200 OK
-      strict-transport-security:
+      strict-transport-security: 
       - max-age=631138519
-      x-access-level:
+      x-access-level: 
       - read
-      x-frame-options:
+      x-frame-options: 
       - SAMEORIGIN
-      x-rate-limit-limit:
-      - '180'
-      x-rate-limit-remaining:
-      - '169'
-      x-rate-limit-reset:
-      - '1370890800'
-      x-transaction:
+      x-rate-limit-limit: 
+      - "180"
+      x-rate-limit-remaining: 
+      - "169"
+      x-rate-limit-reset: 
+      - "1370890800"
+      x-transaction: 
       - 31fe68d06e82a01f
-      x-xss-protection:
+      x-xss-protection: 
       - 1; mode=block
-      connection:
+      connection: 
       - close
-    body:
+    body: 
       encoding: ASCII-8BIT
-      string: !binary |-
+      string: !binary |
         H4sIAAAAAAAAAOzdeXObSBYA8K/StqZmdmtZh+ZGW/tHYsfxOJdjObdTKgQt
         iRgBgUaKMpXvvq8bSRyWHCmbGU85L5U5xGuu5uhf9cX7P/b9jHmcBX2P73f3
         nyYxOS1iQlVCza5Ju1Qj/1LhD9FUqu8r+2Gw39UNg1LXtAxds01Htw1DLO/n
@@ -1908,76 +1860,73 @@ http_interactions:
         qo9iuvxWZS7nd0RKIiWRkkhJpCRSEil5Ryi508w6N/HPMRS3Ma6l0kPTm+L7
         MHprLscmJFXxBWhnV0hWgvl2zWR4/3mkbqqZXAZrMzRSxdH/Aj5++B8AAAD/
         /wMApYrAg3/MAAA=
-    http_version: '1.1'
+
+    http_version: "1.1"
   recorded_at: Mon, 10 Jun 2013 18:48:21 GMT
-- request:
+- request: 
     method: get
     uri: https://api.twitter.com/1.1/statuses/user_timeline.json?user_id=122500199
-    body:
+    body: 
       encoding: US-ASCII
-      string: ''
-    headers:
-      accept:
+      string: ""
+    headers: 
+      accept: 
       - application/json
-      user-agent:
+      user-agent: 
       - Twitter Ruby Gem 4.7.0
-      authorization:
-      - OAuth oauth_consumer_key="KQvSsA1AFozcJpzQ3EV4w", oauth_nonce="e996202e9d4ecbf4f22543a399565f23",
-        oauth_signature="i%2BIhWSg7f%2FkbuuOaiWNHyMVWeCM%3D", oauth_signature_method="HMAC-SHA1",
-        oauth_timestamp="1370890101", oauth_token="823627243-UDZhCacE9mWVMbFprLKq90Rk2sD3iPYujpDXPV4I",
-        oauth_version="1.0"
-      accept-encoding:
+      authorization: 
+      - OAuth oauth_consumer_key="KQvSsA1AFozcJpzQ3EV4w", oauth_nonce="e996202e9d4ecbf4f22543a399565f23", oauth_signature="i%2BIhWSg7f%2FkbuuOaiWNHyMVWeCM%3D", oauth_signature_method="HMAC-SHA1", oauth_timestamp="1370890101", oauth_token="823627243-UDZhCacE9mWVMbFprLKq90Rk2sD3iPYujpDXPV4I", oauth_version="1.0"
+      accept-encoding: 
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-  response:
-    status:
+  response: 
+    status: 
       code: 200
       message: OK
-    headers:
-      cache-control:
+    headers: 
+      cache-control: 
       - no-cache, no-store, must-revalidate, pre-check=0, post-check=0
-      content-encoding:
+      content-encoding: 
       - gzip
-      content-length:
-      - '4317'
-      content-type:
+      content-length: 
+      - "4317"
+      content-type: 
       - application/json;charset=utf-8
-      date:
+      date: 
       - Mon, 10 Jun 2013 18:45:07 GMT
-      expires:
+      expires: 
       - Tue, 31 Mar 1981 05:00:00 GMT
-      last-modified:
+      last-modified: 
       - Mon, 10 Jun 2013 18:45:07 GMT
-      pragma:
+      pragma: 
       - no-cache
-      server:
+      server: 
       - tfe
-      set-cookie:
+      set-cookie: 
       - lang=en
-      - guest_id=v1%3A137088990730846157; Domain=.twitter.com; Path=/; Expires=Wed,
-        10-Jun-2015 18:45:07 UTC
-      status:
+      - guest_id=v1%3A137088990730846157; Domain=.twitter.com; Path=/; Expires=Wed, 10-Jun-2015 18:45:07 UTC
+      status: 
       - 200 OK
-      strict-transport-security:
+      strict-transport-security: 
       - max-age=631138519
-      x-access-level:
+      x-access-level: 
       - read
-      x-frame-options:
+      x-frame-options: 
       - SAMEORIGIN
-      x-rate-limit-limit:
-      - '180'
-      x-rate-limit-remaining:
-      - '168'
-      x-rate-limit-reset:
-      - '1370890800'
-      x-transaction:
+      x-rate-limit-limit: 
+      - "180"
+      x-rate-limit-remaining: 
+      - "168"
+      x-rate-limit-reset: 
+      - "1370890800"
+      x-transaction: 
       - 812296621e421163
-      x-xss-protection:
+      x-xss-protection: 
       - 1; mode=block
-      connection:
+      connection: 
       - close
-    body:
+    body: 
       encoding: ASCII-8BIT
-      string: !binary |-
+      string: !binary |
         H4sIAAAAAAAAAOydDXPbtpaG/wqqu7PZnZVlAiAJUjN3tm4Tp06TbGurm+2t
         MxqIBCXGJKHLDytqJv99D0jJIinSsePYcXqRaScKAIIkCJz34cEB+MeHgZcK
         ngt/yvPBeHBWJOgF/G+4CJtjaoyphf7LgD+IGJgOhoPQH4ypSRm1HdcgBqMO
@@ -2074,76 +2023,73 @@ http_interactions:
         xaS1Z107sw+CUCQvq9DggHt5FY8TBiXYRCCBaMFTH4lEFvOFSlTgE8AtVwXV
         XJmK4lHfZ+JRtX56lSqcSRQpiVhF8PgSrVRhVSXIbV6l3S1aB5uYWTY2bcdk
         zDRvAC6N8hpcNLhocNHgosFFg4sGl88Hl7f/DwAA//8DAHIaAuT1xwAA
-    http_version: '1.1'
+
+    http_version: "1.1"
   recorded_at: Mon, 10 Jun 2013 18:48:22 GMT
-- request:
+- request: 
     method: get
     uri: https://api.twitter.com/1.1/statuses/user_timeline.json?user_id=259834008
-    body:
+    body: 
       encoding: US-ASCII
-      string: ''
-    headers:
-      accept:
+      string: ""
+    headers: 
+      accept: 
       - application/json
-      user-agent:
+      user-agent: 
       - Twitter Ruby Gem 4.7.0
-      authorization:
-      - OAuth oauth_consumer_key="KQvSsA1AFozcJpzQ3EV4w", oauth_nonce="b85f45886a3c3069d333c913ce3037e5",
-        oauth_signature="j1ViyHdQyxdRuivfNtNGiggZ0GU%3D", oauth_signature_method="HMAC-SHA1",
-        oauth_timestamp="1370890102", oauth_token="823627243-UDZhCacE9mWVMbFprLKq90Rk2sD3iPYujpDXPV4I",
-        oauth_version="1.0"
-      accept-encoding:
+      authorization: 
+      - OAuth oauth_consumer_key="KQvSsA1AFozcJpzQ3EV4w", oauth_nonce="b85f45886a3c3069d333c913ce3037e5", oauth_signature="j1ViyHdQyxdRuivfNtNGiggZ0GU%3D", oauth_signature_method="HMAC-SHA1", oauth_timestamp="1370890102", oauth_token="823627243-UDZhCacE9mWVMbFprLKq90Rk2sD3iPYujpDXPV4I", oauth_version="1.0"
+      accept-encoding: 
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-  response:
-    status:
+  response: 
+    status: 
       code: 200
       message: OK
-    headers:
-      cache-control:
+    headers: 
+      cache-control: 
       - no-cache, no-store, must-revalidate, pre-check=0, post-check=0
-      content-encoding:
+      content-encoding: 
       - gzip
-      content-length:
-      - '4749'
-      content-type:
+      content-length: 
+      - "4749"
+      content-type: 
       - application/json;charset=utf-8
-      date:
+      date: 
       - Mon, 10 Jun 2013 18:45:07 GMT
-      expires:
+      expires: 
       - Tue, 31 Mar 1981 05:00:00 GMT
-      last-modified:
+      last-modified: 
       - Mon, 10 Jun 2013 18:45:07 GMT
-      pragma:
+      pragma: 
       - no-cache
-      server:
+      server: 
       - tfe
-      set-cookie:
+      set-cookie: 
       - lang=en
-      - guest_id=v1%3A137088990786879801; Domain=.twitter.com; Path=/; Expires=Wed,
-        10-Jun-2015 18:45:07 UTC
-      status:
+      - guest_id=v1%3A137088990786879801; Domain=.twitter.com; Path=/; Expires=Wed, 10-Jun-2015 18:45:07 UTC
+      status: 
       - 200 OK
-      strict-transport-security:
+      strict-transport-security: 
       - max-age=631138519
-      x-access-level:
+      x-access-level: 
       - read
-      x-frame-options:
+      x-frame-options: 
       - SAMEORIGIN
-      x-rate-limit-limit:
-      - '180'
-      x-rate-limit-remaining:
-      - '167'
-      x-rate-limit-reset:
-      - '1370890800'
-      x-transaction:
+      x-rate-limit-limit: 
+      - "180"
+      x-rate-limit-remaining: 
+      - "167"
+      x-rate-limit-reset: 
+      - "1370890800"
+      x-transaction: 
       - 3cedc9adeb1dcfcf
-      x-xss-protection:
+      x-xss-protection: 
       - 1; mode=block
-      connection:
+      connection: 
       - close
-    body:
+    body: 
       encoding: ASCII-8BIT
-      string: !binary |-
+      string: !binary |
         H4sIAAAAAAAAAOydC3PbtpbHvwrGnml3ZxUFDz5A7ey0jhPfJrdJs7F707Tu
         eEASklBRhC5BRdFm8t33gLJEkaJi17GdNIWcxBHxIgHw/H88ePC39wdJIUUp
         0wtRHgwOTuc5egZ/cYQwGTA88CP0Xxg+iGLCDnoHKj0YMI/5Hg4in5KAYU6p
@@ -2250,151 +2196,145 @@ http_interactions:
         EhAPYTxg4YB0euEJ96nvBzTk0K9CQhua3g6sNf2Zneg307MZGGSd230J/5jn
         EySnQmVIJFVVWC0xUqKgBzcIyuUCgY0w9vbpIzTW2dIK/bTvFNwpuFNwp+BO
         wZ2C/60V/Pf/BwAA//8DAPeIjfCfywAA
-    http_version: '1.1'
+
+    http_version: "1.1"
   recorded_at: Mon, 10 Jun 2013 18:48:22 GMT
-- request:
+- request: 
     method: get
     uri: https://api.twitter.com/1.1/statuses/user_timeline.json?user_id=13499832
-    body:
+    body: 
       encoding: US-ASCII
-      string: ''
-    headers:
-      accept:
+      string: ""
+    headers: 
+      accept: 
       - application/json
-      user-agent:
+      user-agent: 
       - Twitter Ruby Gem 4.7.0
-      authorization:
-      - OAuth oauth_consumer_key="KQvSsA1AFozcJpzQ3EV4w", oauth_nonce="ccf26c25bee2b80a6176c7635d5da6db",
-        oauth_signature="BRNw8dei1dGNLeUDB7ag4YN4NJ0%3D", oauth_signature_method="HMAC-SHA1",
-        oauth_timestamp="1370890102", oauth_token="823627243-UDZhCacE9mWVMbFprLKq90Rk2sD3iPYujpDXPV4I",
-        oauth_version="1.0"
-      accept-encoding:
+      authorization: 
+      - OAuth oauth_consumer_key="KQvSsA1AFozcJpzQ3EV4w", oauth_nonce="ccf26c25bee2b80a6176c7635d5da6db", oauth_signature="BRNw8dei1dGNLeUDB7ag4YN4NJ0%3D", oauth_signature_method="HMAC-SHA1", oauth_timestamp="1370890102", oauth_token="823627243-UDZhCacE9mWVMbFprLKq90Rk2sD3iPYujpDXPV4I", oauth_version="1.0"
+      accept-encoding: 
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-  response:
-    status:
+  response: 
+    status: 
       code: 401
       message: Unauthorized
-    headers:
-      cache-control:
+    headers: 
+      cache-control: 
       - no-cache, no-store, must-revalidate, pre-check=0, post-check=0
-      content-encoding:
+      content-encoding: 
       - gzip
-      content-length:
-      - '112'
-      content-type:
+      content-length: 
+      - "112"
+      content-type: 
       - application/json;charset=utf-8
-      date:
+      date: 
       - Mon, 10 Jun 2013 18:45:08 GMT
-      expires:
+      expires: 
       - Tue, 31 Mar 1981 05:00:00 GMT
-      last-modified:
+      last-modified: 
       - Mon, 10 Jun 2013 18:45:08 GMT
-      pragma:
+      pragma: 
       - no-cache
-      server:
+      server: 
       - tfe
-      set-cookie:
+      set-cookie: 
       - lang=en
-      - guest_id=v1%3A137088990837230706; Domain=.twitter.com; Path=/; Expires=Wed,
-        10-Jun-2015 18:45:08 UTC
-      status:
+      - guest_id=v1%3A137088990837230706; Domain=.twitter.com; Path=/; Expires=Wed, 10-Jun-2015 18:45:08 UTC
+      status: 
       - 401 Unauthorized
-      strict-transport-security:
+      strict-transport-security: 
       - max-age=631138519
-      www-authenticate:
+      www-authenticate: 
       - OAuth realm="https://api.twitter.com"
-      x-access-level:
+      x-access-level: 
       - read
-      x-frame-options:
+      x-frame-options: 
       - SAMEORIGIN
-      x-rate-limit-limit:
-      - '180'
-      x-rate-limit-remaining:
-      - '166'
-      x-rate-limit-reset:
-      - '1370890800'
-      x-transaction:
+      x-rate-limit-limit: 
+      - "180"
+      x-rate-limit-remaining: 
+      - "166"
+      x-rate-limit-reset: 
+      - "1370890800"
+      x-transaction: 
       - 4efba23ed980f4be
-      x-xss-protection:
+      x-xss-protection: 
       - 1; mode=block
-      connection:
+      connection: 
       - close
-    body:
+    body: 
       encoding: ASCII-8BIT
-      string: !binary |-
+      string: !binary |
         H4sIAAAAAAAAAKpWKkotLE0tLlGyUorRN9QzjNEvLkksKS1OLY7RB5JF8SWZ
         uak5mXmpelnF+Xn2YKHMFFtDYxNLSwtjIyUdpdSiovwioHa//BKFxNKSjPyi
         zKrUFKVaAAAAAP//AwAJ5KZcWwAAAA==
-    http_version: '1.1'
+
+    http_version: "1.1"
   recorded_at: Mon, 10 Jun 2013 18:48:23 GMT
-- request:
+- request: 
     method: get
     uri: https://api.twitter.com/1.1/statuses/user_timeline.json?user_id=1130205008
-    body:
+    body: 
       encoding: US-ASCII
-      string: ''
-    headers:
-      accept:
+      string: ""
+    headers: 
+      accept: 
       - application/json
-      user-agent:
+      user-agent: 
       - Twitter Ruby Gem 4.7.0
-      authorization:
-      - OAuth oauth_consumer_key="KQvSsA1AFozcJpzQ3EV4w", oauth_nonce="b6aa0ab16dbf7e1d8ceb4a6e7ffd5b67",
-        oauth_signature="EjgSTFUFohVV3lywUSVjsorBozU%3D", oauth_signature_method="HMAC-SHA1",
-        oauth_timestamp="1370890103", oauth_token="823627243-UDZhCacE9mWVMbFprLKq90Rk2sD3iPYujpDXPV4I",
-        oauth_version="1.0"
-      accept-encoding:
+      authorization: 
+      - OAuth oauth_consumer_key="KQvSsA1AFozcJpzQ3EV4w", oauth_nonce="b6aa0ab16dbf7e1d8ceb4a6e7ffd5b67", oauth_signature="EjgSTFUFohVV3lywUSVjsorBozU%3D", oauth_signature_method="HMAC-SHA1", oauth_timestamp="1370890103", oauth_token="823627243-UDZhCacE9mWVMbFprLKq90Rk2sD3iPYujpDXPV4I", oauth_version="1.0"
+      accept-encoding: 
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-  response:
-    status:
+  response: 
+    status: 
       code: 200
       message: OK
-    headers:
-      cache-control:
+    headers: 
+      cache-control: 
       - no-cache, no-store, must-revalidate, pre-check=0, post-check=0
-      content-encoding:
+      content-encoding: 
       - gzip
-      content-length:
-      - '7213'
-      content-type:
+      content-length: 
+      - "7213"
+      content-type: 
       - application/json;charset=utf-8
-      date:
+      date: 
       - Mon, 10 Jun 2013 18:45:08 GMT
-      expires:
+      expires: 
       - Tue, 31 Mar 1981 05:00:00 GMT
-      last-modified:
+      last-modified: 
       - Mon, 10 Jun 2013 18:45:08 GMT
-      pragma:
+      pragma: 
       - no-cache
-      server:
+      server: 
       - tfe
-      set-cookie:
+      set-cookie: 
       - lang=en
-      - guest_id=v1%3A137088990881785209; Domain=.twitter.com; Path=/; Expires=Wed,
-        10-Jun-2015 18:45:08 UTC
-      status:
+      - guest_id=v1%3A137088990881785209; Domain=.twitter.com; Path=/; Expires=Wed, 10-Jun-2015 18:45:08 UTC
+      status: 
       - 200 OK
-      strict-transport-security:
+      strict-transport-security: 
       - max-age=631138519
-      x-access-level:
+      x-access-level: 
       - read
-      x-frame-options:
+      x-frame-options: 
       - SAMEORIGIN
-      x-rate-limit-limit:
-      - '180'
-      x-rate-limit-remaining:
-      - '165'
-      x-rate-limit-reset:
-      - '1370890800'
-      x-transaction:
+      x-rate-limit-limit: 
+      - "180"
+      x-rate-limit-remaining: 
+      - "165"
+      x-rate-limit-reset: 
+      - "1370890800"
+      x-transaction: 
       - e9ae498ae265af40
-      x-xss-protection:
+      x-xss-protection: 
       - 1; mode=block
-      connection:
+      connection: 
       - close
-    body:
+    body: 
       encoding: ASCII-8BIT
-      string: !binary |-
+      string: !binary |
         H4sIAAAAAAAAAOydC3PbNrqG/wpWu7M9Z44sAyBBEjqzs5VvTdJcvLbTnLbu
         eEASkhhTpMqLVbXT/34+kJJFUpTt2lITp3CdygJAAgRAfA9e3H78reMlUmTS
         vxJZp995E0foVR4hghFx+qbZxxz9D4YfRDExOt1O4Hf6hmkSy8CO7TDLoQ58
@@ -2556,76 +2496,73 @@ http_interactions:
         5O3QHUDRKJ8XnwBdvXQ2XO+Y33/Z7fnRK+PCzS4hFtiWx+uH0zhNAxewB0or
         hXy6kQ+SFrdx/s+zymoClpIYRmteN+XQOt218+D9HFkTQ9nDxdCHlehP/w8A
         AP//AwCGKAT0sB4BAA==
-    http_version: '1.1'
+
+    http_version: "1.1"
   recorded_at: Mon, 10 Jun 2013 18:48:23 GMT
-- request:
+- request: 
     method: get
     uri: https://api.twitter.com/1.1/statuses/user_timeline.json?user_id=19713759
-    body:
+    body: 
       encoding: US-ASCII
-      string: ''
-    headers:
-      accept:
+      string: ""
+    headers: 
+      accept: 
       - application/json
-      user-agent:
+      user-agent: 
       - Twitter Ruby Gem 4.7.0
-      authorization:
-      - OAuth oauth_consumer_key="KQvSsA1AFozcJpzQ3EV4w", oauth_nonce="2c4d50a39ba9044ef632db41ea10eb4c",
-        oauth_signature="%2F4sOroZQGv4vr0GC2Jp%2FBUVzSzo%3D", oauth_signature_method="HMAC-SHA1",
-        oauth_timestamp="1370890103", oauth_token="823627243-UDZhCacE9mWVMbFprLKq90Rk2sD3iPYujpDXPV4I",
-        oauth_version="1.0"
-      accept-encoding:
+      authorization: 
+      - OAuth oauth_consumer_key="KQvSsA1AFozcJpzQ3EV4w", oauth_nonce="2c4d50a39ba9044ef632db41ea10eb4c", oauth_signature="%2F4sOroZQGv4vr0GC2Jp%2FBUVzSzo%3D", oauth_signature_method="HMAC-SHA1", oauth_timestamp="1370890103", oauth_token="823627243-UDZhCacE9mWVMbFprLKq90Rk2sD3iPYujpDXPV4I", oauth_version="1.0"
+      accept-encoding: 
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-  response:
-    status:
+  response: 
+    status: 
       code: 200
       message: OK
-    headers:
-      cache-control:
+    headers: 
+      cache-control: 
       - no-cache, no-store, must-revalidate, pre-check=0, post-check=0
-      content-encoding:
+      content-encoding: 
       - gzip
-      content-length:
-      - '5276'
-      content-type:
+      content-length: 
+      - "5276"
+      content-type: 
       - application/json;charset=utf-8
-      date:
+      date: 
       - Mon, 10 Jun 2013 18:45:09 GMT
-      expires:
+      expires: 
       - Tue, 31 Mar 1981 05:00:00 GMT
-      last-modified:
+      last-modified: 
       - Mon, 10 Jun 2013 18:45:09 GMT
-      pragma:
+      pragma: 
       - no-cache
-      server:
+      server: 
       - tfe
-      set-cookie:
+      set-cookie: 
       - lang=en
-      - guest_id=v1%3A137088990934125397; Domain=.twitter.com; Path=/; Expires=Wed,
-        10-Jun-2015 18:45:09 UTC
-      status:
+      - guest_id=v1%3A137088990934125397; Domain=.twitter.com; Path=/; Expires=Wed, 10-Jun-2015 18:45:09 UTC
+      status: 
       - 200 OK
-      strict-transport-security:
+      strict-transport-security: 
       - max-age=631138519
-      x-access-level:
+      x-access-level: 
       - read
-      x-frame-options:
+      x-frame-options: 
       - SAMEORIGIN
-      x-rate-limit-limit:
-      - '180'
-      x-rate-limit-remaining:
-      - '164'
-      x-rate-limit-reset:
-      - '1370890800'
-      x-transaction:
+      x-rate-limit-limit: 
+      - "180"
+      x-rate-limit-remaining: 
+      - "164"
+      x-rate-limit-reset: 
+      - "1370890800"
+      x-transaction: 
       - a62ca93e2ec64c94
-      x-xss-protection:
+      x-xss-protection: 
       - 1; mode=block
-      connection:
+      connection: 
       - close
-    body:
+    body: 
       encoding: ASCII-8BIT
-      string: !binary |-
+      string: !binary |
         H4sIAAAAAAAAAOyde3PbtpbAvwoqz2z/WNkmQIAEtbPT2LGd2I2btE6a9l51
         PJAISaxIQiUpK2on330PSD1I6mHZlnuzKZyHLOCQBPE458dD4ODffzW6iRSZ
         9G9F1mg1rlWMrsUUERdhr2W5LcLQf1vwg4iF7UazEfiNlm17lscYdhghDuac
@@ -2744,76 +2681,73 @@ http_interactions:
         ehn0Muj1/8RttcJfe+e850EvoqN5b/KPYaw3ieTctYnj1tGrmrnJP/ZRhynw
         1dNfBVqeRyhmDKrF3YWpqvLGmWWIyhCVISpDVIaoDFF96c6sRzDOb/8HAAD/
         /wMAbIs3Nv/ZAAA=
-    http_version: '1.1'
+
+    http_version: "1.1"
   recorded_at: Mon, 10 Jun 2013 18:48:24 GMT
-- request:
+- request: 
     method: get
     uri: https://api.twitter.com/1.1/statuses/user_timeline.json?user_id=264635111
-    body:
+    body: 
       encoding: US-ASCII
-      string: ''
-    headers:
-      accept:
+      string: ""
+    headers: 
+      accept: 
       - application/json
-      user-agent:
+      user-agent: 
       - Twitter Ruby Gem 4.7.0
-      authorization:
-      - OAuth oauth_consumer_key="KQvSsA1AFozcJpzQ3EV4w", oauth_nonce="9f80a0b71a089d7a8766b57f88c03985",
-        oauth_signature="LP9MyvQxmf9FU4RPEGSk2hY4nUg%3D", oauth_signature_method="HMAC-SHA1",
-        oauth_timestamp="1370890104", oauth_token="823627243-UDZhCacE9mWVMbFprLKq90Rk2sD3iPYujpDXPV4I",
-        oauth_version="1.0"
-      accept-encoding:
+      authorization: 
+      - OAuth oauth_consumer_key="KQvSsA1AFozcJpzQ3EV4w", oauth_nonce="9f80a0b71a089d7a8766b57f88c03985", oauth_signature="LP9MyvQxmf9FU4RPEGSk2hY4nUg%3D", oauth_signature_method="HMAC-SHA1", oauth_timestamp="1370890104", oauth_token="823627243-UDZhCacE9mWVMbFprLKq90Rk2sD3iPYujpDXPV4I", oauth_version="1.0"
+      accept-encoding: 
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-  response:
-    status:
+  response: 
+    status: 
       code: 200
       message: OK
-    headers:
-      cache-control:
+    headers: 
+      cache-control: 
       - no-cache, no-store, must-revalidate, pre-check=0, post-check=0
-      content-encoding:
+      content-encoding: 
       - gzip
-      content-length:
-      - '3351'
-      content-type:
+      content-length: 
+      - "3351"
+      content-type: 
       - application/json;charset=utf-8
-      date:
+      date: 
       - Mon, 10 Jun 2013 18:45:10 GMT
-      expires:
+      expires: 
       - Tue, 31 Mar 1981 05:00:00 GMT
-      last-modified:
+      last-modified: 
       - Mon, 10 Jun 2013 18:45:10 GMT
-      pragma:
+      pragma: 
       - no-cache
-      server:
+      server: 
       - tfe
-      set-cookie:
+      set-cookie: 
       - lang=en
-      - guest_id=v1%3A137088991004554944; Domain=.twitter.com; Path=/; Expires=Wed,
-        10-Jun-2015 18:45:10 UTC
-      status:
+      - guest_id=v1%3A137088991004554944; Domain=.twitter.com; Path=/; Expires=Wed, 10-Jun-2015 18:45:10 UTC
+      status: 
       - 200 OK
-      strict-transport-security:
+      strict-transport-security: 
       - max-age=631138519
-      x-access-level:
+      x-access-level: 
       - read
-      x-frame-options:
+      x-frame-options: 
       - SAMEORIGIN
-      x-rate-limit-limit:
-      - '180'
-      x-rate-limit-remaining:
-      - '163'
-      x-rate-limit-reset:
-      - '1370890800'
-      x-transaction:
+      x-rate-limit-limit: 
+      - "180"
+      x-rate-limit-remaining: 
+      - "163"
+      x-rate-limit-reset: 
+      - "1370890800"
+      x-transaction: 
       - e1408f20b332d3c1
-      x-xss-protection:
+      x-xss-protection: 
       - 1; mode=block
-      connection:
+      connection: 
       - close
-    body:
+    body: 
       encoding: ASCII-8BIT
-      string: !binary |-
+      string: !binary |
         H4sIAAAAAAAAAOzdeW/bOBYA8K/CDQazuxg3pajbiwU2iZPmbN04nfRIYcgy
         bSuRRVWS4zid+e77KNnW4SOeRVMX3dc/mkSkDlPU4w+kSH/6uuNG3El4t+0k
         O/WdCxGQ01FAFEoUVletOjXJbxT+EUYVdae243V36qqmUZPapmbaTNF1RTXk
@@ -2889,76 +2823,73 @@ http_interactions:
         vNuDytMR4i57hKdBaKU+j6a5EZ4IT4QnwhPhifBEeCI8t/0t8rmI1gRZMU77
         VP3Gx/OrheBaSczDKrNq+prgXhLXqjP3OmkDx/Yfv4RaY39xUfwlGQrNi1Iz
         v8fs/c//BQAA//8DAOUeFLDT0gAA
-    http_version: '1.1'
+
+    http_version: "1.1"
   recorded_at: Mon, 10 Jun 2013 18:48:24 GMT
-- request:
+- request: 
     method: get
     uri: https://api.twitter.com/1.1/statuses/user_timeline.json?user_id=214414669
-    body:
+    body: 
       encoding: US-ASCII
-      string: ''
-    headers:
-      accept:
+      string: ""
+    headers: 
+      accept: 
       - application/json
-      user-agent:
+      user-agent: 
       - Twitter Ruby Gem 4.7.0
-      authorization:
-      - OAuth oauth_consumer_key="KQvSsA1AFozcJpzQ3EV4w", oauth_nonce="5a1cdcac0f5a87954598a42d912a66fa",
-        oauth_signature="FZT5t5hc2VqnonDMHH7P85XK1Oc%3D", oauth_signature_method="HMAC-SHA1",
-        oauth_timestamp="1370890105", oauth_token="823627243-UDZhCacE9mWVMbFprLKq90Rk2sD3iPYujpDXPV4I",
-        oauth_version="1.0"
-      accept-encoding:
+      authorization: 
+      - OAuth oauth_consumer_key="KQvSsA1AFozcJpzQ3EV4w", oauth_nonce="5a1cdcac0f5a87954598a42d912a66fa", oauth_signature="FZT5t5hc2VqnonDMHH7P85XK1Oc%3D", oauth_signature_method="HMAC-SHA1", oauth_timestamp="1370890105", oauth_token="823627243-UDZhCacE9mWVMbFprLKq90Rk2sD3iPYujpDXPV4I", oauth_version="1.0"
+      accept-encoding: 
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-  response:
-    status:
+  response: 
+    status: 
       code: 200
       message: OK
-    headers:
-      cache-control:
+    headers: 
+      cache-control: 
       - no-cache, no-store, must-revalidate, pre-check=0, post-check=0
-      content-encoding:
+      content-encoding: 
       - gzip
-      content-length:
-      - '3030'
-      content-type:
+      content-length: 
+      - "3030"
+      content-type: 
       - application/json;charset=utf-8
-      date:
+      date: 
       - Mon, 10 Jun 2013 18:45:10 GMT
-      expires:
+      expires: 
       - Tue, 31 Mar 1981 05:00:00 GMT
-      last-modified:
+      last-modified: 
       - Mon, 10 Jun 2013 18:45:10 GMT
-      pragma:
+      pragma: 
       - no-cache
-      server:
+      server: 
       - tfe
-      set-cookie:
+      set-cookie: 
       - lang=en
-      - guest_id=v1%3A137088991068541083; Domain=.twitter.com; Path=/; Expires=Wed,
-        10-Jun-2015 18:45:10 UTC
-      status:
+      - guest_id=v1%3A137088991068541083; Domain=.twitter.com; Path=/; Expires=Wed, 10-Jun-2015 18:45:10 UTC
+      status: 
       - 200 OK
-      strict-transport-security:
+      strict-transport-security: 
       - max-age=631138519
-      x-access-level:
+      x-access-level: 
       - read
-      x-frame-options:
+      x-frame-options: 
       - SAMEORIGIN
-      x-rate-limit-limit:
-      - '180'
-      x-rate-limit-remaining:
-      - '162'
-      x-rate-limit-reset:
-      - '1370890800'
-      x-transaction:
+      x-rate-limit-limit: 
+      - "180"
+      x-rate-limit-remaining: 
+      - "162"
+      x-rate-limit-reset: 
+      - "1370890800"
+      x-transaction: 
       - f3f67b8e18884848
-      x-xss-protection:
+      x-xss-protection: 
       - 1; mode=block
-      connection:
+      connection: 
       - close
-    body:
+    body: 
       encoding: ASCII-8BIT
-      string: !binary |-
+      string: !binary |
         H4sIAAAAAAAAAOzde3PTuBYA8K+iyV/LkLR6+TlzhymvCwvs8CjLvRAmY8dK
         4sWxg+20TRm++z2yk8Z2nNtCE1rgZF/EkmxJtnR+o1XdD186w1R5uQoGXt5x
         O+9UQF54C8IMQrkrpSsEuUvhQzhlotPthEEHjknpOAaTpmVw6TBD6OODLE/h
@@ -3027,76 +2958,73 @@ http_interactions:
         QuyZ6rP8UqpLCEXbqC4Fldy0bU6lvUH1auKa6s+Vr2ISe8MJeRqPvPRTXrwW
         7369tzZB737TAryNqkfVo+pR9ah6VD2qHlWPqkfV3wrV206XMbZn1uuN9B//
         BwAA//8DAG/lY3sc5wAA
-    http_version: '1.1'
+
+    http_version: "1.1"
   recorded_at: Mon, 10 Jun 2013 18:48:25 GMT
-- request:
+- request: 
     method: get
     uri: https://api.twitter.com/1.1/statuses/user_timeline.json?user_id=275149122
-    body:
+    body: 
       encoding: US-ASCII
-      string: ''
-    headers:
-      accept:
+      string: ""
+    headers: 
+      accept: 
       - application/json
-      user-agent:
+      user-agent: 
       - Twitter Ruby Gem 4.7.0
-      authorization:
-      - OAuth oauth_consumer_key="KQvSsA1AFozcJpzQ3EV4w", oauth_nonce="0407cf58d87a2591807af2fc6c676293",
-        oauth_signature="%2BXiGjrS3bKVu2wMgidIeWt4E2pE%3D", oauth_signature_method="HMAC-SHA1",
-        oauth_timestamp="1370890105", oauth_token="823627243-UDZhCacE9mWVMbFprLKq90Rk2sD3iPYujpDXPV4I",
-        oauth_version="1.0"
-      accept-encoding:
+      authorization: 
+      - OAuth oauth_consumer_key="KQvSsA1AFozcJpzQ3EV4w", oauth_nonce="0407cf58d87a2591807af2fc6c676293", oauth_signature="%2BXiGjrS3bKVu2wMgidIeWt4E2pE%3D", oauth_signature_method="HMAC-SHA1", oauth_timestamp="1370890105", oauth_token="823627243-UDZhCacE9mWVMbFprLKq90Rk2sD3iPYujpDXPV4I", oauth_version="1.0"
+      accept-encoding: 
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-  response:
-    status:
+  response: 
+    status: 
       code: 200
       message: OK
-    headers:
-      cache-control:
+    headers: 
+      cache-control: 
       - no-cache, no-store, must-revalidate, pre-check=0, post-check=0
-      content-encoding:
+      content-encoding: 
       - gzip
-      content-length:
-      - '9114'
-      content-type:
+      content-length: 
+      - "9114"
+      content-type: 
       - application/json;charset=utf-8
-      date:
+      date: 
       - Mon, 10 Jun 2013 18:45:11 GMT
-      expires:
+      expires: 
       - Tue, 31 Mar 1981 05:00:00 GMT
-      last-modified:
+      last-modified: 
       - Mon, 10 Jun 2013 18:45:11 GMT
-      pragma:
+      pragma: 
       - no-cache
-      server:
+      server: 
       - tfe
-      set-cookie:
+      set-cookie: 
       - lang=en
-      - guest_id=v1%3A137088991150945694; Domain=.twitter.com; Path=/; Expires=Wed,
-        10-Jun-2015 18:45:11 UTC
-      status:
+      - guest_id=v1%3A137088991150945694; Domain=.twitter.com; Path=/; Expires=Wed, 10-Jun-2015 18:45:11 UTC
+      status: 
       - 200 OK
-      strict-transport-security:
+      strict-transport-security: 
       - max-age=631138519
-      x-access-level:
+      x-access-level: 
       - read
-      x-frame-options:
+      x-frame-options: 
       - SAMEORIGIN
-      x-rate-limit-limit:
-      - '180'
-      x-rate-limit-remaining:
-      - '161'
-      x-rate-limit-reset:
-      - '1370890800'
-      x-transaction:
+      x-rate-limit-limit: 
+      - "180"
+      x-rate-limit-remaining: 
+      - "161"
+      x-rate-limit-reset: 
+      - "1370890800"
+      x-transaction: 
       - 9d89cba1ab81d102
-      x-xss-protection:
+      x-xss-protection: 
       - 1; mode=block
-      connection:
+      connection: 
       - close
-    body:
+    body: 
       encoding: ASCII-8BIT
-      string: !binary |-
+      string: !binary |
         H4sIAAAAAAAAAOydCXMbN7a2/wpGqZpM6lIU1l54a+qaWi3bWmLJUTJRStUk
         QbKtZjfT3RTFZPL99u+gufVGiqJIO1EgT8YWgN6wnQcvgIOff99phtKJZevO
         iXdqO1cDH72D/zBFFNeYUSMm+h8MP/ArYTuVHbe1U2OcUJtSbAjDENzkwlDh
@@ -3300,76 +3228,73 @@ http_interactions:
         EYZRQ8VAbn4e9Prfyh4a9Kuo3k0S9mQP8kdGX0lstAzOsSD2EnDemabZWYLP
         O/Oc3NHyo5Yftfyo5UctP2r5UTP6E4yOv8xWk4x5np5DB2HorHnk9aT0JiiV
         4oFS8z83Fwok1wC8X/7/APR8/syPXgEA
-    http_version: '1.1'
+
+    http_version: "1.1"
   recorded_at: Mon, 10 Jun 2013 18:48:26 GMT
-- request:
+- request: 
     method: get
     uri: https://api.twitter.com/1.1/statuses/user_timeline.json?user_id=633402262
-    body:
+    body: 
       encoding: US-ASCII
-      string: ''
-    headers:
-      accept:
+      string: ""
+    headers: 
+      accept: 
       - application/json
-      user-agent:
+      user-agent: 
       - Twitter Ruby Gem 4.7.0
-      authorization:
-      - OAuth oauth_consumer_key="KQvSsA1AFozcJpzQ3EV4w", oauth_nonce="d1ee171470e7ab0fbd0cf1022dd3d309",
-        oauth_signature="rJknWvxZ8xauv3iGl4k1W1ZNuXY%3D", oauth_signature_method="HMAC-SHA1",
-        oauth_timestamp="1370890106", oauth_token="823627243-UDZhCacE9mWVMbFprLKq90Rk2sD3iPYujpDXPV4I",
-        oauth_version="1.0"
-      accept-encoding:
+      authorization: 
+      - OAuth oauth_consumer_key="KQvSsA1AFozcJpzQ3EV4w", oauth_nonce="d1ee171470e7ab0fbd0cf1022dd3d309", oauth_signature="rJknWvxZ8xauv3iGl4k1W1ZNuXY%3D", oauth_signature_method="HMAC-SHA1", oauth_timestamp="1370890106", oauth_token="823627243-UDZhCacE9mWVMbFprLKq90Rk2sD3iPYujpDXPV4I", oauth_version="1.0"
+      accept-encoding: 
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-  response:
-    status:
+  response: 
+    status: 
       code: 200
       message: OK
-    headers:
-      cache-control:
+    headers: 
+      cache-control: 
       - no-cache, no-store, must-revalidate, pre-check=0, post-check=0
-      content-encoding:
+      content-encoding: 
       - gzip
-      content-length:
-      - '4561'
-      content-type:
+      content-length: 
+      - "4561"
+      content-type: 
       - application/json;charset=utf-8
-      date:
+      date: 
       - Mon, 10 Jun 2013 18:45:12 GMT
-      expires:
+      expires: 
       - Tue, 31 Mar 1981 05:00:00 GMT
-      last-modified:
+      last-modified: 
       - Mon, 10 Jun 2013 18:45:12 GMT
-      pragma:
+      pragma: 
       - no-cache
-      server:
+      server: 
       - tfe
-      set-cookie:
+      set-cookie: 
       - lang=en
-      - guest_id=v1%3A137088991204673277; Domain=.twitter.com; Path=/; Expires=Wed,
-        10-Jun-2015 18:45:12 UTC
-      status:
+      - guest_id=v1%3A137088991204673277; Domain=.twitter.com; Path=/; Expires=Wed, 10-Jun-2015 18:45:12 UTC
+      status: 
       - 200 OK
-      strict-transport-security:
+      strict-transport-security: 
       - max-age=631138519
-      x-access-level:
+      x-access-level: 
       - read
-      x-frame-options:
+      x-frame-options: 
       - SAMEORIGIN
-      x-rate-limit-limit:
-      - '180'
-      x-rate-limit-remaining:
-      - '160'
-      x-rate-limit-reset:
-      - '1370890800'
-      x-transaction:
+      x-rate-limit-limit: 
+      - "180"
+      x-rate-limit-remaining: 
+      - "160"
+      x-rate-limit-reset: 
+      - "1370890800"
+      x-transaction: 
       - b9de808a0af5705b
-      x-xss-protection:
+      x-xss-protection: 
       - 1; mode=block
-      connection:
+      connection: 
       - close
-    body:
+    body: 
       encoding: ASCII-8BIT
-      string: !binary |-
+      string: !binary |
         H4sIAAAAAAAAAOydCXPbtraA/wpqz7y2cxUZGzfNvEnstGnc1kkm9p3e++qO
         BiIhiTFF6HKxrtLJf38HpCQuEm3HW+sEnsS2gIOFIHDO54Pt9z/3/ESKTAZD
         ke0N9k5UjH7OY0QwIu6A0wEm6B8YvhDFhO319sJgb8A4Jza1LE4cZhObUE+H
@@ -3472,76 +3397,73 @@ http_interactions:
         tjUJC8V262Vr8HSE6IVzlkuYzSi9Ztnalnz3sjUOWsLFV69aK2WuXLS2amOz
         XM1AnIE4A3EG4gzEfcUQ1zb89WvESQ9e6l14rjK1WwEtk77Tglca/nYLzP74
         fwAAAP//AwCCfT5IqtYAAA==
-    http_version: '1.1'
+
+    http_version: "1.1"
   recorded_at: Mon, 10 Jun 2013 18:48:26 GMT
-- request:
+- request: 
     method: get
     uri: https://api.twitter.com/1.1/statuses/user_timeline.json?user_id=1390865881
-    body:
+    body: 
       encoding: US-ASCII
-      string: ''
-    headers:
-      accept:
+      string: ""
+    headers: 
+      accept: 
       - application/json
-      user-agent:
+      user-agent: 
       - Twitter Ruby Gem 4.7.0
-      authorization:
-      - OAuth oauth_consumer_key="KQvSsA1AFozcJpzQ3EV4w", oauth_nonce="124ccff4e946a48a5a1dcf95ff77fc25",
-        oauth_signature="rHjKCrbdVCeJLFIIu5tKRSxrOYI%3D", oauth_signature_method="HMAC-SHA1",
-        oauth_timestamp="1370890112", oauth_token="823627243-UDZhCacE9mWVMbFprLKq90Rk2sD3iPYujpDXPV4I",
-        oauth_version="1.0"
-      accept-encoding:
+      authorization: 
+      - OAuth oauth_consumer_key="KQvSsA1AFozcJpzQ3EV4w", oauth_nonce="124ccff4e946a48a5a1dcf95ff77fc25", oauth_signature="rHjKCrbdVCeJLFIIu5tKRSxrOYI%3D", oauth_signature_method="HMAC-SHA1", oauth_timestamp="1370890112", oauth_token="823627243-UDZhCacE9mWVMbFprLKq90Rk2sD3iPYujpDXPV4I", oauth_version="1.0"
+      accept-encoding: 
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-  response:
-    status:
+  response: 
+    status: 
       code: 200
       message: OK
-    headers:
-      cache-control:
+    headers: 
+      cache-control: 
       - no-cache, no-store, must-revalidate, pre-check=0, post-check=0
-      content-encoding:
+      content-encoding: 
       - gzip
-      content-length:
-      - '2324'
-      content-type:
+      content-length: 
+      - "2324"
+      content-type: 
       - application/json;charset=utf-8
-      date:
+      date: 
       - Mon, 10 Jun 2013 18:45:17 GMT
-      expires:
+      expires: 
       - Tue, 31 Mar 1981 05:00:00 GMT
-      last-modified:
+      last-modified: 
       - Mon, 10 Jun 2013 18:45:17 GMT
-      pragma:
+      pragma: 
       - no-cache
-      server:
+      server: 
       - tfe
-      set-cookie:
+      set-cookie: 
       - lang=en
-      - guest_id=v1%3A137088991769471505; Domain=.twitter.com; Path=/; Expires=Wed,
-        10-Jun-2015 18:45:17 UTC
-      status:
+      - guest_id=v1%3A137088991769471505; Domain=.twitter.com; Path=/; Expires=Wed, 10-Jun-2015 18:45:17 UTC
+      status: 
       - 200 OK
-      strict-transport-security:
+      strict-transport-security: 
       - max-age=631138519
-      x-access-level:
+      x-access-level: 
       - read
-      x-frame-options:
+      x-frame-options: 
       - SAMEORIGIN
-      x-rate-limit-limit:
-      - '180'
-      x-rate-limit-remaining:
-      - '159'
-      x-rate-limit-reset:
-      - '1370890800'
-      x-transaction:
+      x-rate-limit-limit: 
+      - "180"
+      x-rate-limit-remaining: 
+      - "159"
+      x-rate-limit-reset: 
+      - "1370890800"
+      x-transaction: 
       - eb35331be57389b8
-      x-xss-protection:
+      x-xss-protection: 
       - 1; mode=block
-      connection:
+      connection: 
       - close
-    body:
+    body: 
       encoding: ASCII-8BIT
-      string: !binary |-
+      string: !binary |
         H4sIAAAAAAAAAOxa+W/buBL+V/hc4B1YJ+ahG3hA0/TYLV52g232AOpCoCTa
         UiNLqkjFdYP8728o2ZYl283RBtstnF8cDYdDDjmc7xM1b68HYSm4EpHP1cAb
         XMQVel1lCFuI2B42PEzQDxj+EMWEDYaDJBp4zKCW4zBmuQ41TExsS8t9qUqw
@@ -3594,76 +3516,73 @@ http_interactions:
         DdzE+tRoJegzSZSu4Ul5qc91rQihb9SatuVsa6q4mgUrTbMxSTomwzIvtKaE
         HJsuNZnRaFLT7Ju8uXNtzO0XeDsLku5VjvS5lEDJkFD78ymBOhDE7NtKCRYZ
         2vixU4JrQb58WKHTu/8DAAD//wMAbx751ws2AAA=
-    http_version: '1.1'
+
+    http_version: "1.1"
   recorded_at: Mon, 10 Jun 2013 18:48:32 GMT
-- request:
+- request: 
     method: get
     uri: https://api.twitter.com/1.1/statuses/user_timeline.json?user_id=375377583
-    body:
+    body: 
       encoding: US-ASCII
-      string: ''
-    headers:
-      accept:
+      string: ""
+    headers: 
+      accept: 
       - application/json
-      user-agent:
+      user-agent: 
       - Twitter Ruby Gem 4.7.0
-      authorization:
-      - OAuth oauth_consumer_key="KQvSsA1AFozcJpzQ3EV4w", oauth_nonce="6e295f8c6eca7d291b9225e10b8d0091",
-        oauth_signature="vHHK0JWVHL8TvY89gswVRFNV2PY%3D", oauth_signature_method="HMAC-SHA1",
-        oauth_timestamp="1370890112", oauth_token="823627243-UDZhCacE9mWVMbFprLKq90Rk2sD3iPYujpDXPV4I",
-        oauth_version="1.0"
-      accept-encoding:
+      authorization: 
+      - OAuth oauth_consumer_key="KQvSsA1AFozcJpzQ3EV4w", oauth_nonce="6e295f8c6eca7d291b9225e10b8d0091", oauth_signature="vHHK0JWVHL8TvY89gswVRFNV2PY%3D", oauth_signature_method="HMAC-SHA1", oauth_timestamp="1370890112", oauth_token="823627243-UDZhCacE9mWVMbFprLKq90Rk2sD3iPYujpDXPV4I", oauth_version="1.0"
+      accept-encoding: 
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-  response:
-    status:
+  response: 
+    status: 
       code: 200
       message: OK
-    headers:
-      cache-control:
+    headers: 
+      cache-control: 
       - no-cache, no-store, must-revalidate, pre-check=0, post-check=0
-      content-encoding:
+      content-encoding: 
       - gzip
-      content-length:
-      - '2907'
-      content-type:
+      content-length: 
+      - "2907"
+      content-type: 
       - application/json;charset=utf-8
-      date:
+      date: 
       - Mon, 10 Jun 2013 18:45:18 GMT
-      expires:
+      expires: 
       - Tue, 31 Mar 1981 05:00:00 GMT
-      last-modified:
+      last-modified: 
       - Mon, 10 Jun 2013 18:45:18 GMT
-      pragma:
+      pragma: 
       - no-cache
-      server:
+      server: 
       - tfe
-      set-cookie:
+      set-cookie: 
       - lang=en
-      - guest_id=v1%3A137088991807415568; Domain=.twitter.com; Path=/; Expires=Wed,
-        10-Jun-2015 18:45:18 UTC
-      status:
+      - guest_id=v1%3A137088991807415568; Domain=.twitter.com; Path=/; Expires=Wed, 10-Jun-2015 18:45:18 UTC
+      status: 
       - 200 OK
-      strict-transport-security:
+      strict-transport-security: 
       - max-age=631138519
-      x-access-level:
+      x-access-level: 
       - read
-      x-frame-options:
+      x-frame-options: 
       - SAMEORIGIN
-      x-rate-limit-limit:
-      - '180'
-      x-rate-limit-remaining:
-      - '158'
-      x-rate-limit-reset:
-      - '1370890800'
-      x-transaction:
+      x-rate-limit-limit: 
+      - "180"
+      x-rate-limit-remaining: 
+      - "158"
+      x-rate-limit-reset: 
+      - "1370890800"
+      x-transaction: 
       - 6639adc1d7ab3f4c
-      x-xss-protection:
+      x-xss-protection: 
       - 1; mode=block
-      connection:
+      connection: 
       - close
-    body:
+    body: 
       encoding: ASCII-8BIT
-      string: !binary |-
+      string: !binary |
         H4sIAAAAAAAAAOyaC2/bRhKA/8qeAtwDJ9v74FPAAZFtyY7r2Kml1s1FAbEk
         lxJrilTJZVQlyH+/WVIvUpLtOPalaa0EsDQ7O/ue+XbId58aXiq4FL7DZaPV
         uBY+es1nCFuI6C2GW5qJ/o3hgygmrNFshH6jxRglum5Qw7J13aS2zZTcyWQK
@@ -3729,76 +3648,73 @@ http_interactions:
         xXzbtV0iKPeobVKPaSYOAoFtT/d06rv647PRI7ReYyMbPnezUaf43MVGna76
         9zRs9H2+xrolxUTvTjEtCKfmq+0vyR49JN3yOAmyrb2npMnw12S/NtHhVu64
         G1sq70PaD8pPvf8fAAAA//8DAKgDQox5PQAA
-    http_version: '1.1'
+
+    http_version: "1.1"
   recorded_at: Mon, 10 Jun 2013 18:48:32 GMT
-- request:
+- request: 
     method: get
     uri: https://api.twitter.com/1.1/statuses/user_timeline.json?user_id=555603137
-    body:
+    body: 
       encoding: US-ASCII
-      string: ''
-    headers:
-      accept:
+      string: ""
+    headers: 
+      accept: 
       - application/json
-      user-agent:
+      user-agent: 
       - Twitter Ruby Gem 4.7.0
-      authorization:
-      - OAuth oauth_consumer_key="KQvSsA1AFozcJpzQ3EV4w", oauth_nonce="841c68005564ccc70426eb379d65e61e",
-        oauth_signature="VwQocvJoX0%2FRvgOHrlb05QYIubg%3D", oauth_signature_method="HMAC-SHA1",
-        oauth_timestamp="1370890112", oauth_token="823627243-UDZhCacE9mWVMbFprLKq90Rk2sD3iPYujpDXPV4I",
-        oauth_version="1.0"
-      accept-encoding:
+      authorization: 
+      - OAuth oauth_consumer_key="KQvSsA1AFozcJpzQ3EV4w", oauth_nonce="841c68005564ccc70426eb379d65e61e", oauth_signature="VwQocvJoX0%2FRvgOHrlb05QYIubg%3D", oauth_signature_method="HMAC-SHA1", oauth_timestamp="1370890112", oauth_token="823627243-UDZhCacE9mWVMbFprLKq90Rk2sD3iPYujpDXPV4I", oauth_version="1.0"
+      accept-encoding: 
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-  response:
-    status:
+  response: 
+    status: 
       code: 200
       message: OK
-    headers:
-      cache-control:
+    headers: 
+      cache-control: 
       - no-cache, no-store, must-revalidate, pre-check=0, post-check=0
-      content-encoding:
+      content-encoding: 
       - gzip
-      content-length:
-      - '1960'
-      content-type:
+      content-length: 
+      - "1960"
+      content-type: 
       - application/json;charset=utf-8
-      date:
+      date: 
       - Mon, 10 Jun 2013 18:45:18 GMT
-      expires:
+      expires: 
       - Tue, 31 Mar 1981 05:00:00 GMT
-      last-modified:
+      last-modified: 
       - Mon, 10 Jun 2013 18:45:18 GMT
-      pragma:
+      pragma: 
       - no-cache
-      server:
+      server: 
       - tfe
-      set-cookie:
+      set-cookie: 
       - lang=en
-      - guest_id=v1%3A137088991852905749; Domain=.twitter.com; Path=/; Expires=Wed,
-        10-Jun-2015 18:45:18 UTC
-      status:
+      - guest_id=v1%3A137088991852905749; Domain=.twitter.com; Path=/; Expires=Wed, 10-Jun-2015 18:45:18 UTC
+      status: 
       - 200 OK
-      strict-transport-security:
+      strict-transport-security: 
       - max-age=631138519
-      x-access-level:
+      x-access-level: 
       - read
-      x-frame-options:
+      x-frame-options: 
       - SAMEORIGIN
-      x-rate-limit-limit:
-      - '180'
-      x-rate-limit-remaining:
-      - '157'
-      x-rate-limit-reset:
-      - '1370890800'
-      x-transaction:
+      x-rate-limit-limit: 
+      - "180"
+      x-rate-limit-remaining: 
+      - "157"
+      x-rate-limit-reset: 
+      - "1370890800"
+      x-transaction: 
       - e0174aee4a753185
-      x-xss-protection:
+      x-xss-protection: 
       - 1; mode=block
-      connection:
+      connection: 
       - close
-    body:
+    body: 
       encoding: ASCII-8BIT
-      string: !binary |-
+      string: !binary |
         H4sIAAAAAAAAAOybbW/bOBKA/wrr/dAD1utQ7y/A4dpu2t3epXu9NsDiUBcG
         JdE2LzTpI6k4viL//YaSbUl2EqTdYoEWTD8kmhmOKHI484BkP3walYoSQ6sZ
         MaN8dFlT9PdaIBwiz8+jLPc89COGH+RjLxiNR6wa5UHoZdjLIpymGc4yP46s
@@ -3843,76 +3759,73 @@ http_interactions:
         ES4ttgGlKUms0CBgLs4RrJLyionPv8PqGMsxlmMsx1iOsRxjOcY6qsMPpNdB
         IZ9ItZienaTZE5tBsg3TcXz3WdIxaA38dMWp5YrLTt6gi+d78fDoZy8awpY/
         Dj/jEu3jYOvj/wEAAP//AwBy8LWKg0QAAA==
-    http_version: '1.1'
+
+    http_version: "1.1"
   recorded_at: Mon, 10 Jun 2013 18:48:33 GMT
-- request:
+- request: 
     method: get
     uri: https://api.twitter.com/1.1/statuses/user_timeline.json?user_id=509561747
-    body:
+    body: 
       encoding: US-ASCII
-      string: ''
-    headers:
-      accept:
+      string: ""
+    headers: 
+      accept: 
       - application/json
-      user-agent:
+      user-agent: 
       - Twitter Ruby Gem 4.7.0
-      authorization:
-      - OAuth oauth_consumer_key="KQvSsA1AFozcJpzQ3EV4w", oauth_nonce="3be9de1e8d87c0b13a89a0e4c2e5d5dc",
-        oauth_signature="lhONc79RnVLB3kFuRxoqvoDW1lo%3D", oauth_signature_method="HMAC-SHA1",
-        oauth_timestamp="1370890113", oauth_token="823627243-UDZhCacE9mWVMbFprLKq90Rk2sD3iPYujpDXPV4I",
-        oauth_version="1.0"
-      accept-encoding:
+      authorization: 
+      - OAuth oauth_consumer_key="KQvSsA1AFozcJpzQ3EV4w", oauth_nonce="3be9de1e8d87c0b13a89a0e4c2e5d5dc", oauth_signature="lhONc79RnVLB3kFuRxoqvoDW1lo%3D", oauth_signature_method="HMAC-SHA1", oauth_timestamp="1370890113", oauth_token="823627243-UDZhCacE9mWVMbFprLKq90Rk2sD3iPYujpDXPV4I", oauth_version="1.0"
+      accept-encoding: 
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-  response:
-    status:
+  response: 
+    status: 
       code: 200
       message: OK
-    headers:
-      cache-control:
+    headers: 
+      cache-control: 
       - no-cache, no-store, must-revalidate, pre-check=0, post-check=0
-      content-encoding:
+      content-encoding: 
       - gzip
-      content-length:
-      - '5135'
-      content-type:
+      content-length: 
+      - "5135"
+      content-type: 
       - application/json;charset=utf-8
-      date:
+      date: 
       - Mon, 10 Jun 2013 18:45:18 GMT
-      expires:
+      expires: 
       - Tue, 31 Mar 1981 05:00:00 GMT
-      last-modified:
+      last-modified: 
       - Mon, 10 Jun 2013 18:45:18 GMT
-      pragma:
+      pragma: 
       - no-cache
-      server:
+      server: 
       - tfe
-      set-cookie:
+      set-cookie: 
       - lang=en
-      - guest_id=v1%3A137088991895125307; Domain=.twitter.com; Path=/; Expires=Wed,
-        10-Jun-2015 18:45:18 UTC
-      status:
+      - guest_id=v1%3A137088991895125307; Domain=.twitter.com; Path=/; Expires=Wed, 10-Jun-2015 18:45:18 UTC
+      status: 
       - 200 OK
-      strict-transport-security:
+      strict-transport-security: 
       - max-age=631138519
-      x-access-level:
+      x-access-level: 
       - read
-      x-frame-options:
+      x-frame-options: 
       - SAMEORIGIN
-      x-rate-limit-limit:
-      - '180'
-      x-rate-limit-remaining:
-      - '156'
-      x-rate-limit-reset:
-      - '1370890800'
-      x-transaction:
+      x-rate-limit-limit: 
+      - "180"
+      x-rate-limit-remaining: 
+      - "156"
+      x-rate-limit-reset: 
+      - "1370890800"
+      x-transaction: 
       - 9e52b247d94f9c96
-      x-xss-protection:
+      x-xss-protection: 
       - 1; mode=block
-      connection:
+      connection: 
       - close
-    body:
+    body: 
       encoding: ASCII-8BIT
-      string: !binary |-
+      string: !binary |
         H4sIAAAAAAAAAOydi2/bNrfA/xXWF/h6L67siKSoh4EPaJo+lq6vr8nW9S5D
         QNu0rVWWXD2SekP/93tIWbYoy3k0dtZ1LAKkISmSkqhzfufwkPz1z84wFTwX
         o3Oed/qd02mBXvEFIhTZdt+mfUzR/9rwDxEb047VCUedPqUeZb6NXWI7LiPM
@@ -4028,147 +3941,141 @@ http_interactions:
         jV26bwKIZnsWw4aGDQ0bGjY0bGjY8B/Cho5rsTtFxZSAUsNCnn5EJ3JT4hj9
         yGdzoTIVGnkeI65t11dqrtK0ToFcJPd5JqQXWIHzVYz42/8DAAD//wMAXaV2
         qADpAAA=
-    http_version: '1.1'
+
+    http_version: "1.1"
   recorded_at: Mon, 10 Jun 2013 18:48:33 GMT
-- request:
+- request: 
     method: get
     uri: https://api.twitter.com/1.1/statuses/user_timeline.json?user_id=823426471
-    body:
+    body: 
       encoding: US-ASCII
-      string: ''
-    headers:
-      accept:
+      string: ""
+    headers: 
+      accept: 
       - application/json
-      user-agent:
+      user-agent: 
       - Twitter Ruby Gem 4.7.0
-      authorization:
-      - OAuth oauth_consumer_key="KQvSsA1AFozcJpzQ3EV4w", oauth_nonce="d506ee9ba679f0d346f7376f78dd635d",
-        oauth_signature="WFBMCcgiFfkI0OZvltyMryIJEKk%3D", oauth_signature_method="HMAC-SHA1",
-        oauth_timestamp="1370890114", oauth_token="823627243-UDZhCacE9mWVMbFprLKq90Rk2sD3iPYujpDXPV4I",
-        oauth_version="1.0"
-      accept-encoding:
+      authorization: 
+      - OAuth oauth_consumer_key="KQvSsA1AFozcJpzQ3EV4w", oauth_nonce="d506ee9ba679f0d346f7376f78dd635d", oauth_signature="WFBMCcgiFfkI0OZvltyMryIJEKk%3D", oauth_signature_method="HMAC-SHA1", oauth_timestamp="1370890114", oauth_token="823627243-UDZhCacE9mWVMbFprLKq90Rk2sD3iPYujpDXPV4I", oauth_version="1.0"
+      accept-encoding: 
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-  response:
-    status:
+  response: 
+    status: 
       code: 200
       message: OK
-    headers:
-      cache-control:
+    headers: 
+      cache-control: 
       - no-cache, no-store, must-revalidate, pre-check=0, post-check=0
-      content-encoding:
+      content-encoding: 
       - gzip
-      content-length:
-      - '28'
-      content-type:
+      content-length: 
+      - "28"
+      content-type: 
       - application/json;charset=utf-8
-      date:
+      date: 
       - Mon, 10 Jun 2013 18:45:19 GMT
-      expires:
+      expires: 
       - Tue, 31 Mar 1981 05:00:00 GMT
-      last-modified:
+      last-modified: 
       - Mon, 10 Jun 2013 18:45:19 GMT
-      pragma:
+      pragma: 
       - no-cache
-      server:
+      server: 
       - tfe
-      set-cookie:
+      set-cookie: 
       - lang=en
-      - guest_id=v1%3A137088991958884424; Domain=.twitter.com; Path=/; Expires=Wed,
-        10-Jun-2015 18:45:19 UTC
-      status:
+      - guest_id=v1%3A137088991958884424; Domain=.twitter.com; Path=/; Expires=Wed, 10-Jun-2015 18:45:19 UTC
+      status: 
       - 200 OK
-      strict-transport-security:
+      strict-transport-security: 
       - max-age=631138519
-      x-access-level:
+      x-access-level: 
       - read
-      x-frame-options:
+      x-frame-options: 
       - SAMEORIGIN
-      x-rate-limit-limit:
-      - '180'
-      x-rate-limit-remaining:
-      - '155'
-      x-rate-limit-reset:
-      - '1370890800'
-      x-transaction:
+      x-rate-limit-limit: 
+      - "180"
+      x-rate-limit-remaining: 
+      - "155"
+      x-rate-limit-reset: 
+      - "1370890800"
+      x-transaction: 
       - 5dc32c6cdf10b084
-      x-xss-protection:
+      x-xss-protection: 
       - 1; mode=block
-      connection:
+      connection: 
       - close
-    body:
+    body: 
       encoding: ASCII-8BIT
-      string: !binary |-
+      string: !binary |
         H4sIAAAAAAAAAIqOBQAAAP//AwApu0wNAgAAAA==
-    http_version: '1.1'
+
+    http_version: "1.1"
   recorded_at: Mon, 10 Jun 2013 18:48:34 GMT
-- request:
+- request: 
     method: get
     uri: https://api.twitter.com/1.1/statuses/user_timeline.json?user_id=58559649
-    body:
+    body: 
       encoding: US-ASCII
-      string: ''
-    headers:
-      accept:
+      string: ""
+    headers: 
+      accept: 
       - application/json
-      user-agent:
+      user-agent: 
       - Twitter Ruby Gem 4.7.0
-      authorization:
-      - OAuth oauth_consumer_key="KQvSsA1AFozcJpzQ3EV4w", oauth_nonce="2eca97e27a18ee94e50cd7216ae6132c",
-        oauth_signature="uWIQ7vi495L1TB1kWKk1n0r0E5c%3D", oauth_signature_method="HMAC-SHA1",
-        oauth_timestamp="1370890114", oauth_token="823627243-UDZhCacE9mWVMbFprLKq90Rk2sD3iPYujpDXPV4I",
-        oauth_version="1.0"
-      accept-encoding:
+      authorization: 
+      - OAuth oauth_consumer_key="KQvSsA1AFozcJpzQ3EV4w", oauth_nonce="2eca97e27a18ee94e50cd7216ae6132c", oauth_signature="uWIQ7vi495L1TB1kWKk1n0r0E5c%3D", oauth_signature_method="HMAC-SHA1", oauth_timestamp="1370890114", oauth_token="823627243-UDZhCacE9mWVMbFprLKq90Rk2sD3iPYujpDXPV4I", oauth_version="1.0"
+      accept-encoding: 
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-  response:
-    status:
+  response: 
+    status: 
       code: 200
       message: OK
-    headers:
-      cache-control:
+    headers: 
+      cache-control: 
       - no-cache, no-store, must-revalidate, pre-check=0, post-check=0
-      content-encoding:
+      content-encoding: 
       - gzip
-      content-length:
-      - '5135'
-      content-type:
+      content-length: 
+      - "5135"
+      content-type: 
       - application/json;charset=utf-8
-      date:
+      date: 
       - Mon, 10 Jun 2013 18:45:20 GMT
-      expires:
+      expires: 
       - Tue, 31 Mar 1981 05:00:00 GMT
-      last-modified:
+      last-modified: 
       - Mon, 10 Jun 2013 18:45:20 GMT
-      pragma:
+      pragma: 
       - no-cache
-      server:
+      server: 
       - tfe
-      set-cookie:
+      set-cookie: 
       - lang=en
-      - guest_id=v1%3A137088992023624591; Domain=.twitter.com; Path=/; Expires=Wed,
-        10-Jun-2015 18:45:20 UTC
-      status:
+      - guest_id=v1%3A137088992023624591; Domain=.twitter.com; Path=/; Expires=Wed, 10-Jun-2015 18:45:20 UTC
+      status: 
       - 200 OK
-      strict-transport-security:
+      strict-transport-security: 
       - max-age=631138519
-      x-access-level:
+      x-access-level: 
       - read
-      x-frame-options:
+      x-frame-options: 
       - SAMEORIGIN
-      x-rate-limit-limit:
-      - '180'
-      x-rate-limit-remaining:
-      - '154'
-      x-rate-limit-reset:
-      - '1370890800'
-      x-transaction:
+      x-rate-limit-limit: 
+      - "180"
+      x-rate-limit-remaining: 
+      - "154"
+      x-rate-limit-reset: 
+      - "1370890800"
+      x-transaction: 
       - 9e43079a86876e9e
-      x-xss-protection:
+      x-xss-protection: 
       - 1; mode=block
-      connection:
+      connection: 
       - close
-    body:
+    body: 
       encoding: ASCII-8BIT
-      string: !binary |-
+      string: !binary |
         H4sIAAAAAAAAAOydC3PbtrKA/wrizvQ2c2QbL77UuXPybprGaW7sJO2JMh6I
         hCTGFKHwYUXt5L/fBSVKJCXKjiMndg+cZBwCS4IEwN1vl0vi3d97fiJFJoNT
         ke11947zGD2Df9hDmHQp7WIX/QvDD6KYsL3OXhjsdRlnFnO57VkWdqln2a4u
@@ -4284,76 +4191,73 @@ http_interactions:
         t35FyioV+jxnhALTUdJGWa30dCXKWpvkNcpaO8Z/Qc7IhvDgbchmKJbq+gbJ
         DGCjrvjtre/U0TtNsyi+E3z9cVi7Q61vMZrU7vCrfRrj/f8DAAD//wMALTPW
         2bjyAAA=
-    http_version: '1.1'
+
+    http_version: "1.1"
   recorded_at: Mon, 10 Jun 2013 18:48:35 GMT
-- request:
+- request: 
     method: get
     uri: https://api.twitter.com/1.1/statuses/user_timeline.json?user_id=1390770002
-    body:
+    body: 
       encoding: US-ASCII
-      string: ''
-    headers:
-      accept:
+      string: ""
+    headers: 
+      accept: 
       - application/json
-      user-agent:
+      user-agent: 
       - Twitter Ruby Gem 4.7.0
-      authorization:
-      - OAuth oauth_consumer_key="KQvSsA1AFozcJpzQ3EV4w", oauth_nonce="97ff1dac2f85a5b82c9ebda84f07db0e",
-        oauth_signature="oDEWnezqiHDnmDiLxXbLirtJpLs%3D", oauth_signature_method="HMAC-SHA1",
-        oauth_timestamp="1370890115", oauth_token="823627243-UDZhCacE9mWVMbFprLKq90Rk2sD3iPYujpDXPV4I",
-        oauth_version="1.0"
-      accept-encoding:
+      authorization: 
+      - OAuth oauth_consumer_key="KQvSsA1AFozcJpzQ3EV4w", oauth_nonce="97ff1dac2f85a5b82c9ebda84f07db0e", oauth_signature="oDEWnezqiHDnmDiLxXbLirtJpLs%3D", oauth_signature_method="HMAC-SHA1", oauth_timestamp="1370890115", oauth_token="823627243-UDZhCacE9mWVMbFprLKq90Rk2sD3iPYujpDXPV4I", oauth_version="1.0"
+      accept-encoding: 
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-  response:
-    status:
+  response: 
+    status: 
       code: 200
       message: OK
-    headers:
-      cache-control:
+    headers: 
+      cache-control: 
       - no-cache, no-store, must-revalidate, pre-check=0, post-check=0
-      content-encoding:
+      content-encoding: 
       - gzip
-      content-length:
-      - '3708'
-      content-type:
+      content-length: 
+      - "3708"
+      content-type: 
       - application/json;charset=utf-8
-      date:
+      date: 
       - Mon, 10 Jun 2013 18:45:20 GMT
-      expires:
+      expires: 
       - Tue, 31 Mar 1981 05:00:00 GMT
-      last-modified:
+      last-modified: 
       - Mon, 10 Jun 2013 18:45:20 GMT
-      pragma:
+      pragma: 
       - no-cache
-      server:
+      server: 
       - tfe
-      set-cookie:
+      set-cookie: 
       - lang=en
-      - guest_id=v1%3A137088992075457104; Domain=.twitter.com; Path=/; Expires=Wed,
-        10-Jun-2015 18:45:20 UTC
-      status:
+      - guest_id=v1%3A137088992075457104; Domain=.twitter.com; Path=/; Expires=Wed, 10-Jun-2015 18:45:20 UTC
+      status: 
       - 200 OK
-      strict-transport-security:
+      strict-transport-security: 
       - max-age=631138519
-      x-access-level:
+      x-access-level: 
       - read
-      x-frame-options:
+      x-frame-options: 
       - SAMEORIGIN
-      x-rate-limit-limit:
-      - '180'
-      x-rate-limit-remaining:
-      - '153'
-      x-rate-limit-reset:
-      - '1370890800'
-      x-transaction:
+      x-rate-limit-limit: 
+      - "180"
+      x-rate-limit-remaining: 
+      - "153"
+      x-rate-limit-reset: 
+      - "1370890800"
+      x-transaction: 
       - 7afdb8338ca8b7e1
-      x-xss-protection:
+      x-xss-protection: 
       - 1; mode=block
-      connection:
+      connection: 
       - close
-    body:
+    body: 
       encoding: ASCII-8BIT
-      string: !binary |-
+      string: !binary |
         H4sIAAAAAAAAAOydbXPbtrKA/wpGH05mehSF4ItI+sydHsdOHKd2mvqlJ2nd
         0UAkJCEiCYYALSud/Pe7ICVRlCzZ97Zz7A/rScYWdkERb7vPAMvl7392ooIz
         zeMB052DzrnMyPsyI9Qi1Dtw7QPLJv+04IfYFnU63Y6IOweO61Lq217oupYV
@@ -4437,76 +4341,73 @@ http_interactions:
         U3WL4jrgCebcEIyqeXWdJDPOpj1yXCWuHPJEgL8lKf+RXBXzLYyKL90Pv1yf
         hSOMB0eMQoxCjEKMQoxCjHoWGNXyzY8IWzqc6fe/7AtbWiqsJ/KmXWo7/wWU
         +uN/AQAA//8DAL311bb+twAA
-    http_version: '1.1'
+
+    http_version: "1.1"
   recorded_at: Mon, 10 Jun 2013 18:48:35 GMT
-- request:
+- request: 
     method: get
     uri: https://api.twitter.com/1.1/statuses/user_timeline.json?user_id=1378544772
-    body:
+    body: 
       encoding: US-ASCII
-      string: ''
-    headers:
-      accept:
+      string: ""
+    headers: 
+      accept: 
       - application/json
-      user-agent:
+      user-agent: 
       - Twitter Ruby Gem 4.7.0
-      authorization:
-      - OAuth oauth_consumer_key="KQvSsA1AFozcJpzQ3EV4w", oauth_nonce="f8b052a66945e1b39a6aea99154ae003",
-        oauth_signature="8p%2F1SLlVzdAfwk57qlVxZKUqSck%3D", oauth_signature_method="HMAC-SHA1",
-        oauth_timestamp="1370890115", oauth_token="823627243-UDZhCacE9mWVMbFprLKq90Rk2sD3iPYujpDXPV4I",
-        oauth_version="1.0"
-      accept-encoding:
+      authorization: 
+      - OAuth oauth_consumer_key="KQvSsA1AFozcJpzQ3EV4w", oauth_nonce="f8b052a66945e1b39a6aea99154ae003", oauth_signature="8p%2F1SLlVzdAfwk57qlVxZKUqSck%3D", oauth_signature_method="HMAC-SHA1", oauth_timestamp="1370890115", oauth_token="823627243-UDZhCacE9mWVMbFprLKq90Rk2sD3iPYujpDXPV4I", oauth_version="1.0"
+      accept-encoding: 
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-  response:
-    status:
+  response: 
+    status: 
       code: 200
       message: OK
-    headers:
-      cache-control:
+    headers: 
+      cache-control: 
       - no-cache, no-store, must-revalidate, pre-check=0, post-check=0
-      content-encoding:
+      content-encoding: 
       - gzip
-      content-length:
-      - '1940'
-      content-type:
+      content-length: 
+      - "1940"
+      content-type: 
       - application/json;charset=utf-8
-      date:
+      date: 
       - Mon, 10 Jun 2013 18:45:21 GMT
-      expires:
+      expires: 
       - Tue, 31 Mar 1981 05:00:00 GMT
-      last-modified:
+      last-modified: 
       - Mon, 10 Jun 2013 18:45:21 GMT
-      pragma:
+      pragma: 
       - no-cache
-      server:
+      server: 
       - tfe
-      set-cookie:
+      set-cookie: 
       - lang=en
-      - guest_id=v1%3A137088992124642407; Domain=.twitter.com; Path=/; Expires=Wed,
-        10-Jun-2015 18:45:21 UTC
-      status:
+      - guest_id=v1%3A137088992124642407; Domain=.twitter.com; Path=/; Expires=Wed, 10-Jun-2015 18:45:21 UTC
+      status: 
       - 200 OK
-      strict-transport-security:
+      strict-transport-security: 
       - max-age=631138519
-      x-access-level:
+      x-access-level: 
       - read
-      x-frame-options:
+      x-frame-options: 
       - SAMEORIGIN
-      x-rate-limit-limit:
-      - '180'
-      x-rate-limit-remaining:
-      - '152'
-      x-rate-limit-reset:
-      - '1370890800'
-      x-transaction:
+      x-rate-limit-limit: 
+      - "180"
+      x-rate-limit-remaining: 
+      - "152"
+      x-rate-limit-reset: 
+      - "1370890800"
+      x-transaction: 
       - 9df54be41532391b
-      x-xss-protection:
+      x-xss-protection: 
       - 1; mode=block
-      connection:
+      connection: 
       - close
-    body:
+    body: 
       encoding: ASCII-8BIT
-      string: !binary |-
+      string: !binary |
         H4sIAAAAAAAAAOyae2/bRhLAv8qW/7SHU2W+SQk4IHZS99pLDkUc3OEuCogl
         OaI2WnF5u0vLauDv3lmSkkhZziVNgrYoDRu2ZmaH+5jHzyRfv7MyCVRDnlBt
         za1rycgLuiOeQ5xw7vtzOyJ/tfGLuLbjWROL5dbc8+3Antm278R+7Luubxt5
@@ -4551,76 +4452,73 @@ http_interactions:
         3l1GOYJFiWsScq3M3cqXgNuzI7ADgoxSsrIY2W9kv5H9RvYb2W9kvz8C+50+
         l9w3wGOF/x4l5KYVNa0hiHw3iPsvMe9FAxB07Inz6x5NvvkFAAD//wMAaGzs
         EBA1AAA=
-    http_version: '1.1'
+
+    http_version: "1.1"
   recorded_at: Mon, 10 Jun 2013 18:48:36 GMT
-- request:
+- request: 
     method: get
     uri: https://api.twitter.com/1.1/statuses/user_timeline.json?user_id=989881303
-    body:
+    body: 
       encoding: US-ASCII
-      string: ''
-    headers:
-      accept:
+      string: ""
+    headers: 
+      accept: 
       - application/json
-      user-agent:
+      user-agent: 
       - Twitter Ruby Gem 4.7.0
-      authorization:
-      - OAuth oauth_consumer_key="KQvSsA1AFozcJpzQ3EV4w", oauth_nonce="6593efbb638c3f963a862b01a88fcb36",
-        oauth_signature="b0DZahJW6TOi7pKuBDpjnh82d%2Fk%3D", oauth_signature_method="HMAC-SHA1",
-        oauth_timestamp="1370890116", oauth_token="823627243-UDZhCacE9mWVMbFprLKq90Rk2sD3iPYujpDXPV4I",
-        oauth_version="1.0"
-      accept-encoding:
+      authorization: 
+      - OAuth oauth_consumer_key="KQvSsA1AFozcJpzQ3EV4w", oauth_nonce="6593efbb638c3f963a862b01a88fcb36", oauth_signature="b0DZahJW6TOi7pKuBDpjnh82d%2Fk%3D", oauth_signature_method="HMAC-SHA1", oauth_timestamp="1370890116", oauth_token="823627243-UDZhCacE9mWVMbFprLKq90Rk2sD3iPYujpDXPV4I", oauth_version="1.0"
+      accept-encoding: 
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-  response:
-    status:
+  response: 
+    status: 
       code: 200
       message: OK
-    headers:
-      cache-control:
+    headers: 
+      cache-control: 
       - no-cache, no-store, must-revalidate, pre-check=0, post-check=0
-      content-encoding:
+      content-encoding: 
       - gzip
-      content-length:
-      - '9264'
-      content-type:
+      content-length: 
+      - "9264"
+      content-type: 
       - application/json;charset=utf-8
-      date:
+      date: 
       - Mon, 10 Jun 2013 18:45:21 GMT
-      expires:
+      expires: 
       - Tue, 31 Mar 1981 05:00:00 GMT
-      last-modified:
+      last-modified: 
       - Mon, 10 Jun 2013 18:45:21 GMT
-      pragma:
+      pragma: 
       - no-cache
-      server:
+      server: 
       - tfe
-      set-cookie:
+      set-cookie: 
       - lang=en
-      - guest_id=v1%3A137088992174249916; Domain=.twitter.com; Path=/; Expires=Wed,
-        10-Jun-2015 18:45:21 UTC
-      status:
+      - guest_id=v1%3A137088992174249916; Domain=.twitter.com; Path=/; Expires=Wed, 10-Jun-2015 18:45:21 UTC
+      status: 
       - 200 OK
-      strict-transport-security:
+      strict-transport-security: 
       - max-age=631138519
-      x-access-level:
+      x-access-level: 
       - read
-      x-frame-options:
+      x-frame-options: 
       - SAMEORIGIN
-      x-rate-limit-limit:
-      - '180'
-      x-rate-limit-remaining:
-      - '151'
-      x-rate-limit-reset:
-      - '1370890800'
-      x-transaction:
+      x-rate-limit-limit: 
+      - "180"
+      x-rate-limit-remaining: 
+      - "151"
+      x-rate-limit-reset: 
+      - "1370890800"
+      x-transaction: 
       - 99a543e725e6bc56
-      x-xss-protection:
+      x-xss-protection: 
       - 1; mode=block
-      connection:
+      connection: 
       - close
-    body:
+    body: 
       encoding: ASCII-8BIT
-      string: !binary |-
+      string: !binary |
         H4sIAAAAAAAAAOydC3PbtpbHvwqqO9PdnZVlAARBUjs7N34mTuPGt3Zvmq07
         HoiCJMYUqZKUHbXT777nkJIlvmzFlhInZZI2MQC+8Do//AEc/Ppny420SnT/
         SiWtbut8GpDX8B91CKNdJruCkf+m8ItwyoxWu+X1W11DGNLijmOa1LENy+YC
@@ -4827,76 +4725,73 @@ http_interactions:
         2q13ikFZWmIbWrSzJJ57TMsMTMW009OXu1cnv//yUoXxy9+P/qlKVqU+3Yo4
         J9ui2qNXUcdawlcpINWxKEePbbljMudBuQfCuFayjXuJWqOINrWu6rMXkTDb
         0lqriIr4Vgd996NiTm+EB7e3VBMghU03XRN++/8BAGqrK7F6UgEA
-    http_version: '1.1'
+
+    http_version: "1.1"
   recorded_at: Mon, 10 Jun 2013 18:48:36 GMT
-- request:
+- request: 
     method: get
     uri: https://api.twitter.com/1.1/statuses/user_timeline.json?user_id=20323034
-    body:
+    body: 
       encoding: US-ASCII
-      string: ''
-    headers:
-      accept:
+      string: ""
+    headers: 
+      accept: 
       - application/json
-      user-agent:
+      user-agent: 
       - Twitter Ruby Gem 4.7.0
-      authorization:
-      - OAuth oauth_consumer_key="KQvSsA1AFozcJpzQ3EV4w", oauth_nonce="e9a680caeccd17742614049873db32d7",
-        oauth_signature="cfVIqJ0KXaEn5%2FyMOrvTF6%2BFPZY%3D", oauth_signature_method="HMAC-SHA1",
-        oauth_timestamp="1370890116", oauth_token="823627243-UDZhCacE9mWVMbFprLKq90Rk2sD3iPYujpDXPV4I",
-        oauth_version="1.0"
-      accept-encoding:
+      authorization: 
+      - OAuth oauth_consumer_key="KQvSsA1AFozcJpzQ3EV4w", oauth_nonce="e9a680caeccd17742614049873db32d7", oauth_signature="cfVIqJ0KXaEn5%2FyMOrvTF6%2BFPZY%3D", oauth_signature_method="HMAC-SHA1", oauth_timestamp="1370890116", oauth_token="823627243-UDZhCacE9mWVMbFprLKq90Rk2sD3iPYujpDXPV4I", oauth_version="1.0"
+      accept-encoding: 
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-  response:
-    status:
+  response: 
+    status: 
       code: 200
       message: OK
-    headers:
-      cache-control:
+    headers: 
+      cache-control: 
       - no-cache, no-store, must-revalidate, pre-check=0, post-check=0
-      content-encoding:
+      content-encoding: 
       - gzip
-      content-length:
-      - '5899'
-      content-type:
+      content-length: 
+      - "5899"
+      content-type: 
       - application/json;charset=utf-8
-      date:
+      date: 
       - Mon, 10 Jun 2013 18:45:22 GMT
-      expires:
+      expires: 
       - Tue, 31 Mar 1981 05:00:00 GMT
-      last-modified:
+      last-modified: 
       - Mon, 10 Jun 2013 18:45:22 GMT
-      pragma:
+      pragma: 
       - no-cache
-      server:
+      server: 
       - tfe
-      set-cookie:
+      set-cookie: 
       - lang=en
-      - guest_id=v1%3A137088992239320699; Domain=.twitter.com; Path=/; Expires=Wed,
-        10-Jun-2015 18:45:22 UTC
-      status:
+      - guest_id=v1%3A137088992239320699; Domain=.twitter.com; Path=/; Expires=Wed, 10-Jun-2015 18:45:22 UTC
+      status: 
       - 200 OK
-      strict-transport-security:
+      strict-transport-security: 
       - max-age=631138519
-      x-access-level:
+      x-access-level: 
       - read
-      x-frame-options:
+      x-frame-options: 
       - SAMEORIGIN
-      x-rate-limit-limit:
-      - '180'
-      x-rate-limit-remaining:
-      - '150'
-      x-rate-limit-reset:
-      - '1370890800'
-      x-transaction:
+      x-rate-limit-limit: 
+      - "180"
+      x-rate-limit-remaining: 
+      - "150"
+      x-rate-limit-reset: 
+      - "1370890800"
+      x-transaction: 
       - fbad2c1c9713b515
-      x-xss-protection:
+      x-xss-protection: 
       - 1; mode=block
-      connection:
+      connection: 
       - close
-    body:
+    body: 
       encoding: ASCII-8BIT
-      string: !binary |-
+      string: !binary |
         H4sIAAAAAAAAAOydjVPbuLbA/xVN7szte3NDsCTbsjKz0wKFhS60XeCW1725
         w8iOkhgcO7WdpOnO/u/vyE6I7cSQ0tCvVZgJIB3Jsr7Oz8fS0X/+bHixFKns
         Xou00W6cRSF6NQ4RNhB22pS3iYP+ZcAHEQPTRrPhdxttaprYxhwTyh1u2tQw
@@ -5029,76 +4924,73 @@ http_interactions:
         4CUDI/WqX6AeJByAtkt+FtO1hk4NnRo6NXRq6NTQqaHz54LODYyeBQZaqvss
         EL0V8a2M2+guNj+MBFsc2wQXdyEtA8ukiZs2fdRGqf/+PwAAAP//AwBfPr/1
         4gABAA==
-    http_version: '1.1'
+
+    http_version: "1.1"
   recorded_at: Mon, 10 Jun 2013 18:48:37 GMT
-- request:
+- request: 
     method: get
     uri: https://api.twitter.com/1.1/statuses/user_timeline.json?user_id=127273296
-    body:
+    body: 
       encoding: US-ASCII
-      string: ''
-    headers:
-      accept:
+      string: ""
+    headers: 
+      accept: 
       - application/json
-      user-agent:
+      user-agent: 
       - Twitter Ruby Gem 4.7.0
-      authorization:
-      - OAuth oauth_consumer_key="KQvSsA1AFozcJpzQ3EV4w", oauth_nonce="5f00bfc085e35316ec1371eda1621c83",
-        oauth_signature="7F7yOpZpm0AD4QbtxNwkzUthPQw%3D", oauth_signature_method="HMAC-SHA1",
-        oauth_timestamp="1370890117", oauth_token="823627243-UDZhCacE9mWVMbFprLKq90Rk2sD3iPYujpDXPV4I",
-        oauth_version="1.0"
-      accept-encoding:
+      authorization: 
+      - OAuth oauth_consumer_key="KQvSsA1AFozcJpzQ3EV4w", oauth_nonce="5f00bfc085e35316ec1371eda1621c83", oauth_signature="7F7yOpZpm0AD4QbtxNwkzUthPQw%3D", oauth_signature_method="HMAC-SHA1", oauth_timestamp="1370890117", oauth_token="823627243-UDZhCacE9mWVMbFprLKq90Rk2sD3iPYujpDXPV4I", oauth_version="1.0"
+      accept-encoding: 
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-  response:
-    status:
+  response: 
+    status: 
       code: 200
       message: OK
-    headers:
-      cache-control:
+    headers: 
+      cache-control: 
       - no-cache, no-store, must-revalidate, pre-check=0, post-check=0
-      content-encoding:
+      content-encoding: 
       - gzip
-      content-length:
-      - '1911'
-      content-type:
+      content-length: 
+      - "1911"
+      content-type: 
       - application/json;charset=utf-8
-      date:
+      date: 
       - Mon, 10 Jun 2013 18:45:22 GMT
-      expires:
+      expires: 
       - Tue, 31 Mar 1981 05:00:00 GMT
-      last-modified:
+      last-modified: 
       - Mon, 10 Jun 2013 18:45:22 GMT
-      pragma:
+      pragma: 
       - no-cache
-      server:
+      server: 
       - tfe
-      set-cookie:
+      set-cookie: 
       - lang=en
-      - guest_id=v1%3A137088992288759791; Domain=.twitter.com; Path=/; Expires=Wed,
-        10-Jun-2015 18:45:22 UTC
-      status:
+      - guest_id=v1%3A137088992288759791; Domain=.twitter.com; Path=/; Expires=Wed, 10-Jun-2015 18:45:22 UTC
+      status: 
       - 200 OK
-      strict-transport-security:
+      strict-transport-security: 
       - max-age=631138519
-      x-access-level:
+      x-access-level: 
       - read
-      x-frame-options:
+      x-frame-options: 
       - SAMEORIGIN
-      x-rate-limit-limit:
-      - '180'
-      x-rate-limit-remaining:
-      - '149'
-      x-rate-limit-reset:
-      - '1370890800'
-      x-transaction:
+      x-rate-limit-limit: 
+      - "180"
+      x-rate-limit-remaining: 
+      - "149"
+      x-rate-limit-reset: 
+      - "1370890800"
+      x-transaction: 
       - bc3ae6223e90916c
-      x-xss-protection:
+      x-xss-protection: 
       - 1; mode=block
-      connection:
+      connection: 
       - close
-    body:
+    body: 
       encoding: ASCII-8BIT
-      string: !binary |-
+      string: !binary |
         H4sIAAAAAAAAAOybbXPbuBGA/wqqfkg7lWWA4PuXaxKnN+00mbtJOmknznAg
         EpJQk4COACU7Hv/3W1BvJCU5btybm17h8VjiYrEEsIvdxyL06X6U15wZXmTM
         jNLRR16gt+wOeR7CJCU4JQT9CcMP8jCho/FIFKOU0ggTz48xjqOYxJ5PrDzT
@@ -5142,76 +5034,73 @@ http_interactions:
         jXzLB91Sd7qyHZ73kPC/cnikyy04DXDqJ6e5hRCaeH4QJyRJaDzgln7jI9zy
         ccHMC705a4qUfN5xUxLYbwAnAabYx0ATXyeOvr4jDkccjjgccTjicMTxq3/4
         8r+HEp9/BgAA//8DADUhdsXaQwAA
-    http_version: '1.1'
+
+    http_version: "1.1"
   recorded_at: Mon, 10 Jun 2013 18:48:37 GMT
-- request:
+- request: 
     method: get
     uri: https://api.twitter.com/1.1/statuses/user_timeline.json?user_id=1355953218
-    body:
+    body: 
       encoding: US-ASCII
-      string: ''
-    headers:
-      accept:
+      string: ""
+    headers: 
+      accept: 
       - application/json
-      user-agent:
+      user-agent: 
       - Twitter Ruby Gem 4.7.0
-      authorization:
-      - OAuth oauth_consumer_key="KQvSsA1AFozcJpzQ3EV4w", oauth_nonce="58d137d0cd14e4721ab644fc85435404",
-        oauth_signature="OBU3q5ojV5CDeOrpjBC6d3a%2F%2BPg%3D", oauth_signature_method="HMAC-SHA1",
-        oauth_timestamp="1370890117", oauth_token="823627243-UDZhCacE9mWVMbFprLKq90Rk2sD3iPYujpDXPV4I",
-        oauth_version="1.0"
-      accept-encoding:
+      authorization: 
+      - OAuth oauth_consumer_key="KQvSsA1AFozcJpzQ3EV4w", oauth_nonce="58d137d0cd14e4721ab644fc85435404", oauth_signature="OBU3q5ojV5CDeOrpjBC6d3a%2F%2BPg%3D", oauth_signature_method="HMAC-SHA1", oauth_timestamp="1370890117", oauth_token="823627243-UDZhCacE9mWVMbFprLKq90Rk2sD3iPYujpDXPV4I", oauth_version="1.0"
+      accept-encoding: 
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-  response:
-    status:
+  response: 
+    status: 
       code: 200
       message: OK
-    headers:
-      cache-control:
+    headers: 
+      cache-control: 
       - no-cache, no-store, must-revalidate, pre-check=0, post-check=0
-      content-encoding:
+      content-encoding: 
       - gzip
-      content-length:
-      - '5977'
-      content-type:
+      content-length: 
+      - "5977"
+      content-type: 
       - application/json;charset=utf-8
-      date:
+      date: 
       - Mon, 10 Jun 2013 18:45:23 GMT
-      expires:
+      expires: 
       - Tue, 31 Mar 1981 05:00:00 GMT
-      last-modified:
+      last-modified: 
       - Mon, 10 Jun 2013 18:45:23 GMT
-      pragma:
+      pragma: 
       - no-cache
-      server:
+      server: 
       - tfe
-      set-cookie:
+      set-cookie: 
       - lang=en
-      - guest_id=v1%3A137088992333665439; Domain=.twitter.com; Path=/; Expires=Wed,
-        10-Jun-2015 18:45:23 UTC
-      status:
+      - guest_id=v1%3A137088992333665439; Domain=.twitter.com; Path=/; Expires=Wed, 10-Jun-2015 18:45:23 UTC
+      status: 
       - 200 OK
-      strict-transport-security:
+      strict-transport-security: 
       - max-age=631138519
-      x-access-level:
+      x-access-level: 
       - read
-      x-frame-options:
+      x-frame-options: 
       - SAMEORIGIN
-      x-rate-limit-limit:
-      - '180'
-      x-rate-limit-remaining:
-      - '148'
-      x-rate-limit-reset:
-      - '1370890800'
-      x-transaction:
+      x-rate-limit-limit: 
+      - "180"
+      x-rate-limit-remaining: 
+      - "148"
+      x-rate-limit-reset: 
+      - "1370890800"
+      x-transaction: 
       - 185a5d3215b2f634
-      x-xss-protection:
+      x-xss-protection: 
       - 1; mode=block
-      connection:
+      connection: 
       - close
-    body:
+    body: 
       encoding: ASCII-8BIT
-      string: !binary |-
+      string: !binary |
         H4sIAAAAAAAAAOydiXLbOLaGXwWlqZq+t0aSAZAEl6qpGduxO+4bZ7NnMj3t
         LhVIQRJjilBzsaKk8u73gNTGRbYS20k6gTttSwC4gcD5Px4cgL996ASJ4JkY
         DnjW8TrnMka/5DEiGGHsma5nMPQ3DD+IYmJ0up1w2PEM03BcymxKDGK6tuuY
@@ -5345,76 +5234,73 @@ http_interactions:
         Sy2f1lD5SuaWyn9dTdfBTzr4SQc/6eAnHfykg5908JMOfvoWUGz9kGY2PT/K
         fj7IhL8KJu1cTyrM+tFCtYV35tF50NCqZv5GoxgrB7ceduZdeYNvC7hqq7WH
         miX56JUGKEbwfutjfd1grv3GIn//fwAAAP//AwCtxI8J3O8AAA==
-    http_version: '1.1'
+
+    http_version: "1.1"
   recorded_at: Mon, 10 Jun 2013 18:48:38 GMT
-- request:
+- request: 
     method: get
     uri: https://api.twitter.com/1.1/statuses/user_timeline.json?user_id=285893416
-    body:
+    body: 
       encoding: US-ASCII
-      string: ''
-    headers:
-      accept:
+      string: ""
+    headers: 
+      accept: 
       - application/json
-      user-agent:
+      user-agent: 
       - Twitter Ruby Gem 4.7.0
-      authorization:
-      - OAuth oauth_consumer_key="KQvSsA1AFozcJpzQ3EV4w", oauth_nonce="f277bf262cbacca9292bafad7c5b3995",
-        oauth_signature="DR6%2B3vASeHxOSRtDwveEU0jLUek%3D", oauth_signature_method="HMAC-SHA1",
-        oauth_timestamp="1370890118", oauth_token="823627243-UDZhCacE9mWVMbFprLKq90Rk2sD3iPYujpDXPV4I",
-        oauth_version="1.0"
-      accept-encoding:
+      authorization: 
+      - OAuth oauth_consumer_key="KQvSsA1AFozcJpzQ3EV4w", oauth_nonce="f277bf262cbacca9292bafad7c5b3995", oauth_signature="DR6%2B3vASeHxOSRtDwveEU0jLUek%3D", oauth_signature_method="HMAC-SHA1", oauth_timestamp="1370890118", oauth_token="823627243-UDZhCacE9mWVMbFprLKq90Rk2sD3iPYujpDXPV4I", oauth_version="1.0"
+      accept-encoding: 
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-  response:
-    status:
+  response: 
+    status: 
       code: 200
       message: OK
-    headers:
-      cache-control:
+    headers: 
+      cache-control: 
       - no-cache, no-store, must-revalidate, pre-check=0, post-check=0
-      content-encoding:
+      content-encoding: 
       - gzip
-      content-length:
-      - '5281'
-      content-type:
+      content-length: 
+      - "5281"
+      content-type: 
       - application/json;charset=utf-8
-      date:
+      date: 
       - Mon, 10 Jun 2013 18:45:23 GMT
-      expires:
+      expires: 
       - Tue, 31 Mar 1981 05:00:00 GMT
-      last-modified:
+      last-modified: 
       - Mon, 10 Jun 2013 18:45:23 GMT
-      pragma:
+      pragma: 
       - no-cache
-      server:
+      server: 
       - tfe
-      set-cookie:
+      set-cookie: 
       - lang=en
-      - guest_id=v1%3A137088992383938916; Domain=.twitter.com; Path=/; Expires=Wed,
-        10-Jun-2015 18:45:23 UTC
-      status:
+      - guest_id=v1%3A137088992383938916; Domain=.twitter.com; Path=/; Expires=Wed, 10-Jun-2015 18:45:23 UTC
+      status: 
       - 200 OK
-      strict-transport-security:
+      strict-transport-security: 
       - max-age=631138519
-      x-access-level:
+      x-access-level: 
       - read
-      x-frame-options:
+      x-frame-options: 
       - SAMEORIGIN
-      x-rate-limit-limit:
-      - '180'
-      x-rate-limit-remaining:
-      - '147'
-      x-rate-limit-reset:
-      - '1370890800'
-      x-transaction:
+      x-rate-limit-limit: 
+      - "180"
+      x-rate-limit-remaining: 
+      - "147"
+      x-rate-limit-reset: 
+      - "1370890800"
+      x-transaction: 
       - 10d6cb71d86ad30a
-      x-xss-protection:
+      x-xss-protection: 
       - 1; mode=block
-      connection:
+      connection: 
       - close
-    body:
+    body: 
       encoding: ASCII-8BIT
-      string: !binary |-
+      string: !binary |
         H4sIAAAAAAAAAOydC3PaONeA/4pKZ97dndchki3fmNlpaULabC60gTSbLR3G
         GAEuxqa2gdJO//t3ZAO+YBLSbbfZ91OaTkA6lmzdzuMj6ejdl4odMCti/a4V
         VWqVC99Df8w8RDAiRk1Wa0RH/8Xwg2RMlIpUcfqVmkIpUQ2FQpChqfDH5OHd
@@ -5533,76 +5419,73 @@ http_interactions:
         JYRqKvwaqrZF59nIzDTseDmyJhNi/D8wvclEoSbRNe3OydK10J2zpZlSE8Y4
         YYx7vIwrjHHCGCeMcY/OGPcPT5Vm1NUq5GyDThmlWK4DU5uH+WCggXqrfH3/
         fwAAAP//AwCUDpgxQtYAAA==
-    http_version: '1.1'
+
+    http_version: "1.1"
   recorded_at: Mon, 10 Jun 2013 18:48:38 GMT
-- request:
+- request: 
     method: get
     uri: https://api.twitter.com/1.1/statuses/user_timeline.json?user_id=49670200
-    body:
+    body: 
       encoding: US-ASCII
-      string: ''
-    headers:
-      accept:
+      string: ""
+    headers: 
+      accept: 
       - application/json
-      user-agent:
+      user-agent: 
       - Twitter Ruby Gem 4.7.0
-      authorization:
-      - OAuth oauth_consumer_key="KQvSsA1AFozcJpzQ3EV4w", oauth_nonce="c77e84e06d222b43f97ef5568966c378",
-        oauth_signature="vIMRe8T1%2B7TjpVHTAANT1209AKg%3D", oauth_signature_method="HMAC-SHA1",
-        oauth_timestamp="1370890118", oauth_token="823627243-UDZhCacE9mWVMbFprLKq90Rk2sD3iPYujpDXPV4I",
-        oauth_version="1.0"
-      accept-encoding:
+      authorization: 
+      - OAuth oauth_consumer_key="KQvSsA1AFozcJpzQ3EV4w", oauth_nonce="c77e84e06d222b43f97ef5568966c378", oauth_signature="vIMRe8T1%2B7TjpVHTAANT1209AKg%3D", oauth_signature_method="HMAC-SHA1", oauth_timestamp="1370890118", oauth_token="823627243-UDZhCacE9mWVMbFprLKq90Rk2sD3iPYujpDXPV4I", oauth_version="1.0"
+      accept-encoding: 
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-  response:
-    status:
+  response: 
+    status: 
       code: 200
       message: OK
-    headers:
-      cache-control:
+    headers: 
+      cache-control: 
       - no-cache, no-store, must-revalidate, pre-check=0, post-check=0
-      content-encoding:
+      content-encoding: 
       - gzip
-      content-length:
-      - '5785'
-      content-type:
+      content-length: 
+      - "5785"
+      content-type: 
       - application/json;charset=utf-8
-      date:
+      date: 
       - Mon, 10 Jun 2013 18:45:24 GMT
-      expires:
+      expires: 
       - Tue, 31 Mar 1981 05:00:00 GMT
-      last-modified:
+      last-modified: 
       - Mon, 10 Jun 2013 18:45:24 GMT
-      pragma:
+      pragma: 
       - no-cache
-      server:
+      server: 
       - tfe
-      set-cookie:
+      set-cookie: 
       - lang=en
-      - guest_id=v1%3A137088992466701629; Domain=.twitter.com; Path=/; Expires=Wed,
-        10-Jun-2015 18:45:24 UTC
-      status:
+      - guest_id=v1%3A137088992466701629; Domain=.twitter.com; Path=/; Expires=Wed, 10-Jun-2015 18:45:24 UTC
+      status: 
       - 200 OK
-      strict-transport-security:
+      strict-transport-security: 
       - max-age=631138519
-      x-access-level:
+      x-access-level: 
       - read
-      x-frame-options:
+      x-frame-options: 
       - SAMEORIGIN
-      x-rate-limit-limit:
-      - '180'
-      x-rate-limit-remaining:
-      - '146'
-      x-rate-limit-reset:
-      - '1370890800'
-      x-transaction:
+      x-rate-limit-limit: 
+      - "180"
+      x-rate-limit-remaining: 
+      - "146"
+      x-rate-limit-reset: 
+      - "1370890800"
+      x-transaction: 
       - fca3cd23e89e9005
-      x-xss-protection:
+      x-xss-protection: 
       - 1; mode=block
-      connection:
+      connection: 
       - close
-    body:
+    body: 
       encoding: ASCII-8BIT
-      string: !binary |-
+      string: !binary |
         H4sIAAAAAAAAAOydiXPbNrrA/xWsMvu6OyvbOHhq5s3G8dGkbdJs7DTbt+p4
         IBISUVOEwsNatdv//X0AdZCUFDteu2lTeBJbwkni+L4fPlz/+rkX5YKXIr7i
         ZW/Qu+Al+qrKEA4QIQPHHTCM/obhB1FMWK/fk3FvwBzGGA1dn2HfC12CXe1+
@@ -5732,76 +5615,73 @@ http_interactions:
         oyzNV70h//A3TDq6ZIgTOvqwzDD0Pa21PsA9ve3wvT0cRByPEeY6/gdgqLcO
         1PsAE/WaNdSzdGTpyNKRpSNLR5aOfn37TneXc0c1LV2TmMtYLsmkqQh3672N
         xP2YHc4NYvrh/wEAAP//AwAPH6KlFeIAAA==
-    http_version: '1.1'
+
+    http_version: "1.1"
   recorded_at: Mon, 10 Jun 2013 18:48:39 GMT
-- request:
+- request: 
     method: get
     uri: https://api.twitter.com/1.1/statuses/user_timeline.json?user_id=41421996
-    body:
+    body: 
       encoding: US-ASCII
-      string: ''
-    headers:
-      accept:
+      string: ""
+    headers: 
+      accept: 
       - application/json
-      user-agent:
+      user-agent: 
       - Twitter Ruby Gem 4.7.0
-      authorization:
-      - OAuth oauth_consumer_key="KQvSsA1AFozcJpzQ3EV4w", oauth_nonce="a6bb2b40ab45b50707c1880769104765",
-        oauth_signature="mcZ92YsXsYqAO%2FRfL3xeb58Titg%3D", oauth_signature_method="HMAC-SHA1",
-        oauth_timestamp="1370890119", oauth_token="823627243-UDZhCacE9mWVMbFprLKq90Rk2sD3iPYujpDXPV4I",
-        oauth_version="1.0"
-      accept-encoding:
+      authorization: 
+      - OAuth oauth_consumer_key="KQvSsA1AFozcJpzQ3EV4w", oauth_nonce="a6bb2b40ab45b50707c1880769104765", oauth_signature="mcZ92YsXsYqAO%2FRfL3xeb58Titg%3D", oauth_signature_method="HMAC-SHA1", oauth_timestamp="1370890119", oauth_token="823627243-UDZhCacE9mWVMbFprLKq90Rk2sD3iPYujpDXPV4I", oauth_version="1.0"
+      accept-encoding: 
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-  response:
-    status:
+  response: 
+    status: 
       code: 200
       message: OK
-    headers:
-      cache-control:
+    headers: 
+      cache-control: 
       - no-cache, no-store, must-revalidate, pre-check=0, post-check=0
-      content-encoding:
+      content-encoding: 
       - gzip
-      content-length:
-      - '5243'
-      content-type:
+      content-length: 
+      - "5243"
+      content-type: 
       - application/json;charset=utf-8
-      date:
+      date: 
       - Mon, 10 Jun 2013 18:45:25 GMT
-      expires:
+      expires: 
       - Tue, 31 Mar 1981 05:00:00 GMT
-      last-modified:
+      last-modified: 
       - Mon, 10 Jun 2013 18:45:25 GMT
-      pragma:
+      pragma: 
       - no-cache
-      server:
+      server: 
       - tfe
-      set-cookie:
+      set-cookie: 
       - lang=en
-      - guest_id=v1%3A137088992527553866; Domain=.twitter.com; Path=/; Expires=Wed,
-        10-Jun-2015 18:45:25 UTC
-      status:
+      - guest_id=v1%3A137088992527553866; Domain=.twitter.com; Path=/; Expires=Wed, 10-Jun-2015 18:45:25 UTC
+      status: 
       - 200 OK
-      strict-transport-security:
+      strict-transport-security: 
       - max-age=631138519
-      x-access-level:
+      x-access-level: 
       - read
-      x-frame-options:
+      x-frame-options: 
       - SAMEORIGIN
-      x-rate-limit-limit:
-      - '180'
-      x-rate-limit-remaining:
-      - '145'
-      x-rate-limit-reset:
-      - '1370890800'
-      x-transaction:
+      x-rate-limit-limit: 
+      - "180"
+      x-rate-limit-remaining: 
+      - "145"
+      x-rate-limit-reset: 
+      - "1370890800"
+      x-transaction: 
       - 662ef0b9c0fde123
-      x-xss-protection:
+      x-xss-protection: 
       - 1; mode=block
-      connection:
+      connection: 
       - close
-    body:
+    body: 
       encoding: ASCII-8BIT
-      string: !binary |-
+      string: !binary |
         H4sIAAAAAAAAAOydCXPbttaG/wquPHN7v/kUGQDBTTOdxpad1I0Tp5HTdFFG
         A4mQxJgiFC5Wldz893tAaiEpynYcu6lTOPEiAARJbO/Dg0Pgj4+NYSR4Irw+
         TxrtRjcN0U/wjSmiRpuabWag/8fwhSgmRqPZ8L1G22DEMJjDTOpYDDvEpSq8
@@ -5919,76 +5799,73 @@ http_interactions:
         rY9srrPb3g1LDC2PD5ltMWfIqT1qFF+EuNFuWNUcbrAb1lOu9qS8hJpVMljc
         EasQ00RPDxr3vyuWKiXXZU5WSNCsrWwDLAi1AU+we0WwYVHHtZfB6zyWoX/N
         3lj3asR6+z8AAAD//wMAzvwHj4zMAAA=
-    http_version: '1.1'
+
+    http_version: "1.1"
   recorded_at: Mon, 10 Jun 2013 18:48:40 GMT
-- request:
+- request: 
     method: get
     uri: https://api.twitter.com/1.1/statuses/user_timeline.json?user_id=345134536
-    body:
+    body: 
       encoding: US-ASCII
-      string: ''
-    headers:
-      accept:
+      string: ""
+    headers: 
+      accept: 
       - application/json
-      user-agent:
+      user-agent: 
       - Twitter Ruby Gem 4.7.0
-      authorization:
-      - OAuth oauth_consumer_key="KQvSsA1AFozcJpzQ3EV4w", oauth_nonce="e1638e48dbc26c64df19d38e8f907bc1",
-        oauth_signature="Wo9uqVm9qFmv0pV1QusgvupnSkQ%3D", oauth_signature_method="HMAC-SHA1",
-        oauth_timestamp="1370890120", oauth_token="823627243-UDZhCacE9mWVMbFprLKq90Rk2sD3iPYujpDXPV4I",
-        oauth_version="1.0"
-      accept-encoding:
+      authorization: 
+      - OAuth oauth_consumer_key="KQvSsA1AFozcJpzQ3EV4w", oauth_nonce="e1638e48dbc26c64df19d38e8f907bc1", oauth_signature="Wo9uqVm9qFmv0pV1QusgvupnSkQ%3D", oauth_signature_method="HMAC-SHA1", oauth_timestamp="1370890120", oauth_token="823627243-UDZhCacE9mWVMbFprLKq90Rk2sD3iPYujpDXPV4I", oauth_version="1.0"
+      accept-encoding: 
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-  response:
-    status:
+  response: 
+    status: 
       code: 200
       message: OK
-    headers:
-      cache-control:
+    headers: 
+      cache-control: 
       - no-cache, no-store, must-revalidate, pre-check=0, post-check=0
-      content-encoding:
+      content-encoding: 
       - gzip
-      content-length:
-      - '5668'
-      content-type:
+      content-length: 
+      - "5668"
+      content-type: 
       - application/json;charset=utf-8
-      date:
+      date: 
       - Mon, 10 Jun 2013 18:45:25 GMT
-      expires:
+      expires: 
       - Tue, 31 Mar 1981 05:00:00 GMT
-      last-modified:
+      last-modified: 
       - Mon, 10 Jun 2013 18:45:25 GMT
-      pragma:
+      pragma: 
       - no-cache
-      server:
+      server: 
       - tfe
-      set-cookie:
+      set-cookie: 
       - lang=en
-      - guest_id=v1%3A137088992583245971; Domain=.twitter.com; Path=/; Expires=Wed,
-        10-Jun-2015 18:45:25 UTC
-      status:
+      - guest_id=v1%3A137088992583245971; Domain=.twitter.com; Path=/; Expires=Wed, 10-Jun-2015 18:45:25 UTC
+      status: 
       - 200 OK
-      strict-transport-security:
+      strict-transport-security: 
       - max-age=631138519
-      x-access-level:
+      x-access-level: 
       - read
-      x-frame-options:
+      x-frame-options: 
       - SAMEORIGIN
-      x-rate-limit-limit:
-      - '180'
-      x-rate-limit-remaining:
-      - '144'
-      x-rate-limit-reset:
-      - '1370890800'
-      x-transaction:
+      x-rate-limit-limit: 
+      - "180"
+      x-rate-limit-remaining: 
+      - "144"
+      x-rate-limit-reset: 
+      - "1370890800"
+      x-transaction: 
       - 2fd008d990e4fe22
-      x-xss-protection:
+      x-xss-protection: 
       - 1; mode=block
-      connection:
+      connection: 
       - close
-    body:
+    body: 
       encoding: ASCII-8BIT
-      string: !binary |-
+      string: !binary |
         H4sIAAAAAAAAAOydCZPbNppA/wpKXbWzW8uVCRC8tDWVcWwnY28Su+zO9G7S
         qS6IgiTGFMnwaFl2+b/vB1AHL6nVR7rb8deVGdsEyCZBHI8P16+fBkEmRSEn
         F6IYjAanpSQ/ihVhHmF0ZPOR6ZH/NOGHMJNaA2MQTgYjy/K573uOSX3b8Uxm
@@ -6115,76 +5992,73 @@ http_interactions:
         UaRofQIlUGRA5ePCqGO7kj/qVwBapfBuUPWh6kPVh6oPVR+qPlR9j0j1Vdix
         Zy05RRaMMcuFP9z28P9WYL/qu1/KCKEiI29fnJ69eHFKfnp9hryBsg9lH8o+
         lH0o+1D2oey75V6zPXKLPZLF5Pru7WsYO/fb/wMAAP//AwCrMFj9bXoBAA==
-    http_version: '1.1'
+
+    http_version: "1.1"
   recorded_at: Mon, 10 Jun 2013 18:48:40 GMT
-- request:
+- request: 
     method: get
     uri: https://api.twitter.com/1.1/statuses/user_timeline.json?user_id=1395259310
-    body:
+    body: 
       encoding: US-ASCII
-      string: ''
-    headers:
-      accept:
+      string: ""
+    headers: 
+      accept: 
       - application/json
-      user-agent:
+      user-agent: 
       - Twitter Ruby Gem 4.7.0
-      authorization:
-      - OAuth oauth_consumer_key="KQvSsA1AFozcJpzQ3EV4w", oauth_nonce="4629947d8f126c9f80571e83a3761c4c",
-        oauth_signature="StkPbHYU7cAgAllTeAK%2FpafOSY0%3D", oauth_signature_method="HMAC-SHA1",
-        oauth_timestamp="1370890133", oauth_token="823627243-UDZhCacE9mWVMbFprLKq90Rk2sD3iPYujpDXPV4I",
-        oauth_version="1.0"
-      accept-encoding:
+      authorization: 
+      - OAuth oauth_consumer_key="KQvSsA1AFozcJpzQ3EV4w", oauth_nonce="4629947d8f126c9f80571e83a3761c4c", oauth_signature="StkPbHYU7cAgAllTeAK%2FpafOSY0%3D", oauth_signature_method="HMAC-SHA1", oauth_timestamp="1370890133", oauth_token="823627243-UDZhCacE9mWVMbFprLKq90Rk2sD3iPYujpDXPV4I", oauth_version="1.0"
+      accept-encoding: 
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-  response:
-    status:
+  response: 
+    status: 
       code: 200
       message: OK
-    headers:
-      cache-control:
+    headers: 
+      cache-control: 
       - no-cache, no-store, must-revalidate, pre-check=0, post-check=0
-      content-encoding:
+      content-encoding: 
       - gzip
-      content-length:
-      - '2328'
-      content-type:
+      content-length: 
+      - "2328"
+      content-type: 
       - application/json;charset=utf-8
-      date:
+      date: 
       - Mon, 10 Jun 2013 18:45:39 GMT
-      expires:
+      expires: 
       - Tue, 31 Mar 1981 05:00:00 GMT
-      last-modified:
+      last-modified: 
       - Mon, 10 Jun 2013 18:45:39 GMT
-      pragma:
+      pragma: 
       - no-cache
-      server:
+      server: 
       - tfe
-      set-cookie:
+      set-cookie: 
       - lang=en
-      - guest_id=v1%3A137088993945471688; Domain=.twitter.com; Path=/; Expires=Wed,
-        10-Jun-2015 18:45:39 UTC
-      status:
+      - guest_id=v1%3A137088993945471688; Domain=.twitter.com; Path=/; Expires=Wed, 10-Jun-2015 18:45:39 UTC
+      status: 
       - 200 OK
-      strict-transport-security:
+      strict-transport-security: 
       - max-age=631138519
-      x-access-level:
+      x-access-level: 
       - read
-      x-frame-options:
+      x-frame-options: 
       - SAMEORIGIN
-      x-rate-limit-limit:
-      - '180'
-      x-rate-limit-remaining:
-      - '143'
-      x-rate-limit-reset:
-      - '1370890800'
-      x-transaction:
+      x-rate-limit-limit: 
+      - "180"
+      x-rate-limit-remaining: 
+      - "143"
+      x-rate-limit-reset: 
+      - "1370890800"
+      x-transaction: 
       - 70ff92857bada856
-      x-xss-protection:
+      x-xss-protection: 
       - 1; mode=block
-      connection:
+      connection: 
       - close
-    body:
+    body: 
       encoding: ASCII-8BIT
-      string: !binary |-
+      string: !binary |
         H4sIAAAAAAAAAOybC5PTOBKA/4oqVMFubSZj+e1UUcdk2FAzCywwOTiOUC7Z
         VmIxjhQseUKg+O/bsvNyHkNqGfbu9myozLjVastSq/tL2/PuSyvOKVE0CYlq
         dVuDtEDPyBxZBjKMLra7lol+MeBApoGtVrvFklbXsgI/8Bzf8ALfDkzXs7Q8
@@ -6237,90 +6111,303 @@ http_interactions:
         r/8m9Fr9tYHOtfXSktnG3sE/NDgQrWsYcNtrd+vsH7HP8CH4SZzqDzKJcpaM
         6T+m6mEFMvc1PCzezL9/89C6l4JCV/07GFykH8X580v2Imavf+3fsNnZTsw/
         eJ09r+Nh7Lexvb9ue7f1tfd/AAAA//8DANdHiN7yOQAA
-    http_version: '1.1'
+
+    http_version: "1.1"
   recorded_at: Mon, 10 Jun 2013 18:48:54 GMT
-- request:
+- request: 
     method: post
     uri: https://api.twitter.com/1.1/statuses/update.json
-    body:
+    body: 
       encoding: US-ASCII
       string: status=...
-    headers:
-      accept:
+    headers: 
+      accept: 
       - application/json
-      user-agent:
+      user-agent: 
       - Twitter Ruby Gem 4.7.0
-      authorization:
-      - OAuth oauth_consumer_key="KQvSsA1AFozcJpzQ3EV4w", oauth_nonce="b57baae538612386d1711b621dba9c6e",
-        oauth_signature="TzK9noi4HM2gbzuJUj2VaDciJiM%3D", oauth_signature_method="HMAC-SHA1",
-        oauth_timestamp="1371182918", oauth_token="823627243-zMklbs2x3nqK8TCM2AZoGlES7MfDqJOVRuzgtXxt",
-        oauth_version="1.0"
-      content-type:
+      authorization: 
+      - OAuth oauth_consumer_key="KQvSsA1AFozcJpzQ3EV4w", oauth_nonce="b57baae538612386d1711b621dba9c6e", oauth_signature="TzK9noi4HM2gbzuJUj2VaDciJiM%3D", oauth_signature_method="HMAC-SHA1", oauth_timestamp="1371182918", oauth_token="823627243-zMklbs2x3nqK8TCM2AZoGlES7MfDqJOVRuzgtXxt", oauth_version="1.0"
+      content-type: 
       - application/x-www-form-urlencoded
-  response:
-    status:
+  response: 
+    status: 
       code: 200
       message: OK
-    headers:
-      cache-control:
+    headers: 
+      cache-control: 
       - no-cache, no-store, must-revalidate, pre-check=0, post-check=0
-      content-length:
-      - '2206'
-      content-type:
+      content-length: 
+      - "2206"
+      content-type: 
       - application/json; charset=utf-8
-      date:
+      date: 
       - Fri, 14 Jun 2013 04:05:09 GMT
-      etag:
-      - ! '"13373e1060614469fc019b2181cc84e5"'
-      expires:
+      etag: 
+      - "\"13373e1060614469fc019b2181cc84e5\""
+      expires: 
       - Tue, 31 Mar 1981 05:00:00 GMT
-      last-modified:
+      last-modified: 
       - Fri, 14 Jun 2013 04:05:08 GMT
-      pragma:
+      pragma: 
       - no-cache
-      server:
+      server: 
       - tfe
-      set-cookie:
+      set-cookie: 
       - dnt=1; domain=.twitter.com; path=/; expires=Wed, 14-Jun-2023 16:05:08 GMT
       - pid=; domain=.twitter.com; path=/; expires=Thu, 01-Jan-1970 00:00:00 GMT
       - lang=en; path=/
       - lang=en; path=/
       - lang=en; path=/
-      - twid=u%3D823627243%7C3DQiceAZZyD4jCvgpxygKVct3Gs%3D; domain=.twitter.com;
-        path=/; secure
-      - _twitter_sess=BAh7CDoMY3NyZl9pZCIlYzJhYWYyZmRjODNiYjg3MmRkZTUwOGRjZTIxOThi%250ANDU6D2NyZWF0ZWRfYXRsKwjguNtAPwE6B2lkIiU4Zjc5MDg2YmU4ZmE5ZTBk%250AZTE0ODY1OGVmNjQzOTA5YQ%253D%253D--ff1c9e39304b804f950bbff92018d4c45b8950f0;
-        domain=.twitter.com; path=/; HttpOnly
-      - guest_id=v1%3A137118270881338251; Domain=.twitter.com; Path=/; Expires=Sun,
-        14-Jun-2015 04:05:09 UTC
-      status:
+      - twid=u%3D823627243%7C3DQiceAZZyD4jCvgpxygKVct3Gs%3D; domain=.twitter.com; path=/; secure
+      - _twitter_sess=BAh7CDoMY3NyZl9pZCIlYzJhYWYyZmRjODNiYjg3MmRkZTUwOGRjZTIxOThi%250ANDU6D2NyZWF0ZWRfYXRsKwjguNtAPwE6B2lkIiU4Zjc5MDg2YmU4ZmE5ZTBk%250AZTE0ODY1OGVmNjQzOTA5YQ%253D%253D--ff1c9e39304b804f950bbff92018d4c45b8950f0; domain=.twitter.com; path=/; HttpOnly
+      - guest_id=v1%3A137118270881338251; Domain=.twitter.com; Path=/; Expires=Sun, 14-Jun-2015 04:05:09 UTC
+      status: 
       - 200 OK
-      strict-transport-security:
+      strict-transport-security: 
       - max-age=631138519
-      vary:
+      vary: 
       - Accept-Encoding
-      x-access-level:
+      x-access-level: 
       - read-write-directmessages
-      x-frame-options:
+      x-frame-options: 
       - SAMEORIGIN
-      x-mid:
+      x-mid: 
       - ceec3062149cd4f323e2a06e359e24b7839afa2b
-      x-runtime:
-      - '0.57814'
-      x-transaction:
+      x-runtime: 
+      - "0.57814"
+      x-transaction: 
       - a59fd0493523efab
-      x-transaction-mask:
+      x-transaction-mask: 
       - a6183ffa5f8ca943ff1b53b5644ef11421e83fa6
-      connection:
+      connection: 
       - close
-    body:
+    body: 
       encoding: US-ASCII
-      string: ! '{"in_reply_to_status_id_str":null,"user":{"location":"Cambridge,
-        MA","profile_sidebar_fill_color":"DDEEF6","verified":false,"name":"Matt Buckley","time_zone":"Atlantic
-        Time (Canada)","profile_background_image_url_https":"https:\/\/twimg0-a.akamaihd.net\/images\/themes\/theme1\/bg.png","follow_request_sent":false,"statuses_count":30,"lang":"en","notifications":false,"default_profile":true,"profile_banner_url":"https:\/\/pbs.twimg.com\/profile_banners\/823627243\/1367331955","friends_count":99,"id":823627243,"profile_background_color":"C0DEED","listed_count":0,"profile_background_image_url":"http:\/\/a0.twimg.com\/images\/themes\/theme1\/bg.png","geo_enabled":true,"profile_link_color":"0084B4","following":false,"utc_offset":-14400,"profile_image_url":"http:\/\/a0.twimg.com\/profile_images\/3709941802\/e360b566c31c8ce5539aad1b458bf46d_normal.jpeg","created_at":"Fri
-        Sep 14 17:00:53 +0000 2012","id_str":"823627243","profile_use_background_image":true,"profile_text_color":"333333","protected":false,"description":"Aspiring
-        Rubyist at @LaunchAcademy_, world-traveler, ex-researcher, tall person","is_translator":false,"default_profile_image":false,"followers_count":31,"screen_name":"mattThousand","favourites_count":7,"profile_sidebar_border_color":"C0DEED","contributors_enabled":false,"entities":{"url":{"urls":[{"display_url":"matt-buckley.com","expanded_url":"http:\/\/www.matt-buckley.com","url":"http:\/\/t.co\/F6ecGWT1J8","indices":[0,22]}]},"description":{"urls":[]}},"profile_image_url_https":"https:\/\/twimg0-a.akamaihd.net\/profile_images\/3709941802\/e360b566c31c8ce5539aad1b458bf46d_normal.jpeg","url":"http:\/\/t.co\/F6ecGWT1J8","profile_background_tile":false},"in_reply_to_status_id":null,"in_reply_to_screen_name":null,"in_reply_to_user_id_str":null,"source":"\u003Ca
-        href=\"http:\/\/127.0.0.1:3000\" rel=\"nofollow\"\u003ESadPanda\u003C\/a\u003E","created_at":"Fri
-        Jun 14 04:05:08 +0000 2013","entities":{"user_mentions":[],"urls":[],"hashtags":[]},"favorited":false,"place":null,"geo":null,"id":345391431466233858,"contributors":null,"truncated":false,"id_str":"345391431466233858","in_reply_to_user_id":null,"retweet_count":0,"text":"...","coordinates":null,"retweeted":false}'
-    http_version: '1.1'
+      string: "{\"in_reply_to_status_id_str\":null,\"user\":{\"location\":\"Cambridge, MA\",\"profile_sidebar_fill_color\":\"DDEEF6\",\"verified\":false,\"name\":\"Matt Buckley\",\"time_zone\":\"Atlantic Time (Canada)\",\"profile_background_image_url_https\":\"https:\\/\\/twimg0-a.akamaihd.net\\/images\\/themes\\/theme1\\/bg.png\",\"follow_request_sent\":false,\"statuses_count\":30,\"lang\":\"en\",\"notifications\":false,\"default_profile\":true,\"profile_banner_url\":\"https:\\/\\/pbs.twimg.com\\/profile_banners\\/823627243\\/1367331955\",\"friends_count\":99,\"id\":823627243,\"profile_background_color\":\"C0DEED\",\"listed_count\":0,\"profile_background_image_url\":\"http:\\/\\/a0.twimg.com\\/images\\/themes\\/theme1\\/bg.png\",\"geo_enabled\":true,\"profile_link_color\":\"0084B4\",\"following\":false,\"utc_offset\":-14400,\"profile_image_url\":\"http:\\/\\/a0.twimg.com\\/profile_images\\/3709941802\\/e360b566c31c8ce5539aad1b458bf46d_normal.jpeg\",\"created_at\":\"Fri Sep 14 17:00:53 +0000 2012\",\"id_str\":\"823627243\",\"profile_use_background_image\":true,\"profile_text_color\":\"333333\",\"protected\":false,\"description\":\"Aspiring Rubyist at @LaunchAcademy_, world-traveler, ex-researcher, tall person\",\"is_translator\":false,\"default_profile_image\":false,\"followers_count\":31,\"screen_name\":\"mattThousand\",\"favourites_count\":7,\"profile_sidebar_border_color\":\"C0DEED\",\"contributors_enabled\":false,\"entities\":{\"url\":{\"urls\":[{\"display_url\":\"matt-buckley.com\",\"expanded_url\":\"http:\\/\\/www.matt-buckley.com\",\"url\":\"http:\\/\\/t.co\\/F6ecGWT1J8\",\"indices\":[0,22]}]},\"description\":{\"urls\":[]}},\"profile_image_url_https\":\"https:\\/\\/twimg0-a.akamaihd.net\\/profile_images\\/3709941802\\/e360b566c31c8ce5539aad1b458bf46d_normal.jpeg\",\"url\":\"http:\\/\\/t.co\\/F6ecGWT1J8\",\"profile_background_tile\":false},\"in_reply_to_status_id\":null,\"in_reply_to_screen_name\":null,\"in_reply_to_user_id_str\":null,\"source\":\"\\u003Ca href=\\\"http:\\/\\/127.0.0.1:3000\\\" rel=\\\"nofollow\\\"\\u003ESadPanda\\u003C\\/a\\u003E\",\"created_at\":\"Fri Jun 14 04:05:08 +0000 2013\",\"entities\":{\"user_mentions\":[],\"urls\":[],\"hashtags\":[]},\"favorited\":false,\"place\":null,\"geo\":null,\"id\":345391431466233858,\"contributors\":null,\"truncated\":false,\"id_str\":\"345391431466233858\",\"in_reply_to_user_id\":null,\"retweet_count\":0,\"text\":\"...\",\"coordinates\":null,\"retweeted\":false}"
+    http_version: "1.1"
   recorded_at: Fri, 14 Jun 2013 04:08:39 GMT
+- request: 
+    method: get
+    uri: https://api.twitter.com/1.1/statuses/user_timeline.json?screen_name=test_handle
+    body: 
+      encoding: US-ASCII
+      string: ""
+    headers: 
+      accept: 
+      - application/json
+      user-agent: 
+      - Twitter Ruby Gem 4.8.1
+      authorization: 
+      - OAuth oauth_consumer_key="qQMwWLs5B2Zif5xZORSULg", oauth_nonce="5b1a24f6affe7bdcff6b770d11eda55c", oauth_signature="Re9ZSivnJzgBB8T6HcXD4d5tgq4%3D", oauth_signature_method="HMAC-SHA1", oauth_timestamp="1372438769", oauth_token="823627243-tNLQPUGpEh0uJbeupONLbpCsPjeNLuqeeNUasWV9", oauth_version="1.0"
+      accept-encoding: 
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response: 
+    status: 
+      code: 200
+      message: OK
+    headers: 
+      cache-control: 
+      - no-cache, no-store, must-revalidate, pre-check=0, post-check=0
+      content-encoding: 
+      - gzip
+      content-length: 
+      - "825"
+      content-type: 
+      - application/json;charset=utf-8
+      date: 
+      - Fri, 28 Jun 2013 16:55:00 GMT
+      expires: 
+      - Tue, 31 Mar 1981 05:00:00 GMT
+      last-modified: 
+      - Fri, 28 Jun 2013 16:55:00 GMT
+      pragma: 
+      - no-cache
+      server: 
+      - tfe
+      set-cookie: 
+      - lang=en
+      - guest_id=v1%3A137243850054188404; Domain=.twitter.com; Path=/; Expires=Sun, 28-Jun-2015 16:55:00 UTC
+      status: 
+      - 200 OK
+      strict-transport-security: 
+      - max-age=631138519
+      x-access-level: 
+      - read-write-directmessages
+      x-frame-options: 
+      - SAMEORIGIN
+      x-rate-limit-limit: 
+      - "180"
+      x-rate-limit-remaining: 
+      - "179"
+      x-rate-limit-reset: 
+      - "1372439400"
+      x-transaction: 
+      - 2715f8fe3094735f
+      x-xss-protection: 
+      - 1; mode=block
+      connection: 
+      - close
+    body: 
+      encoding: ASCII-8BIT
+      string: !binary |
+        H4sIAAAAAAAAAKxVW2/aMBT+K1FeV4Eh3BppLyttxcOkSdtbgywnOQG3jp3Z
+        DpQh/vuOk0BCKdWmjReU71xyvnP58rT3Ew3MQkqZ9UP/x7r0HiD2hjOPzMLh
+        JAwC7xPBnzckg8C/8XnqhwGZktFoQEbjYDK4HZNp4HBqrMYMl0aMsvDqsi88
+        oTbgzbUqYvXqxZCw0oD3ded9U9qyWIB3J1SZet+t0mwF3traIoz6Ud/2EhX1
+        F+Z5Kh5h8TzFnEaVOgHMGpWEBAnz1hqyz5F/itlut720fhVG55HvaRDoIFWm
+        hFDbqI6Ephz3wEidLOqz2uZq16VMXIf8MGPCAHKVVEMhdtQqJM1saahriyyF
+        uGKse3PpgOz1ldjGdC3S4NhAUslyOJpdhB/uqxENhsMpGY4nwbAzmhZEWnUk
+        TsZY18xuugqkayZT4RogFNLnSqIBn1JAX160QKnFsQKQllsOxlVx5rd3Xgg/
+        LQ+HG7/QykLS7Wg9ENCGJqqUuCoEMc1BpidkgIVw4xa1dflodcdhMDtf3Yxt
+        cGU4kuukKG1CVZYZsEcSludAfyl56usKFAXptrMteAOaZ7wD1KOGs3KZXGFd
+        IPHdiZJW87jEvTYXybihVjNpBEPzCcUuZVwAjVnystKY1TEXzsG/I/P7+7n/
+        rg/P8XBoNZT2FBjp2S3PV9Ud9CsXg0e1hvz0P4j68apXYMkfp6UuqWmSmyq7
+        4f+c3uLzBfM/oGIsT152UT+FjJXC0rNQc4kTKpXOmXhTyV+w+09vFFy+nOZJ
+        yGz0ZdSxGp5CzDSNlU5RBq7O/eiHD+LkNUenh0nHy6nvyRpUv44Vt/Zi0H6I
+        qgfu2M/IXIHPY+pb5m736/upAZSun6XTFQPuPppRS2Xxjmp9MXXAobq4Y3Ci
+        sAVc4pmbI1QIlkBrbw/riGmwWwDb1RI8fXf5HairVWtm1patKoHCU97lsRLN
+        Q6Nbe//NGr7zQYLXAiUT5eiNaxr3rI360wVZ/SCP905DuUESu8bx0s5lyhNX
+        2tPo9mY6WB6WtbrT3FVddQqVtKXVSklDvYMUyhge40cD+26Q8aa9s1agDsvf
+        AAAA//8DAOBZ9coJCAAA
+
+    http_version: "1.1"
+  recorded_at: Fri, 28 Jun 2013 16:59:29 GMT
+- request: 
+    method: get
+    uri: https://api.twitter.com/1.1/followers/list.json?screen_name=test_handle&cursor=-1
+    body: 
+      encoding: US-ASCII
+      string: ""
+    headers: 
+      accept: 
+      - application/json
+      user-agent: 
+      - Twitter Ruby Gem 4.8.1
+      authorization: 
+      - OAuth oauth_consumer_key="qQMwWLs5B2Zif5xZORSULg", oauth_nonce="483ace77dba3e97b033ace27a89d9dbf", oauth_signature="iKVkzRt9huGnkL2vwSBSEb5aGUk%3D", oauth_signature_method="HMAC-SHA1", oauth_timestamp="1372438769", oauth_token="823627243-tNLQPUGpEh0uJbeupONLbpCsPjeNLuqeeNUasWV9", oauth_version="1.0"
+      accept-encoding: 
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response: 
+    status: 
+      code: 200
+      message: OK
+    headers: 
+      cache-control: 
+      - no-cache, no-store, must-revalidate, pre-check=0, post-check=0
+      content-encoding: 
+      - gzip
+      content-length: 
+      - "80"
+      content-type: 
+      - application/json;charset=utf-8
+      date: 
+      - Fri, 28 Jun 2013 16:55:01 GMT
+      expires: 
+      - Tue, 31 Mar 1981 05:00:00 GMT
+      last-modified: 
+      - Fri, 28 Jun 2013 16:55:01 GMT
+      pragma: 
+      - no-cache
+      server: 
+      - tfe
+      set-cookie: 
+      - lang=en
+      - guest_id=v1%3A137243850111003357; Domain=.twitter.com; Path=/; Expires=Sun, 28-Jun-2015 16:55:01 UTC
+      status: 
+      - 200 OK
+      strict-transport-security: 
+      - max-age=631138519
+      x-access-level: 
+      - read-write-directmessages
+      x-frame-options: 
+      - SAMEORIGIN
+      x-rate-limit-limit: 
+      - "15"
+      x-rate-limit-remaining: 
+      - "14"
+      x-rate-limit-reset: 
+      - "1372439401"
+      x-transaction: 
+      - d812775df882c811
+      x-xss-protection: 
+      - 1; mode=block
+      connection: 
+      - close
+    body: 
+      encoding: ASCII-8BIT
+      string: !binary |
+        H4sIAAAAAAAAAKpWKi1OLSpWsoqO1VHKS60oiU8uLSrOL1KyMkDhxxeXAMWU
+        DJR0lAqKUssy80uLkVWiicFV1wIAAAD//wMAWd0uzmAAAAA=
+
+    http_version: "1.1"
+  recorded_at: Fri, 28 Jun 2013 16:59:30 GMT
+- request: 
+    method: get
+    uri: https://api.twitter.com/1.1/followers/list.json?screen_name=test_handle&cursor=0
+    body: 
+      encoding: US-ASCII
+      string: ""
+    headers: 
+      accept: 
+      - application/json
+      user-agent: 
+      - Twitter Ruby Gem 4.8.1
+      authorization: 
+      - OAuth oauth_consumer_key="qQMwWLs5B2Zif5xZORSULg", oauth_nonce="8204ab0e6d96ea2eb02dfae73b6831f3", oauth_signature="RONlSynCcB3xn0zDm%2F8ikJvdSIs%3D", oauth_signature_method="HMAC-SHA1", oauth_timestamp="1372438770", oauth_token="823627243-tNLQPUGpEh0uJbeupONLbpCsPjeNLuqeeNUasWV9", oauth_version="1.0"
+      accept-encoding: 
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response: 
+    status: 
+      code: 200
+      message: OK
+    headers: 
+      cache-control: 
+      - no-cache, no-store, must-revalidate, pre-check=0, post-check=0
+      content-encoding: 
+      - gzip
+      content-length: 
+      - "85"
+      content-type: 
+      - application/json;charset=utf-8
+      date: 
+      - Fri, 28 Jun 2013 16:55:01 GMT
+      expires: 
+      - Tue, 31 Mar 1981 05:00:00 GMT
+      last-modified: 
+      - Fri, 28 Jun 2013 16:55:01 GMT
+      pragma: 
+      - no-cache
+      server: 
+      - tfe
+      set-cookie: 
+      - lang=en
+      - guest_id=v1%3A137243850147959209; Domain=.twitter.com; Path=/; Expires=Sun, 28-Jun-2015 16:55:01 UTC
+      status: 
+      - 200 OK
+      strict-transport-security: 
+      - max-age=631138519
+      x-access-level: 
+      - read-write-directmessages
+      x-frame-options: 
+      - SAMEORIGIN
+      x-rate-limit-limit: 
+      - "15"
+      x-rate-limit-remaining: 
+      - "13"
+      x-rate-limit-reset: 
+      - "1372439401"
+      x-transaction: 
+      - 8af077aa64e8860a
+      x-xss-protection: 
+      - 1; mode=block
+      connection: 
+      - close
+    body: 
+      encoding: ASCII-8BIT
+      string: !binary |
+        H4sIAAAAAAAAAKpWKi1OLSpWsoqO1VHKS60oiU8uLSrOL1KyMkDhxxeXAMWU
+        DJR0lAqKUssy80uL4Sp1DTEEocp1DZVqAQAAAP//AwDzTsPoYgAAAA==
+
+    http_version: "1.1"
+  recorded_at: Fri, 28 Jun 2013 16:59:30 GMT
 recorded_with: VCR 2.5.0

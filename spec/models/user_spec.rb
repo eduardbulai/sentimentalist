@@ -29,17 +29,17 @@ describe User do
 			expect(user.machine_learner.user_id).to eql(user.id)
 		end
 
-		it 'has followers' do
+		it 'user has followers' do
 			expect(user.followers).to_not be_empty
 		end
 
-		it 'has user tweets' do
+		it 'user has user tweets' do
 			expect(user.user_tweets).to_not be_empty
 		end
 
-		it 'has follower tweets' do
+		it 'followers initialize without follower tweets' do
 			user.followers.each do |follower|
-				expect(follower.follower_tweets).to_not be_empty
+				expect(follower.follower_tweets).to_not be_nil
 			end
 		end
 
