@@ -1,18 +1,26 @@
 require "spec_helper"
 
-describe BayesianClassificationUpdater do
+describe BayesianClassificationUpdater, type: :feature do
 
-  describe "#perform", type: :feature do
+  let!(:user){ FactoryGirl.create(:user_with_followers_and_machine_learner) }
 
-    let!(:user){ FactoryGirl.create(:user_with_followers_and_machine_learner) }
+  before do
+    ResqueSpec.reset!
+    sign_in(user)
+  end
 
-    before do
-      ResqueSpec.reset!
-      sign_in(user)
-    end
+  describe "queueing" do
 
     it "adds user tweet update task to the queue" do
       BayesianClassificationUpdater.should have_queued(user.id).in(:bayesian_classification_update_queue)
+    end
+
+  end
+
+  describe "#perform" do
+
+    it "does not raise an error" do
+      expect{BayesianClassificationUpdater.perform(user.id)}.to_not raise_error
     end
 
   end

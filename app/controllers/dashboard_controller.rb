@@ -45,9 +45,10 @@ class DashboardController < ApplicationController
     tweet_message.gsub!(/(?=\w*h)(?=\w*t)(?=\w*t)(?=\w*p)\w*/, '')
     tweet_message.gsub!(/\s\s+/,' ')
     tweet.emotion = new_emotion
-    new_classifier = current_user.machine_learner.build_classifier
+    machine_learner = current_user.machine_learner
+    new_classifier = machine_learner.build_classifier
     new_classifier.train(new_emotion.to_sym, tweet_message)
-    current_user.machine_learner.persist_machine_learner(new_classifier)
+    machine_learner.persist_machine_learner(new_classifier)
     if tweet.save
       render :json => [tweet]
     else

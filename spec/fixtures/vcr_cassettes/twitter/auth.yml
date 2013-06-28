@@ -6410,4 +6410,74 @@ http_interactions:
 
     http_version: "1.1"
   recorded_at: Fri, 28 Jun 2013 16:59:30 GMT
+- request: 
+    method: get
+    uri: https://api.twitter.com/1.1/statuses/user_timeline.json?screen_name=dsf%40__
+    body: 
+      encoding: US-ASCII
+      string: ""
+    headers: 
+      accept: 
+      - application/json
+      user-agent: 
+      - Twitter Ruby Gem 4.8.1
+      authorization: 
+      - OAuth oauth_consumer_key="qQMwWLs5B2Zif5xZORSULg", oauth_nonce="42ae7bf9eeae1d2cfc3cad59bed8c99e", oauth_signature="O9CZbDowSmyp3AR6BkviLO2XPbU%3D", oauth_signature_method="HMAC-SHA1", oauth_timestamp="1372442867", oauth_token="823627243-tNLQPUGpEh0uJbeupONLbpCsPjeNLuqeeNUasWV9", oauth_version="1.0"
+      accept-encoding: 
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response: 
+    status: 
+      code: 404
+      message: Not Found
+    headers: 
+      cache-control: 
+      - no-cache, no-store, must-revalidate, pre-check=0, post-check=0
+      content-type: 
+      - application/json; charset=utf-8
+      date: 
+      - Fri, 28 Jun 2013 18:03:18 GMT
+      expires: 
+      - Tue, 31 Mar 1981 05:00:00 GMT
+      last-modified: 
+      - Fri, 28 Jun 2013 18:03:18 GMT
+      pragma: 
+      - no-cache
+      server: 
+      - tfe
+      set-cookie: 
+      - lang=en
+      - guest_id=v1%3A137244259849067514; Domain=.twitter.com; Path=/; Expires=Sun, 28-Jun-2015 18:03:18 UTC
+      status: 
+      - 404 Not Found
+      strict-transport-security: 
+      - max-age=631138519
+      x-access-level: 
+      - read-write-directmessages
+      x-frame-options: 
+      - SAMEORIGIN
+      x-rate-limit-limit: 
+      - "180"
+      x-rate-limit-remaining: 
+      - "179"
+      x-rate-limit-reset: 
+      - "1372443498"
+      x-transaction: 
+      - eb7460f9c37deed6
+      x-xss-protection: 
+      - 1; mode=block
+      transfer-encoding: 
+      - chunked
+      content-encoding: 
+      - gzip
+      connection: 
+      - close
+    body: 
+      encoding: ASCII-8BIT
+      string: !binary |
+        H4sIAAAAAAAAAKpWSi0qyi8qVrKKrlbKTS0uTkxPVbJSCs4vKqrUUSjJSCxR
+        KAAKKaTkpxYr5OWXKKRWZBaXKOkoJeenABUam9TG1gIAAAD//wMAke1ZcEQA
+        AAA=
+
+    http_version: "1.1"
+  recorded_at: Fri, 28 Jun 2013 18:07:47 GMT
 recorded_with: VCR 2.5.0

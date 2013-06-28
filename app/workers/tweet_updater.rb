@@ -9,79 +9,41 @@ class TweetUpdater
 
 	end
 
-	def self.update_tweets user
-		update_user_tweets user
-		update_follower_tweets user
+	def self.update_tweets(user)
+		update_user_tweets(user)
+		update_follower_tweets(user)
 	end
 
-	def self.update_user_tweets user
-		remove_old_user_tweets user
-		get_new_user_tweets user
-		#user.tweets_updated = true
+	def self.update_user_tweets(user)
+		get_new_user_tweets(user)
 	end
 
-	def self.update_follower_tweets user
+	def self.update_follower_tweets(user)
 		user.followers.find_each do |follower|
-			remove_old_follower_tweets follower
 			get_new_follower_tweets follower
 		end
 	end
 
-	def self.remove_old_user_tweets user
-    tweets = user.user_tweets
-    #TODO: constrain set via SQL so that only stale records
-    # are returned
-    tweets.find_each do |tweet|
-      if tweet.datetime_tweeted < Time.now - 1.year
-        tweets.delete(tweet)
+  def self.get_new_user_tweets(user)
+    user_timeline = Twitter.user_timeline(user.twitter_handle)
+    user_timeline.each do |tweet|
+      unless user.user_tweets.pluck(:tweet_id).include?(tweet.id)
+        user.user_tweets.create!(
+          text: tweet.text,
+          tweet_id: tweet.id
+          )
       end
     end
   end
 
-  def self.remove_old_follower_tweets follower
-    tweets = follower.follower_tweets
-    tweets.each do |tweet|
-      if tweet.datetime_tweeted < Time.now - 1.year
-        tweets.delete(tweet)
-      end
-    end
-  end
-
-  def self.get_new_user_tweets user
-    begin
-        user_timeline = Twitter.user_timeline(user.twitter_handle)
-    # TODO: remove catch all
-    rescue
-        user_timeline = nil
-    end
-    if user_timeline
-      user_timeline.each do |tweet|
-        until self.user_tweets.pluck(:tweet_id).include?(tweet.id)
-          self.user_tweets.create!(
-            text: tweet.text,
-            tweet_id: tweet.id,
-            datetime_tweeted: tweet.created_at
-            )
-        end
-      end
-    end
-  end
-
-  def self.get_new_follower_tweets follower
-    begin
-        user_timeline = Twitter.user_timeline(follower.twitter__handle)
-    rescue
-        user_timeline = nil
-    end
-    if user_timeline
-      user_timeline.each do |tweet|
-        until self.follower_tweets.pluck(:tweet_id).include?(tweet.id)
-          self.user_tweets.create!(
-            text: tweet.text,
-            tweet_id: tweet.id,
-            datetime_tweeted: tweet.created_at
-            )
-        end
+  def self.get_new_follower_tweets(follower)
+    user_timeline = Twitter.user_timeline(follower.twitter_handle)
+    user_timeline.each do |tweet|
+      unless follower.follower_tweets.pluck(:tweet_id).include?(tweet.id)
+        follower.follower_tweets.create!(
+          text: tweet.text,
+          tweet_id: tweet.id
+          )
       end
     end
   end

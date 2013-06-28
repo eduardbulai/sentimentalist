@@ -10,10 +10,7 @@ class UserTweet < ActiveRecord::Base
 
   validates_presence_of :text,
     :user_id,
-    :tweet_id,
-    :emotion,
-    :bayesian_emotion,
-    :polarity
+    :tweet_id
 
 end
 
