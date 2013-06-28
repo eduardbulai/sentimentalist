@@ -1,41 +1,56 @@
-// $(document).ready( function() {
+$(document).ready(function() {
+  $('a[name=post_to_twitter]').click(function(e) {
+    //Cancel the link behavior
+    e.preventDefault();
 
-//   function myRequest() {
-//     $.getJSON('/dashboard/index', function(response) {
-//       var followers = response.followers;
-//       $.each(followers, function() {
-//         $('#small-icons').after(HandlebarsTemplates['followers/followers']);
-//       });
-//     });
-//   }
+    //Get the textarea's text
+    var taText = $('textarea#myTextArea').val();
 
-//   function setIconField() {
+    //Example - Now add the text to a span tag inside the modal
+    $("#myDiv span").text(taText);
+  });
 
-//     myRequest();
+  $('.user-assessment-modal a').click(function(e) {
+    e.preventDefault();
+    var target = $(e.target);
+    var id = target.data("tweet-id");
 
-//     setTimeout (setIconField, 1000);
-//   }
+    initialEmotion = target.data("initial-emotion");
+    newEmotion = null;
+    var text = target.text();
 
-//   setIconField();
+    newEmotion=text.toLowerCase();
 
-// });
+    $.ajax({
+      data: {
+        id: id,
+        emotion: text
+      },
+      url: 'dashboard/update_machine_learner',
+      type: 'POST',
+      datatype: 'json',
+      success: function(data) {
+        setNewColor(data);
+        setNewText(data);
+      },
+      error: function(data) {}
+    });
 
+    setNewColor = function(data) {
 
+      console.log($('dl#iconcolor'+data[0].id));
+      $('dl#iconcolor'+data[0].id).removeClass();
+      $('dl#iconcolor'+data[0].id).addClass("palette palette-"+newEmotion);
+      console.log($('dl#iconcolor'+data[0].id));
+      $('dl#iconcolor_bayes'+data[0].id).removeClass();
+      $('dl#iconcolor_bayes'+data[0].id).addClass("palette palette-"+newEmotion);
+    };
 
+    setNewText = function(data) {
+      $('#icontext'+data[0].id).text(text);
+      $('#icontext_bayes'+data[0].id).text(text);
+    };
 
+  });
 
-
-
-
-
-
-
-
-//   // var source   = $("#some-template").html();
-//   // var template = Handlebars.compile(source);
-//   // var data = { users: [
-//   //     {username: "alan", firstName: "Alan", lastName: "Johnson", email: "alan@test.com" },
-//   //     {username: "allison", firstName: "Allison", lastName: "House", email: "allison@test.com" },
-//   //     {username: "ryan", firstName: "Ryan", lastName: "Carson", email: "ryan@test.com" }
-//   //   ]};
-//   // $("#content-placeholder").html(template(data));
+});
