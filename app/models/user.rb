@@ -38,7 +38,7 @@ class User < ActiveRecord::Base
     SadPanda.emotion(text)
   end
 
-  def get_bayesian_emotion(tweet)
+  def get_bayesian_emotion_of_tweet(tweet)
     text = tweet.text
     user_classifier = self.machine_learner.build_classifier
     user_classifier.classify(text).to_s

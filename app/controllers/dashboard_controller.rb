@@ -29,6 +29,11 @@ class DashboardController < ApplicationController
 
   def load
 
+    respond_to do |format|
+      format.html
+      format.json { render json: {user: current_user} }
+    end
+
   end
 
   def update_machine_learner
