@@ -18,7 +18,7 @@
   .container
     .row
       %div.span3
-        %div.iconfield#user-profile-iconfield
+        %div.iconfield
           = render 'user_profile_icon'
         %a.btn.btn-large.btn-block.btn-inverse{"href" => "#post_to_twitter_modal", "data-toggle" => "modal", "role" => "button", "name" => "post_to_twitter", "class" => "btn"}Post To Twitter
         %a.btn.btn-large.btn-block.btn-inverse{"href" => "#manage_account_modal", "data-toggle" => "modal", "role" => "button", "name" => "manage_account", "class" => "btn"}Manage Account
@@ -27,8 +27,7 @@
         = render 'default_bayesian_filter_partial'
       %div.span9
         = render 'emotions_filter_partial'
-      %div.span9
-        = render 'user_followers_filter_partial'
+      = render 'user_followers_filter_partial'
       %div.iconfield.span9#small-icons
         = render 'dashboard_iconfield'
 
@@ -39,7 +38,7 @@
   .container
     .row
       %div.span6#mobile-profile-icon
-        %div.iconfield#user-profile-iconfield
+        %div.iconfield
           = render 'user_profile_icon'
     %a.btn.btn-large.btn-block.btn-inverse{"href" => "#post_to_twitter_modal", "data-toggle" => "modal", "role" => "button", "name" => "post_to_twitter", "class" => "btn"}Post To Twitter
     %a.btn.btn-large.btn-block.btn-inverse{"href" => "#manage_account_modal", "data-toggle" => "modal", "role" => "button", "name" => "manage_account", "class" => "btn"}Manage Account
@@ -47,6 +46,8 @@
     %a.btn.btn-large.btn-block.btn-default#mobile-filter-first{"href" => '#default_bayesian_filter_modal', "data-toggle" => "modal", "role" => "button", "name" => "default_bayesian_filter", "class" => "btn"}Classifier
     %a.btn.btn-large.btn-block.btn-default{"href" => '#emotions_filter_modal', "data-toggle" => "modal", "role" => "button", "name" => "emotion_filter", "class" => "btn"}Emotion
     %a.btn.btn-large.btn-block.btn-default{"href" => '#user_follower_filter_modal', "data-toggle" => "modal", "role" => "button", "name" => "user_follower_filter", "class" => "btn"}Context
+    .container#mobile-iconfield.iconfield
+      = render 'dashboard_iconfield'
 
 
 

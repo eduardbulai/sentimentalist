@@ -82,7 +82,7 @@
 //   // function renderUserIcon(tweet) {
 //   //   var tweetEmotion = tweet.emotion;
 
-//   //   if (tweet.emotion==="uncertain") {
+//   //   if (tweet.emotion==="ambiguous") {
 //   //     tweetEmotion="Ambiguous";
 //   //   }
 //   //   else {
@@ -126,21 +126,21 @@
 //     var follower_emotion_month = follower.emotion_month;
 //     var follower_emotion_year = follower.emotion_year;
 
-//     if (follower.emotion_week==="uncertain") {
+//     if (follower.emotion_week==="ambiguous") {
 //       follower_emotion_week="Ambiguous";
 //     }
 //     else {
 //       follower_emotion_week=follower.emotion_week;
 //     }
 
-//     if (follower.emotion_month==="uncertain") {
+//     if (follower.emotion_month==="ambiguous") {
 //       follower_emotion_month="Ambiguous";
 //     }
 //     else {
 //       follower_emotion_month=follower.emotion_month;
 //     }
 
-//     if (follower.emotion_year==="uncertain") {
+//     if (follower.emotion_year==="ambiguous") {
 //       follower_emotion_year="Ambiguous";
 //     }
 //     else {
