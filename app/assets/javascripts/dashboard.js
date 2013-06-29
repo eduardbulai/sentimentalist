@@ -38,10 +38,8 @@ $(document).ready(function() {
 
     setNewColor = function(data) {
 
-      console.log($('dl#iconcolor'+data[0].id));
       $('dl#iconcolor'+data[0].id).removeClass();
       $('dl#iconcolor'+data[0].id).addClass("palette palette-"+newEmotion);
-      console.log($('dl#iconcolor'+data[0].id));
       $('dl#iconcolor_bayes'+data[0].id).removeClass();
       $('dl#iconcolor_bayes'+data[0].id).addClass("palette palette-"+newEmotion);
     };
@@ -52,5 +50,28 @@ $(document).ready(function() {
     };
 
   });
+
+
+  function updateBayesianProfileIcon() {
+  $.getJSON('/dashboard/update_profile_icon/', function(response) {
+
+    bayesianEmotion = response.user.bayesian_emotion;
+
+    desktopTarget = $('#desktop-profile-icon div.iconfield div.user.bayesian-classifier dl');
+    mobileTarget = $('#mobile-profile-icon div.iconfield div.user.bayesian-classifier dl');
+
+    desktopTarget.removeClass();
+    desktopTarget.addClass("palette-user-profile palette-"+bayesianEmotion);
+    $('#desktop-profile-icon div div.user.bayesian-classifier dl dt').text(bayesianEmotion);
+    mobileTarget.removeClass();
+    mobileTarget.addClass("palette-user-profile palette-"+bayesianEmotion);
+    $('#mobile-profile-icon div div.user.bayesian-classifier dl dt').text(bayesianEmotion);
+
+    setTimeout(updateBayesianProfileIcon, 1000);
+
+    });
+  }
+
+  updateBayesianProfileIcon();
 
 });

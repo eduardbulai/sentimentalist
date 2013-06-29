@@ -44,6 +44,7 @@ class DashboardController < ApplicationController
     tweet_message.gsub!(/(?=\w*h)(?=\w*t)(?=\w*t)(?=\w*p)\w*/, '')
     tweet_message.gsub!(/\s\s+/,' ')
     tweet.emotion = new_emotion
+    tweet.bayesian_emotion = new_emotion
     machine_learner = current_user.machine_learner
     new_classifier = machine_learner.build_classifier
     new_classifier.train(new_emotion.to_sym, tweet_message)
@@ -52,6 +53,14 @@ class DashboardController < ApplicationController
       render :json => [tweet]
     else
       render :json => [], :status => :unprocessable_entity
+    end
+  end
+
+  def update_profile_icon
+    current_user.bayesian_emotion = EmotionGetter.get_bayesian_emotion(current_user,current_user)
+    user = current_user
+    respond_to do |format|
+      format.json { render json: { user: user } }
     end
   end
 
