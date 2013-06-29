@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130628201641) do
+ActiveRecord::Schema.define(:version => 20130629033516) do
 
   create_table "follower_tweets", :force => true do |t|
     t.text     "text",        :null => false
@@ -59,8 +59,8 @@ ActiveRecord::Schema.define(:version => 20130628201641) do
     t.string   "name"
     t.string   "uid"
     t.string   "provider"
-    t.datetime "created_at",        :null => false
-    t.datetime "updated_at",        :null => false
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
     t.string   "oauth_token"
     t.string   "oauth_secret"
     t.string   "twitter_handle"
@@ -68,7 +68,6 @@ ActiveRecord::Schema.define(:version => 20130628201641) do
     t.string   "emotion"
     t.string   "bayesian_emotion"
     t.string   "polarity"
-    t.string   "bayesian_polarity"
   end
 
 end
