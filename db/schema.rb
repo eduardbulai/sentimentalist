@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130628145626) do
+ActiveRecord::Schema.define(:version => 20130628201641) do
 
   create_table "follower_tweets", :force => true do |t|
     t.text     "text",        :null => false
@@ -22,16 +22,15 @@ ActiveRecord::Schema.define(:version => 20130628145626) do
   end
 
   create_table "followers", :force => true do |t|
-    t.string   "name",              :null => false
-    t.string   "twitter_handle",    :null => false
-    t.integer  "user_id",           :null => false
-    t.string   "twitter_id",        :null => false
-    t.datetime "created_at",        :null => false
-    t.datetime "updated_at",        :null => false
+    t.string   "name",             :null => false
+    t.string   "twitter_handle",   :null => false
+    t.integer  "user_id",          :null => false
+    t.string   "twitter_id",       :null => false
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
     t.string   "emotion"
     t.string   "bayesian_emotion"
     t.string   "polarity"
-    t.string   "bayesian_polarity"
   end
 
   create_table "machine_learners", :force => true do |t|
