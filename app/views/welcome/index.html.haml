@@ -1,18 +1,31 @@
 #welcome-background
-  .container
-    .row#welcome-content-container
-      %div.span2.welcome-icon-column
-        %div(class = "emot emotion-anger")
+  %div#desktop
+    .container
+      .row#welcome-content-container
+        %div.span2.welcome-icon-column
           %div.emotion-icon-welcome.palette.palette-joy
-        %div(class = "emot emotion-fear")
           %div.emotion-icon-welcome.palette.palette-ambiguous
-      %div.span2.welcome-icon-column
-        %div(class = "emot emotion-joy")
+        %div.span2.welcome-icon-column
           %div.emotion-icon-welcome.palette.palette-blue2
-        %div(class = "emot emotion-ambiguous")
           %div.emotion-icon-welcome.palette.palette-blue1
-      %div.span4
-        %h1#app-logo Sentimentalist
-        %h2#app-subheading A new tool for Sentiment Analysis and Machine Learning
-        %a.welcome-index-button{href: "/auth/twitter"} Sign in with Twitter
+        %div.span4
+          %h1#app-logo Sentimentalist
+          %h2#app-subheading A new tool for Sentiment Analysis and Machine Learning
+          %a.welcome-index-button{href: "/auth/twitter"} Sign in with Twitter
+  %div#mobile
+    .container
+      %div#welcome-content-container-mobile
+        %h1#app-logo-mobile Sentimentalist
+      .row#welcome-content-container-mobile-icons
+        %div.welcome-icon-column-mobile
+          %div.emotion-icon-welcome-mobile.palette.palette-joy
+        %div.welcome-icon-column-mobile
+          %div.emotion-icon-welcome-mobile.palette.palette-ambiguous
+        %div.welcome-icon-column-mobile
+          %div.emotion-icon-welcome-mobile.palette.palette-blue1
+        %div.welcome-icon-column-mobile
+          %div.emotion-icon-welcome-mobile.palette.palette-blue2
+      .row
+        %h2#app-subheading-mobile A new tool for Sentiment Analysis and Machine Learning
+        %a.welcome-index-button-mobile{href: "/auth/twitter"} Sign in with Twitter
 
