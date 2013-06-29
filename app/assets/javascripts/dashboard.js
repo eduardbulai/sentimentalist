@@ -1,12 +1,9 @@
 $(document).ready(function() {
   $('a[name=post_to_twitter]').click(function(e) {
-    //Cancel the link behavior
     e.preventDefault();
 
-    //Get the textarea's text
     var taText = $('textarea#myTextArea').val();
 
-    //Example - Now add the text to a span tag inside the modal
     $("#myDiv span").text(taText);
   });
 
@@ -51,11 +48,17 @@ $(document).ready(function() {
 
   });
 
+  updateBayesianProfileIcon();
 
-  function updateBayesianProfileIcon() {
+});
+
+
+function updateBayesianProfileIcon() {
   $.getJSON('/dashboard/update_profile_icon/', function(response) {
 
     bayesianEmotion = response.user.bayesian_emotion;
+
+    console.log(response);
 
     desktopTarget = $('#desktop-profile-icon div.iconfield div.user.bayesian-classifier dl');
     mobileTarget = $('#mobile-profile-icon div.iconfield div.user.bayesian-classifier dl');
@@ -69,9 +72,5 @@ $(document).ready(function() {
 
     setTimeout(updateBayesianProfileIcon, 1000);
 
-    });
-  }
-
-  updateBayesianProfileIcon();
-
-});
+  });
+}

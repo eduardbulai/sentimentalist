@@ -43,7 +43,7 @@ group :development, :test do
 	gem 'rspec-rails'
 	gem 'pry'
 	gem 'launchy'
-  gem 'konacha'
+  gem 'jasmine'
 end
 
 group :test do
