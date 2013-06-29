@@ -2,7 +2,9 @@ def sign_in(user)
 
   visit root_path
   stub_auth_response(user, :twitter)
-  click_link 'Sign in with Twitter'
+  within("#desktop") do
+    click_link 'Sign in with Twitter'
+  end
 
 end
 

@@ -28,14 +28,10 @@ feature "user tweets from dashboard",
 
 	  end
 
-
-	  it "user receieves a flash message after having tweeted" do
-
-	  	click_link 'Post To Twitter'
-	  	fill_in '[tweet]', :with => '...'
-	  	click_button('Post Your Tweet')
-	  	expect(page).to have_content('Your Tweet has been Posted')
-
+	  it "post to twitter modal contains an interface for tweeting" do
+	  	within("#post_to_twitter_modal") do
+	  		expect(page).to have_content("Close")
+	  	end
 	  end
 
 end

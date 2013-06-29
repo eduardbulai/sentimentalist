@@ -11,7 +11,7 @@ FactoryGirl.define do
   end
 
   factory :machine_learner do
-    name "joy or anger or fear or disgust or surprise or uncertain"
+    name "joy or anger or fear or disgust or surprise or ambiguous"
     ignore_words Stopwords.stopwords
     stemming true
   end
