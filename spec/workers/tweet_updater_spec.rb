@@ -13,6 +13,7 @@ describe TweetUpdater,type: :feature do
 
     it "adds user tweet update task to the queue" do
 
+      Resque.enqueue(TweetUpdater, user.id)
       TweetUpdater.should have_queued(user.id).in(:tweet_update_queue)
 
     end

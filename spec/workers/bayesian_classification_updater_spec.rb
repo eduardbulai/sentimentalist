@@ -12,6 +12,7 @@ describe BayesianClassificationUpdater, type: :feature do
   describe "queueing" do
 
     it "adds user tweet update task to the queue" do
+      Resque.enqueue(BayesianClassificationUpdater, user.id)
       BayesianClassificationUpdater.should have_queued(user.id).in(:bayesian_classification_update_queue)
     end
 
