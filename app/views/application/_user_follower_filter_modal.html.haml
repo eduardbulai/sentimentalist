@@ -1,0 +1,5 @@
+%div{"id" => "user_follower_filter_modal", "class" => "modal hide fade", "tabindex" => "-1", "role" => "dialog", "aria-labelledby" => "myModalLabel", "aria-hidden" => "true"}
+  %div{'class' => 'modal-footer'}
+    .filter.option-set{'id' => 'user-followers-filter', :datafiltergroup => "user_followers_tab"}
+      %a.btn.btn-block.btn-default{:href => "#", :datafilter =>".followers", "data-dismiss" => "modal", "aria-hidden" => "true"}Default Classifier
+      %a.btn.btn-block.btn-default{:href => "#", :datafilter =>".user", "data-dismiss" => "modal", "aria-hidden" => "true"}Bayesian Classifier

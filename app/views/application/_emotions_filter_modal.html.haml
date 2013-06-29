@@ -1,0 +1,11 @@
+%div{"id" => "emotions_filter_modal", "class" => "modal hide fade", "tabindex" => "-1", "role" => "dialog", "aria-labelledby" => "myModalLabel", "aria-hidden" => "true"}
+  %div{'class' => 'modal-footer'}
+    .filter.option-set{'id' => 'emotions-filter', :datafiltergroup => "category"}
+      %a.btn.btn-block.btn-default{:href => "#", :datafilter =>"", "data-dismiss" => "modal", "aria-hidden" => "true"}All
+      %a.btn.btn-block.btn-joy{:href => "#", :datafilter =>".emotion-joy", "data-dismiss" => "modal", "aria-hidden" => "true"}Joy
+      %a.btn.btn-block.btn-anger{:href => "#", :datafilter =>".emotion-anger", "data-dismiss" => "modal", "aria-hidden" => "true"}Anger
+      %a.btn.btn-block.btn-fear{:href => "#", :datafilter =>".emotion-fear", "data-dismiss" => "modal", "aria-hidden" => "true"}Fear
+      %a.btn.btn-block.btn-sadness{:href => "#", :datafilter =>".emotion-sadness", "data-dismiss" => "modal", "aria-hidden" => "true"}Sadness
+      %a.btn.btn-block.btn-surprise{:href => "#", :datafilter =>".emotion-surprise", "data-dismiss" => "modal", "aria-hidden" => "true"}Surprise
+      %a.btn.btn-block.btn-disgust{:href => "#", :datafilter =>".emotion-disgust", "data-dismiss" => "modal", "aria-hidden" => "true"}Disgust
+      %a.btn.btn-block.btn-ambiguous{:href => "#", :datafilter =>".emotion-ambiguous", "data-dismiss" => "modal", "aria-hidden" => "true"}Ambiguous

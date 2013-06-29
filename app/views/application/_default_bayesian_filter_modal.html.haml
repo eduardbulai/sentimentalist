@@ -1,0 +1,5 @@
+%div{"id" => "default_bayesian_filter_modal", "class" => "modal hide fade", "tabindex" => "-1", "role" => "dialog", "aria-labelledby" => "myModalLabel", "aria-hidden" => "true"}
+  %div{'class' => 'modal-footer'}
+    .filter.option-set{'id' => 'bayesian-filter', :datafiltergroup => "classifier"}
+      %a.btn.btn-block.btn-default{:href => "#", :datafilter =>".default-classifier", "data-dismiss" => "modal", "aria-hidden" => "true"}Default Classifier
+      %a.btn.btn-block.btn-default{:href => "#", :datafilter =>".bayesian-classifier", "data-dismiss" => "modal", "aria-hidden" => "true"}Bayesian Classifier
