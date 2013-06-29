@@ -21,18 +21,47 @@ feature "user signs out",
     visit dashboard_index_path
   end
 
-  it 'dashboard page has sign out link' do
+  context "desktop" do
 
-	  expect(page).to have_link('Sign Out')
+    it 'dashboard page has sign out link' do
 
-	end
+      within("#desktop") do
+        expect(page).to have_link('Sign Out')
+      end
+
+  	end
 
 
-  it 'user can sign out' do
+    it 'user can sign out' do
 
-  	click_link 'Sign Out'
-  	expect(current_path).to eql(root_path)
-    expect(page).to have_link('Sign in with Twitter')
+      within("#desktop") do
+      	click_link 'Sign Out'
+      	expect(current_path).to eql(root_path)
+      end
+
+    end
+
+  end
+
+  context "mobile" do
+
+    it 'dashboard page has sign out link' do
+
+      within("#mobile") do
+        expect(page).to have_link('Sign Out')
+      end
+
+    end
+
+
+    it 'user can sign out' do
+
+      within("#mobile") do
+        click_link 'Sign Out'
+        expect(current_path).to eql(root_path)
+      end
+
+    end
 
   end
 

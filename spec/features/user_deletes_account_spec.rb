@@ -23,31 +23,52 @@ feature "user manages account",
     visit dashboard_index_path
   end
 
-  it 'dashboard page has manage account link' do
+  context "desktop" do
 
-    expect(page).to have_link('Manage Account')
+    it 'dashboard page has manage account link' do
 
-  end
+      within("#desktop") do
+        expect(page).to have_link('Manage Account')
+      end
 
-  it "manage account modal has a 'delete account' button" do
-
-    within("#manage_account_modal") do
-      expect(page).to have_link("Delete My Account")
     end
 
   end
 
+  context "mobile" do
 
-  it 'user can delete account' do
+    it 'dashboard page has manage account link' do
 
-    expect(User.exists?(user.id)).to be_true
+      within("#mobile") do
+        expect(page).to have_link('Manage Account')
+      end
 
-    click_link 'Manage Account'
-    click_link("Delete My Account")
+    end
 
-    expect(User.exists?(user.id)).to be_false
-    expect(current_path).to eql(root_path)
-    expect(page).to have_link('Sign in with Twitter')
+  end
+
+  context "manage account modal" do
+
+    it "manage account modal has a 'delete account' button" do
+
+      within("#manage_account_modal") do
+        expect(page).to have_link("Delete My Account")
+      end
+
+    end
+
+
+    it 'user can delete account' do
+
+      expect(User.exists?(user.id)).to be_true
+
+      click_link("Delete My Account")
+
+      expect(User.exists?(user.id)).to be_false
+      expect(current_path).to eql(root_path)
+      expect(page).to have_link('Sign in with Twitter')
+
+    end
 
   end
 

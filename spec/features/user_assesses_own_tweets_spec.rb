@@ -22,31 +22,57 @@ feature 'user assesses their own tweets',
   before do
   	sign_in(user)
     visit dashboard_index_path
-  	click_link('Me')
   	@tweets = user.user_tweets
     @test_tweet = @tweets.first
   end
 
-  context 'page contains emotion icons for each of the emotions in their user_tweets' do
+  context "desktop" do
+
+    describe "page contains emotion icons for each of the emotions in their user_tweets" do
+
+      it 'user sees iconfield containing emotion classifications for each of their tweets' do
+
+        within("#desktop") do
+          @tweets.each do |tweet|
+            within("#icon#{tweet.id}") do
+              expect(page).to have_content(tweet.emotion)
+            end
+          end
+        end
+
+      end
+
+    end
+  end
+
+  context "mobile" do
 
     it 'user sees iconfield containing emotion classifications for each of their tweets' do
-      @tweets.each do |tweet|
-        within("#icon#{tweet.id}") do
-				  expect(page).to have_content(tweet.emotion)
+
+      within("#mobile") do
+        @tweets.each do |tweet|
+          within("#icon#{tweet.id}") do
+            expect(page).to have_content(tweet.emotion)
+          end
         end
-			end
-		end
+      end
+
+    end
 
   end
 
-  context "page contains buttons for tweet assessment" do
+  context "evaluate_user_tweet_modal" do
 
-    it 'page contains modal with tweet text' do
+    describe "page contains buttons for tweet assessment" do
 
-      @tweets.each do |tweet|
+      it 'page contains modal with tweet text' do
 
-        within("#evaluate_user_tweet_modal#{tweet.id}") do
-          expect(page).to have_content(tweet.text)
+        @tweets.each do |tweet|
+
+          within("#evaluate_user_tweet_modal#{tweet.id}") do
+            expect(page).to have_content(tweet.text)
+          end
+
         end
 
       end
@@ -70,17 +96,6 @@ feature 'user assesses their own tweets',
   end
 
 	context 'user assesses tweet' do
-
-    # it "user sees flash message" do
-
-    #   click_link('Me')
-    #   within(".hide#evaluate_user_tweet_modal#{@test_tweet.id}") do
-    #     click_button("Surprise")
-    #   end
-
-    #   expect(page).to have_selector(".alert", text: "Sentiment Logged")
-
-    # end
 
     it "user's assessment is recorded in the database" do
 

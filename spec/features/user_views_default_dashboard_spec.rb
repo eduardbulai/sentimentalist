@@ -24,78 +24,185 @@ feature "user views default dashboard",
     visit dashboard_index_path
   end
 
-  it "user has a profile icon corresponding to the emotion reflected in their tweets for the week" do
+  context "desktop" do
 
-    within("#user-profile-iconfield") do
-      expect(page).to have_content("#{user.emotion}")
-      expect(page).to have_content("#{user.bayesian_emotion}")
+    it "user has a profile icon corresponding to the emotion reflected in their tweets for the week" do
+
+      within("#desktop-profile-icon") do
+        expect(page).to have_content("#{user.emotion}")
+        expect(page).to have_content("#{user.bayesian_emotion}")
+      end
+
+    end
+
+    it "user sees filter tabs for 'Default Classifier', 'Bayesian Classifier' " do
+
+      within("#desktop") do
+        within("#bayesian-filter") do
+          expect(page).to have_content("Default Classifier")
+          expect(page).to have_content("Bayesian Classifier")
+        end
+      end
+
+    end
+
+    it "user sees filter tabs for 'Followers', 'Me' " do
+
+      within("#desktop") do
+        within("#user-followers-filter") do
+          expect(page).to have_content("Followers")
+          expect(page).to have_content("Me")
+        end
+      end
+
+    end
+
+     it "user sees filter tabs for each emotion" do
+
+      within("#desktop") do
+        within("#emotions-filter") do
+          expect(page).to have_content('Joy')
+          expect(page).to have_content('Sadness')
+          expect(page).to have_content('Anger')
+          expect(page).to have_content('Surprise')
+          expect(page).to have_content('Ambiguous')
+          expect(page).to have_content('Disgust')
+        end
+      end
+
+    end
+
+    it "user sees 'post to twitter' button on home dashboard" do
+
+      within("#desktop") do
+        expect(page).to have_content('Post To Twitter')
+      end
+
+    end
+
+    it "user sees a 'sign out' button" do
+
+      within("#desktop") do
+        expect(page).to have_link("Sign Out")
+      end
+
+    end
+
+    it "user sees a 'manage account' button" do
+
+      within("#desktop") do
+        expect(page).to have_link("Manage Account")
+      end
+
+    end
+
+    it "user sees 'Bayesian Classifier' link" do
+
+      within("#desktop") do
+        expect(page).to have_link("Bayesian Classifier")
+      end
+
+    end
+
+
+    it "user sees 'Default Classifier' link" do
+
+      within("#desktop") do
+        expect(page).to have_link("Default Classifier")
+      end
+
+    end
+
+    it "user sees a dashboard populated by icons displaying their followers emotional statuses" do
+
+      within("#desktop") do
+        expect(page).to have_selector('.iconfield')
+        expect(page).to have_selector('.emot')
+      end
+
     end
 
   end
 
+  context "mobile" do
 
-  it "user sees top navbar showing filters for 'Followers', 'Me' " do
+    it "user has a profile icon corresponding to the emotion reflected in their tweets for the week" do
 
-    within("#user-followers-filter") do
-    	expect(page).to have_content("Followers")
-    	expect(page).to have_content("Me")
+      within("#mobile-profile-icon") do
+        expect(page).to have_content("#{user.emotion}")
+        expect(page).to have_content("#{user.bayesian_emotion}")
+      end
+
+    end
+
+    it "user sees filter button for 'Classifier' " do
+
+      within("#mobile") do
+        expect(page).to have_link("Classifier")
+      end
+
+    end
+
+    it "user sees button for 'Emotion' " do
+
+      within("#mobile") do
+        expect(page).to have_link("Emotion")
+      end
+
+    end
+
+    it "user sees button for 'Context'" do
+
+      within("#mobile") do
+        expect(page).to have_link("Context")
+      end
+
+    end
+
+    it "user sees a 'sign out' button" do
+
+      within("#mobile") do
+        expect(page).to have_link("Sign Out")
+      end
+
+    end
+
+    it "user sees a 'manage account' button" do
+
+      within("#mobile") do
+        expect(page).to have_link("Manage Account")
+      end
+
+    end
+
+    it "user sees 'post to twitter' button on home dashboard" do
+
+      within("#mobile") do
+        expect(page).to have_content('Post To Twitter')
+      end
+
+    end
+
+    it "user sees a dashboard populated by icons displaying their followers emotional statuses" do
+
+      within("#mobile") do
+        expect(page).to have_selector('.iconfield')
+        expect(page).to have_selector('.emot')
+      end
+
     end
 
   end
 
+  context "post_to_twitter_modal" do
 
-  it "user sees filter tabs for each emotion" do
+    it "'post to twitter' modal is present on home dashboard" do
 
-    within("#emotions-filter") do
-      expect(page).to have_content('Joy')
-      expect(page).to have_content('Sadness')
-      expect(page).to have_content('Anger')
-      expect(page).to have_content('Surprise')
-      expect(page).to have_content('Ambiguous')
-      expect(page).to have_content('Disgust')
+      expect(page).to have_selector('#post_to_twitter_modal')
+
     end
 
   end
 
-
-  it "user sees 'post to twitter' button on home dashboard" do
-
-    expect(page).to have_selector('#post_to_twitter_modal')
-    expect(page).to have_content('Post To Twitter')
-    expect(page).to have_selector('form')
-
-  end
-
-  it "user sees a 'sign out' button" do
-
-    expect(page).to have_link("Sign Out")
-
-  end
-
-  it "user sees a 'manage account' button" do
-
-    expect(page).to have_link("Manage Account")
-
-  end
-
-  it "user sees 'bayesian mode' link" do
-
-    expect(page).to have_link("Bayesian Classifier")
-
-  end
-
-
-  it "user sees 'bayesian mode' link" do
-
-    expect(page).to have_link("Default Classifier")
-
-  end
-
-  it "user sees a dashboard populated by icons displaying their followers emotional statuses" do
-
-    expect(page).to have_selector('.iconfield')
-    expect(page).to have_selector('.emot')
-
-  end
 
 end
