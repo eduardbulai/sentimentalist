@@ -4,6 +4,7 @@ describe MachineLearner do
 
 	let(:machine_learner) { FactoryGirl.create(:machine_learner) }
   let(:emotions) { [:anger, :joy, :fear, :sadness, :disgust, :surprise, :ambiguous] }
+  let(:new_classifier) { machine_learner.build_classifier }
 
   context "associations" do
 
@@ -49,18 +50,23 @@ describe MachineLearner do
 
     describe "#build_classifier" do
 
-      it "builds a new classifier" do
-
-        new_classifier = machine_learner.build_classifier
-
+      it "sets a wcount value for the new classifier" do
         expect(new_classifier.instance_variable_get(:@wcount)).to eql({"joi"=>{:joy=>1},
           "anger"=>{:anger=>1}, "fear"=>{:fear=>1}, "ambigu"=>{:ambiguous=>1},
           "disgust"=>{:disgust=>1}, "surpris"=>{:surprise=>1}, "sad"=>{:sadness=>1}})
+      end
+
+      it "sets a ccount value for the new classifier" do
         expect(new_classifier.instance_variable_get(:@ccount)).to eql({:anger=>1,
           :joy=>1, :fear=>1, :sadness=>1, :disgust=>1, :surprise=>1, :ambiguous=>1})
-        expect(new_classifier.instance_variable_get(:@ignore_words)).to eql(machine_learner.ignore_words)
-        expect(new_classifier.instance_variable_get(:@stemming)).to eql(machine_learner.stemming)
+      end
 
+      it "sets an ignore_words value for the new classifier" do
+        expect(new_classifier.instance_variable_get(:@ignore_words)).to eql(machine_learner.ignore_words)
+      end
+
+      it "sets a stemming value for the new classifier" do
+        expect(new_classifier.instance_variable_get(:@stemming)).to eql(machine_learner.stemming)
       end
 
     end
