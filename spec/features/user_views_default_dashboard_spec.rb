@@ -17,7 +17,7 @@ feature "user views default dashboard",
     * user sees a dashboard populated by icons displaying their followers emotional statuses
   }
 
-  let(:user) { FactoryGirl.create(:user_with_followers_and_machine_learner)}
+  let(:user) { FactoryGirl.create(:user_with_followers_and_machine_learner, :with_emotions)}
 
   before do
     sign_in(user)
@@ -31,6 +31,27 @@ feature "user views default dashboard",
       within("#desktop-profile-icon") do
         expect(page).to have_content("#{user.emotion}")
         expect(page).to have_content("#{user.bayesian_emotion}")
+      end
+
+    end
+
+    it "user profile icon updates as bayesian_emotion changes" do
+
+      expect(user.bayesian_emotion).to eql('anger')
+      expect(user.emotion).to eql('disgust')
+
+      within("#desktop-profile-icon") do
+        expect(page).to have_content("disgust")
+        expect(page).to have_content("anger")
+      end
+
+      user.bayesian_emotion = "joy"
+
+      visit dashboard_index_path
+
+      within("#desktop-profile-icon") do
+        expect(page).to have_content("disgust")
+        expect(page).to have_content("joy")
       end
 
     end
@@ -131,6 +152,27 @@ feature "user views default dashboard",
       within("#mobile-profile-icon") do
         expect(page).to have_content("#{user.emotion}")
         expect(page).to have_content("#{user.bayesian_emotion}")
+      end
+
+    end
+
+    it "user profile icon updates as bayesian_emotion changes" do
+
+      expect(user.bayesian_emotion).to eql('anger')
+      expect(user.emotion).to eql('disgust')
+
+      within("#mobile-profile-icon") do
+        expect(page).to have_content("disgust")
+        expect(page).to have_content("anger")
+      end
+
+      user.bayesian_emotion = "joy"
+
+      visit dashboard_index_path
+
+      within("#mobile-profile-icon") do
+        expect(page).to have_content("disgust")
+        expect(page).to have_content("joy")
       end
 
     end

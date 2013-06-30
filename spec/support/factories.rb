@@ -56,6 +56,12 @@ FactoryGirl.define do
     oauth_secret 'test_secret'
     created_at "2013-06-04 23:07:31"
     updated_at "2013-06-09 23:07:31"
+    resque_complete true
+    trait :with_emotions do
+      bayesian_emotion 'anger'
+      emotion 'disgust'
+      polarity '8.0'
+    end
     factory :user_with_followers_and_machine_learner do
       after(:create) {|instance| create_list(:follower_with_tweets, 5, user: instance) }
       after(:create) {|instance| create_list(:user_tweet, 5, user: instance) }

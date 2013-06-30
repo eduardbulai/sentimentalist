@@ -45,11 +45,12 @@ describe MachineLearner do
 
   end
 
-  context "methods" do
+  context "intance methods" do
 
     describe "#build_classifier" do
 
-      it "description" do
+      it "builds a new classifier" do
+
         new_classifier = machine_learner.build_classifier
 
         expect(new_classifier.instance_variable_get(:@wcount)).to eql({"joi"=>{:joy=>1},
@@ -59,6 +60,7 @@ describe MachineLearner do
           :joy=>1, :fear=>1, :sadness=>1, :disgust=>1, :surprise=>1, :ambiguous=>1})
         expect(new_classifier.instance_variable_get(:@ignore_words)).to eql(machine_learner.ignore_words)
         expect(new_classifier.instance_variable_get(:@stemming)).to eql(machine_learner.stemming)
+
       end
 
     end
@@ -66,6 +68,7 @@ describe MachineLearner do
     describe "#persist_machine_learner" do
 
       it 'persists machine learner' do
+
         initial_wcount = machine_learner.wcount.length
         initial_ccount = machine_learner.ccount[:joy]
         new_classifier = machine_learner.build_classifier
@@ -77,6 +80,7 @@ describe MachineLearner do
 
         expect(final_wcount).to be > (initial_wcount+1)
         expect(final_ccount).to be > (initial_ccount+1)
+
       end
 
     end

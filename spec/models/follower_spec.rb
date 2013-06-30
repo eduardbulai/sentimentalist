@@ -24,27 +24,12 @@ describe Follower do
 
   context "instance methods" do
 
-    it "calls get_emotion" do
+    describe "#concatonate_tweets" do
 
-			output = EmotionGetter.get_emotion(follower)
+      it "returns a non-empty string" do
+        expect(follower.concatonate_tweets).to_not be_empty
+      end
 
-			expect(possibilities).to include(output)
-
-    end
-
-    it "calls polarity_for_timeframe" do
-
-    	output = EmotionGetter.get_polarity(follower)
-
-    	expect(0..10).to include(output)
-
-    end
-
-    it "calls get_bayesian_emotion" do
-
-      output = EmotionGetter.get_bayesian_emotion(user, follower)
-
-      expect(possibilities).to include(output)
     end
 
   end

@@ -47,25 +47,49 @@ describe User do
 
 	context "instance methods" do
 
-		it 'calls get_tweet_polarity' do
+		describe "#get_tweet_polarity" do
 
-			tweet = user.user_tweets.first
+			it 'returns a number between 0 and 10' do
 
-			output = user.get_tweet_polarity(tweet)
+				tweet = user.user_tweets.first
 
-			expect(0..10).to include(output)
+				output = user.get_tweet_polarity(tweet)
+
+				expect(0..10).to include(output)
+
+			end
 
 		end
 
-		it "calls get_tweet_emotion" do
+		describe "#get_tweet_emotion" do
 
-			tweet = user.user_tweets.first
+			it "returns an emotion" do
 
-			possibilities = %q{joy disgust anger ambiguous surprise sadness fear}
+				tweet = user.user_tweets.first
 
-			output = user.get_tweet_emotion(tweet)
+				possibilities = %q{joy disgust anger ambiguous surprise sadness fear}
 
-			expect(possibilities).to include(output)
+				output = user.get_tweet_emotion(tweet)
+
+				expect(possibilities).to include(output)
+
+			end
+
+		end
+
+		describe "#get_bayesian_emotion_of_tweet" do
+
+			it "returns an emotion" do
+
+				tweet = user.user_tweets.first
+
+				possibilities = %q{joy disgust anger ambiguous surprise sadness fear}
+
+				output = user.get_bayesian_emotion_of_tweet(tweet)
+
+				expect(possibilities).to include(output)
+
+			end
 
 		end
 
