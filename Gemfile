@@ -60,7 +60,7 @@ gem 'twitter'
 
 gem 'omniauth-twitter'
 
-gem "sad_panda", "~> 0.2.1"
+gem "sad_panda", "~> 1.0.0"
 
 gem "flat-ui-rails"
 
