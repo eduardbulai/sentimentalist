@@ -18,7 +18,7 @@ $(document).ready(function() {
 
     newEmotion=text.toLowerCase();
 
-    updateMachineLearner(text,id);
+    updateMachineLearner(text, id, newEmotion);
 
   });
 
@@ -49,7 +49,7 @@ function updateBayesianProfileIcon() {
   });
 }
 
-function updateMachineLearner(text,id) {
+function updateMachineLearner(text, id, newEmotion) {
   $.ajax({
     data: {
       id: id,
