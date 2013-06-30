@@ -18,33 +18,7 @@ $(document).ready(function() {
 
     newEmotion=text.toLowerCase();
 
-    $.ajax({
-      data: {
-        id: id,
-        emotion: text
-      },
-      url: 'dashboard/update_machine_learner',
-      type: 'POST',
-      datatype: 'json',
-      success: function(data) {
-        setNewColor(data);
-        setNewText(data);
-      },
-      error: function(data) {}
-    });
-
-    setNewColor = function(data) {
-
-      $('dl#iconcolor'+data[0].id).removeClass();
-      $('dl#iconcolor'+data[0].id).addClass("palette palette-"+newEmotion);
-      $('dl#iconcolor_bayes'+data[0].id).removeClass();
-      $('dl#iconcolor_bayes'+data[0].id).addClass("palette palette-"+newEmotion);
-    };
-
-    setNewText = function(data) {
-      $('#icontext'+data[0].id).text(text);
-      $('#icontext_bayes'+data[0].id).text(text);
-    };
+    updateMachineLearner(text,id);
 
   });
 
@@ -73,4 +47,35 @@ function updateBayesianProfileIcon() {
     setTimeout(updateBayesianProfileIcon, 1000);
 
   });
+}
+
+function updateMachineLearner(text,id) {
+  $.ajax({
+    data: {
+      id: id,
+      emotion: text
+    },
+    url: 'dashboard/update_machine_learner',
+    type: 'POST',
+    datatype: 'json',
+    success: function(data) {
+      setNewColor(data);
+      setNewText(data);
+    },
+    error: function(data) {}
+  });
+
+  setNewColor = function(data) {
+
+      $('dl#iconcolor'+data[0].id).removeClass();
+      $('dl#iconcolor'+data[0].id).addClass("palette palette-"+newEmotion);
+      $('dl#iconcolor_bayes'+data[0].id).removeClass();
+      $('dl#iconcolor_bayes'+data[0].id).addClass("palette palette-"+newEmotion);
+    };
+
+  setNewText = function(data) {
+    $('#icontext'+data[0].id).text(text);
+    $('#icontext_bayes'+data[0].id).text(text);
+  };
+
 }
