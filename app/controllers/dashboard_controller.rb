@@ -3,7 +3,6 @@ class DashboardController < ApplicationController
   respond_to :json, :html
 
   def index
-
 		@followers = current_user.followers
     @user_tweets = current_user.user_tweets
 
@@ -11,7 +10,6 @@ class DashboardController < ApplicationController
       format.html
       format.json { render json: {user: current_user, user_tweets: @user_tweets, followers: @followers} }
     end
-
   end
 
   def post_to_twitter
@@ -36,19 +34,10 @@ class DashboardController < ApplicationController
   end
 
   def update_machine_learner
-    emotion = params[:emotion]
-    new_emotion = emotion.downcase
-    tweet = UserTweet.find(params[:id])
-    # #need helper method to clean tweet
-    tweet_message = tweet.text.gsub(/[^a-z ]/i, '').downcase
-    tweet_message.gsub!(/(?=\w*h)(?=\w*t)(?=\w*t)(?=\w*p)\w*/, '')
-    tweet_message.gsub!(/\s\s+/,' ')
-    tweet.emotion = new_emotion
-    tweet.bayesian_emotion = new_emotion
-    machine_learner = current_user.machine_learner
-    new_classifier = machine_learner.build_classifier
-    new_classifier.train(new_emotion.to_sym, tweet_message)
-    machine_learner.persist_machine_learner(new_classifier)
+    update_user_tweet
+    get_classifier
+    train_classifier
+    persist_classifier
     if tweet.save
       render :json => [tweet]
     else
@@ -63,5 +52,33 @@ class DashboardController < ApplicationController
       format.json { render json: { user: user } }
     end
   end
+
+
+  private
+
+    def set_tweet_emotion
+      emotion = params[:emotion]
+      tweet = UserTweet.find(params[:id])
+      new_emotion = emotion.downcase
+    end
+
+    def update_user_tweet
+      set_tweet_emotion
+      tweet.clean_tweet
+      tweet.update_emotions(new_emotion)
+    end
+
+    def get_classifier
+      machine_learner = current_user.machine_learner
+      new_classifier = machine_learner.build_classifier
+    end
+
+    def train_classifier
+      new_classifier.train(new_emotion.to_sym, tweet_message)
+    end
+
+    def persist_classifier
+      machine_learner.persist_machine_learner(new_classifier)
+    end
 
 end
