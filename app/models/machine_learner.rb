@@ -18,14 +18,7 @@ class MachineLearner < ActiveRecord::Base
 
   def build_classifier
     new_classifier = StuffClassifier::Bayes.new(self.name)
-    new_classifier.instance_variable_set(:@wcount, self.wcount)
-    new_classifier.instance_variable_set(:@ccount, self.ccount)
-    new_classifier.instance_variable_set(:@ignore_words, self.ignore_words)
-    new_classifier.instance_variable_set(:@stemming, self.stemming)
-    {joy: 'joy', anger: 'anger', fear: 'fear', ambiguous: 'ambiguous',
-      disgust: 'disgust', surprise: 'surprise', sadness: 'sadness'}.each do |key, value|
-        new_classifier.train(key, value)
-      end
+    set_classifier_instance_variables(new_classifier)
     new_classifier
   end
 
@@ -34,5 +27,18 @@ class MachineLearner < ActiveRecord::Base
     self.ccount = new_classifier.instance_variable_get(:@ccount)
     self.save
   end
+
+  private
+
+    def set_classifier_instance_variables(new_classifier)
+      new_classifier.instance_variable_set(:@wcount, self.wcount)
+      new_classifier.instance_variable_set(:@ccount, self.ccount)
+      new_classifier.instance_variable_set(:@ignore_words, self.ignore_words)
+      new_classifier.instance_variable_set(:@stemming, self.stemming)
+      {joy: 'joy', anger: 'anger', fear: 'fear', ambiguous: 'ambiguous',
+        disgust: 'disgust', surprise: 'surprise', sadness: 'sadness'}.each do |key, value|
+          new_classifier.train(key, value)
+      end
+    end
 
 end
