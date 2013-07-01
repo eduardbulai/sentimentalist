@@ -1,6 +1,9 @@
 desc "tasks for Heroku scheduler"
 
 task :sentimentalist_update => :environment do
-  Resque.enqueue(UpBayesianClassificationUpdaterdate, current_user.id)
-  Resque.enqueue(UpBayesianClassificationUpdaterdate, current_user.id)
+  users = User.all
+  users.each do |user|
+    Resque.enqueue(BayesianClassificationUpdater, user.id)
+    Resque.enqueue(TweetUpdater, user.id)
+  end
 end

@@ -26,9 +26,9 @@ describe UserTweet do
         tweet = user.user_tweets.first
         tweet.text = "lobster hickory http://www.boston.com/business #Rails"
 
-        tweet.clean_tweet
+        tweet = tweet.clean_tweet
 
-        expect(tweet.text).to eql("lobster hickory #rails")
+        expect(tweet).to eql("lobster hickory #rails")
       end
 
     end
