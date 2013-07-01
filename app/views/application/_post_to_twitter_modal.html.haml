@@ -4,5 +4,5 @@
     = simple_form_for '', url: {controller: 'dashboard', action: 'post_to_twitter'} do |f|
       = f.input :tweet, as: :text, placeholder: 'Tweet something. . .', input_html: { cols: 100, rows: 3 }, label: false
       %div{'class' => 'modal-footer'}
-        %button{'href' => '#' class' => 'btn'} Close
+        %button.btn{'data-dismiss' => "modal"} Close
         =f.button :submit, "Post Your Tweet", 'class' => 'btn btn-primary'
