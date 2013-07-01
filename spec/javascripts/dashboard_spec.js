@@ -81,16 +81,16 @@ describe("change user_tweet emotion icon via modal", function() {
     var id = 18;
     var newEmotion = "surprise";
 
-    expect($('dd#icontext18')).toHaveText('ambiguous');
-    expect($('dd#icontext_bayes18')).toHaveText('anger');
+    expect($('dd.icontext18')).toHaveText('ambiguous');
+    expect($('dd.icontext_bayes18')).toHaveText('anger');
 
     spyOn($, 'ajax').andCallFake(function(params) {
       params.success(fakeResponse);
     });
     updateMachineLearner(text, id, newEmotion);
 
-    expect($('#icontext18')).toHaveText('surprise');
-    expect($('#icontext_bayes18')).toHaveText('surprise');
+    expect($('.icontext18')).toHaveText('surprise');
+    expect($('.icontext_bayes18')).toHaveText('surprise');
 
   });
 

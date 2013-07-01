@@ -18,7 +18,7 @@ $(document).ready(function() {
 
     newEmotion=text.toLowerCase();
 
-    updateMachineLearner(text, id, newEmotion);
+    updateMachineLearner(text, id, newEmotion, initialEmotion);
 
   });
 
@@ -49,7 +49,7 @@ function updateBayesianProfileIcon() {
   });
 }
 
-function updateMachineLearner(text, id, newEmotion) {
+function updateMachineLearner(text, id, newEmotion, initialEmotion) {
   $.ajax({
     data: {
       id: id,
@@ -66,7 +66,10 @@ function updateMachineLearner(text, id, newEmotion) {
   });
 
   setNewColor = function(data) {
-
+      $('.icon'+data[0].id).removeClass('emotion-'+initialEmotion);
+      $('.icon'+data[0].id).addClass('emotion-'+newEmotion);
+      $('.icon_bayes'+data[0].id).removeClass('emotion-'+initialEmotion);
+      $('.icon_bayes'+data[0].id).addClass('emotion-'+newEmotion);
       $('dl#iconcolor'+data[0].id).removeClass();
       $('dl#iconcolor'+data[0].id).addClass("palette palette-"+newEmotion);
       $('dl#iconcolor_bayes'+data[0].id).removeClass();
@@ -74,8 +77,8 @@ function updateMachineLearner(text, id, newEmotion) {
     };
 
   setNewText = function(data) {
-    $('#icontext'+data[0].id).text(text);
-    $('#icontext_bayes'+data[0].id).text(text);
+    $('.icontext'+data[0].id).text(text);
+    $('.icontext_bayes'+data[0].id).text(text);
   };
 
 }
