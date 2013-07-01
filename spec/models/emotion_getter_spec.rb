@@ -12,7 +12,7 @@ describe EmotionGetter do
       it "creates an emotion for the user" do
 
         expect(user.emotion).to be_nil
-        user.emotion = EmotionGetter.get_emotion(user)
+        user.emotion = user.get_emotion(user)
 
         expect(possibilities).to include(user.emotion)
 
@@ -25,7 +25,7 @@ describe EmotionGetter do
       it "creates a polarity for the user" do
 
         expect(user.polarity).to be_nil
-        user.polarity = EmotionGetter.get_polarity(user)
+        user.polarity = user.get_polarity(user)
 
         expect((0..10)).to include(user.polarity)
 
@@ -37,7 +37,7 @@ describe EmotionGetter do
 
       it "creates a bayesian_emotion for the user" do
         expect(user.bayesian_emotion).to be_nil
-        user.bayesian_emotion = EmotionGetter.get_bayesian_emotion(user, user)
+        user.bayesian_emotion = user.get_bayesian_emotion(user, user)
 
         expect(possibilities).to include(user.bayesian_emotion)
       end

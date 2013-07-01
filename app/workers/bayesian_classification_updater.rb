@@ -13,7 +13,7 @@ class BayesianClassificationUpdater
 
     followers = user.followers
     followers.each do |follower|
-      follower.bayesian_emotion = EmotionGetter.get_bayesian_emotion(user,follower)
+      follower.bayesian_emotion = follower.get_bayesian_emotion(user,follower)
     end
 
   end
