@@ -1,1 +1,1 @@
-Sentimentalist::Application.config.secret_token = 'cddc51418b7d999cbfb6130d6d7faca99552293f95e53b1c6ff57525708d0c271372e2a0dcb5690ad1d505409797434113d5a5760801ff7cc9e9f01f44f84d37'
+Sentimentalist::Application.config.secret_token = ENV['APP_SECRET_TOKEN']
