@@ -47,7 +47,7 @@ describe("change user_tweet emotion icon via modal", function() {
 
   });
 
-  it("click changes icon color", function() {
+  it("ajax call changes icon color", function() {
 
     var fakeResponse = [{"id": 18},{"bayesian_emotion": "disgust"},{"created_at": "2013-06-29T16:23:03Z"},
       {"emotion": "disgust"},{"polarity": 7},{"text": "this is a tweet"},
@@ -57,6 +57,8 @@ describe("change user_tweet emotion icon via modal", function() {
     var text = "surprise";
     var newEmotion = "surprise";
 
+    expect($('.emot.icon18')).toHaveClass('emotion-ambiguous')
+    expect($('.emot.icon_bayes18')).toHaveClass('emotion-anger')
     expect($('dl#iconcolor18')).toHaveClass('palette-ambiguous');
     expect($('dl#iconcolor_bayes18')).toHaveClass('palette-anger');
 
@@ -65,13 +67,14 @@ describe("change user_tweet emotion icon via modal", function() {
     });
     updateMachineLearner(text, id, newEmotion);
 
+    expect($('.emot')).toHaveClass('emotion-surprise');
     expect($('dl#iconcolor18')).toHaveClass('palette-surprise');
     expect($('dl#iconcolor_bayes18')).toHaveClass('palette-surprise');
 
   });
 
 
-  it("click changes icon text", function() {
+  it("ajax call changes icon text", function() {
 
     var fakeResponse = [{"id": 18},{"bayesian_emotion": "disgust"},{"created_at": "2013-06-29T16:23:03Z"},
       {"emotion": "disgust"},{"polarity": 7},{"text": "this is a tweet"},
