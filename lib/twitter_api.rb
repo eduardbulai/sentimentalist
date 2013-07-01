@@ -1,6 +1,4 @@
-class TwitterApi < ActiveRecord::Base
-
-	attr_accessible :user
+module TwitterApi
 
 	def self.get_twitter_stuff(user)
 		initialize_machine_learner(user)
