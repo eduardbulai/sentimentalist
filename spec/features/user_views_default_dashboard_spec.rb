@@ -35,24 +35,19 @@ feature "user views default dashboard",
 
     end
 
-    it "user profile icon updates as bayesian_emotion changes" do
+    it "user can change bayesian emotion by classifying their own tweets" do
 
       expect(user.bayesian_emotion).to eql('anger')
       expect(user.emotion).to eql('disgust')
 
-      within("#desktop-profile-icon") do
-        expect(page).to have_content("disgust")
-        expect(page).to have_content("anger")
+      user_tweets = user.user_tweets
+      user_tweets.each do |tweet|
+        classify_tweet(tweet, 'surprise')
       end
 
-      user.bayesian_emotion = "joy"
+      user.bayesian_emotion = user.get_bayesian_emotion(user, user)
 
-      visit dashboard_index_path
-
-      within("#desktop-profile-icon") do
-        expect(page).to have_content("disgust")
-        expect(page).to have_content("joy")
-      end
+      expect(user.bayesian_emotion).to eql('surprise')
 
     end
 
@@ -156,24 +151,19 @@ feature "user views default dashboard",
 
     end
 
-    it "user profile icon updates as bayesian_emotion changes" do
+    it "user can change bayesian emotion by classifying their own tweets" do
 
       expect(user.bayesian_emotion).to eql('anger')
       expect(user.emotion).to eql('disgust')
 
-      within("#mobile-profile-icon") do
-        expect(page).to have_content("disgust")
-        expect(page).to have_content("anger")
+      user_tweets = user.user_tweets
+      user_tweets.each do |tweet|
+        classify_tweet(tweet, 'surprise')
       end
 
-      user.bayesian_emotion = "joy"
+      user.bayesian_emotion = user.get_bayesian_emotion(user, user)
 
-      visit dashboard_index_path
-
-      within("#mobile-profile-icon") do
-        expect(page).to have_content("disgust")
-        expect(page).to have_content("joy")
-      end
+      expect(user.bayesian_emotion).to eql('surprise')
 
     end
 
