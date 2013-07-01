@@ -8,6 +8,7 @@ namespace :resque do
     require 'resque/scheduler'
 
     Resque.redis = $redis
+    Resque.schedule = YAML.load_file('config/resque_schedule.yml')
     Resque.before_fork = Proc.new { ActiveRecord::Base.establish_connection }
 
   end
