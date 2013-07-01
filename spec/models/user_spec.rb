@@ -3,6 +3,7 @@ require 'spec_helper'
 describe User do
 
 	let!(:user) { FactoryGirl.create(:user_with_followers_and_machine_learner) }
+	let(:user_tweet) {FactoryGirl.build(:user_tweet, user_id: user.id, id: 21)}
 
 	context "associations" do
 
@@ -92,6 +93,63 @@ describe User do
 			end
 
 		end
+
+
+		    describe "#get_stored_user_tweet_ids" do
+
+      it "returns an array containing all user_tweet ids" do
+        output = user.get_stored_user_tweet_ids
+
+        user.user_tweets.each do |tweet|
+          expect(output).to include(tweet.tweet_id)
+        end
+      end
+
+    end
+
+    describe "#get_stored_follower_ids" do
+
+      it "returns an array containing all follower ids" do
+        output = user.get_stored_follower_ids
+
+        user.followers.each do |follower|
+          expect(output).to include(follower.twitter_id)
+        end
+      end
+
+    end
+
+    describe "#get_stored_follower_tweet_ids" do
+
+      it "returns an array containing all follower_tweet ids" do
+
+        user.followers.each do |follower|
+
+          output = follower.get_stored_follower_tweet_ids
+
+          follower.follower_tweets.each do |tweet|
+            expect(output).to include(tweet.tweet_id)
+          end
+
+        end
+
+      end
+
+    end
+
+    describe "#create_user_tweet" do
+
+      it "adds a user_tweet to the database" do
+        initial_count = UserTweet.count
+
+        user.create_user_tweet(user_tweet)
+
+        final_count = UserTweet.count
+
+        expect(final_count).to eql(initial_count+1)
+      end
+
+    end
 
 	end
 
