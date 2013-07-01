@@ -34,10 +34,10 @@ class DashboardController < ApplicationController
   end
 
   def update_machine_learner
-    update_user_tweet
-    get_classifier
-    train_classifier
-    persist_classifier
+    tweet = new_user_tweet
+    classifier = new_classifier
+    classifier = trained_classifier(classifier, tweet.text, tweet.emotion)
+    persist_classifier(classifier)
     if tweet.save
       render :json => [tweet]
     else
@@ -46,8 +46,8 @@ class DashboardController < ApplicationController
   end
 
   def update_profile_icon
-    current_user.bayesian_emotion = EmotionGetter.get_bayesian_emotion(current_user,current_user)
     user = current_user
+    current_user.bayesian_emotion = user.get_bayesian_emotion(current_user,current_user)
     respond_to do |format|
       format.json { render json: { user: user } }
     end
@@ -58,27 +58,29 @@ class DashboardController < ApplicationController
 
     def set_tweet_emotion
       emotion = params[:emotion]
+      emotion.downcase
+    end
+
+    def new_user_tweet
       tweet = UserTweet.find(params[:id])
-      new_emotion = emotion.downcase
+      tweet.text = tweet.clean_tweet
+      tweet.update_emotions(set_tweet_emotion)
+      tweet
     end
 
-    def update_user_tweet
-      set_tweet_emotion
-      tweet.clean_tweet
-      tweet.update_emotions(new_emotion)
-    end
-
-    def get_classifier
+    def new_classifier
       machine_learner = current_user.machine_learner
-      new_classifier = machine_learner.build_classifier
+      machine_learner.build_classifier
     end
 
-    def train_classifier
-      new_classifier.train(new_emotion.to_sym, tweet_message)
+    def trained_classifier(classifier, tweet_text, new_emotion)
+      classifier.train(new_emotion.to_sym, tweet_text)
+      classifier
     end
 
-    def persist_classifier
-      machine_learner.persist_machine_learner(new_classifier)
+    def persist_classifier(classifier)
+      machine_learner = current_user.machine_learner
+      machine_learner.persist_machine_learner(classifier)
     end
 
 end
