@@ -31,7 +31,7 @@ describe MachineLearner do
     end
 
     it "ccount is a non-empty hash" do
-    	expect(machine_learner.ccount).to eql({anger: 0, joy: 0, fear: 0, sadness: 0, disgust: 0, surprise: 0, ambiguous: 0})
+    	expect(machine_learner.ccount).to eql({anger: 0, joy: 0, fear: 0, sadness: 0, disgust: 0, surprise: 0, ambiguous: 1})
     end
 
     it "can push items to wcount" do
@@ -58,7 +58,7 @@ describe MachineLearner do
 
       it "sets a ccount value for the new classifier" do
         expect(new_classifier.instance_variable_get(:@ccount)).to eql({:anger=>1,
-          :joy=>1, :fear=>1, :sadness=>1, :disgust=>1, :surprise=>1, :ambiguous=>1})
+          :joy=>1, :fear=>1, :sadness=>1, :disgust=>1, :surprise=>1, :ambiguous=>2})
       end
 
       it "sets an ignore_words value for the new classifier" do
