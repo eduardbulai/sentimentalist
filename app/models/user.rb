@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
 
   include EmotionGetter
+  include TweetCreator
 
   attr_accessible :name,
     :twitter_handle,
@@ -47,6 +48,62 @@ class User < ActiveRecord::Base
   def get_tweet_polarity(tweet)
     text = tweet.text
     SadPanda.polarity(text)
+  end
+
+  def get_follower_twitter_timelines
+    Twitter.followers(self.twitter_handle)
+  end
+
+  def get_stored_user_tweet_ids
+    stored_tweets = self.user_tweets
+    stored_tweets.pluck(:tweet_id)
+  end
+
+  def get_stored_follower_ids
+    stored_followers = self.followers
+    stored_followers.pluck(:twitter_id)
+  end
+
+  def store_user_tweets(user_timeline, stored_ids)
+    user_timeline.each do |tweet|
+      unless self.object_in_database(stored_ids, tweet)
+        self.create_user_tweet(tweet)
+      end
+    end
+  end
+
+  def store_follower_tweets(follower_timeline, stored_ids)
+    follower_timeline.each do |tweet|
+      unless self.object_in_database(stored_ids, tweet)
+        self.create_follower_tweet(tweet)
+      end
+    end
+  end
+
+  def store_followers (follower_timelines, stored_ids)
+    followers.each do |follower|
+      unless user.object_in_database(follower_timelines, stored_ids)
+        user.create_follower(follower)
+      end
+    end
+  end
+
+  def create_user_tweet(tweet)
+    self.user_tweets.create!(
+      text: tweet.text,
+      tweet_id: tweet.id,
+      bayesian_emotion: self.get_bayesian_emotion_of_tweet(tweet),
+      emotion: self.get_tweet_emotion(tweet),
+      polarity: self.get_tweet_polarity(tweet)
+    )
+  end
+
+  def create_follower(follower)
+    self.followers.create!(
+      name: follower.name,
+      twitter_handle: follower.screen_name,
+      twitter_id: follower.id
+    )
   end
 
   class << self

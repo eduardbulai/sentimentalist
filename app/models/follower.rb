@@ -1,6 +1,7 @@
 class Follower < ActiveRecord::Base
 
   include EmotionGetter
+  include TweetCreator
 
   attr_accessible :name,
     :twitter_handle,
@@ -25,6 +26,18 @@ class Follower < ActiveRecord::Base
 
   def concatonate_tweets
     self.follower_tweets.pluck(:text).join(" ")
+  end
+
+  def create_follower_tweet(tweet)
+    self.follower_tweets.create!(
+      text: tweet.text,
+      tweet_id: tweet.id,
+    )
+  end
+
+  def get_stored_follower_tweet_ids
+    stored_tweets = self.follower_tweets
+    stored_tweets.pluck(:tweet_id)
   end
 
 end
