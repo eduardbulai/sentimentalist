@@ -14,9 +14,9 @@ class TwitterApi < ActiveRecord::Base
 	private
 
 		def self.initialize_user(user)
-			user.bayesian_emotion = EmotionGetter.get_bayesian_emotion(user,user)
-			user.emotion = EmotionGetter.get_emotion(user)
-			user.polarity = EmotionGetter.get_polarity(user)
+			user.bayesian_emotion = user.get_bayesian_emotion(user,user)
+			user.emotion = user.get_emotion(user)
+			user.polarity = user.get_polarity(user)
 			user.save!
 		end
 
@@ -27,50 +27,30 @@ class TwitterApi < ActiveRecord::Base
 
 		def self.initialize_follower(follower)
 			f_user = follower.user
-			follower.emotion = EmotionGetter.get_emotion(follower)
-			follower.bayesian_emotion = EmotionGetter.get_bayesian_emotion(f_user,follower)
-			follower.polarity= EmotionGetter.get_polarity(follower)
+			follower.emotion = follower.get_emotion(follower)
+			follower.bayesian_emotion = follower.get_bayesian_emotion(f_user,follower)
+			follower.polarity= follower.get_polarity(follower)
 			follower.save!
 		end
 
 		def self.populate_user_tweets(user)
-			user_timeline = Twitter.user_timeline(user.twitter_handle)
-			user_timeline.each do |tweet|
-				unless user.user_tweets.pluck(:tweet_id).include?(tweet.id)
-					user.user_tweets.create!(
-						text: tweet.text,
-						tweet_id: tweet.id,
-						bayesian_emotion: user.get_bayesian_emotion_of_tweet(tweet),
-						emotion: user.get_tweet_emotion(tweet),
-						polarity: user.get_tweet_polarity(tweet)
-					)
-				end
-			end
+			user_timeline = user.get_twitter_timeline
+			stored_ids = user.get_stored_user_tweet_ids
+			user.store_user_tweets(user_timeline, stored_ids)
 		end
 
 		def self.populate_followers(user)
-			Twitter.followers(user.twitter_handle).each do |follower|
-				unless user.followers.pluck(:twitter_id).include?(follower.id)
-					user.followers.create!(
-						name: follower.name,
-		  			twitter_handle: follower.screen_name,
-		  			twitter_id: follower.id
-			  		)
-				end
-			end
+			follower_timelines = user.get_follower_twitter_timelines
+			stored_ids = user.get_stored_follower_ids
+			user.store_followers(follower_timelines, stored_ids)
 		end
 
 		def self.populate_follower_tweets(user)
+			followers = user.followers
 			user.followers.each do |follower|
-				follower_timeline = Twitter.user_timeline(follower)
-				follower_timeline.each do |tweet|
-					unless follower.follower_tweets.pluck(:tweet_id).include?(tweet.id)
-						follower.follower_tweets.create!(
-							text: tweet.text,
-							tweet_id: tweet.id,
-							)
-					end
-				end
+				follower_timeline = follower.get_twitter_timeline
+				stored_ids = self.get_stored_follower_tweet_ids
+				follower.store_follower_tweets(follower_timeline, stored_ids)
 			end
 		end
 
