@@ -5,7 +5,6 @@ configatron.redis_url = {
   :production => ENV['REDISTOGO_URL']
 }[Rails.env.to_sym]
 
-
 uri = URI.parse(configatron.redis_url)
 $redis = Redis.new(:host => uri.host, :port => uri.port, :password => uri.password)
 
