@@ -20,7 +20,7 @@ class TweetUpdater
 
 	def self.update_follower_tweets(user)
 		user.followers.find_each do |follower|
-			get_new_follower_tweets follower
+			get_new_follower_tweets(follower)
 		end
 	end
 
