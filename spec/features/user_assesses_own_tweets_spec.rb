@@ -34,7 +34,7 @@ feature 'user assesses their own tweets',
 
         within("#desktop") do
           @tweets.each do |tweet|
-            within("#icon#{tweet.id}") do
+            within(".icon#{tweet.id}") do
               expect(page).to have_content(tweet.emotion)
             end
           end
@@ -51,7 +51,7 @@ feature 'user assesses their own tweets',
 
       within("#mobile") do
         @tweets.each do |tweet|
-          within("#icon#{tweet.id}") do
+          within(".icon#{tweet.id}") do
             expect(page).to have_content(tweet.emotion)
           end
         end
