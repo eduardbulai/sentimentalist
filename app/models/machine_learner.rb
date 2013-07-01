@@ -13,7 +13,7 @@ class MachineLearner < ActiveRecord::Base
   	machine_learner.ignore_words = Stopwords.stopwords
   	machine_learner.stemming = true
   	machine_learner.wcount = {}
-  	machine_learner.ccount = {anger: 0, joy: 0, fear: 0, sadness: 0, disgust: 0, surprise: 0, ambiguous: 0}
+  	machine_learner.ccount = {anger: 0, joy: 0, fear: 0, sadness: 0, disgust: 0, surprise: 0, ambiguous: 1}
   end
 
   def build_classifier
@@ -35,8 +35,8 @@ class MachineLearner < ActiveRecord::Base
       new_classifier.instance_variable_set(:@ccount, self.ccount)
       new_classifier.instance_variable_set(:@ignore_words, self.ignore_words)
       new_classifier.instance_variable_set(:@stemming, self.stemming)
-      {joy: '', anger: '', fear: '', ambiguous: 'ambiguous',
-        disgust: '', surprise: '', sadness: ''}.each do |key, value|
+      {joy: 'joy', anger: 'anger', fear: 'fear', ambiguous: 'ambiguous',
+        disgust: 'disgust', surprise: 'surprise', sadness: 'sadness'}.each do |key, value|
           new_classifier.train(key, value)
       end
     end
