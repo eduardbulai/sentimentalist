@@ -25,7 +25,7 @@ FactoryGirl.define do
 
 	factory :user_tweet do
 		text { generate(:tweet) }
-		tweet_id "341375354683936768"
+		tweet_id "17060"
     emotion "joy"
     bayesian_emotion "fear"
     polarity 8
@@ -44,6 +44,9 @@ FactoryGirl.define do
     updated_at "2013-06-09 23:07:31"
     factory :follower_with_tweets do
       after(:create) {|instance| create_list(:follower_tweet, 5, follower: instance) }
+    end
+    trait :with_screen_name do
+      screen_name "@hickory"
     end
 	end
 
