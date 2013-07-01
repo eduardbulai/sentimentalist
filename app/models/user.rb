@@ -72,17 +72,17 @@ class User < ActiveRecord::Base
     end
   end
 
-  def store_follower_tweets(follower_timeline, stored_ids)
+  def store_follower_tweets(follower, follower_timeline, stored_ids)
     follower_timeline.each do |tweet|
-      unless self.object_in_database(stored_ids, tweet)
-        self.create_follower_tweet(tweet)
+      unless follower.object_in_database(stored_ids, tweet)
+        follower.create_follower_tweet(tweet)
       end
     end
   end
 
-  def store_followers (follower_timelines, stored_ids)
-    followers.each do |follower|
-      unless user.object_in_database(follower_timelines, stored_ids)
+  def store_followers(user,follower_timelines, stored_ids)
+    follower_timelines.each do |follower|
+      unless user.object_in_database(stored_ids, follower)
         user.create_follower(follower)
       end
     end

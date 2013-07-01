@@ -42,15 +42,21 @@ class TwitterApi < ActiveRecord::Base
 		def self.populate_followers(user)
 			follower_timelines = user.get_follower_twitter_timelines
 			stored_ids = user.get_stored_follower_ids
-			user.store_followers(follower_timelines, stored_ids)
+			user.store_followers(user, follower_timelines, stored_ids)
 		end
 
 		def self.populate_follower_tweets(user)
 			followers = user.followers
 			user.followers.each do |follower|
-				follower_timeline = follower.get_twitter_timeline
-				stored_ids = self.get_stored_follower_tweet_ids
-				follower.store_follower_tweets(follower_timeline, stored_ids)
+				begin
+					follower_timeline = follower.get_twitter_timeline
+				rescue
+					follower_timeline = nil
+				end
+				if follower_timeline
+					stored_ids = follower.get_stored_follower_tweet_ids
+					user.store_follower_tweets(follower, follower_timeline, stored_ids)
+				end
 			end
 		end
 
