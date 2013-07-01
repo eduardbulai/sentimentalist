@@ -28,7 +28,7 @@ describe UserTweet do
 
         tweet = tweet.clean_tweet
 
-        expect(tweet).to eql("lobster hickory #rails")
+        expect(tweet).to eql("lobster hickory rails")
       end
 
     end

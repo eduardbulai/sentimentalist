@@ -15,10 +15,11 @@ class UserTweet < ActiveRecord::Base
 
     def clean_tweet
       tweet = self.text
-      tweet = tweet.downcase
-      tweet = tweet.gsub(/((([A-Za-z]{3,9}:(?:\/\/)?)(?:[-;:&=\+\$,\w]+@)?[A-Za-z0-9.-]+|(?:www.|[-;:&=\+\$,\w]+@)[A-Za-z0-9.-]+)((?:\/[\+~%\/.\w-_]*)?\??(?:[-\+=&;%@.\w_]*)#?(?:[\w]*))?)/, '')
-      tweet = tweet.gsub(/(?=\w*h)(?=\w*t)(?=\w*t)(?=\w*p)\w*/, '')
-      tweet = tweet.gsub(/\s\s+/,' ')
+      tweet.gsub!(/[^a-z ]/i, '')
+      tweet.downcase!
+      tweet.gsub!(/((([A-Za-z]{3,9}:(?:\/\/)?)(?:[-;:&=\+\$,\w]+@)?[A-Za-z0-9.-]+|(?:www.|[-;:&=\+\$,\w]+@)[A-Za-z0-9.-]+)((?:\/[\+~%\/.\w-_]*)?\??(?:[-\+=&;%@.\w_]*)#?(?:[\w]*))?)/, '')
+      tweet.gsub!(/(?=\w*h)(?=\w*t)(?=\w*t)(?=\w*p)\w*/, '')
+      tweet.gsub!(/\s\s+/,' ')
       tweet
     end
 
