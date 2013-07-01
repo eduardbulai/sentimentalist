@@ -35,8 +35,8 @@ class MachineLearner < ActiveRecord::Base
       new_classifier.instance_variable_set(:@ccount, self.ccount)
       new_classifier.instance_variable_set(:@ignore_words, self.ignore_words)
       new_classifier.instance_variable_set(:@stemming, self.stemming)
-      {joy: 'joy', anger: 'anger', fear: 'fear', ambiguous: 'ambiguous',
-        disgust: 'disgust', surprise: 'surprise', sadness: 'sadness'}.each do |key, value|
+      {joy: '', anger: '', fear: '', ambiguous: 'ambiguous',
+        disgust: '', surprise: '', sadness: ''}.each do |key, value|
           new_classifier.train(key, value)
       end
     end
