@@ -54,6 +54,10 @@ describe TwitterApi, authentication: true,
       expect(user.polarity).to_not be_nil
     end
 
+    it "user has user_tweets" do
+      expect(user.user_tweets).to_not be_empty
+    end
+
   end
 
 end
