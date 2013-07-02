@@ -31,9 +31,8 @@ describe TwitterApi do
     end
   end
 
-  context "after get_twitter_stuff is called" do
-
-    use_vcr_cassette "twitter/user_twitter_stuff"
+  context "after get_twitter_stuff is called",
+    vcr: {cassette_name: 'twitter/user_twitter_stuff',  match_requests_on: [:method]} do
 
     before do
       TwitterApi.get_twitter_stuff(user)
@@ -60,7 +59,6 @@ describe TwitterApi do
     end
 
     it "user has followers" do
-
       expect(user.followers).to_not be_empty
     end
 
@@ -69,6 +67,5 @@ describe TwitterApi do
         expect(follower.follower_tweets).to_not be_empty
       end
     end
-
   end
 end
