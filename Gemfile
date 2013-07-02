@@ -50,7 +50,7 @@ group :test do
 	gem 'capybara'
 	gem 'factory_girl_rails'
 	gem 'vcr'
-	gem 'fakeweb'
+	gem 'webmock'
 	gem 'resque_spec'
 end
 

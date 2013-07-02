@@ -1,9 +1,8 @@
 require 'spec_helper'
 
-describe TwitterApi, authentication: true,
-  vcr: {cassette_name: 'twitter/auth'} do
+describe TwitterApi do
 
-  let!(:user) { FactoryGirl.create(:user) }
+  let(:user) { FactoryGirl.create(:user) }
 
   context "before get_twitter_stuff is called" do
 
@@ -34,6 +33,8 @@ describe TwitterApi, authentication: true,
 
   context "after get_twitter_stuff is called" do
 
+    use_vcr_cassette "twitter/user_twitter_stuff"
+
     before do
       TwitterApi.get_twitter_stuff(user)
     end
@@ -58,6 +59,16 @@ describe TwitterApi, authentication: true,
       expect(user.user_tweets).to_not be_empty
     end
 
-  end
+    it "user has followers" do
 
+      expect(user.followers).to_not be_empty
+    end
+
+    it "user's followers have follower tweets" do
+      user.followers.each do |follower|
+        expect(follower.follower_tweets).to_not be_empty
+      end
+    end
+
+  end
 end

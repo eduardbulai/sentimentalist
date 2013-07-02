@@ -28,6 +28,10 @@ class Follower < ActiveRecord::Base
     self.follower_tweets.pluck(:text).join(" ")
   end
 
+  def get_follower_twitter_timeline
+    Twitter.user_timeline(self.twitter_handle, count: 2)
+  end
+
   def create_follower_tweet(tweet)
     self.follower_tweets.create!(
       text: tweet.text,

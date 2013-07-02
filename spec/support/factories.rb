@@ -54,7 +54,7 @@ FactoryGirl.define do
   	name 'blarguser'
     uid '823121243'
     provider 'twitter'
-    twitter_handle 'test_handle'
+    twitter_handle 'mattthousand'
     oauth_token 'test_token'
     oauth_secret 'test_secret'
     created_at "2013-06-04 23:07:31"
