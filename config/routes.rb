@@ -11,7 +11,7 @@ Sentimentalist::Application.routes.draw do
   match '/load', to: 'dashboard#load'
   match '/auth/failure', to: 'sessions#error', as: 'failure'
 
-  match ':controller(/:action(/:id))(.:format)'
+  match ':controller(/:action)'
 
   root to: 'welcome#index'
 
