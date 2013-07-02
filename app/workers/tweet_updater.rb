@@ -6,6 +6,7 @@ class TweetUpdater
 
 	def self.perform(user_id)
 		user = User.find_by_id(user_id)
+    #dp - what happens if the user no longer exists?
 		update_tweets(user)
 	end
 

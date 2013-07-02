@@ -8,11 +8,12 @@ class UserTweet < ActiveRecord::Base
 
   belongs_to :user, inverse_of: :user_tweets
 
+  #dp - separate validations
   validates_presence_of :text,
     :user_id,
     :tweet_id
 
-
+    #dp - comment or use constants for the regexp's below so that this is expressive.
     def clean_tweet
       tweet = self.text
       tweet.gsub!(/[^a-z ]/i, '')

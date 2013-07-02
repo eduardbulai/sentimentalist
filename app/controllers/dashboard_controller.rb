@@ -12,12 +12,16 @@ class DashboardController < ApplicationController
     end
   end
 
+  #dp - extract to a resourceful route
+  #POST to /tweets
   def post_to_twitter
     tweeter = current_user.tweeter
     tweeter.update(params[:tweet])
     redirect_to dashboard_index_path
   end
 
+  #dp - extract to a resourceful route
+  #DELETE to /account
   def delete_account
     user = User.find_by_id(current_user.id)
     user.delete
@@ -33,6 +37,7 @@ class DashboardController < ApplicationController
 
   end
 
+  #dp - extract to a resourceful route
   def update_machine_learner
     tweet = new_user_tweet
     classifier = new_classifier

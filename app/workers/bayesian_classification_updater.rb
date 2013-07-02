@@ -12,6 +12,8 @@ class BayesianClassificationUpdater
   def self.classify_tweets(user)
 
     followers = user.followers
+    #dp - followers.find_each
+    # is it intentional that this does not persist any information?
     followers.each do |follower|
       follower.bayesian_emotion = follower.get_bayesian_emotion(user,follower)
     end

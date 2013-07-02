@@ -8,6 +8,9 @@ class MachineLearner < ActiveRecord::Base
   belongs_to :user, inverse_of: :machine_learner
 
 
+  #dp - use a protected method with a callback to encapsulate this
+  # I might consider using an after_initialize
+  #before_create :set_default_attributes
   before_create do |machine_learner|
   	machine_learner.name = "joy or anger or fear or disgust or surprise or ambiguous"
   	machine_learner.ignore_words = Stopwords.stopwords
@@ -22,6 +25,8 @@ class MachineLearner < ActiveRecord::Base
     new_classifier
   end
 
+  #dp - if you're using instance variable get, you probably want to make this a publicly accessible method
+  # so that it can be read from new_classifier
   def persist_machine_learner new_classifier
     self.wcount = new_classifier.instance_variable_get(:@wcount)
     self.ccount = new_classifier.instance_variable_get(:@ccount)
@@ -29,7 +34,7 @@ class MachineLearner < ActiveRecord::Base
   end
 
   private
-
+    #dp - same here - you want to define a setter rather than relying on metaprogramming here
     def set_classifier_instance_variables(new_classifier)
       new_classifier.instance_variable_set(:@wcount, self.wcount)
       new_classifier.instance_variable_set(:@ccount, self.ccount)

@@ -14,6 +14,7 @@ class User < ActiveRecord::Base
     :polarity,
     :resque_complete
 
+  #dp - separate lines for each option in the association invocation
   has_many :user_tweets, dependent: :destroy
   has_many :followers, dependent: :destroy
   has_one :machine_learner, foreign_key: :user_id, dependent: :destroy
@@ -30,10 +31,15 @@ class User < ActiveRecord::Base
 	  @tweeter ||= Twitter::Client.new(oauth_token: self.oauth_token, oauth_token_secret: self.oauth_secret)
 	end
 
+  #dp - constrain this data
   def concatonate_tweets
     user_tweets.pluck(:text).join(" ")
   end
 
+  #dp - good!
+  # I would consider optional specifying a 'strategy' for how the emotion is calculated, so that you don't
+  # necessarily need a separate method for calculating emotion
+  # http://en.wikipedia.org/wiki/Strategy_pattern
   def get_tweet_emotion(tweet)
     text = tweet.text
     SadPanda.emotion(text)
@@ -59,6 +65,7 @@ class User < ActiveRecord::Base
     stored_tweets.pluck(:tweet_id)
   end
 
+  #dp - you might want to constrain this data to a max limit to preserve memory
   def get_stored_follower_ids
     stored_followers = self.followers
     stored_followers.pluck(:twitter_id)
@@ -66,6 +73,10 @@ class User < ActiveRecord::Base
 
   def store_user_tweets(user_timeline, stored_ids)
     user_timeline.each do |tweet|
+      #dp - this method is a little awkwardly named. Everything in AREL is typically an object
+      # in the database - I would consider renaming to something like already_persisted?
+      # also this is an expensive operation - you should fetch all of the objects that are already in
+      # the database all at once and compare against that list to determine if a tweet is persisted already
       unless self.object_in_database(stored_ids, tweet)
         self.create_user_tweet(tweet)
       end
@@ -80,6 +91,7 @@ class User < ActiveRecord::Base
     end
   end
 
+  #dp - idomatically you want a comma between arguments
   def store_followers(user,follower_timelines, stored_ids)
     follower_timelines.each do |follower|
       unless user.object_in_database(stored_ids, follower)
@@ -107,7 +119,7 @@ class User < ActiveRecord::Base
   end
 
   class << self
-
+    # beautifully done
     def from_omniauth(auth)
       where(auth.slice("provider", "uid")).first || create_with_omniauth(auth)
     end
