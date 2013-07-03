@@ -28,7 +28,7 @@ class Follower < ActiveRecord::Base
     tweets.pluck(:text).join(" ")
   end
 
-  def get_follower_twitter_timeline
+  def twitter_timeline
     Twitter.user_timeline(self.twitter_handle, count: 2)
   end
 

@@ -55,6 +55,10 @@ class User < ActiveRecord::Base
     SadPanda.polarity(text)
   end
 
+  def twitter_timeline
+    Twitter.user_timeline(self.twitter_handle)
+  end
+
   def follower_twitter_timelines
     Twitter.followers(self.twitter_handle)
   end

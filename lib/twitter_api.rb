@@ -32,7 +32,7 @@ module TwitterApi
 		end
 
 		def self.populate_user_tweets(user)
-			user_timeline = user.get_twitter_timeline
+			user_timeline = user.twitter_timeline
 			stored_ids = user.stored_user_tweet_ids
 			user.store_user_tweets(user_timeline, stored_ids)
 		end
@@ -47,7 +47,7 @@ module TwitterApi
 			followers = user.followers
 			user.followers.each do |follower|
 				begin
-					follower_timeline = follower.get_follower_twitter_timeline
+					follower_timeline = follower.twitter_timeline
 				rescue
 					follower_timeline = nil
 				end
