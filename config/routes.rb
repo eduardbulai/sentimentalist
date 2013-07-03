@@ -5,9 +5,8 @@ Sentimentalist::Application.routes.draw do
   mount Resque::Server, at: '/resque'
 
   namespace :api do
-    # /api/... Api::
-    scope module: :version1, constraints: ApiConstraints.new(version: 1) do
-      resources :dashboard
+    scope module: :v1, defaults: {format: 'json'}  do
+      resources :dashboard, only: [:index]
     end
   end
 
