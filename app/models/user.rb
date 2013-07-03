@@ -14,9 +14,13 @@ class User < ActiveRecord::Base
     :polarity,
     :resque_complete
 
-  has_many :user_tweets, dependent: :destroy
-  has_many :followers, dependent: :destroy
-  has_one :machine_learner, foreign_key: :user_id, dependent: :destroy
+  has_many :user_tweets,
+    dependent: :destroy
+  has_many :followers,
+    dependent: :destroy
+  has_one :machine_learner,
+    foreign_key: :user_id,
+      dependent: :destroy
 
   validates_presence_of :name,
     :twitter_handle,
@@ -31,7 +35,8 @@ class User < ActiveRecord::Base
 	end
 
   def concatonate_tweets
-    user_tweets.pluck(:text).join(" ")
+    tweets = self.user_tweets.limit(300)
+    tweets.pluck(:text).join(" ")
   end
 
   def get_tweet_emotion(tweet)
@@ -80,7 +85,7 @@ class User < ActiveRecord::Base
     end
   end
 
-  def store_followers(user,follower_timelines, stored_ids)
+  def store_followers(user, follower_timelines, stored_ids)
     follower_timelines.each do |follower|
       unless user.object_in_database(stored_ids, follower)
         user.create_follower(follower)

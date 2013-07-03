@@ -32,8 +32,6 @@ function updateBayesianProfileIcon() {
 
     bayesianEmotion = response.user.bayesian_emotion;
 
-    console.log(response);
-
     desktopTarget = $('#desktop-profile-icon div.iconfield div.user.bayesian-classifier dl');
     mobileTarget = $('#mobile-profile-icon div.iconfield div.user.bayesian-classifier dl');
 
@@ -55,7 +53,7 @@ function updateMachineLearner(text, id, newEmotion, initialEmotion) {
       id: id,
       emotion: text
     },
-    url: 'dashboard/update_machine_learner',
+    url: 'machine_learners/update',
     type: 'POST',
     datatype: 'json',
     success: function(data) {
