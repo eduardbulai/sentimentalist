@@ -6,7 +6,7 @@ Sentimentalist::Application.routes.draw do
 
   namespace :api do
     # /api/... Api::
-    scope module: :version1, contraints: ApiConstraints.new(version: 1) do
+    scope module: :version1, constraints: ApiConstraints.new(version: 1) do
       resources :dashboard
     end
   end
