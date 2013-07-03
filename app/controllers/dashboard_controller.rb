@@ -19,18 +19,18 @@ class DashboardController < ApplicationController
   end
 
   def load
-    @user = current_user
+
     respond_to do |format|
       format.html
-      format.json { render json: {user: @user} }
+      format.json { render json: {user: current_user} }
     end
 
   end
 
   def update_profile_icon
-    @user = current_user
-    current_user.bayesian_emotion = user.get_bayesian_emotion(@user,@user)
-    render json: { user: @user }
+    user = current_user
+    current_user.bayesian_emotion = user.get_bayesian_emotion(current_user,current_user)
+    render json: { user: user }
   end
 
 end
