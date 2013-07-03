@@ -12,8 +12,7 @@ class Follower < ActiveRecord::Base
     :polarity
 
   has_many :follower_tweets,
-    foreign_key:
-    :follower_id,
+    foreign_key: :follower_id,
     dependent: :destroy
 
   belongs_to :user,
@@ -24,8 +23,9 @@ class Follower < ActiveRecord::Base
     :user_id,
     :twitter_id
 
-  def concatonate_tweets
-    self.follower_tweets.pluck(:text).join(" ")
+  def concatenated_tweets
+    tweets = self.follower_tweets.limit(300)
+    tweets.pluck(:text).join(" ")
   end
 
   def get_follower_twitter_timeline
@@ -39,8 +39,8 @@ class Follower < ActiveRecord::Base
     )
   end
 
-  def get_stored_follower_tweet_ids
-    stored_tweets = self.follower_tweets
+  def stored_follower_tweet_ids
+    stored_tweets = self.follower_tweets.limit(300)
     stored_tweets.pluck(:tweet_id)
   end
 

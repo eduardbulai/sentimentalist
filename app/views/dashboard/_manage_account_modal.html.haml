@@ -2,5 +2,5 @@
   %div{'class' => 'modal-footer'}
     %div.user-assessment-modal
       = simple_form_for '', url: {controller: 'dashboard', action: 'delete_account'} do |f|
-        %a.btn.btn-block.btn-fear{"href" => "/dashboard/delete_account", "type" => "submit",  "data-dismiss" => "modal", "aria-hidden" => "true"}Delete My Account
+        %a.btn.btn-block.btn-fear{"href" => "/users/destroy", "type" => "submit",  "data-dismiss" => "modal", "aria-hidden" => "true"}Delete My Account
 

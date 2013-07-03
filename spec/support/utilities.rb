@@ -28,7 +28,7 @@ def classify_tweet(tweet, new_emotion)
 
   tweet.clean_tweet
   tweet.emotion = new_emotion
-  new_classifier = user.machine_learner.build_classifier
+  new_classifier = user.machine_learner.classifier
   new_classifier.train(new_emotion.to_sym, tweet.text)
   user.machine_learner.persist_machine_learner(new_classifier)
 
