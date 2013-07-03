@@ -1,15 +1,6 @@
-require 'api_constraints'
-
 Sentimentalist::Application.routes.draw do
 
   mount Resque::Server, at: '/resque'
-
-  namespace :api do
-    # /api/... Api::
-    scope module: :version1, contraints: ApiConstraints.new(version: 1) do
-      resources :dashboard
-    end
-  end
 
   resources :dashboard, only: [:index, :load]
   resources :welcome, only: [:index]
