@@ -23,7 +23,7 @@ class Follower < ActiveRecord::Base
     :user_id,
     :twitter_id
 
-  def concatonate_tweets
+  def concatenated_tweets
     tweets = self.follower_tweets.limit(300)
     tweets.pluck(:text).join(" ")
   end
@@ -35,7 +35,7 @@ class Follower < ActiveRecord::Base
     )
   end
 
-  def get_stored_follower_tweet_ids
+  def stored_follower_tweet_ids
     stored_tweets = self.follower_tweets.limit(300)
     stored_tweets.pluck(:tweet_id)
   end

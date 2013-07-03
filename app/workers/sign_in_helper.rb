@@ -6,7 +6,7 @@ class SignInHelper
 		user = User.find_by_id(user_id)
 		TwitterApi.get_twitter_stuff(user)
     user.resque_complete = true
-    user.save
+    user.save!
 	end
 
 end

@@ -25,10 +25,10 @@ describe Follower do
 
   context "instance methods" do
 
-    describe "#concatonate_tweets" do
+    describe "#concatenated_tweets" do
 
       it "returns a non-empty string" do
-        expect(follower.concatonate_tweets).to_not be_empty
+        expect(follower.concatenated_tweets).to_not be_empty
       end
 
     end
@@ -49,13 +49,13 @@ describe Follower do
 
     end
 
-    describe "#get_stored_follower_tweet_ids" do
+    describe "#stored_follower_tweet_ids" do
 
       it "returns an array containing all follower_tweet ids" do
 
         user.followers.each do |follower|
 
-          output = follower.get_stored_follower_tweet_ids
+          output = follower.stored_follower_tweet_ids
 
           follower.follower_tweets.each do |tweet|
             expect(output).to include(tweet.tweet_id)

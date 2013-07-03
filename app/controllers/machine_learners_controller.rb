@@ -30,7 +30,7 @@ class MachineLearnersController < ApplicationController
 
     def new_classifier
       machine_learner = current_user.machine_learner
-      machine_learner.build_classifier
+      machine_learner.classifier
     end
 
     def trained_classifier(classifier, tweet_text, new_emotion)

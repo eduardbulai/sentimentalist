@@ -13,7 +13,7 @@ describe TweetCreator do
 
         it "returns true" do
           valid_user_tweet = user.user_tweets.first
-          stored_ids = user.get_stored_user_tweet_ids
+          stored_ids = user.stored_user_tweet_ids
           stored_ids << valid_user_tweet.id
           output = user.object_in_database(stored_ids, valid_user_tweet)
           expect(output).to be_true
@@ -25,7 +25,7 @@ describe TweetCreator do
 
         it "returns false" do
           invalid_user_tweet = user.user_tweets.first
-          stored_ids = user.get_stored_user_tweet_ids
+          stored_ids = user.stored_user_tweet_ids
           output = user.object_in_database(stored_ids, invalid_user_tweet)
 
           expect(output).to be_false

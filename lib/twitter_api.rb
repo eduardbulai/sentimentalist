@@ -33,13 +33,13 @@ module TwitterApi
 
 		def self.populate_user_tweets(user)
 			user_timeline = user.get_twitter_timeline
-			stored_ids = user.get_stored_user_tweet_ids
+			stored_ids = user.stored_user_tweet_ids
 			user.store_user_tweets(user_timeline, stored_ids)
 		end
 
 		def self.populate_followers(user)
-			follower_timelines = user.get_follower_twitter_timelines
-			stored_ids = user.get_stored_follower_ids
+			follower_timelines = user.follower_twitter_timelines
+			stored_ids = user.stored_follower_ids
 			user.store_followers(user, follower_timelines, stored_ids)
 		end
 
@@ -52,7 +52,7 @@ module TwitterApi
 					follower_timeline = nil
 				end
 				if follower_timeline
-					stored_ids = follower.get_stored_follower_tweet_ids
+					stored_ids = follower.stored_follower_tweet_ids
 					user.store_follower_tweets(follower, follower_timeline, stored_ids)
 				end
 			end

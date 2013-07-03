@@ -4,7 +4,7 @@ describe MachineLearner do
 
 	let(:machine_learner) { FactoryGirl.create(:machine_learner) }
   let(:emotions) { [:anger, :joy, :fear, :sadness, :disgust, :surprise, :ambiguous] }
-  let(:new_classifier) { machine_learner.build_classifier }
+  let(:new_classifier) { machine_learner.classifier }
 
   context "associations" do
 
@@ -48,7 +48,7 @@ describe MachineLearner do
 
   context "intance methods" do
 
-    describe "#build_classifier" do
+    describe "#classifier" do
 
       it "sets a wcount value for the new classifier" do
         expect(new_classifier.instance_variable_get(:@wcount)).to eql({"joi"=>{:joy=>1},
@@ -77,7 +77,7 @@ describe MachineLearner do
 
         initial_wcount = machine_learner.wcount.length
         initial_ccount = machine_learner.ccount[:joy]
-        new_classifier = machine_learner.build_classifier
+        new_classifier = machine_learner.classifier
         new_classifier.train(:joy, "I love stuff!")
         machine_learner.persist_machine_learner(new_classifier)
 

@@ -34,7 +34,7 @@ class User < ActiveRecord::Base
 	  @tweeter ||= Twitter::Client.new(oauth_token: self.oauth_token, oauth_token_secret: self.oauth_secret)
 	end
 
-  def concatonate_tweets
+  def concatenated_tweets
     tweets = self.user_tweets.limit(300)
     tweets.pluck(:text).join(" ")
   end
@@ -44,27 +44,27 @@ class User < ActiveRecord::Base
     SadPanda.emotion(text)
   end
 
-  def get_bayesian_emotion_of_tweet(tweet)
+  def bayesian_emotion_of_tweet(tweet)
     text = tweet.text
-    user_classifier = self.machine_learner.build_classifier
+    user_classifier = self.machine_learner.classifier
     user_classifier.classify(text).to_s
   end
 
-  def get_tweet_polarity(tweet)
+  def tweet_polarity(tweet)
     text = tweet.text
     SadPanda.polarity(text)
   end
 
-  def get_follower_twitter_timelines
+  def follower_twitter_timelines
     Twitter.followers(self.twitter_handle)
   end
 
-  def get_stored_user_tweet_ids
+  def stored_user_tweet_ids
     stored_tweets = self.user_tweets
     stored_tweets.pluck(:tweet_id)
   end
 
-  def get_stored_follower_ids
+  def stored_follower_ids
     stored_followers = self.followers
     stored_followers.pluck(:twitter_id)
   end
@@ -97,9 +97,9 @@ class User < ActiveRecord::Base
     self.user_tweets.create!(
       text: tweet.text,
       tweet_id: tweet.id,
-      bayesian_emotion: self.get_bayesian_emotion_of_tweet(tweet),
+      bayesian_emotion: self.bayesian_emotion_of_tweet(tweet),
       emotion: self.get_tweet_emotion(tweet),
-      polarity: self.get_tweet_polarity(tweet)
+      polarity: self.tweet_polarity(tweet)
     )
   end
 

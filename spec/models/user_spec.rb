@@ -48,13 +48,13 @@ describe User do
 
 	context "instance methods" do
 
-		describe "#get_tweet_polarity" do
+		describe "#tweet_polarity" do
 
 			it 'returns a number between 0 and 10' do
 
 				tweet = user.user_tweets.first
 
-				output = user.get_tweet_polarity(tweet)
+				output = user.tweet_polarity(tweet)
 
 				expect(0..10).to include(output)
 
@@ -78,7 +78,7 @@ describe User do
 
 		end
 
-		describe "#get_bayesian_emotion_of_tweet" do
+		describe "#bayesian_emotion_of_tweet" do
 
 			it "returns an emotion" do
 
@@ -86,7 +86,7 @@ describe User do
 
 				possibilities = %q{joy disgust anger ambiguous surprise sadness fear}
 
-				output = user.get_bayesian_emotion_of_tweet(tweet)
+				output = user.bayesian_emotion_of_tweet(tweet)
 
 				expect(possibilities).to include(output)
 
@@ -95,10 +95,10 @@ describe User do
 		end
 
 
-		    describe "#get_stored_user_tweet_ids" do
+		    describe "#stored_user_tweet_ids" do
 
       it "returns an array containing all user_tweet ids" do
-        output = user.get_stored_user_tweet_ids
+        output = user.stored_user_tweet_ids
 
         user.user_tweets.each do |tweet|
           expect(output).to include(tweet.tweet_id)
@@ -107,10 +107,10 @@ describe User do
 
     end
 
-    describe "#get_stored_follower_ids" do
+    describe "#stored_follower_ids" do
 
       it "returns an array containing all follower ids" do
-        output = user.get_stored_follower_ids
+        output = user.stored_follower_ids
 
         user.followers.each do |follower|
           expect(output).to include(follower.twitter_id)
@@ -119,13 +119,13 @@ describe User do
 
     end
 
-    describe "#get_stored_follower_tweet_ids" do
+    describe "#stored_follower_tweet_ids" do
 
       it "returns an array containing all follower_tweet ids" do
 
         user.followers.each do |follower|
 
-          output = follower.get_stored_follower_tweet_ids
+          output = follower.stored_follower_tweet_ids
 
           follower.follower_tweets.each do |tweet|
             expect(output).to include(tweet.tweet_id)
