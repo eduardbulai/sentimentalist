@@ -1,5 +1,7 @@
 class DashboardController < ApplicationController
 
+  before_filter :authenticate
+
   respond_to :json, :html
 
   def index
@@ -32,5 +34,11 @@ class DashboardController < ApplicationController
     current_user.bayesian_emotion = current_user.get_bayesian_emotion(@user,@user)
     render json: { user: @user }
   end
+
+  private
+
+    def authenticate
+      redirect_to root_path unless current_user
+    end
 
 end
