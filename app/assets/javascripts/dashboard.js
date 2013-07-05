@@ -57,6 +57,8 @@ function updateMachineLearner(text, id, newEmotion, initialEmotion) {
     type: 'POST',
     datatype: 'json',
     success: function(data) {
+      removeInitialEmotion($('.icon'+id));
+      removeInitialEmotion($('.icon_bayes'+id));
       setNewColor(data);
       setNewText(data);
     },
@@ -65,9 +67,7 @@ function updateMachineLearner(text, id, newEmotion, initialEmotion) {
 
   setNewColor = function(data) {
     var id = data.machine_learners[0].machine_learners.id;
-    $('.icon'+id).removeClass('emotion-'+initialEmotion);
     $('.icon'+id).addClass('emotion-'+newEmotion);
-    $('.icon_bayes'+id).removeClass('emotion-'+initialEmotion);
     $('.icon_bayes'+id).addClass('emotion-'+newEmotion);
     $('dl#iconcolor'+id).removeClass();
     $('dl#iconcolor'+id).addClass("palette palette-"+newEmotion);
@@ -79,6 +79,18 @@ function updateMachineLearner(text, id, newEmotion, initialEmotion) {
     var id = data.machine_learners[0].machine_learners.id;
     $('.icontext'+id).text(text);
     $('.icontext_bayes'+id).text(text);
+  };
+
+  removeInitialEmotion = function(element) {
+    var classes = element.attr('class').split(/\s+/);
+    var pattern = /(\emotion-\w+)/;
+    for(var i = 0; i < classes.length; i++){
+      var className = classes[i];
+
+      if(className.match(pattern)){
+        element.removeClass(className);
+      }
+    }
   };
 
 }
