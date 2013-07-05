@@ -20,9 +20,9 @@
       %div.span3#desktop-profile-icon
         %div.iconfield
           = render 'user_profile_icon'
-        %a.btn.btn-large.btn-block.btn-inverse{"href" => "#post_to_twitter_modal", "data-toggle" => "modal", "role" => "button", "name" => "post_to_twitter", "class" => "btn"}Post To Twitter
-        %a.btn.btn-large.btn-block.btn-inverse{"href" => "#manage_account_modal", "data-toggle" => "modal", "role" => "button", "name" => "manage_account", "class" => "btn"}Manage Account
-        %a.btn.btn-large.btn-block.btn-default{"href" => '/signout', "data-toggle" => "modal", "role" => "button", "name" => "sign_out", "class" => "btn"}Sign Out
+        %a.btn.btn-large.btn-block.btn-inverse{"href" => "#post_to_twitter_modal", "data-toggle" => "modal", "role" => "button", "name" => "post_to_twitter"}Post To Twitter
+        %a.btn.btn-large.btn-block.btn-inverse{"href" => "#manage_account_modal", "data-toggle" => "modal", "role" => "button", "name" => "manage_account"}Manage Account
+        %a.btn.btn-large.btn-block.btn-default{"href" => '/signout', "data-toggle" => "modal", "role" => "button", "name" => "sign_out"}Sign Out
       %div.span9
         = render 'default_bayesian_filter_partial'
       %div.span9
@@ -40,12 +40,12 @@
       %div.span6#mobile-profile-icon
         %div.iconfield
           = render 'user_profile_icon'
-    %a.btn.btn-large.btn-block.btn-inverse{"href" => "#post_to_twitter_modal", "data-toggle" => "modal", "role" => "button", "name" => "post_to_twitter", "class" => "btn"}Post To Twitter
-    %a.btn.btn-large.btn-block.btn-inverse{"href" => "#manage_account_modal", "data-toggle" => "modal", "role" => "button", "name" => "manage_account", "class" => "btn"}Manage Account
-    %a.btn.btn-large.btn-block.btn-default{"href" => '/signout', "data-toggle" => "modal", "role" => "button", "name" => "sign_out", "class" => "btn"}Sign Out
-    %a.btn.btn-large.btn-block.btn-default#mobile-filter-first{"href" => '#default_bayesian_filter_modal', "data-toggle" => "modal", "role" => "button", "name" => "default_bayesian_filter", "class" => "btn"}Classifier
-    %a.btn.btn-large.btn-block.btn-default{"href" => '#emotions_filter_modal', "data-toggle" => "modal", "role" => "button", "name" => "emotion_filter", "class" => "btn"}Emotion
-    %a.btn.btn-large.btn-block.btn-default{"href" => '#user_follower_filter_modal', "data-toggle" => "modal", "role" => "button", "name" => "user_follower_filter", "class" => "btn"}Context
+    %a.btn.btn-large.btn-block.btn-inverse{"href" => "#post_to_twitter_modal", "data-toggle" => "modal", "role" => "button", "name" => "post_to_twitter"}Post To Twitter
+    %a.btn.btn-large.btn-block.btn-inverse{"href" => "#manage_account_modal", "data-toggle" => "modal", "role" => "button", "name" => "manage_account"}Manage Account
+    %a.btn.btn-large.btn-block.btn-default{"href" => '/signout', "data-toggle" => "modal", "role" => "button", "name" => "sign_out"}Sign Out
+    %a.btn.btn-large.btn-block.btn-default#mobile-filter-first{"href" => '#default_bayesian_filter_modal', "data-toggle" => "modal", "role" => "button", "name" => "default_bayesian_filter"}Classifier
+    %a.btn.btn-large.btn-block.btn-default{"href" => '#emotions_filter_modal', "data-toggle" => "modal", "role" => "button", "name" => "emotion_filter"}Emotion
+    %a.btn.btn-large.btn-block.btn-default{"href" => '#user_follower_filter_modal', "data-toggle" => "modal", "role" => "button", "name" => "user_follower_filter"}Context
     .container#mobile-iconfield.iconfield
       = render 'dashboard_iconfield'
 
