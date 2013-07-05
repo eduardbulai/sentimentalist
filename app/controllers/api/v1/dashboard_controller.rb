@@ -2,9 +2,9 @@ module Api
   module V1
     class DashboardController < ApplicationController
       def index
-        @emotions = User.emotions_for_api
+        @users = User.all
         respond_to do |format|
-          format.json {render json: @emotions}
+          format.json {render json: @users, root: false}
         end
       end
     end

@@ -85,3 +85,5 @@ gem 'shoulda-matchers'
 gem 'configatron'
 
 gem 'thin'
+
+gem 'active_model_serializers'
