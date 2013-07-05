@@ -49,16 +49,17 @@ describe("change user_tweet emotion icon via modal", function() {
 
   it("ajax call changes icon color", function() {
 
-    var fakeResponse = [{"id": 18},{"bayesian_emotion": "disgust"},{"created_at": "2013-06-29T16:23:03Z"},
-      {"emotion": "disgust"},{"polarity": 7},{"text": "this is a tweet"},
-      {"tweet_id": "337283249111969792"},{"updated_at": "2013-06-30T01:13:22Z"},
-      {"user_id": 1}];
+    var fakeResponse = {"machine_learners":[{"machine_learners":{"bayesian_emotion":"disgust",
+      "created_at":"2013-07-05T13:41:14Z","emotion":"disgust","id":18,"polarity":8,
+      "text": "this is a tweet","tweet_id":"343538646105870336","updated_at":"2013-07-05T14:15:42Z",
+      "user_id":1}}]};
+
     var id = 18;
     var text = "surprise";
     var newEmotion = "surprise";
 
-    expect($('.emot.icon18')).toHaveClass('emotion-ambiguous')
-    expect($('.emot.icon_bayes18')).toHaveClass('emotion-anger')
+    expect($('.emot.icon18')).toHaveClass('emotion-ambiguous');
+    expect($('.emot.icon_bayes18')).toHaveClass('emotion-anger');
     expect($('dl#iconcolor18')).toHaveClass('palette-ambiguous');
     expect($('dl#iconcolor_bayes18')).toHaveClass('palette-anger');
 
@@ -76,10 +77,10 @@ describe("change user_tweet emotion icon via modal", function() {
 
   it("ajax call changes icon text", function() {
 
-    var fakeResponse = [{"id": 18},{"bayesian_emotion": "disgust"},{"created_at": "2013-06-29T16:23:03Z"},
-      {"emotion": "disgust"},{"polarity": 7},{"text": "this is a tweet"},
-      {"tweet_id": "337283249111969792"},{"updated_at": "2013-06-30T01:13:22Z"},
-      {"user_id": 1}];
+    var fakeResponse = {"machine_learners":[{"machine_learners":{"bayesian_emotion":"disgust",
+      "created_at":"2013-07-05T13:41:14Z","emotion":"disgust","id":18,"polarity":8,
+      "text": "this is a tweet","tweet_id":"343538646105870336","updated_at":"2013-07-05T14:15:42Z",
+      "user_id":1}}]};
     var text = "surprise";
     var id = 18;
     var newEmotion = "surprise";
