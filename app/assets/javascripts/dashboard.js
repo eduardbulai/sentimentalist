@@ -64,19 +64,21 @@ function updateMachineLearner(text, id, newEmotion, initialEmotion) {
   });
 
   setNewColor = function(data) {
-      $('.icon'+data[0].id).removeClass('emotion-'+initialEmotion);
-      $('.icon'+data[0].id).addClass('emotion-'+newEmotion);
-      $('.icon_bayes'+data[0].id).removeClass('emotion-'+initialEmotion);
-      $('.icon_bayes'+data[0].id).addClass('emotion-'+newEmotion);
-      $('dl#iconcolor'+data[0].id).removeClass();
-      $('dl#iconcolor'+data[0].id).addClass("palette palette-"+newEmotion);
-      $('dl#iconcolor_bayes'+data[0].id).removeClass();
-      $('dl#iconcolor_bayes'+data[0].id).addClass("palette palette-"+newEmotion);
+    var id = data.machine_learners[0].machine_learners.id;
+    $('.icon'+id).removeClass('emotion-'+initialEmotion);
+    $('.icon'+id).addClass('emotion-'+newEmotion);
+    $('.icon_bayes'+id).removeClass('emotion-'+initialEmotion);
+    $('.icon_bayes'+id).addClass('emotion-'+newEmotion);
+    $('dl#iconcolor'+id).removeClass();
+    $('dl#iconcolor'+id).addClass("palette palette-"+newEmotion);
+    $('dl#iconcolor_bayes'+id).removeClass();
+    $('dl#iconcolor_bayes'+id).addClass("palette palette-"+newEmotion);
     };
 
   setNewText = function(data) {
-    $('.icontext'+data[0].id).text(text);
-    $('.icontext_bayes'+data[0].id).text(text);
+    var id = data.machine_learners[0].machine_learners.id;
+    $('.icontext'+id).text(text);
+    $('.icontext_bayes'+id).text(text);
   };
 
 }
