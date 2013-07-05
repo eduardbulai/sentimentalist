@@ -134,6 +134,17 @@ class User < ActiveRecord::Base
       user
     end
 
+    def emotions_for_api
+      output = []
+      users = User.all
+      users.each do |user|
+        object = {}
+        object["emotion"] = user.emotion
+        output << object
+      end
+      output
+    end
+
   end
 
 end
