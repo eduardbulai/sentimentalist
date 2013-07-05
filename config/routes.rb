@@ -1,11 +1,12 @@
-require 'api_constraints'
-
 Sentimentalist::Application.routes.draw do
 
   mount Resque::Server, at: '/resque'
 
-  namespace :api do
-    scope module: :v1, defaults: {format: 'json'}  do
+  namespace :api, defaults: {format: 'json'}  do
+    namespace :v1  do
+      resources :dashboard, only: [:index]
+    end
+    namespace :v2  do
       resources :dashboard, only: [:index]
     end
   end
