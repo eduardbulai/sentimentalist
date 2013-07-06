@@ -1,11 +1,18 @@
 $(document).ready(function() {
-  $('a[name=post_to_twitter]').click(function(e) {
-    e.preventDefault();
 
-    var taText = $('textarea#myTextArea').val();
-
-    $("#myDiv span").text(taText);
+  $('a.confirm-delete').click(function() {
+    $.ajax({
+      data: {},
+      url: 'users/destroy',
+      type: 'DELETE',
+      datatype: 'json',
+      success: function(){
+        window.location='/'
+      },
+      error: function(){}
+    });
   });
+
 
   $('.user-assessment-modal a').click(function(e) {
     e.preventDefault();
