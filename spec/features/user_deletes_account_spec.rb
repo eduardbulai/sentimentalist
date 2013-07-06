@@ -12,8 +12,6 @@ feature "user manages account",
     AC
     * dashboard page has 'manage account' link
     * manage account modal has a 'delete account' button
-    * user is redirected to the sign in page after clicking the delete account link
-    * user is removed from the database after clicking the delete account link
   }
 
   let(:user){ FactoryGirl.create(:user_with_followers_and_machine_learner) }
@@ -54,19 +52,6 @@ feature "user manages account",
       within("#manage_account_modal") do
         expect(page).to have_link("Delete My Account")
       end
-
-    end
-
-
-    it 'user can delete account' do
-
-      expect(User.exists?(user.id)).to be_true
-
-      click_link("Delete My Account")
-
-      expect(User.exists?(user.id)).to be_false
-      expect(current_path).to eql(root_path)
-      expect(page).to have_link('Sign in with Twitter')
 
     end
 

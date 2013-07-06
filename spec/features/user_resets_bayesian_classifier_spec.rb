@@ -11,8 +11,8 @@ feature 'user assesses their own tweets',
 
     AC
     * dashboard contains button for 'reset bayesian classifier'
-    * page contains modal prompting the user to confirm their choice to reset the classifier
-
+    * dashboard contains modal prompting the user to confirm their decision
+    * modal contains link to reset bayesian classifier
   }
 
   let(:user) { FactoryGirl.create(:user_with_followers_and_machine_learner) }
@@ -26,9 +26,8 @@ feature 'user assesses their own tweets',
 
     it "user initiates modal" do
       within("#reset_bayesian_classifier_modal") do
-        expect(page).to have_selector("a")
         expect(page).to have_content("Just Kidding")
-        expect(page).to have_content("I'm Serious")
+        expect(page).to have_link("I'm Serious")
       end
     end
 
