@@ -21,13 +21,14 @@
         %div.iconfield
           = render 'user_profile_icon'
         %a.btn.btn-large.btn-block.btn-inverse{"href" => "#post_to_twitter_modal", "data-toggle" => "modal", "role" => "button", "name" => "post_to_twitter"}Post To Twitter
+        %a.btn.btn-large.btn-block.btn-inverse{"href" => "#reset_bayesian_classifier_modal", "data-toggle" => "modal", "role" => "button", "name" => "reset_bayesian_classifier"}Reset Bayesian Classifier
         %a.btn.btn-large.btn-block.btn-inverse{"href" => "#manage_account_modal", "data-toggle" => "modal", "role" => "button", "name" => "manage_account"}Manage Account
         %a.btn.btn-large.btn-block.btn-default{"href" => '/signout', "data-toggle" => "modal", "role" => "button", "name" => "sign_out"}Sign Out
       %div.span9
         = render 'default_bayesian_filter_partial'
       %div.span9
         = render 'emotions_filter_partial'
-      = render 'user_followers_filter_partial'
+        = render 'user_followers_filter_partial'
       %div.iconfield.span9#small-icons
         = render 'dashboard_iconfield'
 
@@ -41,6 +42,7 @@
         %div.iconfield
           = render 'user_profile_icon'
     %a.btn.btn-large.btn-block.btn-inverse{"href" => "#post_to_twitter_modal", "data-toggle" => "modal", "role" => "button", "name" => "post_to_twitter"}Post To Twitter
+    %a.btn.btn-large.btn-block.btn-inverse{"href" => "#reset_bayesian_classifier_modal", "data-toggle" => "modal", "role" => "button", "name" => "reset_bayesian_classifier"}Reset Bayesian Classifier
     %a.btn.btn-large.btn-block.btn-inverse{"href" => "#manage_account_modal", "data-toggle" => "modal", "role" => "button", "name" => "manage_account"}Manage Account
     %a.btn.btn-large.btn-block.btn-default{"href" => '/signout', "data-toggle" => "modal", "role" => "button", "name" => "sign_out"}Sign Out
     %a.btn.btn-large.btn-block.btn-default#mobile-filter-first{"href" => '#default_bayesian_filter_modal', "data-toggle" => "modal", "role" => "button", "name" => "default_bayesian_filter"}Classifier
@@ -59,6 +61,8 @@
 = render 'post_to_twitter_modal'
 
 = render 'manage_account_modal'
+
+=render 'reset_bayesian_classifier_modal'
 
 = render 'user_follower_filter_modal'
 

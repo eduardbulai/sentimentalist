@@ -1,10 +1,9 @@
 class UsersController < ApplicationController
 
-  def destroy
-    @user = User.find_by_id(current_user.id)
-    @user.destroy
+  respond_to :json
 
-    redirect_to root_path
+  def destroy
+    respond_with current_user.destroy
   end
 
 end

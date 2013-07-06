@@ -6,9 +6,6 @@ Sentimentalist::Application.routes.draw do
     namespace :v1  do
       resources :dashboard, only: [:index]
     end
-    namespace :v2  do
-      resources :dashboard, only: [:index]
-    end
   end
 
   resources :dashboard, only: [:index, :load]

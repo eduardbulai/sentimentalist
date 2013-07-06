@@ -1,6 +1,0 @@
-%div#manage_account_modal{"class" => "modal hide fade", "tabindex" => "-1", "role" => "dialog", "aria-labelledby" => "myModalLabel", "aria-hidden" => "true"}
-  %div{'class' => 'modal-footer'}
-    %div.user-assessment-modal
-      = simple_form_for '', url: {controller: 'dashboard', action: 'delete_account'} do |f|
-        %a.btn.btn-block.btn-fear{"href" => "/users/destroy", "type" => "submit",  "data-dismiss" => "modal", "aria-hidden" => "true"}Delete My Account
-
