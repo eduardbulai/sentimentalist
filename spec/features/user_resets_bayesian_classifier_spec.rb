@@ -11,8 +11,7 @@ feature 'user assesses their own tweets',
 
     AC
     * dashboard contains button for 'reset bayesian classifier'
-    * clicking that button initiates a modal that prompts the user with "are you sure?"
-    * submitting a positive response within the modal re-initializes the user's machine learner
+    * page contains modal prompting the user to confirm their choice to reset the classifier
 
   }
 
@@ -23,16 +22,43 @@ feature 'user assesses their own tweets',
     visit dashboard_index_path
   end
 
-  describe "dashboard contents" do
+  describe "page contains reset confirmation modal" do
 
-    it "page contains button for 'reset bayesian classifier'"
+    it "user initiates modal" do
+      within("#reset_bayesian_classifier_modal") do
+        expect(page).to have_selector("a")
+        expect(page).to have_content("Just Kidding")
+        expect(page).to have_content("I'm Serious")
+      end
+    end
+
   end
 
-  describe "user resets bayesian classifier" do
+  context "desktop" do
 
-    it "user initiates modal"
+    describe "dashboard contents" do
 
-    it "user resets bayesian classifier"
+      it "page contains button for 'reset bayesian classifier'" do
+        within("#desktop") do
+          expect(page).to have_content("Reset Bayesian Classifier")
+        end
+      end
+
+    end
+
+  end
+
+  context "mobile" do
+
+    describe "dashboard contents" do
+
+      it "page contains button for 'reset bayesian classifier'" do
+        within("#mobile") do
+          expect(page).to have_content("Reset Bayesian Classifier")
+        end
+      end
+
+    end
 
   end
 
