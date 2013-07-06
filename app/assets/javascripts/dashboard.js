@@ -84,7 +84,7 @@ function updateMachineLearner(text, id, newEmotion, initialEmotion) {
   removeInitialEmotion = function(element) {
     var classes = element.attr('class').split(/\s+/);
     var pattern = /(\emotion-\w+)/;
-    for(var i = 0; i < classes.length; i++){
+    for (var i = 0; i < classes.length; i++){
       var className = classes[i];
 
       if(className.match(pattern)){
