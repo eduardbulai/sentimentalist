@@ -1,6 +1,5 @@
 %div#manage_account_modal{"class" => "modal hide fade", "tabindex" => "-1", "role" => "dialog", "aria-labelledby" => "myModalLabel", "aria-hidden" => "true"}
   %div{'class' => 'modal-footer'}
     %div.manage-account-modal
-      = simple_form_for '', url: {controller: 'users', action: 'destroy'}  do |f|
-        %a.btn.btn-block.btn-fear{"data-dismiss" => "modal", "aria-hidden" => "true"}Just Kidding
-        %a.btn.btn-block.btn-fear.confirm-delete{"type" => "submit",  "data-dismiss" => "modal", "aria-hidden" => "true"}Delete My Account
+      %a.btn.btn-block.btn-fear{"data-dismiss" => "modal", "aria-hidden" => "true"}Return to Dashboard
+      %a.btn.btn-block.btn-fear.confirm-delete{"type" => "submit",  "data-dismiss" => "modal", "aria-hidden" => "true"}Delete My Account

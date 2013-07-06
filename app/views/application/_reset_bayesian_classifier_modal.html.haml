@@ -1,6 +1,5 @@
 %div#reset_bayesian_classifier_modal{"class" => "modal hide fade", "tabindex" => "-1", "role" => "dialog", "aria-labelledby" => "myModalLabel", "aria-hidden" => "true"}
   %div{'class' => 'modal-footer'}
     %div.reset-bayesian-classifier-modal
-      = simple_form_for '', url: {controller: 'machine_learners', action: 'reset'}  do |f|
-        %a.btn.btn-block.btn-fear{"data-dismiss" => "modal", "aria-hidden" => "true"}Just Kidding
-        %a.btn.btn-block.btn-fear{"type" => "submit",  "data-dismiss" => "modal", "aria-hidden" => "true"}I'm Serious
+      %a.btn.btn-block.btn-fear{"data-dismiss" => "modal", "aria-hidden" => "true"}Just Kidding
+      %a.btn.btn-block.btn-fear.confirm-reset{"type" => "submit",  "data-dismiss" => "modal", "aria-hidden" => "true"}I'm Serious

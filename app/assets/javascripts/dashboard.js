@@ -7,9 +7,22 @@ $(document).ready(function() {
       type: 'DELETE',
       datatype: 'json',
       success: function(){
-        window.location='/'
+        window.location='/';
       },
       error: function(){}
+    });
+  });
+
+  $('a.confirm-reset').click(function() {
+    $.ajax({
+      data:{},
+      url: 'machine_learners/reset',
+      type: 'POST',
+      datatype: 'json',
+      success: function(){
+        window.location='/dashboard';
+      },
+      error: function() {}
     });
   });
 
