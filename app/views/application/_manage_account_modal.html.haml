@@ -2,4 +2,4 @@
   %div{'class' => 'modal-footer'}
     %div.manage-account-modal
       %a.btn.btn-block.btn-fear{"data-dismiss" => "modal", "aria-hidden" => "true"}Return to Dashboard
-      %a.btn.btn-block.btn-fear.confirm-delete{"type" => "submit",  "data-dismiss" => "modal", "aria-hidden" => "true"}Delete My Account
+      =link_to "Delete My Account", '#', class: "btn btn-block btn-fear confirm-delete", data: { dismiss: "modal" }, 'aria-hidden' => true
