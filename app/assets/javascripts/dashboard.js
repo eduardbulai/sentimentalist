@@ -1,29 +1,11 @@
 $(document).ready(function() {
 
   $('a.confirm-delete').click(function() {
-    $.ajax({
-      data: {},
-      url: 'users/destroy',
-      type: 'DELETE',
-      datatype: 'json',
-      success: function(){
-        window.location='/';
-      },
-      error: function(){}
-    });
+    deleteUserAccount();
   });
 
   $('a.confirm-reset').click(function() {
-    $.ajax({
-      data:{},
-      url: 'machine_learners/reset',
-      type: 'POST',
-      datatype: 'json',
-      success: function(){
-        window.location='/dashboard';
-      },
-      error: function() {}
-    });
+    resetBayesianClassifier();
   });
 
 
@@ -45,6 +27,32 @@ $(document).ready(function() {
   updateBayesianProfileIcon();
 
 });
+
+function deleteUserAccount() {
+  $.ajax({
+    data: {},
+    url: 'users/destroy',
+    type: 'DELETE',
+    datatype: 'json',
+    success: function(){
+      window.location='/';
+    },
+    error: function(){}
+  });
+}
+
+function resetBayesianClassifier() {
+  $.ajax({
+    data:{},
+    url: 'machine_learners/reset',
+    type: 'POST',
+    datatype: 'json',
+    success: function(){
+      window.location='/dashboard';
+    },
+    error: function() {}
+  });
+}
 
 
 function updateBayesianProfileIcon() {
