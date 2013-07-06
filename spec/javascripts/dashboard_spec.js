@@ -35,7 +35,7 @@ describe("change user_tweet emotion icon via modal", function() {
     loadFixtures("dashboard_emotion_icon.html");
   });
 
-  it("click triggers ajax request to the correct URL", function() {
+  it("triggers and ajax request", function() {
 
     var id = 18;
     var text = "surprise";
@@ -98,5 +98,33 @@ describe("change user_tweet emotion icon via modal", function() {
 
   });
 
+});
+
+describe("deleteUserAccount();", function() {
+
+  it("triggers  ajax request to the correct url", function(){
+
+    var url = 'users/destroy';
+
+    spyOn($, "ajax");
+    deleteUserAccount();
+    expect($.ajax.mostRecentCall.args[0]["url"]).toEqual(url);
+
+  });
+
+});
+
+
+describe("resetBayesianClassifier()", function() {
+
+  it("triggers an ajax request to the correct url", function(){
+
+    var url = 'machine_learners/reset';
+
+    spyOn($, "ajax");
+    resetBayesianClassifier();
+    expect($.ajax.mostRecentCall.args[0]["url"]).toEqual(url);
+
+  });
 
 });
