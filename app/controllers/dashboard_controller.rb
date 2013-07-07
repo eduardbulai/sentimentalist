@@ -32,6 +32,7 @@ class DashboardController < ApplicationController
   def update_profile_icon
     @user = current_user
     current_user.bayesian_emotion = current_user.get_bayesian_emotion(@user,@user)
+    current_user.save
     render json: { user: @user }
   end
 

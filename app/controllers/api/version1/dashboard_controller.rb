@@ -1,5 +1,5 @@
 module Api
-  module V1
+  module Version1
     class DashboardController < ApplicationController
       def index
         @users = User.all
