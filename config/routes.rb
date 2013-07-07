@@ -3,7 +3,7 @@ Sentimentalist::Application.routes.draw do
   mount Resque::Server, at: '/resque'
 
   namespace :api, defaults: {format: 'json'}  do
-    namespace :v1  do
+    namespace :version1  do
       resources :dashboard, only: [:index]
     end
   end
@@ -24,5 +24,7 @@ Sentimentalist::Application.routes.draw do
   match ':controller(/:action)'
 
   root to: 'welcome#index'
+
+  match "*path", to: 'welcome#index'
 
 end
