@@ -183,9 +183,10 @@ body {
   margin-left: 30px;
   font-weight: 100;
   margin-bottom: 32%;
-  margin-left: 28%;
   text-align: center;
+  font-size: 64px;
 }
+
 
 .specialspan1 {
   width: 88px !important;
@@ -352,3 +353,19 @@ body {
   margin-left: 4%;
 }
 
+#app-subheading-notfound {
+  color: #34495e;
+  font-weight: 100;
+  margin-bottom: 32%;
+  margin-left: 28%;
+  text-align: center;
+  font-size: 64px;
+}
+
+#app-subheading-notfound-mobile {
+  color: #34495e;
+  font-weight: 100;
+  margin-bottom: 32%;
+  text-align: center;
+  font-size: 64px;
+}
