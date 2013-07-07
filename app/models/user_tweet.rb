@@ -3,8 +3,7 @@ class UserTweet < ActiveRecord::Base
     :user_id,
     :tweet_id,
     :emotion,
-    :bayesian_emotion,
-    :polarity
+    :bayesian_emotion
 
   belongs_to :user, inverse_of: :user_tweets
 

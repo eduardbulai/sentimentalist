@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130630175420) do
+ActiveRecord::Schema.define(:version => 20130707200754) do
 
   create_table "follower_tweets", :force => true do |t|
     t.text     "text",        :null => false
@@ -51,7 +51,6 @@ ActiveRecord::Schema.define(:version => 20130630175420) do
     t.datetime "created_at",       :null => false
     t.datetime "updated_at",       :null => false
     t.string   "emotion"
-    t.integer  "polarity"
     t.string   "bayesian_emotion"
   end
 

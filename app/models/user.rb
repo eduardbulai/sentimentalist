@@ -102,8 +102,7 @@ class User < ActiveRecord::Base
       text: tweet.text,
       tweet_id: tweet.id,
       bayesian_emotion: self.bayesian_emotion_of_tweet(tweet),
-      emotion: self.get_tweet_emotion(tweet),
-      polarity: self.tweet_polarity(tweet)
+      emotion: self.get_tweet_emotion(tweet)
     )
   end
 

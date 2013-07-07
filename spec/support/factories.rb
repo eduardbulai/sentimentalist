@@ -28,7 +28,6 @@ FactoryGirl.define do
 		tweet_id "17060"
     emotion "joy"
     bayesian_emotion "fear"
-    polarity 8
 		created_at "2013-06-05 23:07:31"
     updated_at "2013-06-05 23:07:31"
 	end
