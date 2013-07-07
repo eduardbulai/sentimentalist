@@ -25,6 +25,4 @@ Sentimentalist::Application.routes.draw do
 
   root to: 'welcome#index'
 
-  match "*path", to: 'welcome#index'
-
 end
