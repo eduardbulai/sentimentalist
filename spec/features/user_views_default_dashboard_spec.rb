@@ -51,6 +51,14 @@ feature "user views default dashboard",
 
     end
 
+    it "user sees button for 'How It Works' " do
+
+      within("#desktop") do
+        expect(page).to have_content("How It Works")
+      end
+
+    end
+
     it "user sees filter tabs for 'Default Classifier', 'Bayesian Classifier' " do
 
       within("#desktop") do
@@ -164,6 +172,14 @@ feature "user views default dashboard",
       user.bayesian_emotion = user.get_bayesian_emotion(user, user)
 
       expect(user.bayesian_emotion).to eql('surprise')
+
+    end
+
+    it "user sees button for 'How It Works' " do
+
+      within("#mobile") do
+        expect(page).to have_content("How It Works")
+      end
 
     end
 
