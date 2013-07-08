@@ -1,6 +1,6 @@
 module Api
   module Version1
-    class DashboardController < ApplicationController
+    class SentimentsController < ApplicationController
       def index
         @users = User.all
         respond_to do |format|

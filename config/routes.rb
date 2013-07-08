@@ -4,7 +4,7 @@ Sentimentalist::Application.routes.draw do
 
   namespace :api, defaults: {format: 'json'}  do
     namespace :version1  do
-      resources :dashboard, only: [:index]
+      resources :sentiments, only: [:index]
     end
   end
 
