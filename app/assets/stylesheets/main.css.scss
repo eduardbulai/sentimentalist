@@ -207,6 +207,10 @@ body {
   width: 488px !important;
 }
 
+.specialspan9 {
+  width: 888px !important;
+}
+
 .btn.btn-large {
   padding: 8px 6px 8px;
 }
@@ -367,5 +371,30 @@ body {
   margin-bottom: 32%;
   text-align: center;
   font-size: 64px;
+}
+
+#loadblurb {
+  font-size: 22px;
+}
+
+#instructions {
+  text-align: left;
+}
+
+#instructions-heading1 {
+  margin-bottom: 4%;
+  font-size: 22px;
+  font-weight: 200;
+}
+
+#instructions-heading2 {
+  margin-top: 8%;
+  margin-bottom: 4%;
+  font-size: 22px;
+  font-weight: 200;
+}
+
+#return-to-dashboard {
+  margin-top: 4%;
 }
 

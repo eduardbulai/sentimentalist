@@ -25,6 +25,8 @@
         %a.btn.btn-large.btn-block.btn-inverse{"href" => "#manage_account_modal", "data-toggle" => "modal", "role" => "button", "name" => "manage_account"}Manage Account
         %a.btn.btn-large.btn-block.btn-default{"href" => '/signout', "data-toggle" => "modal", "role" => "button", "name" => "sign_out"}Sign Out
       %div.span9
+        =render 'instructions_partial'
+      %div.span9
         = render 'default_bayesian_filter_partial'
       %div.span9
         = render 'emotions_filter_partial'
@@ -69,6 +71,8 @@
 = render 'default_bayesian_filter_modal'
 
 = render 'emotions_filter_modal'
+
+=render 'instructions_modal'
 
 = render 'isotope'
 

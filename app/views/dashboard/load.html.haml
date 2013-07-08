@@ -1,7 +1,18 @@
 %div#dashboard-loading-modal{"class"=>"modal-backdrop fade in"}
   %div{ "class" => "modal", "tabindex" => "-1", "role" => "dialog"}
-    %div{'class' => 'modal-body'}
-      %div.btn.btn-block.btn-fear Ok, hold on while we load your Twitter info...
+    %div{'class' => 'modal-header'}
+      %div.btn.btn-block.btn-anger#loadblurb While your Twitter info loads, here's how it works:
+    %div{'class' => 'modal-footer'}
+      %div.btn.btn-block.btn-fear
+        %div#instructions
+          %div#instructions-heading1 Classifiy:
+          %div * only your own personal tweets
+          %div - select the tab labeled "me"
+          %div - select the tab labeled "bayesian classifier"
+          %div - classifiy your recent tweets by clicking on them
+          %div#instructions-heading2 View and Sort:
+          %div * your followers
+          %div - use a range of sorting filters, see what your followers' tweet language reveals about how they feel
 
 .row#header
   %div.span2.header-chunk-large
