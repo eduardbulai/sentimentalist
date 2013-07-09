@@ -23,13 +23,18 @@ class Follower < ActiveRecord::Base
     :user_id,
     :twitter_id
 
+  def tweeter
+    user=self.user
+    user.tweeter
+  end
+
   def concatenated_tweets
     tweets = self.follower_tweets.limit(300)
     tweets.pluck(:text).join(" ")
   end
 
   def twitter_timeline
-    Twitter.user_timeline(self.twitter_handle, count: 2)
+    tweeter.user_timeline(self.twitter_handle, count: 2)
   end
 
   def create_follower_tweet(tweet)
