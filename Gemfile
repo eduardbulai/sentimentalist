@@ -41,6 +41,7 @@ gem 'capistrano'
 
 group :development, :test do
 	gem 'rspec-rails'
+  gem 'brakeman'
 	gem 'pry'
 	gem 'launchy'
   gem 'jasmine'
@@ -87,3 +88,5 @@ gem 'configatron'
 gem 'thin'
 
 gem 'active_model_serializers'
+
+gem 'newrelic_rpm'
