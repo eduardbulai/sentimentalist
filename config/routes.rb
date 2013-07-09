@@ -1,11 +1,5 @@
 require 'resque/server'
 
-require 'resque/server'
-
-#TODO: make env variables
-#TODO: install airbrake and activate for resque jobs: google resque airbrake
-#TODO: deploy to heroku
-
 Resque::Server.class_eval do
 
   use Rack::Auth::Basic do |email, password|
