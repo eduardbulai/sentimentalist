@@ -56,11 +56,11 @@ class User < ActiveRecord::Base
   end
 
   def twitter_timeline
-    Twitter.user_timeline(self.twitter_handle)
+    tweeter.user_timeline(self.twitter_handle)
   end
 
   def follower_twitter_timelines
-    Twitter.followers(self.twitter_handle)
+    tweeter.followers(self.twitter_handle)
   end
 
   def stored_user_tweet_ids
