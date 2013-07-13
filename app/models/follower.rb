@@ -49,4 +49,13 @@ class Follower < ActiveRecord::Base
     stored_tweets.pluck(:tweet_id)
   end
 
+		def initialize_follower
+			self.emotion = self.get_emotion(self)
+			self.bayesian_emotion = self.get_bayesian_emotion(self.user,self)
+			self.polarity= self.get_polarity(self)
+			self.save!
+		end
+
+
+
 end

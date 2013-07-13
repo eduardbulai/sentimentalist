@@ -114,8 +114,66 @@ class User < ActiveRecord::Base
     )
   end
 
-  class << self
+		def set_default_emotion_attributes 
+			self.bayesian_emotion = self.get_bayesian_emotion(self,self)
+			self.emotion = self.get_emotion(self)
+			self.polarity = self.get_polarity(self)
+			self.save!
+		end
 
+    def set_machine_learner
+			machine_learner = self.build_machine_learner
+			machine_learner.save!
+		end
+
+
+		def populate_user_tweets
+			user_timeline = self.twitter_timeline
+			stored_ids = self.stored_user_tweet_ids
+			self.store_user_tweets(user_timeline, stored_ids)
+		end
+
+
+		def populate_followers
+			follower_timelines = self.follower_twitter_timelines
+			stored_ids = self.stored_follower_ids
+			self.store_followers(self, follower_timelines, stored_ids)
+		end
+    
+    def populate_follower_tweets
+			followers = self.followers
+			self.followers.each do |follower|
+				begin
+					follower_timeline = follower.twitter_timeline
+				rescue
+					follower_timeline = nil
+				end
+				if follower_timeline
+					stored_ids = follower.stored_follower_tweet_ids
+					self.store_follower_tweets(follower, follower_timeline, stored_ids)
+				end
+			end
+		end
+
+
+		def populate_follower_tweets
+			followers = self.followers
+			self.followers.each do |follower|
+				begin
+					follower_timeline = follower.twitter_timeline
+				rescue
+					follower_timeline = nil
+				end
+				if follower_timeline
+					stored_ids = follower.stored_follower_tweet_ids
+					self.store_follower_tweets(follower, follower_timeline, stored_ids)
+				end
+			end
+		end
+
+  
+  class << self
+    
     def from_omniauth(auth)
       where(auth.slice("provider", "uid")).first || create_with_omniauth(auth)
     end
