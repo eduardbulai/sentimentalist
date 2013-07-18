@@ -1,4 +1,7 @@
 class MachineLearner < ActiveRecord::Base
+  
+  include DefaultAttributes
+
   attr_accessible :ccount, :ignore_words, :name, :stemming, :wcount, :user_id
 
   serialize :wcount, Hash
@@ -7,7 +10,6 @@ class MachineLearner < ActiveRecord::Base
 
   belongs_to :user, inverse_of: :machine_learner
 
-  before_create :set_default_attributes
 
   def classifier
     new_classifier = StuffClassifier::Bayes.new(self.name)
