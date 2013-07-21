@@ -19,14 +19,12 @@ feature "user views default dashboard",
 
   let(:user) { FactoryGirl.create(:user_with_followers_and_machine_learner, :with_emotions)}
 
-  before do
-    sign_in(user)
-    visit dashboard_index_path
-  end
 
   context "desktop" do
 
     it "user has a profile icon corresponding to the emotion reflected in their tweets for the week" do
+
+      sign_in_and_visit_dashboard
 
       within("#desktop-profile-icon") do
         expect(page).to have_content("#{user.emotion}")
@@ -36,6 +34,8 @@ feature "user views default dashboard",
     end
 
     it "user can change bayesian emotion by classifying their own tweets" do
+
+      sign_in_and_visit_dashboard
 
       expect(user.bayesian_emotion).to eql('anger')
       expect(user.emotion).to eql('disgust')
@@ -53,6 +53,8 @@ feature "user views default dashboard",
 
     it "user sees button for 'How It Works' " do
 
+      sign_in_and_visit_dashboard
+
       within("#desktop") do
         expect(page).to have_content("How It Works")
       end
@@ -60,6 +62,8 @@ feature "user views default dashboard",
     end
 
     it "user sees filter tabs for 'Default Classifier', 'Bayesian Classifier' " do
+
+      sign_in_and_visit_dashboard
 
       within("#desktop") do
         within("#bayesian-filter") do
@@ -72,6 +76,8 @@ feature "user views default dashboard",
 
     it "user sees filter tabs for 'Followers', 'Me' " do
 
+      sign_in_and_visit_dashboard
+
       within("#desktop") do
         within("#user-followers-filter") do
           expect(page).to have_content("Followers")
@@ -82,6 +88,8 @@ feature "user views default dashboard",
     end
 
      it "user sees filter tabs for each emotion" do
+
+      sign_in_and_visit_dashboard
 
       within("#desktop") do
         within("#emotions-filter") do
@@ -98,6 +106,8 @@ feature "user views default dashboard",
 
     it "user sees 'post to twitter' button on home dashboard" do
 
+      sign_in_and_visit_dashboard
+
       within("#desktop") do
         expect(page).to have_content('Post To Twitter')
       end
@@ -105,6 +115,8 @@ feature "user views default dashboard",
     end
 
     it "user sees a 'sign out' button" do
+
+      sign_in_and_visit_dashboard
 
       within("#desktop") do
         expect(page).to have_link("Sign Out")
@@ -114,6 +126,8 @@ feature "user views default dashboard",
 
     it "user sees a 'manage account' button" do
 
+      sign_in_and_visit_dashboard
+
       within("#desktop") do
         expect(page).to have_link("Manage Account")
       end
@@ -121,6 +135,8 @@ feature "user views default dashboard",
     end
 
     it "user sees 'Bayesian Classifier' link" do
+
+      sign_in_and_visit_dashboard
 
       within("#desktop") do
         expect(page).to have_link("Bayesian Classifier")
@@ -131,6 +147,8 @@ feature "user views default dashboard",
 
     it "user sees 'Default Classifier' link" do
 
+      sign_in_and_visit_dashboard
+
       within("#desktop") do
         expect(page).to have_link("Default Classifier")
       end
@@ -138,6 +156,8 @@ feature "user views default dashboard",
     end
 
     it "user sees a dashboard populated by icons displaying their followers emotional statuses" do
+
+      sign_in_and_visit_dashboard
 
       within("#desktop") do
         expect(page).to have_selector('.iconfield')
@@ -152,6 +172,8 @@ feature "user views default dashboard",
 
     it "user has a profile icon corresponding to the emotion reflected in their tweets for the week" do
 
+      sign_in_and_visit_dashboard
+
       within("#mobile-profile-icon") do
         expect(page).to have_content("#{user.emotion}")
         expect(page).to have_content("#{user.bayesian_emotion}")
@@ -160,6 +182,8 @@ feature "user views default dashboard",
     end
 
     it "user can change bayesian emotion by classifying their own tweets" do
+
+      sign_in_and_visit_dashboard
 
       expect(user.bayesian_emotion).to eql('anger')
       expect(user.emotion).to eql('disgust')
@@ -177,6 +201,8 @@ feature "user views default dashboard",
 
     it "user sees button for 'How It Works' " do
 
+      sign_in_and_visit_dashboard
+
       within("#mobile") do
         expect(page).to have_content("How It Works")
       end
@@ -184,6 +210,8 @@ feature "user views default dashboard",
     end
 
     it "user sees filter button for 'Classifier' " do
+
+      sign_in_and_visit_dashboard
 
       within("#mobile") do
         expect(page).to have_link("Classifier")
@@ -193,6 +221,8 @@ feature "user views default dashboard",
 
     it "user sees button for 'Emotion' " do
 
+      sign_in_and_visit_dashboard
+
       within("#mobile") do
         expect(page).to have_link("Emotion")
       end
@@ -200,6 +230,8 @@ feature "user views default dashboard",
     end
 
     it "user sees button for 'Context'" do
+
+      sign_in_and_visit_dashboard
 
       within("#mobile") do
         expect(page).to have_link("Context")
@@ -209,6 +241,8 @@ feature "user views default dashboard",
 
     it "user sees a 'sign out' button" do
 
+      sign_in_and_visit_dashboard
+
       within("#mobile") do
         expect(page).to have_link("Sign Out")
       end
@@ -216,6 +250,8 @@ feature "user views default dashboard",
     end
 
     it "user sees a 'manage account' button" do
+
+      sign_in_and_visit_dashboard
 
       within("#mobile") do
         expect(page).to have_link("Manage Account")
@@ -225,6 +261,8 @@ feature "user views default dashboard",
 
     it "user sees 'post to twitter' button on home dashboard" do
 
+      sign_in_and_visit_dashboard
+
       within("#mobile") do
         expect(page).to have_content('Post To Twitter')
       end
@@ -232,6 +270,8 @@ feature "user views default dashboard",
     end
 
     it "user sees a dashboard populated by icons displaying their followers emotional statuses" do
+
+      sign_in_and_visit_dashboard
 
       within("#mobile") do
         expect(page).to have_selector('.iconfield')
@@ -246,11 +286,18 @@ feature "user views default dashboard",
 
     it "'post to twitter' modal is present on home dashboard" do
 
+
+      sign_in_and_visit_dashboard
+      
       expect(page).to have_selector('#post_to_twitter_modal')
 
     end
 
   end
 
+  def sign_in_and_visit_dashboard
+    sign_in(user)
+    visit dashboard_index_path
+  end
 
 end
